@@ -1,0 +1,48 @@
+---
+id: paper-YYYY-short-key
+title: "Paper Title"
+year: 2025
+tags: [dr, manifold, evaluation]
+source_pdf: papers/raw/paper-file.pdf
+evidence_level: high
+updated_at: 2026-02-07
+---
+
+# Problem
+- State the concrete analysis problem in 2-4 bullets.
+- State key assumptions (labels, scale, noise, task scope).
+- Do not use placeholder text.
+
+# Method Summary
+- Core idea in 3-6 concrete bullets.
+- Include at least one method/mechanism detail (objective, loss, criterion, or algorithmic step).
+- Include important hyperparameters/defaults if present in source.
+
+# When To Use / Not Use
+- Use when: at least 2 concrete conditions.
+- Avoid when: at least 1 concrete condition.
+- Failure modes: at least 1 realistic failure mode tied to assumptions.
+
+# Metrics Mentioned
+- List metric IDs or metric names explicitly.
+- For each metric, state what it validates.
+- Add caveats (label assumptions, scale sensitivity, etc.) when present.
+
+# Implementation Notes
+- Practical setup details for coding.
+- Runtime or memory notes (if available).
+- Reproducibility notes (seed, deterministic setting, search space).
+
+# Claim Atoms (For Conflict Resolution)
+- CLAIM-<id> | stance: support|contradict | summary: <atomic claim> | evidence_ids: <E-ID list>
+- CLAIM-<id> | stance: support|contradict | summary: <atomic claim> | evidence_ids: <E-ID list>
+
+# Workflow Relevance Map
+- step: 1|2|3|4|5|6 | relevance: high|medium|low | note: <how this source changes workflow decisions>
+- step: 1|2|3|4|5|6 | relevance: high|medium|low | note: <how this source changes workflow decisions>
+
+# Evidence
+- <E-ID> | page: <n-n>, section: <name>, quote: "..."
+- <E-ID> | page: <n-n>, section: <name>, quote: "..."
+- Minimum 5 evidence entries unless source text is genuinely short.
+- At least one evidence entry should cover each available part: problem/method/evaluation/limitation.

@@ -1,0 +1,512 @@
+[
+  {
+    "ref": 1,
+    "title": "Quantifying the neighborhood preservation of self-organizing feature maps",
+    "status": "failed",
+    "saved_path": null,
+    "source_url": null,
+    "doi": "https://doi.org/10.1109/72.143371",
+    "tried": [
+      {
+        "url": "https://doi.org/10.1109/72.143371",
+        "tag": "openalex_primary_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html;charset=utf-8"
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/18276457",
+        "tag": "openalex_loc_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://xplorestaging.ieee.org/ielx4/72/3848/00143371.pdf?arnumber=143371",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html;charset=utf-8"
+      }
+    ]
+  },
+  {
+    "ref": 3,
+    "title": "Geometric inference for probability measures",
+    "status": "downloaded",
+    "saved_path": "papers/raw/zadu-table1-references/ref03_geometric_inference_for_probability_measures.pdf",
+    "source_url": "https://inria.hal.science/inria-00383685v2/file/RR-6930v2.pdf",
+    "doi": "https://doi.org/10.1007/s10208-011-9098-0",
+    "tried": [
+      {
+        "url": "https://inria.hal.science/inria-00383685",
+        "tag": "openalex_oa_url",
+        "ok": true,
+        "reason": "html_to_pdf:https://inria.hal.science/inria-00383685v2/file/RR-6930v2.pdf"
+      }
+    ]
+  },
+  {
+    "ref": 4,
+    "title": "Local multidimensional scaling for nonlinear dimension reduction, graph drawing, and proximity analysis",
+    "status": "failed",
+    "saved_path": null,
+    "source_url": null,
+    "doi": "https://doi.org/10.1198/jasa.2009.0111",
+    "tried": [
+      {
+        "url": "https://doi.org/10.1198/jasa.2009.0111",
+        "tag": "openalex_primary_landing",
+        "ok": false,
+        "reason": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "http://pubs.amstat.org/doi/abs/10.1198/jasa.2009.0111",
+        "tag": "openalex_loc_landing",
+        "ok": false,
+        "reason": "<urlopen error timed out>"
+      },
+      {
+        "url": "http://www.tandfonline.com/doi/pdf/10.1198/jasa.2009.0111",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "ref": 6,
+    "title": "Steering distortions to preserve classes and neighbors in supervised dimensionality reduction",
+    "status": "downloaded",
+    "saved_path": "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+    "source_url": "https://papers.nips.cc/paper/2020/file/99607461cdb9c26e2bd5f31b12dcf27a-Paper.pdf",
+    "doi": null,
+    "tried": [
+      {
+        "url": "https://papers.nips.cc/paper/2020/file/99607461cdb9c26e2bd5f31b12dcf27a-Paper.pdf",
+        "tag": "openalex_primary_landing",
+        "ok": true,
+        "reason": "direct_pdf"
+      }
+    ]
+  },
+  {
+    "ref": 10,
+    "title": "Feature learning for nonlinear dimensionality reduction toward maximal extraction of hidden patterns",
+    "status": "downloaded",
+    "saved_path": "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+    "source_url": "https://arxiv.org/pdf/2206.13891.pdf",
+    "doi": "https://doi.org/10.1109/pacificvis56936.2023.00021",
+    "tried": [
+      {
+        "url": "https://doi.org/10.1109/pacificvis56936.2023.00021",
+        "tag": "openalex_primary_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html;charset=utf-8"
+      },
+      {
+        "url": "http://xplorestaging.ieee.org/ielx7/10147905/10148182/10148450.pdf?arnumber=10148450",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html;charset=utf-8"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2206.13891.pdf",
+        "tag": "manual_arxiv_fallback",
+        "ok": true,
+        "reason": "direct_pdf"
+      }
+    ]
+  },
+  {
+    "ref": 11,
+    "title": "Supervised nonlinear dimensionality reduction for visualization and classification",
+    "status": "failed",
+    "saved_path": null,
+    "source_url": null,
+    "doi": "https://doi.org/10.1109/tsmcb.2005.850151",
+    "tried": [
+      {
+        "url": "https://doi.org/10.1109/tsmcb.2005.850151",
+        "tag": "openalex_primary_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html;charset=utf-8"
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16366237",
+        "tag": "openalex_loc_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://xplorestaging.ieee.org/ielx5/3477/32939/01542257.pdf?arnumber=1542257",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html;charset=utf-8"
+      }
+    ]
+  },
+  {
+    "ref": 12,
+    "title": "Local procrustes for manifold embedding: a measure of embedding quality and embedding algorithms",
+    "status": "downloaded",
+    "saved_path": "papers/raw/zadu-table1-references/ref12_local_procrustes_for_manifold_embedding_a_measure_of_embedding_quality_and_embedding_algor.pdf",
+    "source_url": "https://link.springer.com/content/pdf/10.1007/s10994-009-5107-9.pdf?error=cookies_not_supported&code=7b68d426-9cf2-4159-a7ea-d9365b6e66ce",
+    "doi": "https://doi.org/10.1007/s10994-009-5107-9",
+    "tried": [
+      {
+        "url": "https://link.springer.com/content/pdf/10.1007%2Fs10994-009-5107-9.pdf",
+        "tag": "openalex_oa_url",
+        "ok": true,
+        "reason": "direct_pdf"
+      }
+    ]
+  },
+  {
+    "ref": 13,
+    "title": "Stochastic neighbor embedding",
+    "status": "downloaded",
+    "saved_path": "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf",
+    "source_url": "https://papers.neurips.cc/paper/2002/file/6150ccc6069bea6b5716254057a194ef-Paper.pdf",
+    "doi": null,
+    "tried": [
+      {
+        "url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.13.7959",
+        "tag": "openalex_primary_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.20.782",
+        "tag": "openalex_loc_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.636.7562",
+        "tag": "openalex_loc_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.77.293",
+        "tag": "openalex_loc_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.897.5304",
+        "tag": "openalex_loc_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "https://papers.neurips.cc/paper/2002/file/6150ccc6069bea6b5716254057a194ef-Paper.pdf",
+        "tag": "openalex_loc_landing",
+        "ok": true,
+        "reason": "direct_pdf"
+      }
+    ]
+  },
+  {
+    "ref": 18,
+    "title": "Measuring and explaining the inter-cluster reliability of multidimensional projections",
+    "status": "downloaded",
+    "saved_path": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+    "source_url": "https://arxiv.org/pdf/2107.07859",
+    "doi": "https://doi.org/10.1109/tvcg.2021.3114833",
+    "tried": [
+      {
+        "url": "https://arxiv.org/pdf/2107.07859",
+        "tag": "openalex_oa_url",
+        "ok": true,
+        "reason": "direct_pdf"
+      }
+    ]
+  },
+  {
+    "ref": 21,
+    "title": "Local affine multidimensional projection",
+    "status": "failed",
+    "saved_path": null,
+    "source_url": null,
+    "doi": "https://doi.org/10.1109/tvcg.2011.220",
+    "tried": [
+      {
+        "url": "http://dx.doi.org/10.1109/TVCG.2011.220",
+        "tag": "openalex_oa_url",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html;charset=utf-8"
+      },
+      {
+        "url": "https://doi.org/10.1109/tvcg.2011.220",
+        "tag": "openalex_primary_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html;charset=utf-8"
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22034378",
+        "tag": "openalex_loc_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://xplorestaging.ieee.org/ielx5/2945/6064926/06065024.pdf?arnumber=6065024",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html;charset=utf-8"
+      }
+    ]
+  },
+  {
+    "ref": 23,
+    "title": "Multidimensional scaling by optimizing goodness of fit to a nonmetric hypothesis",
+    "status": "failed",
+    "saved_path": null,
+    "source_url": null,
+    "doi": "https://doi.org/10.1007/bf02289565",
+    "tried": [
+      {
+        "url": "https://doi.org/10.1007/bf02289565",
+        "tag": "openalex_primary_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://hdl.handle.net/10.1007/BF02289565",
+        "tag": "openalex_loc_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://link.springer.com/content/pdf/10.1007/BF02289565.pdf",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://link.springer.com/article/10.1007/BF02289565/fulltext.html",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S003331230004206X",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://link.springer.com/content/pdf/10.1007/BF02289565.pdf?download=1",
+        "tag": "springer_download",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      }
+    ]
+  },
+  {
+    "ref": 24,
+    "title": "Nonmetric multidimensional scaling: a numerical method",
+    "status": "failed",
+    "saved_path": null,
+    "source_url": null,
+    "doi": "https://doi.org/10.1007/bf02289694",
+    "tried": [
+      {
+        "url": "https://doi.org/10.1007/bf02289694",
+        "tag": "openalex_primary_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://hdl.handle.net/10.1007/BF02289694",
+        "tag": "openalex_loc_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://link.springer.com/content/pdf/10.1007/BF02289694.pdf",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://link.springer.com/article/10.1007/BF02289694/fulltext.html",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0033312300041971",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://link.springer.com/content/pdf/10.1007/BF02289694.pdf?download=1",
+        "tag": "springer_download",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      }
+    ]
+  },
+  {
+    "ref": 26,
+    "title": "Quality assessment of dimensionality reduction: Rank-based criteria",
+    "status": "failed",
+    "saved_path": null,
+    "source_url": null,
+    "doi": "https://doi.org/10.1016/j.neucom.2008.12.017",
+    "tried": [
+      {
+        "url": "https://doi.org/10.1016/j.neucom.2008.12.017",
+        "tag": "openalex_primary_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html;charset=utf-8"
+      },
+      {
+        "url": "http://hdl.handle.net/2078.1/58980",
+        "tag": "openalex_loc_landing",
+        "ok": false,
+        "reason": "HTTP Error 500: Internal Server Error"
+      },
+      {
+        "url": "https://api.elsevier.com/content/article/PII:S0925231209000101?httpAccept=text/xml",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "not_pdf content_type=text/xml;charset=utf-8"
+      },
+      {
+        "url": "https://api.elsevier.com/content/article/PII:S0925231209000101?httpAccept=text/plain",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "HTTP Error 400: Bad Request"
+      }
+    ]
+  },
+  {
+    "ref": 34,
+    "title": "Least square projection: A fast high-precision multidimensional projection technique and its application to document mapping",
+    "status": "failed",
+    "saved_path": null,
+    "source_url": null,
+    "doi": "https://doi.org/10.1109/tvcg.2007.70443",
+    "tried": [
+      {
+        "url": "https://doi.org/10.1109/tvcg.2007.70443",
+        "tag": "openalex_primary_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html;charset=utf-8"
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/18369264",
+        "tag": "openalex_loc_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "http://producao.usp.br/handle/BDPI/28795",
+        "tag": "openalex_loc_landing",
+        "ok": false,
+        "reason": "<urlopen error timed out>"
+      },
+      {
+        "url": "http://xplorestaging.ieee.org/ielx5/2945/4472702/04378370.pdf?arnumber=4378370",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html;charset=utf-8"
+      }
+    ]
+  },
+  {
+    "ref": 36,
+    "title": "Nonparametric statistics for the behavioral sciences",
+    "status": "failed",
+    "saved_path": null,
+    "source_url": null,
+    "doi": "https://doi.org/10.2307/3498751",
+    "tried": [
+      {
+        "url": "https://doi.org/10.2307/3498751",
+        "tag": "openalex_primary_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      }
+    ]
+  },
+  {
+    "ref": 37,
+    "title": "Selecting good views of high-dimensional data using class consistency",
+    "status": "failed",
+    "saved_path": null,
+    "source_url": null,
+    "doi": "https://doi.org/10.1111/j.1467-8659.2009.01467.x",
+    "tried": [
+      {
+        "url": "https://doi.org/10.1111/j.1467-8659.2009.01467.x",
+        "tag": "openalex_primary_landing",
+        "ok": false,
+        "reason": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1111%2Fj.1467-8659.2009.01467.x",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "HTTP Error 400: No TDM Client Token was found in the request"
+      },
+      {
+        "url": "https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1467-8659.2009.01467.x",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "ref": 40,
+    "title": "Local multidimensional scaling",
+    "status": "failed",
+    "saved_path": null,
+    "source_url": null,
+    "doi": "https://doi.org/10.1016/j.neunet.2006.05.014",
+    "tried": [
+      {
+        "url": "https://doi.org/10.1016/j.neunet.2006.05.014",
+        "tag": "openalex_primary_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html;charset=utf-8"
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16787737",
+        "tag": "openalex_loc_landing",
+        "ok": false,
+        "reason": "not_pdf content_type=text/html; charset=utf-8"
+      },
+      {
+        "url": "https://api.elsevier.com/content/article/PII:S0893608006000724?httpAccept=text/xml",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "not_pdf content_type=text/xml;charset=utf-8"
+      },
+      {
+        "url": "https://api.elsevier.com/content/article/PII:S0893608006000724?httpAccept=text/plain",
+        "tag": "crossref_link",
+        "ok": false,
+        "reason": "HTTP Error 400: Bad Request"
+      }
+    ]
+  },
+  {
+    "ref": 42,
+    "title": "A comparison for dimensionality reduction methods of single-cell RNA-seq data",
+    "status": "downloaded",
+    "saved_path": "papers/raw/zadu-table1-references/ref42_a_comparison_for_dimensionality_reduction_methods_of_single_cell_rna_seq_data.pdf",
+    "source_url": "https://public-pages-files-2025.frontiersin.org/journals/genetics/articles/10.3389/fgene.2021.646936/pdf",
+    "doi": "https://doi.org/10.3389/fgene.2021.646936",
+    "tried": [
+      {
+        "url": "https://www.frontiersin.org/articles/10.3389/fgene.2021.646936/pdf",
+        "tag": "openalex_oa_url",
+        "ok": true,
+        "reason": "direct_pdf"
+      }
+    ]
+  }
+]

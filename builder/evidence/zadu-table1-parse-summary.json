@@ -1,0 +1,223 @@
+[
+  {
+    "file": "1-s2.0-S0893608006000724-main.pdf",
+    "note": "zadu-ref-01-1-s2-0-s0893608006000724-main.md",
+    "hits": [
+      "tnc"
+    ],
+    "year": 2006,
+    "title": "doi:10.1016/j.neunet.2006.05.014"
+  },
+  {
+    "file": "1-s2.0-S0925231209000101-main.pdf",
+    "note": "zadu-ref-02-1-s2-0-s0925231209000101-main.md",
+    "hits": [
+      "lcmc",
+      "mrre",
+      "stress",
+      "tnc"
+    ],
+    "year": 2009,
+    "title": "doi:10.1016/j.neucom.2008.12.017"
+  },
+  {
+    "file": "2408.07724v2.pdf",
+    "note": "zadu-ref-03-2408-07724v2.md",
+    "hits": [
+      "dsc",
+      "kl_div",
+      "mrre",
+      "nm_stress",
+      "sn_stress",
+      "snc",
+      "srho",
+      "stress",
+      "tnc"
+    ],
+    "year": 2025,
+    "title": "\"Normalized Stress\" is Not Normalized: How to Interpret Stress Correctly"
+  },
+  {
+    "file": "2510.08660v1.pdf",
+    "note": "zadu-ref-04-2510-08660v1.md",
+    "hits": [
+      "dsc",
+      "kl_div",
+      "mrre",
+      "nh",
+      "nm_stress",
+      "pr",
+      "sn_stress",
+      "snc",
+      "srho",
+      "stress",
+      "tnc"
+    ],
+    "year": 2024,
+    "title": "How Scale Breaks \"Normalized Stress\" and KL Divergence: Rethinking Quality Metrics"
+  },
+  {
+    "file": "Computer Graphics Forum - 2009 - Sips - Selecting good views of high%E2%80%90dimensional data using class consistency.pdf",
+    "note": "zadu-ref-05-computer-graphics-forum-2009-sips-selecting-good-views-of-high-e2-80-90dimension.md",
+    "hits": [
+      "dsc"
+    ],
+    "year": 2009,
+    "title": "Selecting good views of high‐dimensional data using class consistency"
+  },
+  {
+    "file": "Least_Square_Projection_A_Fast_High-Precision_Multidimensional_Projection_Technique_and_Its_Application_to_Document_Mapping.pdf",
+    "note": "zadu-ref-06-least-square-projection-a-fast-high-precision-multidimensional-projection-techni.md",
+    "hits": [
+      "stress"
+    ],
+    "year": 2008,
+    "title": "Least Square Projection: A Fast High-Precision"
+  },
+  {
+    "file": "Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+    "note": "zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md",
+    "hits": [
+      "stress",
+      "tnc"
+    ],
+    "year": 2009,
+    "title": "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analy"
+  },
+  {
+    "file": "Local_Affine_Multidimensional_Projection (1).pdf",
+    "note": "zadu-ref-08-local-affine-multidimensional-projection-1.md",
+    "hits": [
+      "ivm",
+      "proc",
+      "stress",
+      "tnc"
+    ],
+    "year": 2011,
+    "title": "Local Affine Multidimensional Projection"
+  },
+  {
+    "file": "Supervised_nonlinear_dimensionality_reduction_for_visualization_and_classification.pdf",
+    "note": "zadu-ref-09-supervised-nonlinear-dimensionality-reduction-for-visualization-and-classificati.md",
+    "hits": [],
+    "year": 2005,
+    "title": "Supervised nonlinear dimensionality reduction for visualization and classification"
+  },
+  {
+    "file": "download (2).pdf",
+    "note": "zadu-ref-10-download-2.md",
+    "hits": [
+      "topo"
+    ],
+    "year": 2026,
+    "title": "Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps"
+  },
+  {
+    "file": "jeon23tvcg (4).pdf",
+    "note": "zadu-ref-11-jeon23tvcg-4.md",
+    "hits": [
+      "c_evm",
+      "ca_tnc",
+      "dsc",
+      "dtm",
+      "ivm",
+      "kl_div",
+      "l_tnc",
+      "mrre",
+      "snc",
+      "tnc"
+    ],
+    "year": 2026,
+    "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction"
+  },
+  {
+    "file": "kruskal_1964a.pdf",
+    "note": "zadu-ref-12-kruskal-1964a.md",
+    "hits": [
+      "stress"
+    ],
+    "year": 1964,
+    "title": "Multidimensional scaling by optimizing goodness of fit to a nonmetric hypothesis"
+  },
+  {
+    "file": "ref03_geometric_inference_for_probability_measures.pdf",
+    "note": "zadu-ref-13-ref03-geometric-inference-for-probability-measures.md",
+    "hits": [
+      "dtm",
+      "stress"
+    ],
+    "year": 2010,
+    "title": "Geometric Inference for Measures based on Distance Functions"
+  },
+  {
+    "file": "ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+    "note": "zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md",
+    "hits": [
+      "kl_div",
+      "pr",
+      "stress",
+      "tnc"
+    ],
+    "year": 2020,
+    "title": "Steering Distortions to Preserve Classes and"
+  },
+  {
+    "file": "ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+    "note": "zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md",
+    "hits": [
+      "nd",
+      "pr",
+      "proc",
+      "snc",
+      "srho"
+    ],
+    "year": 2023,
+    "title": "Feature Learning for Nonlinear Dimensionality Reduction toward"
+  },
+  {
+    "file": "ref12_local_procrustes_for_manifold_embedding_a_measure_of_embedding_quality_and_embedding_algor.pdf",
+    "note": "zadu-ref-16-ref12-local-procrustes-for-manifold-embedding-a-measure-of-embedding-quality-and.md",
+    "hits": [
+      "proc",
+      "tnc"
+    ],
+    "year": 2009,
+    "title": "Mach Learn (2009) 77: 1–25"
+  },
+  {
+    "file": "ref13_stochastic_neighbor_embedding.pdf",
+    "note": "zadu-ref-17-ref13-stochastic-neighbor-embedding.md",
+    "hits": [
+      "kl_div",
+      "stress"
+    ],
+    "year": 2026,
+    "title": "Stochastic Neighbor Embedding"
+  },
+  {
+    "file": "ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+    "note": "zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+    "hits": [
+      "ivm",
+      "lcmc",
+      "mrre",
+      "nd",
+      "pr",
+      "snc",
+      "stress",
+      "tnc"
+    ],
+    "year": 2021,
+    "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections"
+  },
+  {
+    "file": "ref42_a_comparison_for_dimensionality_reduction_methods_of_single_cell_rna_seq_data.pdf",
+    "note": "zadu-ref-19-ref42-a-comparison-for-dimensionality-reduction-methods-of-single-cell-rna-seq-d.md",
+    "hits": [
+      "c_evm",
+      "ivm"
+    ],
+    "year": 2021,
+    "title": "A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data"
+  }
+]

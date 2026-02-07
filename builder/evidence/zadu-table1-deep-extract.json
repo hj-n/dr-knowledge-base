@@ -1,0 +1,918 @@
+[
+  {
+    "file": "1-s2.0-S0893608006000724-main.pdf",
+    "title_guess": "Neural Networks 19 (2006) 889–899 www.elsevier.com/locate/neunet 2006 Special Issue Local multidimensional scaling Jarkko V enna∗, Samuel Kaski Adaptive Informatics Research",
+    "abstract_snippet": "In a visualization task, every nonlinear projection method needs to make a compromise between trustworthiness and continuity. In a trustworthy projection the visualized proximities hold in the original data as well, whereas a continuous projection visualizes all proximities of the original data. We show experimentally that one of the multidimensional scaling methods, curvilinear components analysis, is good at maximizing trustworthiness. We then extend it to focus on local proximities both in the input and output space, and to explicitly make a user-tunable parameterized compromise between trustworthiness and continuity. The new method compares favorably to alternative nonlinear projection methods. c⃝ 2006 Elsevier Ltd. All rights reserved. Keywords: Information visualization; Manifold extraction; Multi-dimensional scaling (MDS); Nonlinear dimensionality reduction; Non-linear projection;",
+    "picked": [
+      {
+        "page": 1,
+        "quote": "Box 5400, FI-02015 TKK, Finland Abstract In a visualization task, every nonlinear projection method needs to make a compromise between trustworthiness and continuity."
+      },
+      {
+        "page": 1,
+        "quote": "We show experimentally that one of the multidimensional scaling methods, curvilinear components analysis, is good at maximizing trustworthiness."
+      },
+      {
+        "page": 1,
+        "quote": "We then extend it to focus on local proximities both in the input and output space, and to explicitly make a user-tunable parameterized compromise between trustworthiness and continuity."
+      },
+      {
+        "page": 1,
+        "quote": "These errors decrease the trustworthiness of the visualization, as they create neighborhood relationships that are not present in the data."
+      },
+      {
+        "page": 1,
+        "quote": "We have earlier ( Kaski et al., 2003) argued that trustworthiness is often more important than continuity since ∗ Corresponding author."
+      },
+      {
+        "page": 1,
+        "quote": "It would be even better to let the user decide about the compromise between trustworthiness and continuity, and in this work we will extend CCA to make a parameterized compromise between trustworthiness and continuity."
+      },
+      {
+        "page": 2,
+        "quote": "In this paper we will, in addition to isomap, compare such variants of CCA and SNE to their Euclidean counterparts."
+      },
+      {
+        "page": 3,
+        "quote": "In this paper d( xi , x j ) is either the squared Euclidean distance between the data points, or the squared geodesic distance that is calculated in the isomap."
+      },
+      {
+        "page": 3,
+        "quote": "(10) The conﬁguration of points yi that minimizes the Kullback– Leibler divergence between the probability distributions in the 892 J."
+      },
+      {
+        "page": 5,
+        "quote": "Trustworthiness and continuity of the mapping as a function of k, the size of the neighborhood used in measuring them."
+      },
+      {
+        "page": 5,
+        "quote": "The trustworthiness and continuity values of random neighborhoods are approximately 0.5."
+      },
+      {
+        "page": 5,
+        "quote": "Measuring trustworthiness and continuity of a visualiza- tion We consider a projection onto a display trustworthy if the k closest neighbors of a point on the display are also neighbors in the original space."
+      }
+    ]
+  },
+  {
+    "file": "1-s2.0-S0925231209000101-main.pdf",
+    "title_guess": "Quality assessment of dimensionality reduction: Rank-based criteria John A. Lee /C3,1,2, Michel Verleysen 3 Machine Learning Group, Universite´ catholique de",
+    "abstract_snippet": "Dimensionality reduction aims at providing low-dimensional representations of high-dimensional data sets. Many new nonlinear methods have been proposed for the last years, yet the question of their assessment and comparison remains open. This paper ﬁrst reviews some of the existing quality measures that are based on distance ranking and K-ary neighborhoods. Next, the deﬁnition of the co- ranking matrix provides a tool for comparing the ranks in the initial data set and some low-dimensional embedding. Rank errors and concepts such as neighborhood intrusions and extrusions can then be associated with different blocks of the co-ranking matrix. Several quality criteria can be cast within this unifying framework; they are shown to involve one or several of these characteristic blocks. Following this line, simple criteria are proposed, which quantify two aspects of the embedding quality, namel",
+    "picked": [
+      {
+        "page": 1,
+        "quote": "Lee /C3,1,2, Michel Verleysen 3 Machine Learning Group, Universite´ catholique de Louvain, Place du Levant, 3, B-1348 Louvain-la-Neuve, Belgium article info Available online 10 January 2009 Keywords: Dimensionality reduction Embedding Quality assessment Co-ranking matrix Trustworthiness and continuity Intrusion and extrusion fractions abs"
+      },
+      {
+        "page": 1,
+        "quote": "This paper ﬁrst reviews some of the existing quality measures that are based on distance ranking and K-ary neighborhoods."
+      },
+      {
+        "page": 2,
+        "quote": "However, as the objective function is usually intended to be optimized by typical techniques such as gradient descent, it must fulﬁll some requirements as to continuity and differentiability."
+      },
+      {
+        "page": 2,
+        "quote": "First attempts in this direction can be found in the particular case of self-organizing maps (SOMs) [14]; see for instance the topo- graphic product [1] and the topographic function [40]."
+      },
+      {
+        "page": 2,
+        "quote": "More recently, new criteria for quality assessment have been proposed, with a broader applicability, such as the trustworthiness and continuity (T&C) measures [37], the local continuity meta- criterion (LCMC) [6], and the mean relative rank errors (MRREs) [22]."
+      },
+      {
+        "page": 2,
+        "quote": "This is a funda- mental difference, compared to older quality criteria that classically quantify the preservation of pairwise distances, with a stress function [17,29]."
+      },
+      {
+        "page": 2,
+        "quote": "The ﬁrst aim of this paper is to review some of these recent rank-based criteria."
+      },
+      {
+        "page": 2,
+        "quote": "(2) Computing Q requires 2 N sorting operations and therefore the time complexity is OðN2 log NÞ with a typical sorting algorithm."
+      },
+      {
+        "page": 3,
+        "quote": "Faraway vectors that become neighbors decrease the trustworthiness, whereas neighbors that are em- bedded faraway from each other decrease the continuity."
+      },
+      {
+        "page": 3,
+        "quote": "As can be seen, the reformulation in terms of the co-ranking matrix shows that the trustworthiness is related to the hard K-intrusions, whereas the continuity involves the hard K-extrusions, with some weighting."
+      },
+      {
+        "page": 3,
+        "quote": "The differences between the MRREs and the T&C are found in the weighting of the elements qkl and the blocks of Q that are covered."
+      },
+      {
+        "page": 3,
+        "quote": "The LCMC [6] is deﬁned as ULCðKÞ¼ 1 NK XN i¼1 nK i \\ nK i /C12/C12 /C12/C12 /C0 K2 N /C0 1 !"
+      }
+    ]
+  },
+  {
+    "file": "2408.07724v2.pdf",
+    "title_guess": "“Normalized Stress\" is Not Normalized: How to Interpret Stress Correctly Kiran Smelser*, Jacob Miller †, Stephen Kobourov ‡ University of",
+    "abstract_snippet": "Stress is among the most commonly employed quality metrics and optimization criteria for dimension reduction projections of high- dimensional data. Complex, high-dimensional data is ubiquitous across many scientific disciplines, including machine learning, bi- ology, and the social sciences. One of the primary methods of visualizing these datasets is with two-dimensional scatter plots that visually capture some properties of the data. Because visually deter- *e-mail: ksmelser@arizona.edu †e-mail: jacobmiller1@arizona.edu ‡e-mail: kobourov@cs.arizona.edu mining the accuracy of these plots is challenging, researchers often use quality metrics to measure the projection’s accuracy or faithful- ness to the full data. One of the most commonly employed metrics, normalized stress, is sensitive to uniform scaling (stretching, shrink- ing) of the projection, despite this act not meaningfully chang",
+    "picked": [
+      {
+        "page": 1,
+        "quote": "“Normalized Stress\" is Not Normalized: How to Interpret Stress Correctly Kiran Smelser*, Jacob Miller †, Stephen Kobourov ‡ University of Arizona 0 2 4 6 8 10 12 Scale value 10 1 100 101 102 log(Normalized stress) Iris MDS Minimum t-SNE Minimum Random Minimum Iris dataset embedded with MDS Iris dataset embedded with t-SNE Iris dataset emb"
+      },
+      {
+        "page": 1,
+        "quote": "The plot (top) shows the values of thenormalized stressmetric for these three embeddings and clearly illustrates the sensitivity to scale."
+      },
+      {
+        "page": 1,
+        "quote": "As one uniformly scales the embeddings to be larger or smaller, the value of normalized stress changes."
+      },
+      {
+        "page": 1,
+        "quote": "Notably, at different scales, different embeddings have lower stress, including the absurd situation where the random embedding has the lowest stress (beyond scale 9)."
+      },
+      {
+        "page": 1,
+        "quote": "ABSTRACT Stress is among the most commonly employed quality metrics and optimization criteria for dimension reduction projections of high- dimensional data."
+      },
+      {
+        "page": 1,
+        "quote": "One of the most commonly employed metrics, normalized stress, is sensitive to uniform scaling (stretching, shrink- ing) of the projection, despite this act not meaningfully changing anything about the projection."
+      },
+      {
+        "page": 1,
+        "quote": "We investigate the effect of scaling on stress and other distance-based quality metrics analytically and empirically by showing just how much the values change and how this affects dimension reduction technique evaluations."
+      },
+      {
+        "page": 1,
+        "quote": "We intro- duce a simple technique to make normalized stress scale-invariant and show that it accurately captures expected behavior on a small benchmark."
+      },
+      {
+        "page": 1,
+        "quote": "Index Terms:Dimension reduction, Empirical evaluation, Stress arXiv:2408.07724v2 [cs.LG] 21 Nov 2025 1 INTRODUCTION Dimensionality reduction (DR) techniques play an integral role in the visualization of complex, high-dimensional datasets [23, 31, 37, 63]."
+      },
+      {
+        "page": 2,
+        "quote": "Figure 1 shows a simple example of how much scale can affect evaluation results of stress – by merely resizing the outputs of differ- ent techniques, one can dramatically alter the evaluation outcome, often leading to absurd conclusions (such as a random embedding having the lowest stress)."
+      },
+      {
+        "page": 2,
+        "quote": "It should be clear that normalized stress (perhaps often confused with the scale-invariant non-metric stress of Kruskal [34]) is sensitive to scale."
+      },
+      {
+        "page": 2,
+        "quote": "Comparing embeddings generated by various DR techniques using normalized stresswithout taking scale into accountcan be seen as picking an arbitrary point on the stress-scale curve foreach embedding."
+      }
+    ]
+  },
+  {
+    "file": "2510.08660v1.pdf",
+    "title_guess": "1 How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics A preliminary version of this article appeared in",
+    "abstract_snippet": "—Complex, high-dimensional data is ubiquitous across many scientific disciplines, including machine learning, biology, and the social sciences. One of the primary methods of visualizing these datasets is with two-dimensional scatter plots that visually capture some properties of the data. Because visually determining the accuracy of these plots is challenging, researchers often use quality metrics to measure the projection’s accuracy and faithfulness to the original data. One of the most commonly employed metrics, normalized stress, is sensitive to uniform scaling (stretching, shrinking) of the projection, despite this act not meaningfully changing anything about the projection. Another quality metric, the Kullback–Leibler (KL) divergence used in the popular t-Distributed Stochastic Neighbor Embedding (t-SNE) technique, is also susceptible to this scale sensitivity. We investigate the ef",
+    "picked": [
+      {
+        "page": 1,
+        "quote": "1 How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics A preliminary version of this article appeared in the BELIV 2024 workshop [67]."
+      },
+      {
+        "page": 1,
+        "quote": "One of the most commonly employed metrics, normalized stress, is sensitive to uniform scaling (stretching, shrinking) of the projection, despite this act not meaningfully changing anything about the projection."
+      },
+      {
+        "page": 1,
+        "quote": "Another quality metric, the Kullback–Leibler (KL) divergence used in the popular t-Distributed Stochastic Neighbor Embedding (t-SNE) technique, is also susceptible to this scale sensitivity."
+      },
+      {
+        "page": 1,
+        "quote": "We investigate the effect of scaling on stress and KL divergence analytically and empirically by showing just how much the values change and how this affects dimension reduction technique evaluations."
+      },
+      {
+        "page": 1,
+        "quote": "We introduce a simple technique to make both metrics scale- invariant and show that it accurately captures expected behavior on a small benchmark."
+      },
+      {
+        "page": 1,
+        "quote": "Index Terms—Dimension reduction, Empirical evaluation, Stress, Kullback-Liebler Divergence."
+      },
+      {
+        "page": 1,
+        "quote": "1 shows a simple example of how much scale can affect evaluation results of stress – by merely resizing the outputs of different techniques, one can dramatically alter the Kiran Smelser is with the University of Arizona."
+      },
+      {
+        "page": 1,
+        "quote": "E-mail: {kaviru.gunaratne,jacob.miller,stephen.kobourov}@tum.de evaluation outcome, often leading to absurd conclusions (such as a random embedding having the lowest stress)."
+      },
+      {
+        "page": 1,
+        "quote": "It should be clear that normalized stress (perhaps often confused with the scale-invariant non-metric stress of Kruskal [36]) is sensitive to scale."
+      },
+      {
+        "page": 1,
+        "quote": "While stress is directly optimized by the MDS family of algorithms, it is a widely used evaluation metric for other DR methods, regardless of whether they optimize it explicitly, implicitly, or not at all."
+      },
+      {
+        "page": 1,
+        "quote": "In addition to stress, we investigate the Kullback–Leibler (KL) divergence of the widely used t-SNE [73] algorithm and find that it also suffers from scale sensitivity."
+      },
+      {
+        "page": 1,
+        "quote": "Only the SNE family of techniques optimize KL divergence directly, but this metric is valuable beyond its role as an optimization function."
+      }
+    ]
+  },
+  {
+    "file": "Computer Graphics Forum - 2009 - Sips - Selecting good views of high%E2%80%90dimensional data using class consistency.pdf",
+    "title_guess": "Eurographics/ IEEE-VGTC Symposium on Visualization 2009 H.-C. Hege, I. Hotz, and T. Munzner (Guest Editors) V olume 28(2009), Number 3Selecting",
+    "abstract_snippet": "Many visualization techniques involve mapping high-dimensional data spaces to lower-dimensional views. Unfor- tunately, mapping a high-dimensional data space into a scatterplot involves a loss of information; or , even worse, it can give a misleading picture of valuable structure in higher dimensions. In this paper , we propose class con- sistency as a measure of the quality of the mapping. Class consistency enforces the constraint that classes of n–D data are shown clearly in 2–D scatterplots. We propose two quantitative measures of class consistency, one based on the distance to the class’s center of gravity, and another based on the entropies of the spatial distributions of classes. We performed an experiment where users choose good views, and show that class consistency has good precision and recall. We also evaluate both consistency measures over a range of data sets and show that t",
+    "picked": [
+      {
+        "page": 1,
+        "quote": "In this paper , we propose class con- sistency as a measure of the quality of the mapping."
+      },
+      {
+        "page": 1,
+        "quote": "We propose two quantitative measures of class consistency, one based on the distance to the class’s center of gravity, and another based on the entropies of the spatial distributions of classes."
+      },
+      {
+        "page": 1,
+        "quote": "Introduction Today’s scientiﬁc and business applications produce large datasets with increasing complexity and dimensionality."
+      },
+      {
+        "page": 1,
+        "quote": "In this paper we propose class consistency as a com- putable measure of the utility of a given view."
+      },
+      {
+        "page": 1,
+        "quote": "In this paper, we assume that each point in high dimen- sional space has been labeled as belonging to some group."
+      },
+      {
+        "page": 2,
+        "quote": "The contributions of this paper are: • We propose class consistency as criteria for choosing good views to a class structure in n–D."
+      },
+      {
+        "page": 2,
+        "quote": "• We introduce and evaluate two methods for calculat- ing class consistency, a distance based and a distribution based technique."
+      },
+      {
+        "page": 2,
+        "quote": "• We evaluate class consistency over a range of data sets with different dimensionality."
+      },
+      {
+        "page": 2,
+        "quote": "We show that the class con- sistency measures perform well in practice."
+      },
+      {
+        "page": 4,
+        "quote": "In the following section we propose methods to calculate the class consistency of a given view v(X)."
+      },
+      {
+        "page": 4,
+        "quote": "Class Consistency Algorithms In this section we propose two methods for calculating class consistency, the centroid distance metric and distribution consistency."
+      },
+      {
+        "page": 4,
+        "quote": "Distance Consistency Partitioning clustering algorithms such as k-means are widely used in data analysis."
+      }
+    ]
+  },
+  {
+    "file": "Least_Square_Projection_A_Fast_High-Precision_Multidimensional_Projection_Technique_and_Its_Application_to_Document_Mapping.pdf",
+    "title_guess": "Least Square Projection: A Fast High-Precision Multidimensional Projection Technique and Its Application to Document Mapping Fernando V. Paulovich, Luis Gustavo",
+    "abstract_snippet": "—The problem of projecting multidimensional data into lower dimensions has been pursued by many researchers due to its potential application to data analyses of various kinds. This paper presents a novel multidimensional projection technique based on least square approximations. The approximations compute the coordinates of a set of projected points based on the coordinates of a reduced number of control points with defined geometry. We name the technique Least Square Projections (LSP). From an initial projection of the control points, LSP defines the positioning of their neighboring points through a numerical solution that aims at preserving a similarity relationship between the points given by a metric inmD. In order to perform the projection, a small number of distance calculations are necessary, and no repositioning of the points is required to obtain a final solution with satisfacto",
+    "picked": [
+      {
+        "page": 1,
+        "quote": "This paper presents a novel multidimensional projection technique based on least square approximations."
+      },
+      {
+        "page": 1,
+        "quote": "The results show the capability of the technique to form groups of points by degree of similarity in 2D."
+      },
+      {
+        "page": 1,
+        "quote": "Ç 1I NTRODUCTION D ATA sources have increased substantially both in size and complexity, so extracting useful information from them has become a challenge."
+      },
+      {
+        "page": 1,
+        "quote": "One measure of data complexity is the number of attributes associated with each instance of data."
+      },
+      {
+        "page": 1,
+        "quote": "This paper presents a novel multidimensional projection technique, called Least Square Projection (LSP), that encom- passes good features of both linear and nonlinear projection methods."
+      },
+      {
+        "page": 2,
+        "quote": "We have presented an initial version of LSP before [4], now significantly extended to employ automatically defined weights to improve control-point definition and to reduce the computational complexity."
+      },
+      {
+        "page": 2,
+        "quote": "A recurrent problem related to Sammon’s Mapping is its computational complexity Oðn 2Þ."
+      },
+      {
+        "page": 3,
+        "quote": "In the general case, where each instance is connected to all other instances, the iteration of the FDP model’s complexity is Oðn2Þ."
+      },
+      {
+        "page": 3,
+        "quote": "Whenever it needs at least n iterations in order to reach the equilibrium state, the FDP model’s complexity is Oðn 3Þ."
+      },
+      {
+        "page": 3,
+        "quote": "Aiming at reducing this complexity, two different strategies can be employed: reducing the number of iterations necessary to reach the equilibrium state or reducing the complexity of each iteration."
+      },
+      {
+        "page": 3,
+        "quote": "Aiming at reducing this complexity, Paulovich and Minghim [17] proposed a new method, where the instances are first clustered, and Force is applied, considering the instances of each separated cluster, defining a model whose complexity is Oðn 3 2Þ."
+      },
+      {
+        "page": 3,
+        "quote": "An example of a technique that reduces the complexity of the iterations was presented by Chalmers [18]."
+      }
+    ]
+  },
+  {
+    "file": "Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+    "title_guess": "Journal of the American Statistical Association ISSN: 0162-1459 (Print) 1537-274X (Online) Journal homepage: www.tandfonline.com/journals/uasa20 Local Multidimensional Scaling for ",
+    "abstract_snippet": "Journal of the American Statistical Association ISSN: 0162-1459 (Print) 1537-274X (Online) Journal homepage: www.tandfonline.com/journals/uasa20 Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis Lisha Chen & Andreas Buja To cite this article: Lisha Chen & Andreas Buja (2009) Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis, Journal of the American Statistical Association, 104:485, 209-219, DOI: 10.1198/jasa.2009.0111 To link to this article: https://doi.org/10.1198/jasa.2009.0111 Published online: 01 Jan 2012. Submit your article to this journal Article views: 972 View related articles Citing articles: 14 View citing articles Full Terms & Conditions of access and use can be found at https://www.tandfonline.com/action/journalInformation?journalCode=uasa20 Local Multidimensional Sca",
+    "picked": [
+      {
+        "page": 2,
+        "quote": "We introduce a competing method called ‘‘Local Multidimensional Scaling’’ (LMDS)."
+      },
+      {
+        "page": 2,
+        "quote": "We apply the force paradigm to create localized versions of MDS stress functions with a tuning parameter to adjust the strength of nonlocal repulsive forces."
+      },
+      {
+        "page": 2,
+        "quote": "LMDS, proposed here, derives from MDS by restricting the stress function to pairs of points with small distances."
+      },
+      {
+        "page": 2,
+        "quote": "Thus, LMDS shares with LLE, Isomap, and KPCA what we may call ‘‘localization.’’ Whereas Isomap completes the ‘‘local graph’’ with shortest path lengths, LMDS stabilizes the stress function by introducing repulsion between points with large distances."
+      },
+      {
+        "page": 2,
+        "quote": "Removing large distances from the stress function has been tried many times since Kruskal (1964a, 1964b), but the hope that small dissimilarities add up to globally meaningful optimal config- urations was dashed by Graef and Spence (1979): Their simulations showed that removal of the smallest third of Lisha Chen is Assistant Professor of "
+      },
+      {
+        "page": 3,
+        "quote": "This question can be answered with measures of faithfulness separate from the stress functions."
+      },
+      {
+        "page": 3,
+        "quote": "We have proposed one such family of measures, called ‘‘Local Continuity’’ or ‘‘LC’’ meta-criteria and defined as the average size of the overlap of K-nearest neighborhoods in the high-dimensional data and the low-dimensional config- uration (Chen 2006)."
+      },
+      {
+        "page": 3,
+        "quote": "We show how such measures can be employed as part of data analytic method- ology: (1) for choosing tuning parameters such as strength of the repulsive force and neighborhood size, and (2) as the basis of diagnostic plots that show how faithfully each point is embedded in a configuration."
+      },
+      {
+        "page": 3,
+        "quote": "Similarly, in dimension reduction, the measures of interest are the LC meta-criteria, yet config- urations are constructed as minimizers of smooth stress func- tions."
+      },
+      {
+        "page": 4,
+        "quote": "In ‘‘metric distance scaling’’ one uses mea- sures of lack of fit, called ‘‘Stress,’’ between { Di,j} and {|| xi /C0 xj||}, which in the simplest case is a residual sum of squares: MDSDðx1; ..."
+      },
+      {
+        "page": 4,
+        "quote": "; xN Þ¼ X ði; jÞ2N Di; j/C0k xi /C0 xj k /C0/C1 2 ð2Þ þ X ði; jÞ=2N w /C1 D‘ /C0k xi /C0 xj k /C0/C1 2 : ð3Þ The pairs ( i, j) 2 N describe the ‘‘local fabric’’ of a high- dimensional manifold or a graph, whereas the pairs ( i, j) ; N introduce a bias that should avoid the typical problem of MDS when the large dissimilarities are eliminat"
+      },
+      {
+        "page": 4,
+        "quote": "‘ subject to w ¼ t/(2D‘), where t is a fixed constant, and arrive at the final definition of localized Stress: LMDSD N ðx1; ..."
+      }
+    ]
+  },
+  {
+    "file": "Local_Affine_Multidimensional_Projection (1).pdf",
+    "title_guess": "Local Afﬁne Multidimensional Projection Paulo Joia, Fernando V . Paulovich, Danilo Coimbra, José Alberto Cuminato, and Luis Gustavo Nonato Fig.",
+    "abstract_snippet": "—Multidimensional projection techniques have experienced many improvements lately , mainly regarding computational times and accuracy . However, existing methods do not yet provide ﬂexible enough mechanisms for visualization-oriented fully in- teractive applications. This work presents a new multidimensional projection technique designed to be more ﬂexible and versatile than other methods. This novel approach, called Local Afﬁne Multidimensional Projection (LAMP), relies on orthogonal mapping theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy , ﬂexibility and computational efﬁciency of LAMP is conﬁrmed by a comprehensive set of comparisons. LAMP’s versatility is exploited in an application which seeks to correlate data that, in principle, has no connection as well as in visual exploration of textual documents. Index Te",
+    "picked": [
+      {
+        "page": 2,
+        "quote": "First proposed by Kruskal [21], nonlinear-optimization-based tech- niques comprise the class of global methods that accomplish the map- ping to visual space by ﬁnding a minimum for an energy function, usually called stress function."
+      },
+      {
+        "page": 2,
+        "quote": "[27] proposed a technique that ﬁrst embeds a subset of samples in the visual space by optimizing a stress function and then places the remaining instances using a global linear mapping, resulting in an O(k 3 + kn) al- gorithm."
+      },
+      {
+        "page": 2,
+        "quote": "The same limitation can be observed in the recent linear mapping called PLMP [26] (whose complexity is linear), which also makes use of a subset of samples to deﬁne a global linear map."
+      },
+      {
+        "page": 2,
+        "quote": "The approach proposed by Chalmers [6] and its hybrid variants [19, 22, 32] ﬁrst map the subset of samples to the visual space through a force-based scheme inspired in an analogy between stress function minimization and mass-spring systems."
+      },
+      {
+        "page": 3,
+        "quote": "Finally, in contrast to “as-rigid-as-possible” image deformation applications, we do not need to ensure continuity for the overall transformation, on the contrary, discontinuities may be highly desirable to better keep apart uncorrelated data instances dur- ing projection."
+      },
+      {
+        "page": 3,
+        "quote": "The stress produced by LAMP when the number of control points ranges from 1% to 25% of the total of instances in the data set (see T able 1 for details about the data sets)."
+      },
+      {
+        "page": 3,
+        "quote": "The minimization problem (5) is a typical example of the so called Orthogonal Procrustes Problem [17], whose solution is known to be M = UV, AT B = UD V (7) where UD V is the singular value decomposition (SVD) of AT B."
+      },
+      {
+        "page": 3,
+        "quote": "However, A T B is indeed a m× 2 matrix (only two columns), so it can be decomposed very quickly with compact SVD packages [2] ( O(k) operations), resulting in an algorithm with computational complexity equal to O(kn)."
+      },
+      {
+        "page": 3,
+        "quote": "As we show in Section 4, besides resulting in highly accurate mappings, the mathematical con- struction described above turns out to be also competitive in terms of computational times."
+      },
+      {
+        "page": 3,
+        "quote": "Notice that the stress function, given by ∑ij (dij −dij )2 ∑ij d2 ij (d and d are the distance 2565JOIA ET AL: LOCAL AFFINE MULTIDIMENSIONAL PROJECTION Authorized licensed use limited to: Yonsei Univ."
+      },
+      {
+        "page": 4,
+        "quote": "Figure 4 supports this assertion, showing that when the number of control points in the neighborhood of each instance x increases the stress energy still remains at low levels."
+      },
+      {
+        "page": 4,
+        "quote": "The techniques employed in the comparisons were chosen based on two criteria, they either present good perfor- mance in terms of stress and/or time or they use a subset of samples to carry out the mapping."
+      }
+    ]
+  },
+  {
+    "file": "Supervised_nonlinear_dimensionality_reduction_for_visualization_and_classification.pdf",
+    "title_guess": "1098 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS—PART B: CYBERNETICS, VOL. 35, NO. 6, DECEMBER 2005 Supervised Nonlinear Dimensionality Reduction",
+    "abstract_snippet": "—When performing visualization and classiﬁcation, people often confront the problem of dimensionality reduction. Isomap is one of the most promising nonlinear dimensionality reduction techniques. However, when Isomap is applied to real-world data, it shows some limitations, such as being sensitive to noise. In this paper, an improved version of Isomap, namely S-Isomap, is proposed. S-Isomap utilizes class information to guide the procedure of nonlinear dimensionality reduction. Such a kind of procedure is called supervised nonlinear dimensionality reduction. In S-Isomap, the neighborhood graph of the input data is constructed according to a certain kind of dissimilarity between data points, which is specially designed to integrate the class information. The dissimilarity has several good properties which help to discover the true neighborhood of the data and, thus, makes S-Isomap a robus",
+    "picked": [
+      {
+        "page": 1,
+        "quote": "In this paper, an improved version of Isomap, namely S-Isomap, is proposed."
+      },
+      {
+        "page": 1,
+        "quote": "Unfortunately, they have a common inherent limitation: They are all linear methods while the distributions of most real-world data are nonlinear."
+      },
+      {
+        "page": 1,
+        "quote": "Encouraging results have been reported when the test data contain little noise and are well sampled, but, as can been seen in the following sections of this paper, they are not so powerful when confronted with noisy data, which is often the case for real-world problems."
+      },
+      {
+        "page": 1,
+        "quote": "In this paper, a robust method based on the idea of Isomap, namely S-Isomap, is proposed to deal with such situation."
+      },
+      {
+        "page": 2,
+        "quote": "Unfortunately, this scheme seems not to work very well compared with those widely used classiﬁcation methods (according to the experiments in this paper), such as BP network [10], decision tree [8], and SVM [14], [15]."
+      },
+      {
+        "page": 9,
+        "quote": "C ONCLUSION In this paper, an improved version of Isomap, namely S-Isomap, is proposed for robust visualization and classi ﬁca- tion."
+      },
+      {
+        "page": 9,
+        "quote": "The results show that S-Isomap is also an accurate and robust technique for classiﬁcation."
+      },
+      {
+        "page": 2,
+        "quote": "GENG et al.: SUPERVISED NONLINEAR DIMENSIONALITY REDUCTION 1107 ACKNOWLEDGMENT The authors would like to thank the anonymous reviewers for their comments and suggestions which greatly improved this paper."
+      }
+    ]
+  },
+  {
+    "file": "download (2).pdf",
+    "title_guess": "Quan tifying the Neigh b orho o d Preserv ation of Self/-Organizing F eature Maps H/./-U/. Bauer and K/. P",
+    "abstract_snippet": "Neigh b orho o d preserv ation from input space to output space is an essen tial elemen t of self/- organizing feature maps lik e the Kohonen/-map/. Ho w ev er/, a measure for the preserv ation or violation of neigh b orho o d relations/, whic h is more systematic than just visual insp ection of the map/, w as lac king/. W e sho w/, that a top ographic pro duct P /, / rst in tro duced in nonlinear dynamics/, is an appropriate measure in this regard/. It is sensitiv e to large scale violations of the neigh b orho o d ordering/, but do es not accoun t for neigh b orho o d ordering distortions due to v arying areal magni/ cation factors/. A v anishing v alue of the top ographic pro duct indicates a p erfect neigh b orho o d preserv ation/, negativ e /(p ositiv e/) v alues indicate a to o small /(to o large/) output space dimensionalit y /. In a simple example of maps from a /2D input space ",
+    "picked": []
+  },
+  {
+    "file": "jeon23tvcg (4).pdf",
+    "title_guess": "Classes are not Clusters : Improving Label-based Evaluation of Dimensionality Reduction Hyeon Jeon, Yun-Hsin Kuo, Micha¨el Aupetit, Kwan-Liu Ma, and",
+    "abstract_snippet": "— A common way to evaluate the reliability of dimensionality reduction (DR) embeddings is to quantify how well labeled classes form compact, mutually separated clusters in the embeddings. This approach is based on the assumption that the classes stay as clear clusters in the original high-dimensional space. However, in reality, this assumption can be violated; a single class can be fragmented into multiple separated clusters, and multiple classes can be merged into a single cluster. We thus cannot always assure the credibility of the evaluation using class labels. In this paper, we introduce two novel quality measures— Label-T rustworthinessand Label-Continuity (Label-T&C)—advancing the process of DR evaluation based on class labels. Instead of assuming that classes are well-clustered in the original space, Label-T&C work by (1) estimating the extent to which classes form clusters in the",
+    "picked": [
+      {
+        "page": 1,
+        "quote": "In this paper, we introduce two novel quality measures— Label-T rustworthinessand Label-Continuity (Label-T&C)—advancing the process of DR evaluation based on class labels."
+      },
+      {
+        "page": 1,
+        "quote": "Instead of assuming that classes are well-clustered in the original space, Label-T&C work by (1) estimating the extent to which classes form clusters in the original and embedded spaces and (2) evaluating the difference between the two."
+      },
+      {
+        "page": 1,
+        "quote": "A quantitative evaluation showed that Label-T&C outperform widely used DR evaluation measures (e.g., Trustworthiness and Continuity, Kullback-Leibler divergence) in terms of the accuracy in assessing how well DR embeddings preserve the cluster structure, and are also scalable."
+      },
+      {
+        "page": 1,
+        "quote": "Moreover, we present case studies demonstrating that Label-T&C can be successfully used for revealing the intrinsic characteristics of DR techniques and their hyperparameters."
+      },
+      {
+        "page": 1,
+        "quote": "We introduce two measures— Label-Trustworthiness (Label-T) and Label-Continuity (Label-C)—which examine CLM in an alternative way to assess the reliability of cluster structures in DR embeddings."
+      },
+      {
+        "page": 1,
+        "quote": "In contrast to the general label-based evaluation process, Label-T&C use CVM to quantify CLM distortions as the difference between CLM estimated in both original and embedded spaces."
+      },
+      {
+        "page": 1,
+        "quote": "Since CLM distortions reduce the reliability of cluster structures represented by the embeddings, Label-T&C scores can be interpreted as proxies for the credibility of DR-based cluster analysis."
+      },
+      {
+        "page": 1,
+        "quote": "We conduct a series of quantitative experiments to validate the effec- tiveness of Label-T&C."
+      },
+      {
+        "page": 1,
+        "quote": "The results show that Label-T&C can better capture the distortions of cluster structures than the existing measures (e.g., Steadiness & Cohesiveness [29] and Trustworthiness & Conti- nuity [62]) and the general process of label-based DR evaluation (i.e., naive application of CVMs)."
+      },
+      {
+        "page": 1,
+        "quote": "From the scalability analysis, we validate that the runtime of using Label-T&C is competitive with that of the existing methods."
+      },
+      {
+        "page": 1,
+        "quote": "Finally, we demonstrate two case studies showing that Label-T&C can be used to reveal how different DR techniques or hyperparameter settings affect embedding results."
+      },
+      {
+        "page": 2,
+        "quote": "Global measures, such as Kullback-Liebler divergence (KL Divergence) and Distance to Measure (DTM) [15, 16], quantify how well the embeddings preserve the global structure of the original data against stretching and compression."
+      }
+    ]
+  },
+  {
+    "file": "kruskal_1964a.pdf",
+    "title_guess": "PSYCHOMETRIKA--VOL. ~9, NO. 1 mARCH, 1964 MULTIDIMENSIONAL SCALING BY OPTIMIZING GOODNESS OF FIT TO A NONMETRIC HYPOTHESIS J. B. KRUSKAL",
+    "abstract_snippet": "PSYCHOMETRIKA--VOL. ~9, NO. 1 mARCH, 1964 MULTIDIMENSIONAL SCALING BY OPTIMIZING GOODNESS OF FIT TO A NONMETRIC HYPOTHESIS J. B. KRUSKAL BELL TELEPHONE LABORATORIES MURRAY HILL, N. J. Multidimensional scaling is the problem of representing n objects: geometrically by n points, so that the interpoint distances correspond in some sense to experimental dissimilarities between objects. In just what sense distances and dissimilarities should correspond has been left rather vague in most approaches, thus leaving these approaches logically incomplete. Our fundamental hypothesis is that dissimilarities and distances are mono- tonically related. We define a quantitative, intuitively satisfying measure of goodness of fit to this hypothesis. Our technique of multidimensional scaling is to compute that confi~xlration of points which optimizes the goodness of fit. A practical computer program for doi",
+    "picked": [
+      {
+        "page": 2,
+        "quote": "In this paper we present a technique for multidimensional scaling, similar to Shepard's, which arose from attempts to improve and perfect his ideas."
+      },
+      {
+        "page": 3,
+        "quote": "(A complete explanation is given in the next section.) Thus for any given configuration the stress measures how well that configuration matches the data."
+      },
+      {
+        "page": 3,
+        "quote": "Once the stress has been defined and the definition justified, the rest of the theory follows without further difficulty."
+      },
+      {
+        "page": 3,
+        "quote": "The solution is defined to be the best-fitting configuration of points, that is, the configuration of minimum stress."
+      },
+      {
+        "page": 3,
+        "quote": "Stress Goodness of fit 20% poor 10% fair 5% good 2½% excellent 0% \"perfect\" By \"perfect\" we mean only that there is a perfect monotone relationship between dissimilarities and the distances."
+      },
+      {
+        "page": 5,
+        "quote": "KRUSKAL 5 t b* .J ¢q B PERFECT ASCENDING RELATIONSHIP STRESS -~- O DISTANCE, d Fm~R~ 2 represents the data best."
+      },
+      {
+        "page": 7,
+        "quote": "KRUSKAL 7 t .( IMPERFECT ASCENDING RELATIONSHIP / (NORMALIZED) STRESS 2,4 ......"
+      },
+      {
+        "page": 8,
+        "quote": "Following a time-honored tradition of statistics, we square each deviation and add the results: raw stress = S* = ~ (d,i -- d,) 2."
+      },
+      {
+        "page": 8,
+        "quote": "An obvious way to cure this defect in the raw stress is to divide it by a scaling factor, that is, a quantity which has the same quad- ratic dependence on the scale of the configuration that raw stress does."
+      },
+      {
+        "page": 9,
+        "quote": "- d.) ~ stress = S = = %]~<; ~d~ Again we emphasize that this measures how well the given configuration represents the data."
+      },
+      {
+        "page": 9,
+        "quote": "Thus we may condense our entire definition of stress into the following formula."
+      },
+      {
+        "page": 9,
+        "quote": "Now that we have defined the stress, we have a quantitative way of evaluating any configuration."
+      }
+    ]
+  },
+  {
+    "file": "ref03_geometric_inference_for_probability_measures.pdf",
+    "title_guess": "HAL Id: inria-00383685 https://inria.hal.science/inria-00383685v2 Submitted on 23 Jun 2010 HAL is a multi-disciplinary open access archive for the deposit and",
+    "abstract_snippet": "Data often comes in the form of a point cloud sampled from an unknown compact subset of Euclidean space. The general goal of geometric inference is then to recover geometric and topological features (e.g. Betti numbers, normals) of this subset from the approximating point cloud data. In recent years, it appeared that the study of distance functions allows to address many of these questions successfully. However, one of the main lim- itations of this framework is that it does not cope well with outliers nor with background noise. In this paper, we show how to extend the framework of distance functions to overcome this problem. Replacing compact subsets by measures, we introduce a notion of distance function to a probability distri- bution in Rn. These functions share many properties with classical distance functions, which makes them suitable for inference purposes. In particular, by cons",
+    "picked": [
+      {
+        "page": 4,
+        "quote": "In this paper, we show how to extend the framework of distance functions to overcome this problem."
+      },
+      {
+        "page": 4,
+        "quote": "Replacing compact subsets by measures, we introduce a notion of distance function to a probability distri- bution in Rn."
+      },
+      {
+        "page": 5,
+        "quote": "Cependant, une des principales limitation de ce cadre est qu’il ne permet pas de consid´ erer des donn´ ees qui sont entach´ ees de valeurs aberrantes et/ou d’un bruit de fond."
+      },
+      {
+        "page": 7,
+        "quote": "In this article, we introduce a notion of distance function to a probability measureµ , which we denote by d µ,m 0 — where m0 is a “smoothing” param- eter in (0, 1)."
+      },
+      {
+        "page": 7,
+        "quote": "We show that this function retains all the required properties for extending oﬀset-based inference results to the case where the data can be corrupted by outliers."
+      },
+      {
+        "page": 7,
+        "quote": "In particular, we show that considering sublevel sets of our distance functions allows for correct inference of the homotopy type of the unknown object under fairly general assumptions."
+      },
+      {
+        "page": 9,
+        "quote": "As mentioned earlier, the question of the convergence of the empirical measure µ N to the underlying measure µ is fundamendal in the measure- based inference approach we propose."
+      },
+      {
+        "page": 10,
+        "quote": "This being said, we would like to stress that the stability results we obtain for the distance functions introduced below do not depend on any noise model; they just depend on the Wasserstein distance between the two probability measures being small."
+      },
+      {
+        "page": 10,
+        "quote": "3 Distance function to a probability measure In this section we introduce the notion of distance function to a measure that we consider."
+      }
+    ]
+  },
+  {
+    "file": "ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+    "title_guess": "Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction Benoît Colange Univ. Grenoble Alpes, INES, F-73375, Le Bourget",
+    "abstract_snippet": "Nonlinear dimensionality reduction of high-dimensional data is challenging as the low-dimensional embedding will necessarily contain distortions, and it can be hard to determine which distortions are the most important to avoid. When annotation of data into known relevant classes is available, it can be used to guide the embedding to avoid distortions that worsen class separation. The supervised mapping method introduced in the present paper, called ClassNeRV, proposes an original stress function that takes class annotation into account and evaluates embedding quality both in terms of false neighbors and missed neighbors. ClassNeRV shares the theoretical framework of a family of methods descending from Stochastic Neighbor Embedding (SNE). Our approach has a key advantage over previous ones: in the literature supervised methods often emphasize class separation at the price of distorting t",
+    "picked": [
+      {
+        "page": 1,
+        "quote": "The supervised mapping method introduced in the present paper, called ClassNeRV, proposes an original stress function that takes class annotation into account and evaluates embedding quality both in terms of false neighbors and missed neighbors."
+      },
+      {
+        "page": 2,
+        "quote": "In this work, we propose ClassNeRV, a supervised DR technique to accomplish the exploratory analysis objective while taking class information into account."
+      },
+      {
+        "page": 2,
+        "quote": "Our contribution is two-fold: we propose ClassNeRV which utilizes class information to ensure a better preservation of classes when embedding high dimensional labeled data into a low dimensional space."
+      },
+      {
+        "page": 2,
+        "quote": "Its stress function, derived from the unsupervised NeRV [6, 7], steers the optimization so that the unavoidable distortions of the neighborhood structure are placed where they are less harmful to the class structure."
+      },
+      {
+        "page": 2,
+        "quote": "We also derive two new class-aware quality indicators from the standard Trustworthiness and Continuity quality indicators [ 13], to account speciﬁcally for the distortions affecting class preservation."
+      },
+      {
+        "page": 3,
+        "quote": "Class-aware tSNE (catSNE) [32] locally adapts the size of the neighbourhood to preserve based on the distribution of classes."
+      },
+      {
+        "page": 3,
+        "quote": "At last, Clas- siMap [5] optimizes a stress function similar to the one of Local Multidimensional Scaling (LMDS) [33], but supports the exploratory analysis of labeled data by taking classes into account when penalizing false and missed neighbors."
+      },
+      {
+        "page": 3,
+        "quote": "ClassNeRV derives the same principles as ClassiMap from the NeRV stress function to get the beneﬁts of both."
+      },
+      {
+        "page": 3,
+        "quote": "3 ClassNeRV and Class-aware Quality Indicators 3.1 NeRV Stress Function In NeRV [6, 7], the degree of membership (conditional probability) of a pointj to the neighborhood of another pointi, denotedβij in the data space andbij in the embedding space, is deﬁned as: βij ≜ exp ( −∆2 ij/2σ2 i ) ∑ k̸=i exp (−∆2 ik/2σ2 i ) and bij ≜ exp ( −D2 ij"
+      },
+      {
+        "page": 3,
+        "quote": "The NeRV stress function is a linear trade-off between two sets of Kullback–Leibler (KL) divergences: ζNeRV ≜ ∑ i τ DKL(βi,bi)+(1−τ)DKL(bi,βi) ≜τ ∑ i,j̸=i βij log (βij bij ) +(1−τ) ∑ i,j̸=i bij log (bij βij ) (2) In Equation (2),τ∈ [0; 1] controls the trade-off between∑ i DKL(βi,bi) penalizing missed neigh- bors (maximally when τ = 1) and"
+      },
+      {
+        "page": 3,
+        "quote": "3.2 ClassNeRV Stress Function We aim for an embedding that preserves both neighborhood structures and classes."
+      },
+      {
+        "page": 3,
+        "quote": "We propose that the embedding should not artiﬁcially separate points within the same class , or artiﬁcially cluster 3 together points from different classes."
+      }
+    ]
+  },
+  {
+    "file": "ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+    "title_guess": "Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns Takanori Fujiwara* Link¨oping University Yun-Hsin Kuo† University of",
+    "abstract_snippet": "Dimensionality reduction (DR) plays a vital role in the visual analy- sis of high-dimensional data. One main aim of DR is to reveal hidden patterns that lie on intrinsic low-dimensional manifolds. However, DR often overlooks important patterns when the manifolds are dis- torted or masked by certain inﬂuential data attributes. This paper presents a feature learning framework, FEALM, designed to gener- ate a set of optimized data projections for nonlinear DR in order to capture important patterns in the hidden manifolds. These projec- tions produce maximally different nearest-neighbor graphs so that resultant DR outcomes are signiﬁcantly different. To achieve such a capability, we design an optimization algorithm as well as introduce a new graph dissimilarity measure, named neighbor-shape dissimi- larity. Additionally, we develop interactive visualizations to assist comparison of obtained ",
+    "picked": [
+      {
+        "page": 1,
+        "quote": "This paper presents a feature learning framework, FEALM, designed to gener- ate a set of optimized data projections for nonlinear DR in order to capture important patterns in the hidden manifolds."
+      },
+      {
+        "page": 1,
+        "quote": "To detect the difference of the graphs, we introduce a new graph dissimilarity measure, called neighbor-shape dissimilarity (or NSD)."
+      },
+      {
+        "page": 1,
+        "quote": "In summary, we consider our primary contributions to be: • a feature learning framework, FEALM, designed to extract a set of latent features for nonlinear DR, each of which produces a signiﬁcantly different DR result; • an exemplifying method for UMAP, where we introduce an NMM- based algorithm as well as a graph dissimilarity measure, NS"
+      },
+      {
+        "page": 3,
+        "quote": "4 FEALM F RAMEWORK We introduce a feature learning framework, FEALM, to address the stated issues in nonlinear DR."
+      },
+      {
+        "page": 5,
+        "quote": "But, it is difﬁcult to judge only based on theoretical time complexity because of their detailed implemen- tation differences (e.g., requiring only fast matrix operations or slow iterative loops)."
+      },
+      {
+        "page": 5,
+        "quote": "C.2 in our sup- plementary materials [1]), we identify that NetLSD [39] can better capture differences of graph shapes with a greatly shorter runtime than many other measures available in a library of graph dissimilari- ties [27]."
+      },
+      {
+        "page": 5,
+        "quote": "2 is generated with NSD, here we use NetLSD (a) and the neighbor dissimilarity (b)."
+      },
+      {
+        "page": 5,
+        "quote": "time complexity is O(qkn + q2n), where q is the total number of the top and bottom eigenvalues to take for the approximation andk is the number of neighbors set to generate an k-NN graph."
+      },
+      {
+        "page": 5,
+        "quote": "NetLSD does not consider the neighbor dissimilarity (i.e., the difference of neigh- borhood relationships); thus, for dGr, we introduce a new measure, NSD, to capture both neighbor and shape dissimilarities."
+      },
+      {
+        "page": 5,
+        "quote": "5.2.1 Neighbor-Shape Dissimilarity (NSD) We design a neighbor dissimilarity measure, ND, and combine it with NetLSD to introduce NSD."
+      },
+      {
+        "page": 5,
+        "quote": "For the neighbor dissimilarity, one option is to utilize the steadi- ness and cohesiveness (SnC) [20], which are developed to assess the DR quality by measuring the changes of the neighborhood relation- ships in the original data and a DR result."
+      },
+      {
+        "page": 6,
+        "quote": "Then, we deﬁne the dissimilarity measured by NSD as: dNSD(Gi,G j) = dND(Gi,G j)β· log ( 1 + dSD(Gi,G j) ) (4) where dNSD(Gi,G j)≥ 0 and β (0≤ β≤ ∞) is a hyperparameter that controls how strongly NSD focuses on the neighbor dissimilarity vs."
+      }
+    ]
+  },
+  {
+    "file": "ref12_local_procrustes_for_manifold_embedding_a_measure_of_embedding_quality_and_embedding_algor.pdf",
+    "title_guess": "Mach Learn (2009) 77: 1–25 DOI 10.1007/s10994-009-5107-9 Local procrustes for manifold embedding: a measure of embedding quality and embedding algorithms",
+    "abstract_snippet": "We present the Procrustes measure, a novel measure based on Procrustes rotation that enables quantitative comparison of the output of manifold-based embedding algorithms such as LLE (Roweis and Saul, Science 290(5500), 2323–2326, 2000) and Isomap (Tenen- baum et al., Science 290(5500), 2319–2323, 2000). The measure also serves as a natural tool when choosing dimension-reduction parameters. We also present two novel dimension- reduction techniques that attempt to minimize the suggested measure, and compare the re- sults of these techniques to the results of existing algorithms. Finally, we suggest a simple iterative method that can be used to improve the output of existing algorithms. Keywords Dimension reducing · Manifold learning · Procrustes analysis · Local PCA · Simulated annealing 1 Introduction Technological advances constantly improve our ability to collect and store large sets of",
+    "picked": [
+      {
+        "page": 1,
+        "quote": "Mach Learn (2009) 77: 1–25 DOI 10.1007/s10994-009-5107-9 Local procrustes for manifold embedding: a measure of embedding quality and embedding algorithms Yair Goldberg· Ya’acov Ritov Received: 27 December 2007 / Revised: 5 October 2008 / Accepted: 30 January 2009 / Published online: 7 April 2009 Springer Science+Business Media, LLC 2009 A"
+      },
+      {
+        "page": 1,
+        "quote": "Keywords Dimension reducing · Manifold learning · Procrustes analysis · Local PCA · Simulated annealing 1 Introduction Technological advances constantly improve our ability to collect and store large sets of data."
+      },
+      {
+        "page": 2,
+        "quote": "The function we present, based on the Procrustes analysis, compares each neighborhood in the high- dimensional space and its corresponding low-dimensional embedding."
+      },
+      {
+        "page": 2,
+        "quote": "The ﬁrst measure tests the trustwor- thiness of the embedding, where trustworthiness errors are deﬁned as distant input points that entered the same output neighborhood."
+      },
+      {
+        "page": 2,
+        "quote": "The second measure tests the continuity of the embedding, where continuity errors are deﬁned as data points that are in the same input neighborhood but not in the same output neighborhood."
+      },
+      {
+        "page": 2,
+        "quote": "A closely related measure was sug- gested by Chen ( 2006), called the local continuity criterion."
+      },
+      {
+        "page": 2,
+        "quote": "All of these measures, unlike the Procrustes mea- sure we suggest, do not take into account the structure of the neighborhoods, either in the high-dimensional input space or in the low-dimensional embedding space."
+      },
+      {
+        "page": 4,
+        "quote": "A neighborhood on the manifold and its embedding can be compared using the Procrustes statistic."
+      },
+      {
+        "page": 4,
+        "quote": "The Procrustes statistic measures the distance between two conﬁgu- rations of points."
+      },
+      {
+        "page": 4,
+        "quote": "In the remainder of this paper we will represent any set of k points x1,...,x k ∈ Rq as a matrix Xk×q =[ x′ 1,...,x ′ k]; i.e., the j-th row of the matrix X corresponds to xj ."
+      },
+      {
+        "page": 4,
+        "quote": "Let X be a k-point set in Rq and let Y be a k-point set in Rd ,w h e r ed ≤ q.W ed e ﬁ n et h e Procrustes statistic G(X,Y) as G(X,Y) = inf {A,b:A′A=I,b ∈Rq} k∑ i=1 ∥xi − Ayi − b∥2 = inf {A,b:A′A=I,b ∈Rq} tr ( (X − YA′ − 1b′)′(X − YA′ − 1b′) ) (1) where the rotation matrix A is a columns-orthogonal q × d matrix, A′ is the adjoint of A, an"
+      },
+      {
+        "page": 4,
+        "quote": "The Procrustes rotation matrix A and the Procrustes translation vector b that minimize G(X,Y) can be computed explicitly, as follows."
+      }
+    ]
+  },
+  {
+    "file": "ref13_stochastic_neighbor_embedding.pdf",
+    "title_guess": "Stochastic Neighbor Embedding Geoffrey Hinton and Sam Roweis Department of Computer Science, University of Toronto 10 King’s College Road, Toronto,",
+    "abstract_snippet": "We describe a probabilistic approach to the task of placing objects, de- scribed by high-dimensional vectors or by pairwise dissimilarities, in a low-dimensional space in a way that preserves neighbor identities. A Gaussian is centered on each object in the high-dimensional space and the densities under this Gaussian (or the given dissimilarities) are used to deﬁne a probability distribution over all the potential neighbors of the object. The aim of the embedding is to approximate this distribu- tion as well as possible when the same operation is performed on the low-dimensional “images” of the objects. A natural cost function is a sum of Kullback-Leibler divergences, one per object, which leads to a simple gradient for adjusting the positions of the low-dimensional im- ages. Unlike other dimensionality reduction methods, this probabilistic framework makes it easy to represent each objec",
+    "picked": [
+      {
+        "page": 1,
+        "quote": "A natural cost function is a sum of Kullback-Leibler divergences, one per object, which leads to a simple gradient for adjusting the positions of the low-dimensional im- ages."
+      },
+      {
+        "page": 1,
+        "quote": "In this paper we deﬁne a new notion of embedding based on probable neighbors."
+      },
+      {
+        "page": 2,
+        "quote": "This is achieved by minimizing a cost function which is a sum of Kullback-Leibler divergences between the original (\u00025\u0003\u0016\u0005 ) and induced (06\u0003\u0016\u0005 ) distributions over neighbors for each object: 7 \u000798 \u0003 8 \u0005 \u0002 \u0003\u0006\u0005 *'+ , \u0002:\u0003\u0006\u0005 0 \u0003\u0006\u0005 \u0007;8 \u00039<>= \u000e@?"
+      },
+      {
+        "page": 2,
+        "quote": "Adding random jitter that decreases with time ﬁnds much better local optima and is the method we used for the exam- ples in this paper, even though it is still quite slow."
+      },
+      {
+        "page": 7,
+        "quote": "Com- putational physics has attacked exactly this same complexity when performing multibody gravitational or electrostatic simulations using, for example, the fast multipole method."
+      },
+      {
+        "page": 8,
+        "quote": "This mismatch is very similar to “stress” functions used in nonmetric versions of MDS, and enables us to understand the large-variance limit of SNE as a particular variant of such procedures."
+      }
+    ]
+  },
+  {
+    "file": "ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+    "title_guess": "© 2021 IEEE. This is the author’s version of the article that has been published in IEEE Transactions on Visualization",
+    "abstract_snippet": "— We propose Steadiness and Cohesiveness, two novel metrics to measure the inter-cluster reliability of multidimensional projection (MDP), speciﬁcally how well the inter-cluster structures are preserved between the original high-dimensional space and the low-dimensional projection space. Measuring inter-cluster reliability is crucial as it directly affects how well inter-cluster tasks (e.g., identifying cluster relationships in the original space from a projected view) can be conducted; however, despite the importance of inter-cluster tasks, we found that previous metrics, such as Trustworthiness and Continuity, fail to measure inter-cluster reliability. Our metrics consider two aspects of the inter-cluster reliability: Steadiness measures the extent to which clusters in the projected space form clusters in the original space, and Cohesiveness measures the opposite. They extract random c",
+    "picked": [
+      {
+        "page": 1,
+        "quote": "The ﬁnal version of this record is available at: xx.xxxx/TVCG.201x.xxxxxxx/ Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections Hyeon Jeon, Hyung-Kwon Ko, Jaemin Jo, Y oungtaek Kim, and Jinwook Seo Abstract— We propose Steadiness and Cohesiveness, two novel metrics to measure the inter-cluster reliabilit"
+      },
+      {
+        "page": 1,
+        "quote": "Measuring inter-cluster reliability is crucial as it directly affects how well inter-cluster tasks (e.g., identifying cluster relationships in the original space from a projected view) can be conducted; however, despite the importance of inter-cluster tasks, we found that previous metrics, such as Trustworthiness and Continuity, fail to m"
+      },
+      {
+        "page": 1,
+        "quote": "Our metrics consider two aspects of the inter-cluster reliability: Steadiness measures the extent to which clusters in the projected space form clusters in the original space, and Cohesiveness measures the opposite."
+      },
+      {
+        "page": 1,
+        "quote": "In this paper, we propose Steadiness and Cohesiveness, two metrics that quantitatively evaluate inter-cluster reliability."
+      },
+      {
+        "page": 1,
+        "quote": "Steadiness measures the inter-cluster reliability in the projected space (i.e., to what degree the cluster in the projection is in a steady state that reﬂects the actual cluster in the original space)."
+      },
+      {
+        "page": 1,
+        "quote": "Cohesiveness measures the inter-cluster reliability in the original space (i.e., to what degree real clusters in the original space stand together cohesively in the projection)."
+      },
+      {
+        "page": 1,
+        "quote": "We ﬁrst formulated three design considerations of Steadiness and Cohesiveness so that the metrics can adequately evaluate inter-cluster reliability by quantifying how well inter-cluster tasks can be performed accurately in MDPs (i.e., measure the potential accuracy of the inter-cluster tasks)."
+      },
+      {
+        "page": 1,
+        "quote": "To make our metrics fulﬁll the considerations, we deﬁned new inter-cluster distortion types—False Groups and Missing Groups—and designed Steadiness and Cohesiveness to measure each, respectively."
+      },
+      {
+        "page": 1,
+        "quote": "We also developed a reliability map to visualize inter-cluster reliabil- ity quantiﬁed by Steadiness and Cohesiveness within projections."
+      },
+      {
+        "page": 1,
+        "quote": "The quantitative experi- ments veriﬁed that our metrics accurately capture inter-cluster distor- tions and thus properly measure inter-cluster reliability, while baseline local metrics, such as Trustworthiness & Continuity, failed to identify even apparent distortions."
+      },
+      {
+        "page": 2,
+        "quote": "For instance, Trustworthiness and Continuity (T&C) [67] locally measure how Missing and False Neighbors distort the ranks of each point’s neighbors."
+      },
+      {
+        "page": 2,
+        "quote": "Mean Relative Rank Errors (MRREs) [29] are similar to T&C; however, they consider not only the rank variance of the Missing and False Neighbors but also of True Neighbors—the points that are judged as neighbors in both spaces."
+      }
+    ]
+  },
+  {
+    "file": "ref42_a_comparison_for_dimensionality_reduction_methods_of_single_cell_rna_seq_data.pdf",
+    "title_guess": "fgene-12-646936 March 17, 2021 Time: 12:29 # 1 ORIGINAL RESEARCH published: 23 March 2021 doi: 10.3389/fgene.2021.646936 Edited by: Chunjie Jiang,",
+    "abstract_snippet": "fgene-12-646936 March 17, 2021 Time: 12:29 # 1 ORIGINAL RESEARCH published: 23 March 2021 doi: 10.3389/fgene.2021.646936 Edited by: Chunjie Jiang, University of Pennsylvania, United States Reviewed by: Quan Zou, University of Electronic Science and Technology of China, China Kuixi Zhu, University of Arizona, United States *Correspondence: Xiaowen Chen hrbmucxw@163.com Chaohan Xu chaohanxu@hrbmu.edu.cn Specialty section: This article was submitted to Computational Genomics, a section of the journal Frontiers in Genetics Received: 28 December 2020 Accepted: 19 February 2021 Published: 23 March 2021 Citation: Xiang R, Wang W, Yang L, Wang S, Xu C and Chen X (2021) A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data. Front. Genet. 12:646936. doi: 10.3389/fgene.2021.646936 A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data Ruizhi Xiang 1, W",
+    "picked": [
+      {
+        "page": 2,
+        "quote": "Compared with the above two linear methods, employing the zero-inﬂation model can give ZIFA more powerful projection capabilities but will pay a corresponding cost in computational complexity."
+      },
+      {
+        "page": 4,
+        "quote": "The deep leaning framework enables DCA to capture the complexity and non-linearity in scRNA-seq data."
+      },
+      {
+        "page": 4,
+        "quote": "The variable probability Q(z|X) is used to approximate the posterior distribution P(z|X), and it is optimized to minimize the Kullback–Leibler divergence between Q(z|X) and P(z|X) and reconstruction loss."
+      },
+      {
+        "page": 6,
+        "quote": "It is worth noting that SIMLR has a high computational complexity as it involves large matrix operations which could not perform dimensionality reduction on data with a cell count greater than or equal to 10,000."
+      },
+      {
+        "page": 10,
+        "quote": "FIGURE 7 | Evaluation computing cost for each method on metrics of (A) running time and (B) memory limitation."
+      }
+    ]
+  }
+]
