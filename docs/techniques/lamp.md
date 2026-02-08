@@ -31,6 +31,8 @@ Implementation quality depends on stable preprocessing, deterministic settings w
 
 For reproducible comparison, evaluate this technique under a fixed protocol and report parameter context with results. This converts the outline from a conceptual recipe into an auditable procedure for downstream agents and reviewers.
 
+Detailed execution rule: treat control-point/landmark selection as a controlled factor and run sensitivity checks across multiple selections. Landmark policy drift can dominate method comparisons.
+
 ## Hyperparameter Impact
 - Control-point ratio/selection strongly affects quality and runtime.
 - Local alignment configuration influences stress and geometry preservation.
@@ -38,6 +40,13 @@ For reproducible comparison, evaluate this technique under a fixed protocol and 
 Hyperparameters determine the local-vs-global balance, optimization stability, and visual behavior of the embedding. They should be tuned against task-aligned metrics rather than aesthetics alone, especially when outputs influence model or policy decisions.
 
 A practical default is Bayesian optimization with guardrails: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
+
+Decision-level tuning rule: optimize both landmark ratio and local fitting settings under the same task metric bundle; report whether conclusions persist across reasonable landmark policies.
+
+## Practical Reliability Notes
+LAMP quality depends on control-point design and local affine fitting stability. Poor control-point coverage can create visually plausible but structurally biased embeddings.
+
+In reliable workflows, treat control-point policy as a first-class hyperparameter family. Evaluate sensitivity to control-point count and placement strategy, then report whether conclusions remain stable across reasonable control-point variants.
 
 ## Notable Properties
 - Practical quality-runtime tradeoff for interactive projection settings.
@@ -63,6 +72,8 @@ Task alignment indicates where this technique is expected to provide the most re
 
 When a project requires multiple task outcomes, combine this section with metric-level alignment and require agreement across both layers. If technique and metric recommendations diverge, collect more evidence before production use.
 
+Operational alignment rule: method alignment should constrain candidate ranking, but final acceptance still requires agreement with task-aligned metric bundles and warning-gate status.
+
 ## Known Tradeoffs
 - Poor control-point design can degrade both fidelity and stability.
 
@@ -70,5 +81,9 @@ Tradeoffs are expected and should be made explicit to users before final selecti
 
 In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
 
+Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
+
 ## Source Notes
 - `papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md` (ZR08-E6, ZR08-E7, ZR08-E8)
+
+- `papers/notes/pending-ref-145-deep-learning-multidimensional-projections.md` (pending-reference evidence)

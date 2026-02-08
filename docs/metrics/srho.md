@@ -25,12 +25,21 @@ The computation should be implemented with a stable protocol: identical sampling
 
 When reporting values, record the full evaluation context including neighborhood scale, normalization policy, and whether labels were required. That metadata is part of the metric definition in practice because it determines what the reported number actually means.
 
+Detailed protocol rule: apply consistent distance scaling and normalization policy before computing global metrics. Global score comparisons are invalid when scale handling differs across candidates.
+
 ## Hyperparameter Impact
 Rank tie policy can change score stability on dense or repeated distances. Pairwise sampling strategy also affects variance and comparability.
 
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
 A robust workflow evaluates sensitivity by sweeping key controls and checking rank stability across seeds or folds. Large score variance indicates that the current configuration is not yet reliable enough for high-confidence method selection.
+
+Decision-level tuning rule: tune this metric only inside a task-aligned bundle objective and report sensitivity across multiple seeds or folds. Single-run improvements should be treated as provisional until rank stability is confirmed.
+
+## Practical Reliability Notes
+Spearman correlation captures rank monotonicity of distances and is robust to some scale effects, making it a useful global-order signal. It is especially informative for tasks where relative ordering matters more than exact distance magnitude.
+
+However, high SRHO does not guarantee good local neighborhoods. Keep SRHO in global bundles and require local checks for neighborhood/outlier tasks; otherwise ordering consistency can be mistaken for full structural reliability.
 
 ## Notable Properties
 It captures monotonic global agreement under scale differences. It does not directly indicate absolute distance-error magnitude.
@@ -57,6 +66,8 @@ Alignment here should be treated as a recommendation priority, not a hard constr
 
 When alignment is uncertain, prefer conservative interpretation and run clarification questions again. The task decision should remain primary, and metric selection should follow that decision rather than drive it.
 
+Operational alignment rule: use this metric as primary evidence for point-distance, cluster-distance, or density tasks; use as secondary guardrail for neighborhood tasks.
+
 ## Interpretation Notes
 Do not treat this metric as a standalone final decision criterion. Use it together with complementary metrics from other structural levels and keep preprocessing/seed policies fixed during comparison.
 
@@ -64,8 +75,11 @@ Use absolute values cautiously and prioritize relative comparisons under matched
 
 Before communicating a conclusion, cross-check this metric against the selected technique behavior and user-facing goal. A reliable recommendation should explain both why the score is good and why that goodness matters for the intended analytical action.
 
+Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
+
 ## Source Notes
 The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+
 - `papers/notes/zadu-ref-03-2408-07724v2.md` -> `CLAIM-METRIC-SRHO-SOURCE-03`
 - `papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md` -> `CLAIM-METRIC-SRHO-SOURCE-15`
 - `papers/notes/zadu-ref-04-2510-08660v1.md` -> `CLAIM-METRIC-SRHO-SOURCE-04`

@@ -18,6 +18,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 ## Required Structure
 - `docs/workflow/dr-analysis-workflow.md`
 - `docs/workflow/task-aligned-initialization.md`
+- `docs/workflow/reliability-report-contract.md`
 - `docs/overview.md`
 - `docs/intake-question-tree.md`
 - `docs/task-taxonomy.md`
@@ -35,6 +36,8 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `builder/evidence/alias-register.md`
 - `builder/evidence/reference-coverage.md`
 - `builder/evidence/reference-coverage.json`
+- `builder/evidence/pending-reference-papers.csv`
+- `builder/evidence/pending-reference-papers.md`
 - `builder/evidence/reference-group-map.json`
 - `builder/evidence/paper-catalog.json`
 - `papers/raw/`
@@ -42,6 +45,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `templates/paper-note-template.md`
 - `scripts/update_reference_coverage.py`
 - `scripts/update_paper_catalog.py`
+- `scripts/update_reference_backlog.py`
 
 ## Task Axis Contract
 - Workflow anchor: `docs/workflow/dr-analysis-workflow.md`.
@@ -61,22 +65,37 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 ## Ingestion Workflow
 1. Confirm source file exists in `papers/raw/`.
 2. Run relevance gate in `builder/evidence/relevance-policy.md`.
-3. If relevant, create/update one individual note per source file in `papers/notes/`.
+3. Parse with bounded runtime:
+   - per-PDF processing timeout defaults to 90 seconds;
+   - on timeout or parser corruption warnings, skip the file, log the reason in triage output, and continue batch processing.
+   - never let one malformed PDF block the full ingestion run.
+4. If relevant, create/update one individual note per source file in `papers/notes/`.
    - Seed-paper rule: every PDF directly under `papers/raw/` must have its own dedicated note file (no merged seed notes).
-4. Run canonicalization gate in `builder/evidence/canonicalization-policy.md`:
+5. Run canonicalization gate in `builder/evidence/canonicalization-policy.md`:
    - decide `alias-existing`, `new-concept`, or `needs-review`
    - record decision in `builder/evidence/alias-register.md`
-5. Use `templates/paper-note-template.md` contract.
-6. Update affected docs:
+6. Use `templates/paper-note-template.md` contract.
+7. Update affected docs:
    - `docs/metrics/<metric>.md` for metric-level changes.
    - `docs/techniques/<technique>.md` for technique-level changes.
    - `docs/metrics-and-libraries.md` for summary-level changes.
    - `docs/workflow/task-aligned-initialization.md` when initialization-policy evidence is added or changed.
    - `docs/reliability-cautions-and-tips.md` for grouped cautions/tips and mitigations.
-7. Recompute conflict status using `builder/evidence/conflict-policy.md` and update `builder/evidence/conflict-register.md`.
-8. Recompute reference frequency index with `python scripts/update_reference_coverage.py`.
-9. Recompute paper catalog with `python scripts/update_paper_catalog.py`.
-10. Run consistency checks (section completeness, metadata completeness, workflow-step sync).
+8. Recompute conflict status using `builder/evidence/conflict-policy.md` and update `builder/evidence/conflict-register.md`.
+9. Recompute reference frequency index with `python scripts/update_reference_coverage.py`.
+10. Recompute paper catalog with `python scripts/update_paper_catalog.py`.
+11. Recompute pending reference backlog from seed-paper bibliographies with `python scripts/update_reference_backlog.py`.
+12. Run consistency checks (section completeness, metadata completeness, workflow-step sync).
+
+## Seed Reference Harvesting Rule
+- When seed papers (PDFs directly under `papers/raw/`) are added or updated, extract bibliography candidates that can improve reliable DR usage for visual analytics.
+- Candidate extraction must be guided by both:
+  - bibliography title relevance, and
+  - body citation context relevance to reliability/task/quality/visual-analytics concerns.
+- Keep only references that are not yet backed by local PDFs in `papers/raw/` (seed or subdirectory references).
+- Write backlog outputs to:
+  - `builder/evidence/pending-reference-papers.csv`
+  - `builder/evidence/pending-reference-papers.md`
 
 ## Non-Negotiable Note Quality Gate
 Reject a note as incomplete if any condition fails:
@@ -95,12 +114,21 @@ Reject a note as incomplete if any condition fails:
   - `source_pdf`
   - `authors`/`venue` may be `UNKNOWN` only when unavailable from source, but keys must be present.
 - For reference papers (`papers/raw/<subdirectory>/...`), missing `seed_note_id` when no mapping exists in `builder/evidence/reference-group-map.json`.
+- Metadata normalization gate:
+  - `title` must not be filename-like (`1-s2...`, DOI-only strings, raw stem fragments, or parser garbage).
+  - `authors` must not contain affiliation/address-only lines (for example, department addresses or correspondence markers).
+  - if PDF extraction yields noisy metadata, re-check with DOI/arXiv/Crossref before finalizing frontmatter.
+  - if venue cannot be resolved with high confidence, keep `venue: "UNKNOWN"` rather than writing a guessed venue.
 
 ## Documentation Quality Gate
 - `docs/` must be concise and user-operational.
 - `docs/` should explain what to do, when to use it, and what to avoid.
 - Source-note links in `docs/` should map claims to `papers/notes/*`.
 - Detailed quote-level evidence stays in `papers/notes/*`.
+- Workflow-scope filter is mandatory:
+  - Do not promote workflow-unrelated topics to guidance rules or policy defaults.
+  - Examples to exclude from rule promotion unless directly tied to workflow decisions: pure perception studies, generic explainable-AI discussions, unrelated interactive-tool design details, and UI-only explainability tool behavior.
+  - Such content may remain in source notes, but must not become recommendation rules in `docs/workflow/*`, `docs/metrics-and-libraries.md`, or policy text.
 - `docs/` must keep a drill-down link chain:
   - `docs/overview.md` -> `docs/workflow/dr-analysis-workflow.md`
   - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/task-aligned-initialization.md`
@@ -109,6 +137,9 @@ Reject a note as incomplete if any condition fails:
 - For `docs/metrics/*` and `docs/techniques/*`, each required section must contain substantial prose:
   - target depth: at least one full paragraph, preferably two paragraphs for core sections
   - avoid one-line placeholders or bullet-only sections for core explanations
+  - adding source-note links alone is not considered a valid content update
+  - updating only `Practical Reliability Notes` is not considered a valid content update
+  - when new evidence changes guidance, update at least one of: computation details, hyperparameter impact, task alignment rationale, or known tradeoffs
 
 ## Metric Sync Gate (Mandatory)
 - Every metric file must include:
@@ -117,6 +148,7 @@ Reject a note as incomplete if any condition fails:
   - `Computation Outline`
   - `Task Alignment`
   - `Hyperparameter Impact`
+  - `Practical Reliability Notes`
   - `Notable Properties`
   - `Strengths`
   - `Interpretation Notes`
@@ -133,6 +165,9 @@ Reject a note as incomplete if any condition fails:
 - Minimum prose depth for each metric section:
   - `Metric Definition`, `What It Quantifies`, `Computation Outline`, `Hyperparameter Impact`, `Notable Properties`, `Strengths`, `Task Alignment`, and `Interpretation Notes` must each include at least one full paragraph.
   - At least three of those sections should include two paragraphs when evidence supports deeper detail.
+- Partial-update prohibition:
+  - A metric update is invalid if it modifies only `Source Notes` and/or only `Practical Reliability Notes`.
+  - Each metric update must also revise at least one of `Computation Outline`, `Hyperparameter Impact`, `Task Alignment`, or `Interpretation Notes` when new evidence is added.
 
 ## Technique Sync Gate (Mandatory)
 - If a new or updated source note contains technique-level information, update `docs/techniques/` in the same turn.
@@ -144,6 +179,7 @@ Reject a note as incomplete if any condition fails:
   - `Computation Outline`
   - `Task Alignment`
   - `Hyperparameter Impact`
+  - `Practical Reliability Notes`
   - `Notable Properties`
   - `Strengths`
   - `Known Tradeoffs`
@@ -163,6 +199,9 @@ Reject a note as incomplete if any condition fails:
 - Minimum prose depth for each technique section:
   - `Technique Summary`, `I/O Contract`, `Core Objective`, `Computation Outline`, `Hyperparameter Impact`, `Notable Properties`, `Strengths`, `Task Alignment`, and `Known Tradeoffs` must each include at least one full paragraph.
   - At least three of those sections should include two paragraphs when evidence supports deeper detail.
+- Partial-update prohibition:
+  - A technique update is invalid if it modifies only `Source Notes` and/or only `Practical Reliability Notes`.
+  - Each technique update must also revise at least one of `Computation Outline`, `Hyperparameter Impact`, `Task Alignment`, or `Known Tradeoffs` when new evidence is added.
 
 ## Alias Safety Rule
 - If two names look similar, do not merge by string similarity alone.

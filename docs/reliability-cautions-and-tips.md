@@ -119,8 +119,29 @@ Source notes:
 - `papers/notes/zadu-ref-04-2510-08660v1.md`
 - `papers/notes/2019-spectral-overlap-quality-metrics.md`
 - `papers/notes/2024-large-scale-text-spatialization.md`
+- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md`
+- `papers/notes/pending-ref-054-a-large-scale-sensitivity-analysis-on-latent-embeddings-an.md`
+- `papers/notes/pending-ref-055-hypernp-interactive-visual-exploration-of-multidimensional.md`
+- `papers/notes/pending-ref-121-understanding-how-dimension-reduction-tools-work-an-empiri.md`
+- `papers/notes/pending-ref-130-mountaineer-topology-driven-visual-analytics-for-comparing.md`
 
-### 9) Runtime-Quality Tradeoff Blind Spots
+### 9) Initialization/Seed Instability Hidden by Single Runs
+Single-run screenshots can hide large initialization/seed variance in stochastic DR methods. A method may look reliable in one run while producing conflicting structure in another run under the same data and nominal settings.
+
+Reliability action:
+- Always report multi-seed stability when using initialization-sensitive methods.
+- Keep initialization mode fixed during hyperparameter search, then separately evaluate initialization effect.
+- If multi-seed rankings disagree, mark recommendation confidence as reduced and keep alternatives.
+
+Source notes:
+- `papers/notes/2020-kobak-initialization-tsne-umap.md`
+- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md`
+- `papers/notes/pending-ref-054-a-large-scale-sensitivity-analysis-on-latent-embeddings-an.md`
+- `papers/notes/pending-ref-101-trimap-large-scale-dimensionality-reduction-using-triplets.md`
+- `papers/notes/pending-ref-129-ens-t-sne-embedding-neighborhoods-simultaneously-t-sne.md`
+- `papers/notes/pending-ref-142-umato-bridging-local-and-global-structures-for-reliable-vi.md`
+
+### 10) Runtime-Quality Tradeoff Blind Spots
 Some methods or evaluation procedures incur high runtime/complexity cost, and naive runtime assumptions can bias method choice.
 
 Reliability action:
@@ -146,3 +167,4 @@ Source notes:
 7. Log hyperparameter search space and optimization trace.
 8. Include runtime feasibility with quality evidence.
 9. Explain residual uncertainty and limits in the final recommendation.
+10. Add an initialization/seed stability statement for stochastic methods.

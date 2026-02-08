@@ -1,9 +1,9 @@
 ---
 id: paper-2026-zadu-ref-11
-title: "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction"
-authors: "UNKNOWN"
-venue: "UNKNOWN"
-year: 2026
+title: "<i>Classes are Not Clusters</i>: Improving Label-Based Evaluation of Dimensionality Reduction"
+authors: "Hyeon Jeon, Yun-Hsin Kuo, Michaël Aupetit, Kwan-Liu Ma, Jinwook Seo"
+venue: "IEEE Transactions on Visualization and Computer Graphics"
+year: 2024
 tags: [dr, zadu-table1-reference, c_evm, ca_tnc, dsc, dtm, ivm, kl_div, l_tnc, mrre, snc, tnc]
 source_pdf: papers/raw/zadu-table1-references/jeon23tvcg (4).pdf
 evidence_level: medium

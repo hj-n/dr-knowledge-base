@@ -16,11 +16,15 @@ Related:
 - What It Quantifies
 - Computation Outline
 - Hyperparameter Impact
+- Practical Reliability Notes
 - Notable Properties
 - Strengths
 - Task Alignment
 - Interpretation Notes
 - Source Notes
+
+Expectation:
+- `Practical Reliability Notes` should contain operation-level guidance tied to failure modes, not generic boilerplate.
 
 ## Coverage
 - Metrics tracked: 22

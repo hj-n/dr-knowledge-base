@@ -1,9 +1,9 @@
 ---
 id: paper-2026-zadu-ref-10
 title: "Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps"
-authors: "UNKNOWN"
-venue: "UNKNOWN"
-year: 2026
+authors: "of Self/-Organizing F eature Maps"
+venue: "IEEE Transactions on Neural Networks"
+year: 1992
 tags: [dr, zadu-table1-reference, topo]
 source_pdf: papers/raw/zadu-table1-references/download (2).pdf
 evidence_level: medium

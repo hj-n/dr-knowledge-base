@@ -25,12 +25,21 @@ The computation should be implemented with a stable protocol: identical sampling
 
 When reporting values, record the full evaluation context including neighborhood scale, normalization policy, and whether labels were required. That metadata is part of the metric definition in practice because it determines what the reported number actually means.
 
+Detailed protocol rule: apply consistent distance scaling and normalization policy before computing global metrics. Global score comparisons are invalid when scale handling differs across candidates.
+
 ## Hyperparameter Impact
 Measure/smoothing parameters trade robustness against sensitivity. Distance-function choices can shift which global structures are emphasized.
 
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
 A robust workflow evaluates sensitivity by sweeping key controls and checking rank stability across seeds or folds. Large score variance indicates that the current configuration is not yet reliable enough for high-confidence method selection.
+
+Decision-level tuning rule: tune this metric only inside a task-aligned bundle objective and report sensitivity across multiple seeds or folds. Single-run improvements should be treated as provisional until rank stability is confirmed.
+
+## Practical Reliability Notes
+DTM-style distances are sensitive to sampling density and neighborhood scale. In sparse regions, metric values can change more due to sample coverage than due to embedding quality itself, so interpretation should include data-density context.
+
+For robust comparison, keep the same sample subset and distance backend across runs. If DTM disagrees with rank-based local metrics, do not collapse them into a single score immediately; inspect whether disagreement is concentrated in sparse tails, outliers, or class-boundary regions.
 
 ## Notable Properties
 It is robustness-oriented and useful under outlier/noise conditions. It requires fixed parameterization to remain comparable across experiments.
@@ -57,6 +66,8 @@ Alignment here should be treated as a recommendation priority, not a hard constr
 
 When alignment is uncertain, prefer conservative interpretation and run clarification questions again. The task decision should remain primary, and metric selection should follow that decision rather than drive it.
 
+Operational alignment rule: use this metric as primary evidence for point-distance, cluster-distance, or density tasks; use as secondary guardrail for neighborhood tasks.
+
 ## Interpretation Notes
 Do not treat this metric as a standalone final decision criterion. Use it together with complementary metrics from other structural levels and keep preprocessing/seed policies fixed during comparison.
 
@@ -64,9 +75,16 @@ Use absolute values cautiously and prioritize relative comparisons under matched
 
 Before communicating a conclusion, cross-check this metric against the selected technique behavior and user-facing goal. A reliable recommendation should explain both why the score is good and why that goodness matters for the intended analytical action.
 
+Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
+
 ## Source Notes
 The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+
 - `papers/notes/zadu-ref-13-ref03-geometric-inference-for-probability-measures.md` -> `CLAIM-METRIC-DTM-SOURCE-13`
 - `papers/notes/zadu-ref-11-jeon23tvcg-4.md` -> `CLAIM-METRIC-DTM-SOURCE-11`
+
+- `papers/notes/pending-ref-009-uniform-manifold-approximation-with-two-phase-optimization.md` (pending-reference evidence)
+- `papers/notes/pending-ref-024-viscoder-a-tool-for-visually-comparing-dimensionality-redu.md` (pending-reference evidence)
+- `papers/notes/pending-ref-054-a-large-scale-sensitivity-analysis-on-latent-embeddings-an.md` (pending-reference evidence)
 
 [^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E5).

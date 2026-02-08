@@ -31,6 +31,8 @@ Implementation quality depends on stable preprocessing, deterministic settings w
 
 For reproducible comparison, evaluate this technique under a fixed protocol and report parameter context with results. This converts the outline from a conceptual recipe into an auditable procedure for downstream agents and reviewers.
 
+Detailed execution rule: keep label policy fixed and record how missing/noisy labels were handled. Supervised local methods can shift behavior dramatically with label cleaning choices.
+
 ## Hyperparameter Impact
 - Penalty weighting between false and missed neighbors changes class-preservation behavior.
 - Neighborhood scale influences which class-structure errors dominate.
@@ -38,6 +40,13 @@ For reproducible comparison, evaluate this technique under a fixed protocol and 
 Hyperparameters determine the local-vs-global balance, optimization stability, and visual behavior of the embedding. They should be tuned against task-aligned metrics rather than aesthetics alone, especially when outputs influence model or policy decisions.
 
 A practical default is Bayesian optimization with guardrails: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
+
+Decision-level tuning rule: report both best score and stability behavior (seed variance / restart variance). A configuration that wins once but is unstable should not be the default recommendation.
+
+## Practical Reliability Notes
+ClassiMap uses label information to influence projection structure, typically improving class-separation readability when labels are coherent. It can be effective for class-focused exploratory analysis and annotation review workflows.
+
+As with other supervised projections, do not generalize class-oriented gains to unrelated tasks such as faithful global distance investigation. Keep task declaration explicit and pair ClassiMap with non-label metrics when reporting final recommendations.
 
 ## Notable Properties
 - Can expose class-structure distortions more directly than label-agnostic stress.
@@ -62,6 +71,8 @@ Task alignment indicates where this technique is expected to provide the most re
 
 When a project requires multiple task outcomes, combine this section with metric-level alignment and require agreement across both layers. If technique and metric recommendations diverge, collect more evidence before production use.
 
+Operational alignment rule: use as primary candidates only for class-separability-oriented tasks; for non-class tasks, keep these methods as optional comparisons and require label-agnostic corroboration.
+
 ## Known Tradeoffs
 - Not appropriate when label assumptions are weak or unavailable.
 
@@ -69,5 +80,10 @@ Tradeoffs are expected and should be made explicit to users before final selecti
 
 In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
 
+Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
+
 ## Source Notes
 - `papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md` (ZR14-E7, ZR14-E8)
+
+- `papers/notes/pending-ref-044-classimap-a-new-dimension-reduction-technique-for-explorat.md` (pending-reference evidence)
+- `papers/notes/pending-ref-161-steering-distortions-to-preserve-classes-and-neighbors-in.md` (pending-reference evidence)

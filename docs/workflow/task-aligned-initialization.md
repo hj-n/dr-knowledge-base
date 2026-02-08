@@ -68,12 +68,21 @@ When comparing methods or settings:
 3. `Inferred alignment`: For global tasks, include at least one global-structure metric in the comparison report.
 4. `Inferred alignment`: For local tasks, include at least one local-neighborhood metric in the comparison report.
 
+## Initialization Stability Requirement
+For initialization-sensitive stochastic methods (`t-sne`, `umap`, `trimap`, and related variants), include a stability check before final recommendation:
+- run at least 3 seeds under the same hyperparameter setting and initialization mode;
+- compare both metric ranks and qualitative structure stability across runs;
+- if ranking or interpretation changes materially across seeds, mark recommendation confidence as `reduced` and keep multiple candidates.
+
+When random initialization is evaluated, treat it as a variability probe rather than a default production policy for distance-critical tasks. For global-structure tasks, keep informative initialization as the baseline and document why any random-initialization result is still acceptable.
+
 ## Initialization Decision Output Contract
 Step 4 must produce:
 - `initialization_mode` (`informative` | `random` | `deterministic_na`)
 - `initialization_method` (for example `pca`, `laplacian_eigenmaps`, `random`)
 - `initialization_rationale` (task-aligned explanation)
 - `initialization_comparison_protocol` (how fairness and reproducibility are enforced)
+- `initialization_stability_summary` (seed-wise variance and whether recommendation confidence is reduced)
 
 ## Source Notes
 - `papers/notes/2020-kobak-initialization-tsne-umap.md`
@@ -81,3 +90,8 @@ Step 4 must produce:
 - `papers/notes/2019-spectral-overlap-quality-metrics.md`
 - `papers/notes/2024-large-scale-text-spatialization.md`
 - `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md`
+- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md`
+- `papers/notes/pending-ref-054-a-large-scale-sensitivity-analysis-on-latent-embeddings-an.md`
+- `papers/notes/pending-ref-101-trimap-large-scale-dimensionality-reduction-using-triplets.md`
+- `papers/notes/pending-ref-121-understanding-how-dimension-reduction-tools-work-an-empiri.md`
+- `papers/notes/pending-ref-129-ens-t-sne-embedding-neighborhoods-simultaneously-t-sne.md`

@@ -1,0 +1,60 @@
+note,updated,score,title,venue_old,venue_new
+2506.08725v2-stop-misusing-tsne-umap.md,false,0.38461538461538464,Stop Misusing t-SNE and UMAP for Visual Analytics,UNKNOWN,
+pending-extra-1-s2-0-s003132039900-1-s2-0-s0031320399000783-main.md,false,0.3333333333333333,Pattern Recognition 33 (2000) 651}669 Data visualization by multidimensional scaling:,UNKNOWN,
+pending-extra-friedman-exploratory-friedman-exploratoryprojectionpursuit-1987.md,false,0.3333333333333333,Friedman-ExploratoryProjectionPursuit-1987,UNKNOWN,
+pending-extra-large-manifold-book-large-manifold-book-chapter.md,false,0.17391304347826086,"Ameet Talwalkar,1 Sanjiv Kumar, 2 Mehryar Mohri, 3 Henry Rowley 4 6.1 Introduction",UNKNOWN,
+pending-extra-rkharal2006-rkharal2006.md,false,0.35714285714285715,Semideﬁnite Embedding for the Dimensionality Reduction of DNA Microarray Data,UNKNOWN,
+pending-extra-science-290-5500-231-science-290-5500-2319.md,false,0.25,science.290.5500.2319,UNKNOWN,
+pending-extra-weinberger05a-weinberger05a.md,false,0.35714285714285715,Nonlinear Dimensionality Reduction by Semideﬁnite Programming and Kernel Matrix Factorization,UNKNOWN,
+pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md,false,0.5,Information retrieval perspective to nonlinear dimensionality reduction for data visualization,UNKNOWN,
+pending-ref-009-uniform-manifold-approximation-with-two-phase-optimization.md,true,1.0,Uniform manifold approximation with two-phase optimization,UNKNOWN,2022 IEEE Visualization and Visual Analytics (VIS)
+pending-ref-014-charting-a-manifold.md,false,0.2,Charting a manifold,UNKNOWN,
+pending-ref-022-human-cluster-evaluation-and-formal-quality-measures-a-com.md,false,0.36363636363636365,Human cluster evaluation and formal quality measures: A comparative study,UNKNOWN,
+pending-ref-023-visual-quality-metrics-and-human-perception-an-initial-stu.md,false,0.375,Visual quality metrics and human perception: an initial study on 2D projections of large multidimensional data,UNKNOWN,
+pending-ref-024-viscoder-a-tool-for-visually-comparing-dimensionality-redu.md,false,0.3,VisCoDeR: A tool for visually comparing dimensionality reduction algorithms,UNKNOWN,
+pending-ref-026-umap-uniform-manifold-approximation-and-projection-for-dim.md,false,0.6666666666666666,UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction,UNKNOWN,
+pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md,false,0.4375,Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations,UNKNOWN,
+pending-ref-035-stress-maps-analysing-local-phenomena-in-dimensionality-re.md,false,0.3,Stress Maps: Analysing Local Phenomena in Dimensionality Reduction Based Visualisations,UNKNOWN,
+pending-ref-037-attribute-based-visual-explanation-of-multidimensional-pro.md,false,0.375,Attribute-based Visual Explanation of Multidimensional Projections,UNKNOWN,
+pending-ref-041-quantitative-evaluation-of-time-dependent-multidimensional.md,true,1.0,Quantitative evaluation of time-dependent multidimensional projection techniques,UNKNOWN,Computer Graphics Forum
+pending-ref-043-local-procrustes-for-manifold-embedding-a-measure-of-embed.md,true,1.0,Local procrustes for manifold embedding: A measure of embedding quality and embedding algorithms,UNKNOWN,Machine Learning
+pending-ref-044-classimap-a-new-dimension-reduction-technique-for-explorat.md,true,1.0,ClassiMap: A new dimension reduction technique for exploratory data analysis of labeled data,UNKNOWN,International Journal of Pattern Recognition and Artificial Intelligence
+pending-ref-045-a-behavioral-investigation-of-dimensionality-reduction.md,false,0.4444444444444444,A behavioral investigation of dimensionality reduction,UNKNOWN,
+pending-ref-046-neighborhood-preserving-embedding.md,true,1.0,Neighborhood preserving embedding,UNKNOWN,Tenth IEEE International Conference on Computer Vision (ICCV'05) Volume 1
+pending-ref-047-visualizing-dimensionality-reduction-artifacts-an-evaluati.md,false,0.3333333333333333,Visualizing dimensionality reduction artifacts: An evaluation,UNKNOWN,
+pending-ref-048-linear-dimensionality-reduction-survey-insights-and-genera.md,false,0.42857142857142855,"Linear dimensionality reduction: Survey, insights, and generalizations",UNKNOWN,
+pending-ref-051-explaining-neighborhood-preservation-for-multidimensional.md,false,0.3333333333333333,Explaining Neighborhood Preservation for Multidimensional Projections,UNKNOWN,
+pending-ref-056-selecting-and-sharing-multidimensional-projection-algorith.md,false,0.2857142857142857,Selecting and Sharing Multidimensional Projection Algorithms: A Practical View,UNKNOWN,
+pending-ref-060-proxilens-interactive-exploration-of-high-dimensional-data.md,false,0.5,ProxiLens: Interactive Exploration of High-Dimensional Data using Projections,UNKNOWN,
+pending-ref-061-visne-enables-visualization-of-high-dimensional-single-cel.md,true,1.0,viSNE enables visualization of high dimensional single-cell data and reveals phenotypic heterogeneity of leukemia,UNKNOWN,Nature Biotechnology
+pending-ref-064-experiments-with-random-projection.md,false,0.6666666666666666,Experiments with random projection,UNKNOWN,
+pending-ref-065-predicting-user-preferences-of-dimensionality-reduction-em.md,true,1.0,Predicting User Preferences of Dimensionality Reduction Embedding Quality,UNKNOWN,IEEE Transactions on Visualization and Computer Graphics
+pending-ref-068-nonlinear-dimensionality-reduction-and-data-visualization.md,true,1.0,Nonlinear dimensionality reduction and data visualization: a review,UNKNOWN,International Journal of Automation and Computing
+pending-ref-069-principal-manifolds-and-nonlinear-dimensionality-reduction.md,true,1.0,Principal manifolds and nonlinear dimensionality reduction via tangent space alignment,UNKNOWN,Journal of Shanghai University (English Edition)
+pending-ref-073-trustworthiness-and-metrics-in-visualizing-similarity-of-g.md,true,1.0,Trustworthiness and metrics in visualizing similarity of gene expression,UNKNOWN,BMC Bioinformatics
+pending-ref-079-adaptive-manifold-learning.md,true,1.0,Adaptive manifold learning,UNKNOWN,IEEE Transactions on Pattern Analysis and Machine Intelligence
+pending-ref-088-global-versus-local-methods-in-nonlinear-dimensionality-re.md,false,0.5,Global Versus Local Methods in Nonlinear Dimensionality Reduction,UNKNOWN,
+pending-ref-092-dd-hds-a-method-for-visualization-and-exploration-of-high.md,true,1.0,DD-HDS: A Method for Visualization and Exploration of High-Dimensional Data,UNKNOWN,IEEE Transactions on Neural Networks
+pending-ref-101-trimap-large-scale-dimensionality-reduction-using-triplets.md,false,0.4166666666666667,TriMap: Large-scale Dimensionality Reduction Using Triplets,UNKNOWN,
+pending-ref-108-dimred-and-coranking-unifying-dimensionality-reduction-in.md,true,1.0,dimRed and coRanking—Unifying Dimensionality Reduction in R,UNKNOWN,The R Journal
+pending-ref-111-the-art-of-seeing-the-elephant-in-the-room-2d-embeddings-o.md,false,1.0,The art of seeing the elephant in the room: 2D embeddings of single-cell data do make sense,UNKNOWN,
+pending-ref-117-random-projection-for-high-dimensional-data-clustering-a-c.md,true,0.75,Random projection for high dimensional data clustering: A cluster ensemble approach,UNKNOWN,International Journal of Database Theory and Application
+pending-ref-118-understanding-bias-in-perceiving-dimensionality-reduction.md,false,0.3,Understanding Bias in Perceiving Dimensionality Reduction Projections,UNKNOWN,
+pending-ref-121-understanding-how-dimension-reduction-tools-work-an-empiri.md,false,0.3181818181818182,"Understanding How Dimension Reduction Tools Work: An Empirical Approach to Deciphering t-SNE, UMAP, TriMap, and PaCMAP for Data Visualization",UNKNOWN,
+pending-ref-129-ens-t-sne-embedding-neighborhoods-simultaneously-t-sne.md,true,1.0,ENS-t-SNE: Embedding Neighborhoods Simultaneously t-SNE,UNKNOWN,2024 IEEE 17th Pacific Visualization Conference (PacificVis)
+pending-ref-132-doubly-supervised-embedding-based-on-class-labels-and-intr.md,true,0.812,Doubly supervised embedding based on class labels and intrinsic clusters for highdimensional data visualization,UNKNOWN,Neurocomputing
+pending-ref-145-deep-learning-multidimensional-projections.md,true,1.0,Deep learning multidimensional projections,UNKNOWN,Information Visualization
+pending-ref-146-progressive-uniform-manifold-approximation-and-projection.md,false,0.833,Progressive Uniform Manifold Approximation and Projection,UNKNOWN,
+pending-ref-161-steering-distortions-to-preserve-classes-and-neighbors-in.md,false,0.26666666666666666,Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction,UNKNOWN,
+pending-ref-164-neighborhoodpreserving-embedding.md,false,0.5,Neighborhoodpreserving embedding,UNKNOWN,
+pending-ref-166-projection-ensemble-visualizing-the-robust-structures-of-m.md,true,1.0,Projection Ensemble: Visualizing the Robust Structures of Multidimensional Projections,UNKNOWN,2023 IEEE Visualization and Visual Analytics (VIS)
+pending-ref-169-horopca-hyperbolic-dimensionality-reduction-via-horospheri.md,false,0.3333333333333333,HoroPCA: Hyperbolic Dimensionality Reduction via Horospherical Projections,UNKNOWN,
+pending-ref-183-vizrank-data-visualization-guided-by-machine-learning.md,true,1.0,Vizrank: Data visualization guided by machine learning,UNKNOWN,Data Mining and Knowledge Discovery
+pending-ref-184-principal-manifolds-and-nonlinear-dimensionality-reduction.md,true,0.833,Principal Manifolds and Nonlinear Dimensionality Reduction via Tangent Space Alignment SIAM J,UNKNOWN,Journal of Shanghai University (English Edition)
+zadu-ref-02-1-s2-0-s0925231209000101-main.md,false,0.2727272727272727,doi:10.1016/j.neucom.2008.12.017,UNKNOWN,
+zadu-ref-08-local-affine-multidimensional-projection-1.md,true,1.0,Local Affine Multidimensional Projection,UNKNOWN,IEEE Transactions on Visualization and Computer Graphics
+zadu-ref-10-download-2.md,true,1.0,Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps,UNKNOWN,IEEE Transactions on Neural Networks
+zadu-ref-12-kruskal-1964a.md,true,1.0,Multidimensional scaling by optimizing goodness of fit to a nonmetric hypothesis,UNKNOWN,Psychometrika
+zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md,false,0.23076923076923078,Steering Distortions to Preserve Classes and,UNKNOWN,
+zadu-ref-17-ref13-stochastic-neighbor-embedding.md,true,0.75,Stochastic Neighbor Embedding,UNKNOWN,An Introduction to Spatial Data Science with GeoDa
+zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md,true,1.0,Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections,UNKNOWN,IEEE Transactions on Visualization and Computer Graphics

@@ -31,6 +31,8 @@ Implementation quality depends on stable preprocessing, deterministic settings w
 
 For reproducible comparison, evaluate this technique under a fixed protocol and report parameter context with results. This converts the outline from a conceptual recipe into an auditable procedure for downstream agents and reviewers.
 
+Detailed execution rule: treat control-point/landmark selection as a controlled factor and run sensitivity checks across multiple selections. Landmark policy drift can dominate method comparisons.
+
 ## Hyperparameter Impact
 - Control-point weighting and selection affect precision and complexity.
 - Approximation settings trade quality for runtime scalability.
@@ -38,6 +40,13 @@ For reproducible comparison, evaluate this technique under a fixed protocol and 
 Hyperparameters determine the local-vs-global balance, optimization stability, and visual behavior of the embedding. They should be tuned against task-aligned metrics rather than aesthetics alone, especially when outputs influence model or policy decisions.
 
 A practical default is Bayesian optimization with guardrails: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
+
+Decision-level tuning rule: optimize both landmark ratio and local fitting settings under the same task metric bundle; report whether conclusions persist across reasonable landmark policies.
+
+## Practical Reliability Notes
+LSP-style projections provide practical speed-quality tradeoffs and can work well in interactive settings. Their reliability depends on representative landmark/control selections and stable projection fitting.
+
+When using LSP for recommendation, run robustness checks over landmark sampling seeds. If embedding narratives change across landmark sets, mark confidence as reduced and keep additional candidate methods in the final shortlist.
 
 ## Notable Properties
 - Designed around quality-speed practicality for real analysis settings.
@@ -63,12 +72,16 @@ Task alignment indicates where this technique is expected to provide the most re
 
 When a project requires multiple task outcomes, combine this section with metric-level alignment and require agreement across both layers. If technique and metric recommendations diverge, collect more evidence before production use.
 
+Operational alignment rule: method alignment should constrain candidate ranking, but final acceptance still requires agreement with task-aligned metric bundles and warning-gate status.
+
 ## Known Tradeoffs
 - Performance profile depends on dataset size and control-point strategy.
 
 Tradeoffs are expected and should be made explicit to users before final selection. A method that improves neighborhood fidelity may worsen global distance faithfulness, and vice versa, so optimization must reflect the task hierarchy.
 
 In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
+
+Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
 ## Source Notes
 - `papers/notes/zadu-ref-06-least-square-projection-a-fast-high-precision-multidimensional-projection-techni.md` (ZR06-E5, ZR06-E6, ZR06-E7, ZR06-E8)

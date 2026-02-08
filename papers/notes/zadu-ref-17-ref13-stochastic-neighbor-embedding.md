@@ -1,9 +1,9 @@
 ---
-id: paper-2026-zadu-ref-17
+id: paper-2002-zadu-ref-17
 title: "Stochastic Neighbor Embedding"
-authors: "UNKNOWN"
-venue: "UNKNOWN"
-year: 2026
+authors: "Geoffrey E. Hinton, Sam T. Roweis"
+venue: "Advances in Neural Information Processing Systems (NIPS 15)"
+year: 2002
 tags: [dr, zadu-table1-reference, kl_div, stress]
 source_pdf: papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf
 evidence_level: medium

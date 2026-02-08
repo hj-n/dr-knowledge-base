@@ -31,6 +31,8 @@ Implementation quality depends on stable preprocessing, deterministic settings w
 
 For reproducible comparison, evaluate this technique under a fixed protocol and report parameter context with results. This converts the outline from a conceptual recipe into an auditable procedure for downstream agents and reviewers.
 
+Detailed execution rule: run multiple seeds under the same initialization mode and compare structural consistency before accepting conclusions. For local stochastic methods, a single visually appealing run is not sufficient evidence.
+
 ## Hyperparameter Impact
 - neighborhood and optimization settings remain key controls for local-vs-global behavior.
 - initialization policy can strongly affect global-structure interpretation and reproducibility in comparisons.
@@ -39,6 +41,13 @@ For reproducible comparison, evaluate this technique under a fixed protocol and 
 Hyperparameters determine the local-vs-global balance, optimization stability, and visual behavior of the embedding. They should be tuned against task-aligned metrics rather than aesthetics alone, especially when outputs influence model or policy decisions.
 
 A practical default is Bayesian optimization with guardrails: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
+
+Decision-level tuning rule: tune local-scale controls and optimization controls jointly, then verify that gains remain under seed perturbation. If seed sensitivity is high, downgrade confidence and keep fallback candidates.
+
+## Practical Reliability Notes
+UMAP behavior is strongly controlled by neighborhood size and minimum-distance style controls, which jointly define local packing and cluster spacing. Parameter sweeps should be interpreted as task-conditional model choices, not cosmetic tuning.
+
+When UMAP is used for decision support, compare at least one local metric and one global metric under fixed preprocessing and fixed initialization policy. This guards against selecting configurations that look visually clean but are unstable or misaligned to the declared analytical task.
 
 ## Notable Properties
 - Strong local-structure embeddings for many exploratory tasks.
@@ -64,6 +73,8 @@ Task alignment indicates where this technique is expected to provide the most re
 
 When a project requires multiple task outcomes, combine this section with metric-level alignment and require agreement across both layers. If technique and metric recommendations diverge, collect more evidence before production use.
 
+Operational alignment rule: method alignment should constrain candidate ranking, but final acceptance still requires agreement with task-aligned metric bundles and warning-gate status.
+
 ## Known Tradeoffs
 - Not default for global distance/density tasks in the 7-task taxonomy.
 
@@ -71,7 +82,18 @@ Tradeoffs are expected and should be made explicit to users before final selecti
 
 In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
 
+Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
+
 ## Source Notes
 - `papers/notes/2506.08725v2-stop-misusing-tsne-umap.md` (JEON25-E2, JEON25-E3, JEON25-E4, JEON25-E5, JEON25-E6)
 - `papers/notes/2020-kobak-initialization-tsne-umap.md` (CLAIM-KOBAK20-C1, CLAIM-KOBAK20-C2, CLAIM-KOBAK20-C3)
 - `papers/notes/2022-revisiting-dr-visual-cluster-analysis.md` (CLAIM-REV22-C2)
+
+- `papers/notes/pending-ref-009-uniform-manifold-approximation-with-two-phase-optimization.md` (pending-reference evidence)
+- `papers/notes/pending-ref-015-feature-learning-for-nonlinear-dimensionality-reduction-to.md` (pending-reference evidence)
+- `papers/notes/pending-ref-026-umap-uniform-manifold-approximation-and-projection-for-dim.md` (pending-reference evidence)
+- `papers/notes/pending-ref-032-dimensionality-reduction-for-visualizing-single-cell-data.md` (pending-reference evidence)
+- `papers/notes/pending-ref-039-assessing-singlecell-transcriptomic-variability-through-de.md` (pending-reference evidence)
+- `papers/notes/pending-ref-041-quantitative-evaluation-of-time-dependent-multidimensional.md` (pending-reference evidence)
+- `papers/notes/pending-ref-055-hypernp-interactive-visual-exploration-of-multidimensional.md` (pending-reference evidence)
+- `papers/notes/pending-ref-077-assessing-single-cell-transcriptomic-variability-through-d.md` (pending-reference evidence)

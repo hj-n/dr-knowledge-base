@@ -25,12 +25,21 @@ The computation should be implemented with a stable protocol: identical sampling
 
 When reporting values, record the full evaluation context including neighborhood scale, normalization policy, and whether labels were required. That metadata is part of the metric definition in practice because it determines what the reported number actually means.
 
+Detailed protocol rule: evaluate multiple neighborhood scales (for example small/medium/local-range k values) and keep the same k schedule across methods. Local metrics should be read as scale-dependent curves, not single-point truths.
+
 ## Hyperparameter Impact
 kNN construction policy determines sensitivity to local graph changes. Distance metric choice affects absolute score scale and cross-method comparisons.
 
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
 A robust workflow evaluates sensitivity by sweeping key controls and checking rank stability across seeds or folds. Large score variance indicates that the current configuration is not yet reliable enough for high-confidence method selection.
+
+Decision-level tuning rule: tune this metric only inside a task-aligned bundle objective and report sensitivity across multiple seeds or folds. Single-run improvements should be treated as provisional until rank stability is confirmed.
+
+## Practical Reliability Notes
+Neighbor dissimilarity responds strongly to graph-construction policy. Small differences in kNN tie-breaking, metric backend, or duplicate handling can change ND values even on the same embedding.
+
+For reliability-focused comparisons, freeze graph policy and run seed-stability checks for stochastic methods. If ND ranking is unstable across seeds while other local metrics are stable, treat ND as exploratory evidence and avoid over-weighting it in final selection.
 
 ## Notable Properties
 It directly reflects neighborhood-graph distortion behavior. It complements global metrics by exposing local structural drift patterns.
@@ -56,6 +65,8 @@ Alignment here should be treated as a recommendation priority, not a hard constr
 
 When alignment is uncertain, prefer conservative interpretation and run clarification questions again. The task decision should remain primary, and metric selection should follow that decision rather than drive it.
 
+Operational alignment rule: this metric is strongest for neighborhood, outlier, and cluster-local tasks. For point-distance or density-dominant tasks, keep it as guardrail evidence rather than primary ranking evidence.
+
 ## Interpretation Notes
 Do not treat this metric as a standalone final decision criterion. Use it together with complementary metrics from other structural levels and keep preprocessing/seed policies fixed during comparison.
 
@@ -63,9 +74,19 @@ Use absolute values cautiously and prioritize relative comparisons under matched
 
 Before communicating a conclusion, cross-check this metric against the selected technique behavior and user-facing goal. A reliable recommendation should explain both why the score is good and why that goodness matters for the intended analytical action.
 
+Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
+
 ## Source Notes
 The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+
 - `papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md` -> `CLAIM-METRIC-ND-SOURCE-15`
 - `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md` -> `CLAIM-METRIC-ND-SOURCE-18`
+
+- `papers/notes/pending-ref-013-a-survey-of-dimension-reduction-methods-for-high-dimension.md` (pending-reference evidence)
+- `papers/notes/pending-ref-028-visualizing-the-quality-of-dimensionality-reduction.md` (pending-reference evidence)
+- `papers/notes/pending-ref-046-neighborhood-preserving-embedding.md` (pending-reference evidence)
+- `papers/notes/pending-ref-087-explaining-three-dimensional-dimensionality-reduction-plot.md` (pending-reference evidence)
+- `papers/notes/pending-ref-111-the-art-of-seeing-the-elephant-in-the-room-2d-embeddings-o.md` (pending-reference evidence)
+- `papers/notes/pending-ref-123-hierarchical-stochastic-neighbor-embedding.md` (pending-reference evidence)
 
 [^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E3).

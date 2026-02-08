@@ -25,6 +25,8 @@ The computation should be implemented with a stable protocol: identical sampling
 
 When reporting values, record the full evaluation context including neighborhood scale, normalization policy, and whether labels were required. That metadata is part of the metric definition in practice because it determines what the reported number actually means.
 
+Detailed protocol rule: apply consistent distance scaling and normalization policy before computing global metrics. Global score comparisons are invalid when scale handling differs across candidates.
+
 ## Hyperparameter Impact
 Neighborhood probability construction parameters strongly affect divergence behavior. Scale handling and probability calibration policy are critical for fair comparisons.
 Scale policy must be explicit when comparing values across runs or methods.[^warn-scale]
@@ -32,6 +34,13 @@ Scale policy must be explicit when comparing values across runs or methods.[^war
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
 A robust workflow evaluates sensitivity by sweeping key controls and checking rank stability across seeds or folds. Large score variance indicates that the current configuration is not yet reliable enough for high-confidence method selection.
+
+Decision-level tuning rule: tune this metric only inside a task-aligned bundle objective and report sensitivity across multiple seeds or folds. Single-run improvements should be treated as provisional until rank stability is confirmed.
+
+## Practical Reliability Notes
+KL-style objectives are asymmetric: the direction of comparison determines which distortion type is penalized more. In DR practice this means the same embedding can look better or worse depending on whether false-neighbor or missed-neighbor errors are emphasized. Keep objective direction fixed when benchmarking methods.
+
+Because KL is sensitive to small-probability neighborhoods, optimization noise and early exaggeration style settings can materially alter outcomes. Treat KL-driven tuning as a stability problem: compare multiple seeds and avoid accepting single-run wins that are not reproduced.
 
 ## Notable Properties
 It captures probability-level neighborhood mismatch, not only distance mismatch. It can be optimization-sensitive and should be interpreted with scale policy documented.
@@ -58,6 +67,8 @@ Alignment here should be treated as a recommendation priority, not a hard constr
 
 When alignment is uncertain, prefer conservative interpretation and run clarification questions again. The task decision should remain primary, and metric selection should follow that decision rather than drive it.
 
+Operational alignment rule: use this metric as primary evidence for point-distance, cluster-distance, or density tasks; use as secondary guardrail for neighborhood tasks.
+
 ## Interpretation Notes
 Do not treat this metric as a standalone final decision criterion. Use it together with complementary metrics from other structural levels and keep preprocessing/seed policies fixed during comparison.
 
@@ -65,13 +76,23 @@ Use absolute values cautiously and prioritize relative comparisons under matched
 
 Before communicating a conclusion, cross-check this metric against the selected technique behavior and user-facing goal. A reliable recommendation should explain both why the score is good and why that goodness matters for the intended analytical action.
 
+Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
+
 ## Source Notes
 The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+
 - `papers/notes/zadu-ref-03-2408-07724v2.md` -> `CLAIM-METRIC-KL_DIV-SOURCE-03`
 - `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md` -> `CLAIM-METRIC-KL_DIV-SOURCE-17`
 - `papers/notes/zadu-ref-11-jeon23tvcg-4.md` -> `CLAIM-METRIC-KL_DIV-SOURCE-11`
 - `papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md` -> `CLAIM-METRIC-KL_DIV-SOURCE-14`
 - `papers/notes/zadu-ref-04-2510-08660v1.md` -> `CLAIM-METRIC-KL_DIV-SOURCE-04`
+
+- `papers/notes/pending-ref-009-uniform-manifold-approximation-with-two-phase-optimization.md` (pending-reference evidence)
+- `papers/notes/pending-ref-040-tvisne-interactive-assessment-and-interpretation-of-t-sne.md` (pending-reference evidence)
+- `papers/notes/pending-ref-041-quantitative-evaluation-of-time-dependent-multidimensional.md` (pending-reference evidence)
+- `papers/notes/pending-ref-061-visne-enables-visualization-of-high-dimensional-single-cel.md` (pending-reference evidence)
+- `papers/notes/pending-ref-073-trustworthiness-and-metrics-in-visualizing-similarity-of-g.md` (pending-reference evidence)
+- `papers/notes/pending-ref-104-implicit-multidimensional-projection-of-local-subspaces.md` (pending-reference evidence)
 
 [^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E5).
 [^warn-scale]: Scale-sensitivity notes: `papers/notes/zadu-ref-03-2408-07724v2.md` (CLAIM-SOURCE-03-CORE), `papers/notes/zadu-ref-04-2510-08660v1.md` (CLAIM-SOURCE-04-CORE).

@@ -15,10 +15,19 @@ A typical computation compares neighborhood sets across spaces and scores overla
 
 Because neighborhood metrics can still be sensitive to protocol choices (distance backend, preprocessing policy, sampling), keep evaluation settings fixed when comparing methods or hyperparameters.
 
+Detailed protocol rule: evaluate multiple neighborhood scales (for example small/medium/local-range k values) and keep the same k schedule across methods. Local metrics should be read as scale-dependent curves, not single-point truths.
+
 ## Hyperparameter Impact
 `qnx` is often used as a parameter-light objective compared with many older DR quality metrics. That makes it attractive for hyperparameter optimization loops where objective instability is a practical risk.
 
 Even with parameter-light behavior, protocol controls still matter: changes in normalization, distance metric, or neighborhood construction can alter scores. Keep those controls explicit in optimization logs.
+
+Decision-level tuning rule: tune this metric only inside a task-aligned bundle objective and report sensitivity across multiple seeds or folds. Single-run improvements should be treated as provisional until rank stability is confirmed.
+
+## Practical Reliability Notes
+QNX is useful for quantifying neighborhood retention across rank ranges with low implementation overhead. It is practical in iterative tuning loops where fast local-quality feedback is needed.
+
+Because QNX can be sensitive to neighborhood-range definition, publish the evaluated range explicitly. If candidate methods are close on QNX, break ties using task-aligned secondary metrics and stability checks rather than tiny QNX deltas.
 
 ## Notable Properties
 A notable property is robust behavior in benchmarked optimization contexts where metrics are used to choose DR hyperparameters. In the cited study, overlap-based metrics were consistently strong for 2D and higher-dimensional cases.
@@ -38,11 +47,17 @@ Best-aligned tasks are local structure tasks in the repository taxonomy:
 
 For global-distance or density-dominant tasks, `qnx` should be paired with global metrics instead of used alone.
 
+Operational alignment rule: this metric is strongest for neighborhood, outlier, and cluster-local tasks. For point-distance or density-dominant tasks, keep it as guardrail evidence rather than primary ranking evidence.
+
 ## Interpretation Notes
 Do not treat `qnx` as a universal quality score. It validates local neighborhood retention, not complete geometric faithfulness.
 
 For production recommendations, combine `qnx` with at least one global metric and one task-specific caveat check. This avoids overfitting to local fidelity while missing global distortions.
 
+Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
+
 ## Source Notes
 - `papers/notes/2019-spectral-overlap-quality-metrics.md` -> `CLAIM-JT19-C3`
 - `papers/notes/2021-quantitative-survey-dr-techniques.md` -> `CLAIM-QSUR21-C2`
+
+- `papers/notes/pending-ref-028-visualizing-the-quality-of-dimensionality-reduction.md` (pending-reference evidence)

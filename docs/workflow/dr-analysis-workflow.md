@@ -28,7 +28,8 @@ Use this sequence as the default DR-analysis workflow.
 7. Final recommendation explanation:
    this file (Step 7 contract) + frequency ranking in
    [`docs/reference-coverage.md`](../reference-coverage.md) +
-   reliability notes in [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
+   reliability notes in [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md) +
+   report contract in [`docs/workflow/reliability-report-contract.md`](./reliability-report-contract.md)
 
 ## 1) Task clarification
 - Ask plain-language questions.
@@ -74,6 +75,7 @@ Output:
 - `selected_technique_family`
 - `selected_metrics`
 - `warning_gate_result`
+- `selection_tradeoffs` (what was improved and what was intentionally not optimized)
 
 ## 4) Task-aligned initialization decision
 - Decide initialization policy after task, method, and metric selection are fixed.
@@ -92,10 +94,14 @@ Output:
 - `initialization_method`
 - `initialization_rationale`
 - `initialization_comparison_protocol`
+- `initialization_stability_summary`
 
 ## 5) Bayesian hyperparameter optimization (`bayes_opt`)
 - Optimize hyperparameters against Step-3 objective, under the fixed Step-4 initialization policy.
 - Keep seed/search-space settings explicit.
+- Prefer multi-objective scoring when task risk is high:
+  - one primary task metric
+  - one guardrail metric from a different structural level
 - Read:
   selected metric/technique file(s) under
   [`docs/metrics/`](../metrics/README.md) and
@@ -106,6 +112,8 @@ Output:
 Output:
 - `best_params`
 - `optimization_trace`
+- `seed_sensitivity_summary`
+- `guardrail_metric_summary`
 
 ## 6) Visualization
 - Generate 2D visual artifacts for analysis communication.
@@ -133,9 +141,11 @@ Output:
 Output:
 - `final_explanation`
 - `source_note_links`
+- `residual_risk_statement`
 
 ## Execution Contract
 1. Do not skip Step 1.
 2. Do not run Step 5 before Step 4 is resolved.
 3. Do not finalize recommendation before warning gate is resolved.
 4. If source notes conflict, mark recommendation status as `contested`.
+5. For initialization-sensitive methods, do not finalize selection without reporting initialization/seed stability.

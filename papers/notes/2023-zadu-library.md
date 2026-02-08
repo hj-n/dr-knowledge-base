@@ -1,8 +1,8 @@
 ---
 id: paper-2023-zadu-library
 title: "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings"
-authors: "UNKNOWN"
-venue: "UNKNOWN"
+authors: "Hyeon Jeon, Aeri Cho, Jinhwa Jang, Soohyun Lee, Jake Hyun, Hyung-Kwon Ko, Jaemin Jo, Jinwook Seo"
+venue: "2023 IEEE Visualization and Visual Analytics (VIS)"
 year: 2023
 tags: [dr, evaluation, zadu, metrics]
 source_pdf: papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf

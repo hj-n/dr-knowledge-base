@@ -31,6 +31,8 @@ Implementation quality depends on stable preprocessing, deterministic settings w
 
 For reproducible comparison, evaluate this technique under a fixed protocol and report parameter context with results. This converts the outline from a conceptual recipe into an auditable procedure for downstream agents and reviewers.
 
+Detailed execution rule: verify graph connectivity and neighborhood-policy stability before interpreting results. Graph fragmentation or unstable connectivity can invalidate downstream interpretation.
+
 ## Hyperparameter Impact
 - Sample/control-point selection influences quality-runtime balance.
 - Regularization/mapping constraints affect stability.
@@ -38,6 +40,13 @@ For reproducible comparison, evaluate this technique under a fixed protocol and 
 Hyperparameters determine the local-vs-global balance, optimization stability, and visual behavior of the embedding. They should be tuned against task-aligned metrics rather than aesthetics alone, especially when outputs influence model or policy decisions.
 
 A practical default is Bayesian optimization with guardrails: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
+
+Decision-level tuning rule: report both best score and stability behavior (seed variance / restart variance). A configuration that wins once but is unstable should not be the default recommendation.
+
+## Practical Reliability Notes
+PLMP methods can provide efficient local projection behavior for exploratory analysis, but they inherit sensitivity from piecewise graph/local model choices. Reliability depends on stable local partitioning and consistent preprocessing.
+
+Use PLMP with fixed protocol comparisons and explicit sensitivity checks over partition/graph settings. If small setting changes cause large structural differences, do not over-commit to PLMP for high-stakes interpretation tasks.
 
 ## Notable Properties
 - Useful baseline for efficiency-focused comparisons.
@@ -62,6 +71,8 @@ Task alignment indicates where this technique is expected to provide the most re
 
 When a project requires multiple task outcomes, combine this section with metric-level alignment and require agreement across both layers. If technique and metric recommendations diverge, collect more evidence before production use.
 
+Operational alignment rule: method alignment should constrain candidate ranking, but final acceptance still requires agreement with task-aligned metric bundles and warning-gate status.
+
 ## Known Tradeoffs
 - Efficiency gains can reduce local-structure fidelity.
 
@@ -69,5 +80,11 @@ Tradeoffs are expected and should be made explicit to users before final selecti
 
 In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
 
+Communication rule: explicitly state graph-dependence risk. If results change under small graph-parameter shifts, present that instability as residual uncertainty.
+
 ## Source Notes
 - `papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md` (ZR08-E3)
+
+- `papers/notes/pending-ref-013-a-survey-of-dimension-reduction-methods-for-high-dimension.md` (pending-reference evidence)
+- `papers/notes/pending-ref-072-piecewise-laplacian-based-projection-for-interactive-data.md` (pending-reference evidence)
+- `papers/notes/pending-ref-087-explaining-three-dimensional-dimensionality-reduction-plot.md` (pending-reference evidence)

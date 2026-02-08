@@ -31,6 +31,8 @@ Implementation quality depends on stable preprocessing, deterministic settings w
 
 For reproducible comparison, evaluate this technique under a fixed protocol and report parameter context with results. This converts the outline from a conceptual recipe into an auditable procedure for downstream agents and reviewers.
 
+Detailed execution rule: evaluate geodesic graph stability (connectivity and shortest-path robustness) before trusting global interpretation. Unstable geodesics produce fragile global claims.
+
 ## Hyperparameter Impact
 - Neighborhood graph settings remain critical as in Isomap.
 - Supervision-related setup changes robustness profile.
@@ -38,6 +40,13 @@ For reproducible comparison, evaluate this technique under a fixed protocol and 
 Hyperparameters determine the local-vs-global balance, optimization stability, and visual behavior of the embedding. They should be tuned against task-aligned metrics rather than aesthetics alone, especially when outputs influence model or policy decisions.
 
 A practical default is Bayesian optimization with guardrails: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
+
+Decision-level tuning rule: report both best score and stability behavior (seed variance / restart variance). A configuration that wins once but is unstable should not be the default recommendation.
+
+## Practical Reliability Notes
+Supervised Isomap variants are suitable when class information should influence geodesic structure preservation. They can improve class-oriented readability but also risk overfitting class assumptions.
+
+Before production use, compare supervised and unsupervised Isomap under the same preprocessing and graph policies. If supervised gains disappear under label uncertainty tests, downgrade confidence and keep label-agnostic alternatives.
 
 ## Notable Properties
 - Targets robustness issues reported for unsupervised Isomap in noisy data.
@@ -62,12 +71,16 @@ Task alignment indicates where this technique is expected to provide the most re
 
 When a project requires multiple task outcomes, combine this section with metric-level alignment and require agreement across both layers. If technique and metric recommendations diverge, collect more evidence before production use.
 
+Operational alignment rule: method alignment should constrain candidate ranking, but final acceptance still requires agreement with task-aligned metric bundles and warning-gate status.
+
 ## Known Tradeoffs
 - Must be benchmarked against strong supervised baselines to validate gains.
 
 Tradeoffs are expected and should be made explicit to users before final selection. A method that improves neighborhood fidelity may worsen global distance faithfulness, and vice versa, so optimization must reflect the task hierarchy.
 
 In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
+
+Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
 ## Source Notes
 - `papers/notes/zadu-ref-09-supervised-nonlinear-dimensionality-reduction-for-visualization-and-classificati.md` (ZR09-E1, ZR09-E4, ZR09-E7)

@@ -25,12 +25,21 @@ The computation should be implemented with a stable protocol: identical sampling
 
 When reporting values, record the full evaluation context including neighborhood scale, normalization policy, and whether labels were required. That metadata is part of the metric definition in practice because it determines what the reported number actually means.
 
+Detailed protocol rule: keep cluster definition policy fixed (including grouping thresholds or extraction logic) during comparison. Changes in cluster policy can dominate this metric more than projection changes.
+
 ## Hyperparameter Impact
 Cluster construction and distance settings change both components. Normalization and threshold policies alter steadiness/cohesiveness balance.
 
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
 A robust workflow evaluates sensitivity by sweeping key controls and checking rank stability across seeds or folds. Large score variance indicates that the current configuration is not yet reliable enough for high-confidence method selection.
+
+Decision-level tuning rule: tune this metric only inside a task-aligned bundle objective and report sensitivity across multiple seeds or folds. Single-run improvements should be treated as provisional until rank stability is confirmed.
+
+## Practical Reliability Notes
+SNC-style metrics target inter-cluster reliability and are useful when cluster relations are part of the explicit task. They often detect cluster-level distortions that neighborhood-only metrics can miss.
+
+Cluster metrics can still be confounded by cluster-definition policy. Keep clustering or grouping assumptions fixed during comparison; otherwise SNC changes may reflect changing cluster extraction rather than projection reliability.
 
 ## Notable Properties
 It provides directional cluster-level reliability decomposition rather than one opaque scalar. It is especially useful for inter-cluster analysis tasks.
@@ -56,6 +65,8 @@ Alignment here should be treated as a recommendation priority, not a hard constr
 
 When alignment is uncertain, prefer conservative interpretation and run clarification questions again. The task decision should remain primary, and metric selection should follow that decision rather than drive it.
 
+Operational alignment rule: treat this metric as primary evidence for cluster-relationship tasks and as secondary evidence for neighborhood-only tasks.
+
 ## Interpretation Notes
 Do not treat this metric as a standalone final decision criterion. Use it together with complementary metrics from other structural levels and keep preprocessing/seed policies fixed during comparison.
 
@@ -63,8 +74,11 @@ Use absolute values cautiously and prioritize relative comparisons under matched
 
 Before communicating a conclusion, cross-check this metric against the selected technique behavior and user-facing goal. A reliable recommendation should explain both why the score is good and why that goodness matters for the intended analytical action.
 
+Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
+
 ## Source Notes
 The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+
 - `papers/notes/zadu-ref-03-2408-07724v2.md` -> `CLAIM-METRIC-SNC-SOURCE-03`
 - `papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md` -> `CLAIM-METRIC-SNC-SOURCE-15`
 - `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md` -> `CLAIM-METRIC-SNC-SOURCE-18`

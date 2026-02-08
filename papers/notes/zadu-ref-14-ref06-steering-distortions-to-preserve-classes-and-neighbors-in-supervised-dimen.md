@@ -1,8 +1,8 @@
 ---
 id: paper-2020-zadu-ref-14
-title: "Steering Distortions to Preserve Classes and"
-authors: "UNKNOWN"
-venue: "UNKNOWN"
+title: "Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction"
+authors: "Benoit Colange, Jaakko Peltonen, Michael Aupetit, Denys Dutykh, Sylvain Lespinats"
+venue: "Advances in Neural Information Processing Systems (NeurIPS)"
 year: 2020
 tags: [dr, zadu-table1-reference, kl_div, pr, stress, tnc]
 source_pdf: papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf

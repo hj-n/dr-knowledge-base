@@ -25,6 +25,8 @@ The computation should be implemented with a stable protocol: identical sampling
 
 When reporting values, record the full evaluation context including neighborhood scale, normalization policy, and whether labels were required. That metadata is part of the metric definition in practice because it determines what the reported number actually means.
 
+Detailed protocol rule: apply consistent distance scaling and normalization policy before computing global metrics. Global score comparisons are invalid when scale handling differs across candidates.
+
 ## Hyperparameter Impact
 Normalization and pair weighting are dominant controls. Scale policy must be fixed, otherwise cross-run comparisons can be misleading.
 Scale policy must be explicit when comparing values across runs or methods.[^warn-scale]
@@ -32,6 +34,13 @@ Scale policy must be explicit when comparing values across runs or methods.[^war
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
 A robust workflow evaluates sensitivity by sweeping key controls and checking rank stability across seeds or folds. Large score variance indicates that the current configuration is not yet reliable enough for high-confidence method selection.
+
+Decision-level tuning rule: tune this metric only inside a task-aligned bundle objective and report sensitivity across multiple seeds or folds. Single-run improvements should be treated as provisional until rank stability is confirmed.
+
+## Practical Reliability Notes
+Stress values are only comparable under identical scale handling and distance preprocessing. If one run applies implicit rescaling and another does not, stress ranking can reverse even when the embedding geometry is otherwise similar. Keep scale policy fixed across all candidates and report that policy explicitly.
+
+For workflow use, stress should be paired with at least one local metric (for example TNC or NH-family metrics) because low global stress can still hide local neighborhood breakage. A low-stress embedding is not automatically valid for neighborhood or outlier tasks unless local structure checks agree.
 
 ## Notable Properties
 It is a canonical global distortion objective with a long methodological history. It can be misinterpreted when normalization and scale policies are inconsistent.
@@ -58,6 +67,8 @@ Alignment here should be treated as a recommendation priority, not a hard constr
 
 When alignment is uncertain, prefer conservative interpretation and run clarification questions again. The task decision should remain primary, and metric selection should follow that decision rather than drive it.
 
+Operational alignment rule: use this metric as primary evidence for point-distance, cluster-distance, or density tasks; use as secondary guardrail for neighborhood tasks.
+
 ## Interpretation Notes
 Do not treat this metric as a standalone final decision criterion. Use it together with complementary metrics from other structural levels and keep preprocessing/seed policies fixed during comparison.
 
@@ -65,8 +76,11 @@ Use absolute values cautiously and prioritize relative comparisons under matched
 
 Before communicating a conclusion, cross-check this metric against the selected technique behavior and user-facing goal. A reliable recommendation should explain both why the score is good and why that goodness matters for the intended analytical action.
 
+Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
+
 ## Source Notes
 The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+
 - `papers/notes/zadu-ref-06-least-square-projection-a-fast-high-precision-multidimensional-projection-techni.md` -> `CLAIM-METRIC-STRESS-SOURCE-06`
 - `papers/notes/zadu-ref-03-2408-07724v2.md` -> `CLAIM-METRIC-STRESS-SOURCE-03`
 - `papers/notes/zadu-ref-13-ref03-geometric-inference-for-probability-measures.md` -> `CLAIM-METRIC-STRESS-SOURCE-13`
@@ -74,6 +88,13 @@ The links below map this metric to claim-level evidence extracted from individua
 - `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md` -> `CLAIM-METRIC-STRESS-SOURCE-18`
 - `papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md` -> `CLAIM-METRIC-STRESS-SOURCE-07`
 - Additional supporting notes: 5 more
+
+- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md` (pending-reference evidence)
+- `papers/notes/pending-ref-013-a-survey-of-dimension-reduction-methods-for-high-dimension.md` (pending-reference evidence)
+- `papers/notes/pending-ref-019-local-multidimensional-scaling.md` (pending-reference evidence)
+- `papers/notes/pending-ref-024-viscoder-a-tool-for-visually-comparing-dimensionality-redu.md` (pending-reference evidence)
+- `papers/notes/pending-ref-035-stress-maps-analysing-local-phenomena-in-dimensionality-re.md` (pending-reference evidence)
+- `papers/notes/pending-ref-037-attribute-based-visual-explanation-of-multidimensional-pro.md` (pending-reference evidence)
 
 [^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E5).
 [^warn-scale]: Scale-sensitivity notes: `papers/notes/zadu-ref-03-2408-07724v2.md` (CLAIM-SOURCE-03-CORE), `papers/notes/zadu-ref-04-2510-08660v1.md` (CLAIM-SOURCE-04-CORE).

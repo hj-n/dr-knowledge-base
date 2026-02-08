@@ -31,6 +31,8 @@ Implementation quality depends on stable preprocessing, deterministic settings w
 
 For reproducible comparison, evaluate this technique under a fixed protocol and report parameter context with results. This converts the outline from a conceptual recipe into an auditable procedure for downstream agents and reviewers.
 
+Detailed execution rule: run this method under a fixed preprocessing contract and log all stochastic controls (seed, restart index, initialization metadata) so comparison runs are auditable.
+
 ## Hyperparameter Impact
 - Kernel type/parameters determine geometry of captured nonlinear structure.
 - Number of components controls information retained in projection.
@@ -38,6 +40,13 @@ For reproducible comparison, evaluate this technique under a fixed protocol and 
 Hyperparameters determine the local-vs-global balance, optimization stability, and visual behavior of the embedding. They should be tuned against task-aligned metrics rather than aesthetics alone, especially when outputs influence model or policy decisions.
 
 A practical default is Bayesian optimization with guardrails: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
+
+Decision-level tuning rule: kernel family and kernel scale are first-order assumptions, not minor tweaks. Log chosen kernel rationale and compare against linear/global baselines under the same protocol.
+
+## Practical Reliability Notes
+Kernel PCA depends heavily on kernel choice and kernel scale. Different kernel settings represent different geometry assumptions; method comparison is invalid if kernel policy is not controlled.
+
+Use KPCA when nonlinear global structure is plausible and kernel assumptions are justified by the task. Always compare against linear PCA and at least one neighborhood-focused method to verify whether kernel-induced gains are truly task-relevant.
 
 ## Notable Properties
 - Can represent nonlinear structure with linear algebra pipeline in kernel space.
@@ -63,6 +72,8 @@ Task alignment indicates where this technique is expected to provide the most re
 
 When a project requires multiple task outcomes, combine this section with metric-level alignment and require agreement across both layers. If technique and metric recommendations diverge, collect more evidence before production use.
 
+Operational alignment rule: method alignment should constrain candidate ranking, but final acceptance still requires agreement with task-aligned metric bundles and warning-gate status.
+
 ## Known Tradeoffs
 - Kernel tuning is critical and may be unstable without validation metrics.
 
@@ -70,5 +81,13 @@ Tradeoffs are expected and should be made explicit to users before final selecti
 
 In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
 
+Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
+
 ## Source Notes
 - `papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md` (ZR07-E4)
+
+- `papers/notes/pending-ref-031-interactive-visual-cluster-analysis-by-contrastive-dimensi.md` (pending-reference evidence)
+- `papers/notes/pending-ref-048-linear-dimensionality-reduction-survey-insights-and-genera.md` (pending-reference evidence)
+- `papers/notes/pending-ref-089-a-new-method-of-generalizing-sammon-mapping-with-applicati.md` (pending-reference evidence)
+- `papers/notes/pending-ref-108-dimred-and-coranking-unifying-dimensionality-reduction-in.md` (pending-reference evidence)
+- `papers/notes/pending-extra-weinberger05a-weinberger05a.md` (pending-reference evidence)

@@ -25,6 +25,8 @@ The computation should be implemented with a stable protocol: identical sampling
 
 When reporting values, record the full evaluation context including neighborhood scale, normalization policy, and whether labels were required. That metadata is part of the metric definition in practice because it determines what the reported number actually means.
 
+Detailed protocol rule: keep class labels and class-balance handling fixed across runs. Reweighting classes or filtering minority classes can substantially alter class metrics independently of embedding quality.
+
 ## Hyperparameter Impact
 Clustering algorithm settings and number-of-clusters policy are primary controls. Internal validation index choice changes score semantics and thresholds.
 The label-separation gate is mandatory before strong interpretation in labeled settings.[^warn-label]
@@ -32,6 +34,13 @@ The label-separation gate is mandatory before strong interpretation in labeled s
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
 A robust workflow evaluates sensitivity by sweeping key controls and checking rank stability across seeds or folds. Large score variance indicates that the current configuration is not yet reliable enough for high-confidence method selection.
+
+Decision-level tuning rule: tune this metric only inside a task-aligned bundle objective and report sensitivity across multiple seeds or folds. Single-run improvements should be treated as provisional until rank stability is confirmed.
+
+## Practical Reliability Notes
+IVM-style class metrics are sensitive to class geometry assumptions and sampling density. Sparse classes or long-tail classes can cause unstable values that look like model effects but are actually sampling artifacts. Keep class support diagnostics in the same report as metric values.
+
+In comparative studies, evaluate IVM under repeated subsampling or seed changes to test rank stability. If rankings change across minor protocol changes, treat IVM output as exploratory and avoid making it the primary driver of technique selection.
 
 ## Notable Properties
 It can summarize cluster-quality behavior compactly. It is highly dependent on clustering setup and should not be treated as method-intrinsic in isolation.
@@ -57,6 +66,8 @@ Alignment here should be treated as a recommendation priority, not a hard constr
 
 When alignment is uncertain, prefer conservative interpretation and run clarification questions again. The task decision should remain primary, and metric selection should follow that decision rather than drive it.
 
+Operational alignment rule: this metric can prioritize candidates inside an already-selected task axis, but it must not redefine the task itself. If metric preference and user task conflict, keep task intent as the hard constraint.
+
 ## Interpretation Notes
 Do not treat this metric as a standalone final decision criterion. Use it together with complementary metrics from other structural levels and keep preprocessing/seed policies fixed during comparison.
 
@@ -64,8 +75,11 @@ Use absolute values cautiously and prioritize relative comparisons under matched
 
 Before communicating a conclusion, cross-check this metric against the selected technique behavior and user-facing goal. A reliable recommendation should explain both why the score is good and why that goodness matters for the intended analytical action.
 
+Failure-signaling rule: when class-aware metrics improve but label-agnostic local/global metrics worsen, report a class-specific gain with structural tradeoff instead of claiming unconditional quality improvement.
+
 ## Source Notes
 The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+
 - `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md` -> `CLAIM-METRIC-IVM-SOURCE-18`
 - `papers/notes/zadu-ref-19-ref42-a-comparison-for-dimensionality-reduction-methods-of-single-cell-rna-seq-d.md` -> `CLAIM-METRIC-IVM-SOURCE-19`
 - `papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md` -> `CLAIM-METRIC-IVM-SOURCE-08`

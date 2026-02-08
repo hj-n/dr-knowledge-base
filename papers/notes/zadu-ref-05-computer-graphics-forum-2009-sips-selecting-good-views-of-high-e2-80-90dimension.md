@@ -1,8 +1,8 @@
 ---
 id: paper-2009-zadu-ref-05
 title: "Selecting good views of high‐dimensional data using class consistency"
-authors: "UNKNOWN"
-venue: "UNKNOWN"
+authors: "Mike Sips, Boris Neubert, John P. Lewis, Pat Hanrahan"
+venue: "Computer Graphics Forum"
 year: 2009
 tags: [dr, zadu-table1-reference, dsc]
 source_pdf: papers/raw/zadu-table1-references/Computer Graphics Forum - 2009 - Sips - Selecting good views of high%E2%80%90dimensional data using class consistency.pdf

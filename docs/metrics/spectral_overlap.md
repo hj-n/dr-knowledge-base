@@ -15,10 +15,19 @@ Computation is based on comparing local structure consistency across spaces usin
 
 For fair method comparisons, keep preprocessing, distance settings, and random-seed policy fixed. Otherwise observed differences can reflect protocol drift rather than true quality changes.
 
+Detailed protocol rule: evaluate multiple neighborhood scales (for example small/medium/local-range k values) and keep the same k schedule across methods. Local metrics should be read as scale-dependent curves, not single-point truths.
+
 ## Hyperparameter Impact
 A key motivation for this metric is reduced dependence on additional metric hyperparameters compared with many alternatives. This can improve objective stability during DR hyperparameter search.
 
 Still, the surrounding evaluation pipeline matters. Changes in data scaling or neighborhood construction can change metric values and therefore selected DR parameters.
+
+Decision-level tuning rule: tune this metric only inside a task-aligned bundle objective and report sensitivity across multiple seeds or folds. Single-run improvements should be treated as provisional until rank stability is confirmed.
+
+## Practical Reliability Notes
+Spectral-overlap metrics provide a structure-aware perspective that can complement rank-based local metrics, especially when manifold smoothness and neighborhood transitions matter. They are useful when simple distance errors do not explain observed visual behavior.
+
+Interpret spectral overlap with caution when data graphs are noisy or under-connected. In those settings, spectral signals may amplify graph artifacts, so combine with robust local/global metrics and inspect whether conclusions remain stable.
 
 ## Notable Properties
 In benchmark evidence, this metric is reported as a robust performer for selecting DR settings, including in low-dimensional visualization contexts. It is specifically highlighted alongside `qnx`.
@@ -38,10 +47,14 @@ Best-aligned tasks are:
 
 For point/cluster distance or density-heavy tasks, pair this metric with global metrics before final decisions.
 
+Operational alignment rule: this metric is strongest for neighborhood, outlier, and cluster-local tasks. For point-distance or density-dominant tasks, keep it as guardrail evidence rather than primary ranking evidence.
+
 ## Interpretation Notes
 Use this metric as one component of a multi-metric bundle, not as the sole decision criterion. Local-structure strength does not guarantee faithful global arrangement.
 
 When reporting results, state clearly that `spectral_overlap` supports neighborhood-level confidence and include complementary global evidence.
+
+Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
 
 ## Source Notes
 - `papers/notes/2019-spectral-overlap-quality-metrics.md` -> `CLAIM-JT19-C3`

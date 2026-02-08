@@ -25,6 +25,8 @@ The computation should be implemented with a stable protocol: identical sampling
 
 When reporting values, record the full evaluation context including neighborhood scale, normalization policy, and whether labels were required. That metadata is part of the metric definition in practice because it determines what the reported number actually means.
 
+Detailed protocol rule: keep class labels and class-balance handling fixed across runs. Reweighting classes or filtering minority classes can substantially alter class metrics independently of embedding quality.
+
 ## Hyperparameter Impact
 Cluster/label definition choices dominate this metric. Label-separation assumptions should be validated before treating score differences as decisive.
 The label-separation gate is mandatory before strong interpretation in labeled settings.[^warn-label]
@@ -32,6 +34,13 @@ The label-separation gate is mandatory before strong interpretation in labeled s
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
 A robust workflow evaluates sensitivity by sweeping key controls and checking rank stability across seeds or folds. Large score variance indicates that the current configuration is not yet reliable enough for high-confidence method selection.
+
+Decision-level tuning rule: tune this metric only inside a task-aligned bundle objective and report sensitivity across multiple seeds or folds. Single-run improvements should be treated as provisional until rank stability is confirmed.
+
+## Practical Reliability Notes
+Distance Consistency reflects whether points remain closer to their own class prototypes than to other classes after projection. It is useful for class-separability analysis, but can become overly optimistic when classes overlap in original space or when class imbalance is severe.
+
+Before relying on DSC for recommendation decisions, run the label-separation warning gate and verify class overlap in the original feature space. If overlap is high, down-weight DSC and prioritize mixed bundles including non-label metrics and task-specific technique constraints.
 
 ## Notable Properties
 It is aligned with separability-focused tasks and cluster-structure questions. It requires strong caution when label-separation assumptions do not hold.
@@ -57,6 +66,8 @@ Alignment here should be treated as a recommendation priority, not a hard constr
 
 When alignment is uncertain, prefer conservative interpretation and run clarification questions again. The task decision should remain primary, and metric selection should follow that decision rather than drive it.
 
+Operational alignment rule: this metric can prioritize candidates inside an already-selected task axis, but it must not redefine the task itself. If metric preference and user task conflict, keep task intent as the hard constraint.
+
 ## Interpretation Notes
 Do not treat this metric as a standalone final decision criterion. Use it together with complementary metrics from other structural levels and keep preprocessing/seed policies fixed during comparison.
 
@@ -64,8 +75,11 @@ Use absolute values cautiously and prioritize relative comparisons under matched
 
 Before communicating a conclusion, cross-check this metric against the selected technique behavior and user-facing goal. A reliable recommendation should explain both why the score is good and why that goodness matters for the intended analytical action.
 
+Failure-signaling rule: when class-aware metrics improve but label-agnostic local/global metrics worsen, report a class-specific gain with structural tradeoff instead of claiming unconditional quality improvement.
+
 ## Source Notes
 The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+
 - `papers/notes/zadu-ref-03-2408-07724v2.md` -> `CLAIM-METRIC-DSC-SOURCE-03`
 - `papers/notes/zadu-ref-05-computer-graphics-forum-2009-sips-selecting-good-views-of-high-e2-80-90dimension.md` -> `CLAIM-METRIC-DSC-SOURCE-05`
 - `papers/notes/zadu-ref-11-jeon23tvcg-4.md` -> `CLAIM-METRIC-DSC-SOURCE-11`

@@ -1,8 +1,8 @@
 ---
 id: paper-1964-zadu-ref-12
 title: "Multidimensional scaling by optimizing goodness of fit to a nonmetric hypothesis"
-authors: "UNKNOWN"
-venue: "UNKNOWN"
+authors: "PSYCHOMETRIKA--VOL. ~, NO."
+venue: "Psychometrika"
 year: 1964
 tags: [dr, zadu-table1-reference, stress]
 source_pdf: papers/raw/zadu-table1-references/kruskal_1964a.pdf

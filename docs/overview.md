@@ -23,9 +23,11 @@ Subtask refinement is allowed under each axis when needed:
 ## Navigation
 - Start workflow: [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md)
 - Task-aligned initialization rules: [`docs/workflow/task-aligned-initialization.md`](./workflow/task-aligned-initialization.md)
+- Final reporting contract: [`docs/workflow/reliability-report-contract.md`](./workflow/reliability-report-contract.md)
 - Intake questions first: [`docs/intake-question-tree.md`](./intake-question-tree.md)
 - Task axis and subtask policy: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 - Metric policy and warning gate: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
+- Task-to-metric starter bundles: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md) (`Task-to-Metric Starter Bundles`)
 - Frequency-based priority (user-facing): [`docs/reference-coverage.md`](./reference-coverage.md)
 - Reliability cautions and tips: [`docs/reliability-cautions-and-tips.md`](./reliability-cautions-and-tips.md)
 - Paper catalog guide: [`docs/paper-catalog.md`](./paper-catalog.md)
@@ -46,6 +48,7 @@ Use this order when an LLM starts from this file.
    [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md),
    [`docs/techniques/README.md`](./techniques/README.md),
    [`docs/metrics/README.md`](./metrics/README.md)
+   and per-method/per-metric `Practical Reliability Notes` sections.
 5. Task-aligned initialization decision:
    [`docs/workflow/task-aligned-initialization.md`](./workflow/task-aligned-initialization.md)
 6. Candidate prioritization:
@@ -56,7 +59,8 @@ Use this order when an LLM starts from this file.
    [`docs/paper-catalog.md`](./paper-catalog.md),
    [`docs/paper-catalog.csv`](./paper-catalog.csv)
 9. Final explanation contract:
-   [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md) (Step 7)
+   [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md) (Step 7),
+   [`docs/workflow/reliability-report-contract.md`](./workflow/reliability-report-contract.md)
 
 ## Design Rules
 - Task-first: no method recommendation before task clarification.

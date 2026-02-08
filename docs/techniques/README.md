@@ -18,11 +18,15 @@ Related:
 - Core Objective
 - Computation Outline
 - Hyperparameter Impact
+- Practical Reliability Notes
 - Notable Properties
 - Strengths
 - Task Alignment
 - Known Tradeoffs
 - Source Notes
+
+Expectation:
+- `Practical Reliability Notes` must describe implementation-sensitive risks and controls (for example seed protocol, initialization, or parameter sensitivity) with task-context.
 
 ## Technique Files
 - `catsne.md`

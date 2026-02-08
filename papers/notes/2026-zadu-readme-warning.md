@@ -1,7 +1,7 @@
 ---
 id: note-2026-zadu-readme-warning
 title: "ZADU README Operational Warning for Label-Separation-Sensitive Metrics"
-authors: "UNKNOWN"
+authors: "hj-n/zadu maintainers"
 venue: "GitHub README"
 year: 2026
 tags: [dr, zadu, warning, labels]

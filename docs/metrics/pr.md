@@ -25,12 +25,21 @@ The computation should be implemented with a stable protocol: identical sampling
 
 When reporting values, record the full evaluation context including neighborhood scale, normalization policy, and whether labels were required. That metadata is part of the metric definition in practice because it determines what the reported number actually means.
 
+Detailed protocol rule: apply consistent distance scaling and normalization policy before computing global metrics. Global score comparisons are invalid when scale handling differs across candidates.
+
 ## Hyperparameter Impact
 Distance metric and preprocessing scale directly affect correlation. Pairwise sampling strategy (full vs subset) changes estimate variance.
 
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
 A robust workflow evaluates sensitivity by sweeping key controls and checking rank stability across seeds or folds. Large score variance indicates that the current configuration is not yet reliable enough for high-confidence method selection.
+
+Decision-level tuning rule: tune this metric only inside a task-aligned bundle objective and report sensitivity across multiple seeds or folds. Single-run improvements should be treated as provisional until rank stability is confirmed.
+
+## Practical Reliability Notes
+Pearson-style correlation is a coarse global trend indicator and can remain high even when local neighborhoods are heavily damaged. It is best for detecting monotonic global agreement, not for validating neighborhood-level interpretability.
+
+In workflow decisions, treat PR as a guardrail for distance-oriented tasks. If PR is high but local metrics are poor, report that global trend is preserved while local reliability is not, and avoid using the embedding for neighborhood-sensitive analysis.
 
 ## Notable Properties
 It is straightforward to interpret as global linear agreement. It does not capture non-linear monotonic agreement as well as rank-based alternatives.
@@ -57,6 +66,8 @@ Alignment here should be treated as a recommendation priority, not a hard constr
 
 When alignment is uncertain, prefer conservative interpretation and run clarification questions again. The task decision should remain primary, and metric selection should follow that decision rather than drive it.
 
+Operational alignment rule: use this metric as primary evidence for point-distance, cluster-distance, or density tasks; use as secondary guardrail for neighborhood tasks.
+
 ## Interpretation Notes
 Do not treat this metric as a standalone final decision criterion. Use it together with complementary metrics from other structural levels and keep preprocessing/seed policies fixed during comparison.
 
@@ -64,11 +75,20 @@ Use absolute values cautiously and prioritize relative comparisons under matched
 
 Before communicating a conclusion, cross-check this metric against the selected technique behavior and user-facing goal. A reliable recommendation should explain both why the score is good and why that goodness matters for the intended analytical action.
 
+Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
+
 ## Source Notes
 The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+
 - `papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md` -> `CLAIM-METRIC-PR-SOURCE-15`
 - `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md` -> `CLAIM-METRIC-PR-SOURCE-18`
 - `papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md` -> `CLAIM-METRIC-PR-SOURCE-14`
 - `papers/notes/zadu-ref-04-2510-08660v1.md` -> `CLAIM-METRIC-PR-SOURCE-04`
+
+- `papers/notes/pending-ref-057-quality-metrics-for-information-visualization.md` (pending-reference evidence)
+- `papers/notes/pending-ref-068-nonlinear-dimensionality-reduction-and-data-visualization.md` (pending-reference evidence)
+- `papers/notes/pending-ref-077-assessing-single-cell-transcriptomic-variability-through-d.md` (pending-reference evidence)
+- `papers/notes/pending-ref-101-trimap-large-scale-dimensionality-reduction-using-triplets.md` (pending-reference evidence)
+- `papers/notes/pending-ref-148-with-respect-to-what-simultaneous-interaction-with-dimensi.md` (pending-reference evidence)
 
 [^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E5).

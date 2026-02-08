@@ -31,6 +31,8 @@ Implementation quality depends on stable preprocessing, deterministic settings w
 
 For reproducible comparison, evaluate this technique under a fixed protocol and report parameter context with results. This converts the outline from a conceptual recipe into an auditable procedure for downstream agents and reviewers.
 
+Detailed execution rule: keep label policy fixed and record how missing/noisy labels were handled. Supervised local methods can shift behavior dramatically with label cleaning choices.
+
 ## Hyperparameter Impact
 - Neighborhood-size adaptation policy controls class-locality emphasis.
 - Optimization schedule still inherits t-SNE-style sensitivity (learning rate / iterations).
@@ -38,6 +40,13 @@ For reproducible comparison, evaluate this technique under a fixed protocol and 
 Hyperparameters determine the local-vs-global balance, optimization stability, and visual behavior of the embedding. They should be tuned against task-aligned metrics rather than aesthetics alone, especially when outputs influence model or policy decisions.
 
 A practical default is Bayesian optimization with guardrails: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
+
+Decision-level tuning rule: report both best score and stability behavior (seed variance / restart variance). A configuration that wins once but is unstable should not be the default recommendation.
+
+## Practical Reliability Notes
+catSNE should be used when class-aware local organization is explicitly required, not as a universal replacement for unsupervised t-SNE. Its gains are most meaningful in class-separability and class-guided cluster workflows.
+
+Because catSNE is label-conditioned, validate label quality and separability before using it as the primary recommendation. In ambiguous-label scenarios, run catSNE alongside unsupervised baselines and compare both label-aware and label-agnostic metric bundles.
 
 ## Notable Properties
 - Useful when class-aware local structure is part of the analysis objective.
@@ -62,12 +71,16 @@ Task alignment indicates where this technique is expected to provide the most re
 
 When a project requires multiple task outcomes, combine this section with metric-level alignment and require agreement across both layers. If technique and metric recommendations diverge, collect more evidence before production use.
 
+Operational alignment rule: use as primary candidates only for class-separability-oriented tasks; for non-class tasks, keep these methods as optional comparisons and require label-agnostic corroboration.
+
 ## Known Tradeoffs
 - Should be paired with label-agnostic metrics to avoid one-sided conclusions.
 
 Tradeoffs are expected and should be made explicit to users before final selection. A method that improves neighborhood fidelity may worsen global distance faithfulness, and vice versa, so optimization must reflect the task hierarchy.
 
 In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
+
+Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
 ## Source Notes
 - `papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md` (ZR14-E6)

@@ -81,6 +81,7 @@ Every final recommendation should include:
 4. selected initialization policy for initialization-sensitive methods
 5. warning-gate result (pass/fail/unknown)
 6. source-note links used for justification
+7. initialization/seed stability summary for stochastic methods
 
 ## Reference-Frequency Priority
 When multiple metrics are valid for the same task, prioritize them by PDF-backed support frequency.
@@ -93,6 +94,64 @@ When multiple metrics are valid for the same task, prioritize them by PDF-backed
    - then higher `source_pdf_note_count`
 4. Use `builder/evidence/conflict-register.md` as a downgrade gate:
    - if a key claim is `contested`, lower the priority by one tier unless exploratory comparison is explicitly requested.
+
+## Task-to-Metric Starter Bundles
+Use these as initial bundles after task clarification, then refine with dataset constraints and warning-gate status.
+
+1. Neighborhood identification:
+   - primary: `tnc`, `nh`, `nd`
+   - secondary: `proc` or `mrre`
+2. Outlier identification:
+   - primary: `tnc`, `nd`, `lcmc`
+   - secondary: `stress` (sanity check only)
+3. Cluster identification:
+   - primary: `tnc`, `snc`, `nh`
+   - secondary: `proc` or `topo`
+4. Point distance investigation:
+   - primary: `stress`, `kl_div`, `pr`
+   - secondary: `proc`
+5. Class separability investigation:
+   - primary: `dsc`, `ivm`, `c_evm`
+   - secondary: `tnc`, `proc`
+6. Cluster distance investigation:
+   - primary: `snc`, `stress`, `pr`
+   - secondary: `topo` or `proc`
+7. Cluster density investigation:
+   - primary: `stress`, `kl_div`, `topo`
+   - secondary: `sn_stress` or `nm_stress`
+
+Bundle rule:
+- Never use class-aware metrics (`dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`) as the only evidence line.
+- Keep at least one label-agnostic metric in every final bundle.
+
+## Task-to-Technique Starter Candidates
+Use this as a first-pass candidate set after task clarification. Final choice must still pass warning-gate and stability checks.
+
+1. Neighborhood identification:
+   - primary candidates: `t-sne`, `umap`, `lle`, `laplacian_eigenmaps`
+   - alternatives: `lmds`, `som`, `nerv`
+2. Outlier identification:
+   - primary candidates: `umap`, `t-sne`, `lle`
+   - alternatives: `laplacian_eigenmaps`, `som`
+3. Cluster identification:
+   - primary candidates: `umap`, `t-sne`, `som`, `classimap`
+   - alternatives: `lmds`, `catsne`, `classnerv` (labeled settings)
+4. Point distance investigation:
+   - primary candidates: `pca`, `mds`, `isomap`
+   - alternatives: `kpca`, `s-isomap`
+5. Class separability investigation:
+   - primary candidates: `classnerv`, `classimap`, `catsne`
+   - alternatives: `pca`, `s-isomap` (with caution)
+6. Cluster distance investigation:
+   - primary candidates: `pca`, `mds`, `isomap`
+   - alternatives: `kpca`, `random_projection` (baseline only)
+7. Cluster density investigation:
+   - primary candidates: `pca`, `mds`, `isomap`
+   - alternatives: `umap`, `kpca` (verify density distortion risk)
+
+Candidate rule:
+- Methods under `alternatives` are valid only if they improve task-aligned metrics without creating stability regressions.
+- For stochastic methods, include initialization/seed stability evidence before final recommendation.
 
 [^zadu-lib]: Source note: `papers/notes/2023-zadu-library.md` (ZADU23-E1, ZADU23-E2).
 [^warn]: Warning source note: `papers/notes/2026-zadu-readme-warning.md` (ZADU-RM-E1, ZADU-RM-E2).

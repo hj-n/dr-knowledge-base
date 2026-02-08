@@ -1,8 +1,8 @@
 ---
 id: paper-2005-zadu-ref-09
-title: "Supervised nonlinear dimensionality reduction for visualization and classification"
-authors: "UNKNOWN"
-venue: "UNKNOWN"
+title: "Supervised Nonlinear Dimensionality Reduction for Visualization and Classification"
+authors: "X. Geng, D.-C. Zhan, Z.-H. Zhou"
+venue: "IEEE Transactions on Systems, Man and Cybernetics, Part B (Cybernetics)"
 year: 2005
 tags: [dr, zadu-table1-reference]
 source_pdf: papers/raw/zadu-table1-references/Supervised_nonlinear_dimensionality_reduction_for_visualization_and_classification.pdf

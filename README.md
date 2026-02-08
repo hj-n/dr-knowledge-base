@@ -60,6 +60,7 @@ Template: `templates/paper-note-template.md`
 After adding or updating paper notes, refresh indexes:
 - `python scripts/update_paper_catalog.py`
 - `python scripts/update_reference_coverage.py`
+- `python scripts/update_reference_backlog.py`
 
 ## Context7 Indexing
 - Included: `docs`, `papers/notes`

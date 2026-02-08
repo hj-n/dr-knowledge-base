@@ -1,8 +1,8 @@
 ---
 id: paper-2009-zadu-ref-07
-title: "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analy"
-authors: "UNKNOWN"
-venue: "UNKNOWN"
+title: "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis"
+authors: "Lisha Chen, Andreas Buja"
+venue: "Journal of the American Statistical Association"
 year: 2009
 tags: [dr, zadu-table1-reference, stress, tnc]
 source_pdf: papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf

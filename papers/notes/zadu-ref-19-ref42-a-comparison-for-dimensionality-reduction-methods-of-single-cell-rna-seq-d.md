@@ -1,8 +1,8 @@
 ---
 id: paper-2021-zadu-ref-19
 title: "A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data"
-authors: "UNKNOWN"
-venue: "UNKNOWN"
+authors: "Ruizhi Xiang, Wencan Wang, Lei Yang, Shiyuan Wang, Chaohan Xu, Xiaowen Chen"
+venue: "Frontiers in Genetics"
 year: 2021
 tags: [dr, zadu-table1-reference, c_evm, ivm]
 source_pdf: papers/raw/zadu-table1-references/ref42_a_comparison_for_dimensionality_reduction_methods_of_single_cell_rna_seq_data.pdf

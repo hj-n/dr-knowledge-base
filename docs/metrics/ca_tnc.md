@@ -25,6 +25,8 @@ The computation should be implemented with a stable protocol: identical sampling
 
 When reporting values, record the full evaluation context including neighborhood scale, normalization policy, and whether labels were required. That metadata is part of the metric definition in practice because it determines what the reported number actually means.
 
+Detailed protocol rule: compute under a fixed label policy (including unknown/missing labels) and fixed neighborhood scale. Label preprocessing changes can produce large score shifts that do not reflect embedding changes.
+
 ## Hyperparameter Impact
 Class-aware neighborhood decomposition depends on `k` and class-partition assumptions. Class-noise and weak separation can destabilize the score meaning.
 The label-separation gate is mandatory before strong interpretation in labeled settings.[^warn-label]
@@ -32,6 +34,13 @@ The label-separation gate is mandatory before strong interpretation in labeled s
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
 A robust workflow evaluates sensitivity by sweeping key controls and checking rank stability across seeds or folds. Large score variance indicates that the current configuration is not yet reliable enough for high-confidence method selection.
+
+Decision-level tuning rule: label-conditioned settings must be checked with the label-separation gate before tuning-driven decisions. If separability is weak, down-weight this metric and raise uncertainty in the final recommendation.
+
+## Practical Reliability Notes
+Class-aware TNC is most useful when the analytical goal is explicitly tied to class-boundary reliability. It separates within-class and cross-class neighborhood errors, which helps explain whether quality loss is due to class mixing or local manifold noise.
+
+Treat CA-TNC as label-conditional evidence only. If labels are weak, noisy, or only partially aligned with the current task, CA-TNC can dominate selection in the wrong direction. In those cases, keep CA-TNC as a secondary metric and require agreement with label-agnostic local metrics before final method ranking.
 
 ## Notable Properties
 It clarifies whether local distortions are class-preserving or class-breaking. It is valuable for class-aware diagnostics but depends on label validity.
@@ -57,6 +66,8 @@ Alignment here should be treated as a recommendation priority, not a hard constr
 
 When alignment is uncertain, prefer conservative interpretation and run clarification questions again. The task decision should remain primary, and metric selection should follow that decision rather than drive it.
 
+Operational alignment rule: this metric can prioritize candidates inside an already-selected task axis, but it must not redefine the task itself. If metric preference and user task conflict, keep task intent as the hard constraint.
+
 ## Interpretation Notes
 Do not treat this metric as a standalone final decision criterion. Use it together with complementary metrics from other structural levels and keep preprocessing/seed policies fixed during comparison.
 
@@ -64,8 +75,11 @@ Use absolute values cautiously and prioritize relative comparisons under matched
 
 Before communicating a conclusion, cross-check this metric against the selected technique behavior and user-facing goal. A reliable recommendation should explain both why the score is good and why that goodness matters for the intended analytical action.
 
+Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
+
 ## Source Notes
 The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+
 - `papers/notes/zadu-ref-11-jeon23tvcg-4.md` -> `CLAIM-METRIC-CA_TNC-SOURCE-11`
 
 [^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E3).
