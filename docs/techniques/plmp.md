@@ -47,6 +47,12 @@ Notable properties should be interpreted as operating characteristics, not guara
 
 Use these properties to narrow candidates early, then confirm with metric evidence and task-specific validation. That sequence keeps the workflow grounded in evidence instead of anecdotal method reputation.
 
+## Strengths
+This technique is strong for linear-map-style projection with low computational overhead. It is useful for large-scale settings where fast approximation of projection behavior is needed.
+
+It can be practical when repeated projection updates are required under runtime constraints.
+
+
 ## Task Alignment
 - Inferred alignment: best-aligned tasks
   - Point distance investigation

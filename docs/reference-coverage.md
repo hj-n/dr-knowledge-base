@@ -6,7 +6,9 @@ Use this for priority ranking when multiple candidates are already task-aligned.
 Related:
 - Overview: [`docs/overview.md`](./overview.md)
 - Workflow: [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md)
+- Task axis/subtask policy: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 - Selection policy: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
+- Grouped reliability cautions: [`docs/reliability-cautions-and-tips.md`](./reliability-cautions-and-tips.md)
 - Metric catalog: [`docs/metrics/README.md`](./metrics/README.md)
 - Technique catalog: [`docs/techniques/README.md`](./techniques/README.md)
 - Paper catalog: [`docs/paper-catalog.md`](./paper-catalog.md)

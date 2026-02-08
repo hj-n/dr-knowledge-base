@@ -47,6 +47,12 @@ Notable properties should be interpreted as operating characteristics, not guara
 
 Use these properties to narrow candidates early, then confirm with metric evidence and task-specific validation. That sequence keeps the workflow grounded in evidence instead of anecdotal method reputation.
 
+## Strengths
+This technique is strong for local multidimensional scaling behavior that emphasizes neighborhood-constrained geometry. It can improve local faithfulness compared with global-only MDS formulations.
+
+It is useful when analysts need local-geometric preservation while maintaining an MDS-style optimization perspective.
+
+
 ## Task Alignment
 - Inferred alignment: best-aligned tasks
   - Neighborhood identification

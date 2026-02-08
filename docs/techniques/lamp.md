@@ -47,6 +47,12 @@ Notable properties should be interpreted as operating characteristics, not guara
 
 Use these properties to narrow candidates early, then confirm with metric evidence and task-specific validation. That sequence keeps the workflow grounded in evidence instead of anecdotal method reputation.
 
+## Strengths
+This technique is strong for balancing projection quality and runtime through control-point-driven local affine mapping. It supports interactive or iterative projection workflows where fast updates are valuable.
+
+It is useful when local geometric quality is needed but full global optimization cost is impractical.
+
+
 ## Task Alignment
 - Inferred alignment: best-aligned tasks
   - Neighborhood identification

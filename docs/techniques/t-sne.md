@@ -48,6 +48,12 @@ Notable properties should be interpreted as operating characteristics, not guara
 
 Use these properties to narrow candidates early, then confirm with metric evidence and task-specific validation. That sequence keeps the workflow grounded in evidence instead of anecdotal method reputation.
 
+## Strengths
+This technique is strong for local neighborhood and cluster pattern visualization when tuned appropriately. It frequently produces clear local grouping behavior for exploratory local-structure tasks.
+
+It is useful when local relationship interpretation dominates, and global distance reading is explicitly de-emphasized.
+
+
 ## Task Alignment
 - Direct evidence: best-aligned tasks
   - Neighborhood identification

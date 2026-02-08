@@ -40,6 +40,12 @@ A strong property of this metric is that it provides a compact diagnostic that i
 
 In review workflows, this metric works best as one component in a bundle: local, global, and label-aware signals together. That bundle-based interpretation reduces the chance of selecting a method that is numerically strong but operationally misaligned.
 
+## Strengths
+This metric is strong for class/cluster consistency checks in labeled settings. It provides a direct signal of whether embedding geometry supports class-oriented separation expectations.
+
+It is effective for screening class-separability claims, but interpretation must remain conditional on original-space label separability.
+
+
 ## Task Alignment
 This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
 - Best-aligned tasks:

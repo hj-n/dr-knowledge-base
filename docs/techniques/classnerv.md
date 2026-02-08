@@ -47,6 +47,12 @@ Notable properties should be interpreted as operating characteristics, not guara
 
 Use these properties to narrow candidates early, then confirm with metric evidence and task-specific validation. That sequence keeps the workflow grounded in evidence instead of anecdotal method reputation.
 
+## Strengths
+This technique is strong for steering neighborhood distortions to preserve class and neighbor constraints jointly. It gives explicit control over class-aware neighborhood behavior in supervised DR objectives.
+
+It is useful when the analysis must balance neighborhood faithfulness with class-consistent local structures.
+
+
 ## Task Alignment
 - Inferred alignment: best-aligned tasks
   - Class separability investigation

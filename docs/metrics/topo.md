@@ -39,6 +39,12 @@ A strong property of this metric is that it provides a compact diagnostic that i
 
 In review workflows, this metric works best as one component in a bundle: local, global, and label-aware signals together. That bundle-based interpretation reduces the chance of selecting a method that is numerically strong but operationally misaligned.
 
+## Strengths
+This metric is strong for topological neighborhood-preservation checks in map-like embeddings. It helps quantify topology quality beyond visual inspection alone.
+
+It is particularly useful when preserving adjacency organization is more important than exact metric-distance calibration.
+
+
 ## Task Alignment
 This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
 - Best-aligned tasks:

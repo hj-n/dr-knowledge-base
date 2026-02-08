@@ -16,11 +16,17 @@ This KB is centered on seven analytical tasks:
 - Cluster distance investigation
 - Cluster density investigation
 
+These seven tasks are fixed as the primary axis.
+Subtask refinement is allowed under each axis when needed:
+[`docs/task-taxonomy.md`](./task-taxonomy.md)
+
 ## Navigation
 - Start workflow: [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md)
 - Intake questions first: [`docs/intake-question-tree.md`](./intake-question-tree.md)
+- Task axis and subtask policy: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 - Metric policy and warning gate: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
 - Frequency-based priority (user-facing): [`docs/reference-coverage.md`](./reference-coverage.md)
+- Reliability cautions and tips: [`docs/reliability-cautions-and-tips.md`](./reliability-cautions-and-tips.md)
 - Paper catalog guide: [`docs/paper-catalog.md`](./paper-catalog.md)
 - Paper list (CSV): [`docs/paper-catalog.csv`](./paper-catalog.csv)
 - Metric details: [`docs/metrics/README.md`](./metrics/README.md)
@@ -31,18 +37,22 @@ Use this order when an LLM starts from this file.
 
 1. Task clarification:
    [`docs/intake-question-tree.md`](./intake-question-tree.md)
-2. Data audit + preprocessing:
+2. Task axis/subtask lock:
+   [`docs/task-taxonomy.md`](./task-taxonomy.md)
+3. Data audit + preprocessing:
    [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md) (Step 2)
-3. Technique/metric selection:
+4. Technique/metric selection:
    [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md),
    [`docs/techniques/README.md`](./techniques/README.md),
    [`docs/metrics/README.md`](./metrics/README.md)
-4. Candidate prioritization:
+5. Candidate prioritization:
    [`docs/reference-coverage.md`](./reference-coverage.md)
-5. Source transparency:
+6. Reliability caution check:
+   [`docs/reliability-cautions-and-tips.md`](./reliability-cautions-and-tips.md)
+7. Source transparency:
    [`docs/paper-catalog.md`](./paper-catalog.md),
    [`docs/paper-catalog.csv`](./paper-catalog.csv)
-6. Final explanation contract:
+8. Final explanation contract:
    [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md) (Step 6)
 
 ## Design Rules

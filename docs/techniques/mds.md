@@ -47,6 +47,12 @@ Notable properties should be interpreted as operating characteristics, not guara
 
 Use these properties to narrow candidates early, then confirm with metric evidence and task-specific validation. That sequence keeps the workflow grounded in evidence instead of anecdotal method reputation.
 
+## Strengths
+This technique is strong for global distance-structure preservation and is directly aligned with distance-investigation tasks. It is a robust baseline for analyses where pairwise geometry interpretation is central.
+
+It is useful when the objective prioritizes faithful global distance relationships over local cluster aesthetics.
+
+
 ## Task Alignment
 - Direct evidence: best-aligned tasks
   - Point distance investigation

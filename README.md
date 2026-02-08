@@ -1,19 +1,22 @@
 # DR Knowledge Base v1 (Lean)
 
-This repository is a task-first DR guidance base for LLMs.
+This repository is a task-first DR guidance base for LLMs (and perhaps humans).
 The runtime goal is simple: identify the user's analytical task first, then recommend aligned techniques and reliability metrics.
 
 ## Start Here
 - [`docs/overview.md`](docs/overview.md)
 - [`docs/workflow/dr-analysis-workflow.md`](docs/workflow/dr-analysis-workflow.md)
 - [`docs/intake-question-tree.md`](docs/intake-question-tree.md)
+- [`docs/task-taxonomy.md`](docs/task-taxonomy.md)
 - [`docs/metrics-and-libraries.md`](docs/metrics-and-libraries.md)
 - [`docs/reference-coverage.md`](docs/reference-coverage.md)
+- [`docs/reliability-cautions-and-tips.md`](docs/reliability-cautions-and-tips.md)
 - [`docs/paper-catalog.md`](docs/paper-catalog.md)
 - [`docs/paper-catalog.csv`](docs/paper-catalog.csv)
 
 ## What Consumer LLMs Should Do
 1. Clarify one primary analytical task.
+   - optional: refine with a subtask under that task axis
 2. Audit/preprocess data constraints.
 3. Select task-aligned technique family and ZADU metric IDs.
 4. Run warning gate for label-separation-sensitive metrics.

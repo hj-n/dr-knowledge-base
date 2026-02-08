@@ -47,6 +47,12 @@ Notable properties should be interpreted as operating characteristics, not guara
 
 Use these properties to narrow candidates early, then confirm with metric evidence and task-specific validation. That sequence keeps the workflow grounded in evidence instead of anecdotal method reputation.
 
+## Strengths
+This technique is strong for preserving correlation structure between paired views and extracting shared low-dimensional representations. It is useful when cross-view relationships are central to interpretation.
+
+It can improve interpretability in multi-view settings by emphasizing components that explain shared variance across aligned feature spaces.
+
+
 ## Task Alignment
 - Inferred alignment: best-aligned tasks
   - Neighborhood identification

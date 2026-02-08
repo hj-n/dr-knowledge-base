@@ -40,6 +40,12 @@ A strong property of this metric is that it provides a compact diagnostic that i
 
 In review workflows, this metric works best as one component in a bundle: local, global, and label-aware signals together. That bundle-based interpretation reduces the chance of selecting a method that is numerically strong but operationally misaligned.
 
+## Strengths
+This metric is strong for probability-structure mismatch analysis between high- and low-dimensional neighbor distributions. It is sensitive to local probabilistic distortion patterns that distance-only metrics can miss.
+
+It is particularly informative when comparing neighborhood-probability-preserving techniques or when auditing optimization behavior tied to divergence objectives.
+
+
 ## Task Alignment
 This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
 - Best-aligned tasks:

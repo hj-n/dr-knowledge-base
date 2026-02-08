@@ -47,6 +47,12 @@ Notable properties should be interpreted as operating characteristics, not guara
 
 Use these properties to narrow candidates early, then confirm with metric evidence and task-specific validation. That sequence keeps the workflow grounded in evidence instead of anecdotal method reputation.
 
+## Strengths
+This technique is strong for probabilistic neighborhood-preservation formulations that capture local similarity behavior. It provides a foundational local-probability perspective for neighborhood embeddings.
+
+It is useful when local similarity distributions are the core fidelity target.
+
+
 ## Task Alignment
 - Inferred alignment: best-aligned tasks
   - Neighborhood identification

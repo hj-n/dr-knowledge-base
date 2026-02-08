@@ -47,6 +47,12 @@ Notable properties should be interpreted as operating characteristics, not guara
 
 Use these properties to narrow candidates early, then confirm with metric evidence and task-specific validation. That sequence keeps the workflow grounded in evidence instead of anecdotal method reputation.
 
+## Strengths
+This technique is strong as a stable, fast, and interpretable global linear baseline. It is often the first method to test for distance-related and variance-structure tasks.
+
+It is useful for establishing a trustworthy baseline before adopting more complex nonlinear methods.
+
+
 ## Task Alignment
 - Direct evidence: best-aligned tasks
   - Point distance investigation

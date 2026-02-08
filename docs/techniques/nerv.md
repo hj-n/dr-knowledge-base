@@ -47,6 +47,12 @@ Notable properties should be interpreted as operating characteristics, not guara
 
 Use these properties to narrow candidates early, then confirm with metric evidence and task-specific validation. That sequence keeps the workflow grounded in evidence instead of anecdotal method reputation.
 
+## Strengths
+This technique is strong for explicit control of neighborhood distortion tradeoffs in embedding optimization. It makes distortion-placement decisions more interpretable than black-box local methods.
+
+It is useful when analysts need to tune local/global neighborhood compromise deliberately.
+
+
 ## Task Alignment
 - Inferred alignment: best-aligned tasks
   - Neighborhood identification

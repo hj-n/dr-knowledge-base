@@ -47,6 +47,12 @@ Notable properties should be interpreted as operating characteristics, not guara
 
 Use these properties to narrow candidates early, then confirm with metric evidence and task-specific validation. That sequence keeps the workflow grounded in evidence instead of anecdotal method reputation.
 
+## Strengths
+This technique is strong for supervised adaptations of geodesic-preserving embeddings, combining manifold geometry with class information. It can improve task-relevant structure retention in labeled settings.
+
+It is useful when geodesic structure and class-aware separation must both be considered.
+
+
 ## Task Alignment
 - Inferred alignment: best-aligned tasks
   - Class separability investigation

@@ -40,6 +40,12 @@ A strong property of this metric is that it provides a compact diagnostic that i
 
 In review workflows, this metric works best as one component in a bundle: local, global, and label-aware signals together. That bundle-based interpretation reduces the chance of selecting a method that is numerically strong but operationally misaligned.
 
+## Strengths
+This metric is strong for embedding quality assessment through internal clustering validity behavior. It helps evaluate whether projected cluster structure is compact and separable under a fixed clustering protocol.
+
+It is useful when cluster recoverability is a primary decision criterion and clustering settings are controlled consistently.
+
+
 ## Task Alignment
 This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
 - Best-aligned tasks:

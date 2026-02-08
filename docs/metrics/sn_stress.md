@@ -40,6 +40,12 @@ A strong property of this metric is that it provides a compact diagnostic that i
 
 In review workflows, this metric works best as one component in a bundle: local, global, and label-aware signals together. That bundle-based interpretation reduces the chance of selecting a method that is numerically strong but operationally misaligned.
 
+## Strengths
+This metric is strong for scale-aware comparison of stress-like behavior. It improves fairness when embeddings differ in scale and raw stress values would otherwise be hard to compare directly.
+
+It is useful as a robust global comparison signal in benchmarking settings with heterogeneous embedding magnitudes.
+
+
 ## Task Alignment
 This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
 - Best-aligned tasks:

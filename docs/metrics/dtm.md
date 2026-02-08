@@ -39,6 +39,12 @@ A strong property of this metric is that it provides a compact diagnostic that i
 
 In review workflows, this metric works best as one component in a bundle: local, global, and label-aware signals together. That bundle-based interpretation reduces the chance of selecting a method that is numerically strong but operationally misaligned.
 
+## Strengths
+This metric is strong for measure-based geometric reliability checks, especially when robustness to noise and irregular sampling matters. It can provide a more stable global-structure signal than raw pairwise-distance-only summaries in some regimes.
+
+It is useful when analysts need a geometry-aware global diagnostic that is less tied to a single embedding-scale convention.
+
+
 ## Task Alignment
 This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
 - Best-aligned tasks:

@@ -3,16 +3,32 @@
 Related:
 - Workflow step anchor: [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md) (Step 3)
 - Task clarification prerequisite: [`docs/intake-question-tree.md`](./intake-question-tree.md)
+- Task axis/subtask policy: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 - Metric catalog: [`docs/metrics/README.md`](./metrics/README.md)
 - Technique catalog: [`docs/techniques/README.md`](./techniques/README.md)
 - Frequency ranking: [`docs/reference-coverage.md`](./reference-coverage.md)
+- Grouped reliability cautions: [`docs/reliability-cautions-and-tips.md`](./reliability-cautions-and-tips.md)
 
 ## Default Library
 - Use `zadu` as the default reliability-analysis library for DR embeddings.[^zadu-lib]
-- Keep metric IDs exactly as defined in the library (no custom renaming).
+- Keep ZADU metric IDs exactly as defined in the library (no custom renaming).
+
+## Non-ZADU Metric Extension Policy
+Quality metrics not included in ZADU can still be added when they are useful for the declared task.
+
+Rules:
+1. Add only with explicit provenance:
+   - clear source-note links in `papers/notes/*`
+   - clear mapping to what the metric measures and when to use it
+2. Keep a unique metric ID in `snake_case` and avoid collisions with existing IDs.
+3. Document uncertainty level:
+   - if evidence is limited, mark recommendation confidence as lower.
+4. Keep task alignment and warning-gate logic unchanged:
+   - axis alignment first, then subtask refinement.
 
 ## Task-First Rule
-- Do not pick metrics before clarifying the user's primary analytical task.
+- Do not pick metrics before clarifying the user's primary task axis.
+- If a subtask is defined, keep axis alignment as the hard constraint and use subtask only for refinement.
 - After task clarification, choose a small metric set across local/cluster/global levels.
 
 ## Metric IDs (20)
@@ -50,7 +66,7 @@ Before relying on `dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`, verify that class label
 Every final recommendation should include:
 1. primary analytical task
 2. selected technique family
-3. selected metric IDs with short rationale
+3. selected metric IDs with short rationale (strengths + task-fit rationale)
 4. warning-gate result (pass/fail/unknown)
 5. source-note links used for justification
 

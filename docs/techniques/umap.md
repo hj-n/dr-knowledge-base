@@ -47,6 +47,12 @@ Notable properties should be interpreted as operating characteristics, not guara
 
 Use these properties to narrow candidates early, then confirm with metric evidence and task-specific validation. That sequence keeps the workflow grounded in evidence instead of anecdotal method reputation.
 
+## Strengths
+This technique is strong for scalable local-neighborhood manifold embeddings with good practical performance. It often yields strong local-structure organization while handling larger datasets efficiently.
+
+It is useful for neighborhood/outlier/cluster exploration under runtime constraints compared with heavier local methods.
+
+
 ## Task Alignment
 - Direct evidence: best-aligned tasks
   - Neighborhood identification

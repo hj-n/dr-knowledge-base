@@ -47,6 +47,12 @@ Notable properties should be interpreted as operating characteristics, not guara
 
 Use these properties to narrow candidates early, then confirm with metric evidence and task-specific validation. That sequence keeps the workflow grounded in evidence instead of anecdotal method reputation.
 
+## Strengths
+This technique is strong for capturing nonlinear variance structure through kernel mappings while keeping a PCA-like framework. It is useful when linear PCA underfits curvature or nonlinear separability patterns.
+
+It can provide a practical nonlinear global representation with familiar component-style interpretation workflow.
+
+
 ## Task Alignment
 - Inferred alignment: best-aligned tasks
   - Neighborhood identification

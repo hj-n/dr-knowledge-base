@@ -47,6 +47,12 @@ Notable properties should be interpreted as operating characteristics, not guara
 
 Use these properties to narrow candidates early, then confirm with metric evidence and task-specific validation. That sequence keeps the workflow grounded in evidence instead of anecdotal method reputation.
 
+## Strengths
+This technique is strong for topology-preserving map organization and neighborhood structure visualization. It is useful for structured map-based exploration where adjacency preservation is important.
+
+It can provide interpretable map topology diagnostics beyond pure scatter-style embeddings.
+
+
 ## Task Alignment
 - Inferred alignment: best-aligned tasks
   - Neighborhood identification

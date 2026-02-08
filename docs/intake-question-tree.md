@@ -6,6 +6,7 @@ Do not recommend DR techniques or metrics before this is fixed.
 Related:
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md)
 - Post-intake selection rules: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
+- Axis/subtask policy: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 
 ## Step 1: Plain-Language Goal Question (Required)
 Ask first without task labels:
@@ -31,6 +32,14 @@ After confirmation, map to exactly one primary task:
 5. Class separability investigation
 6. Cluster distance investigation
 7. Cluster density investigation
+
+## Step 4: Optional Subtask Refinement
+If needed, define a more specific subtask under the selected primary task.
+
+Rules:
+- Keep exactly one primary task axis.
+- Subtask is optional and cannot replace the primary axis.
+- If subtask is unclear, proceed with axis-level guidance.
 
 ## Gate
 - If multiple goals exist, ask for one primary goal first.

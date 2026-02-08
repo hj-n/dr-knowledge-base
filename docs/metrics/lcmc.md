@@ -39,6 +39,12 @@ A strong property of this metric is that it provides a compact diagnostic that i
 
 In review workflows, this metric works best as one component in a bundle: local, global, and label-aware signals together. That bundle-based interpretation reduces the chance of selecting a method that is numerically strong but operationally misaligned.
 
+## Strengths
+This metric is strong for measuring local-neighborhood overlap in an interpretable way. It provides a direct signal of whether nearby points remain nearby after projection, which is useful for practical neighborhood-preservation checks.
+
+Because it is simple to interpret and easy to compare across runs, it works well as a baseline local-fidelity signal in multi-metric bundles.
+
+
 ## Task Alignment
 This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
 - Best-aligned tasks:

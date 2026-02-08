@@ -5,9 +5,11 @@ This directory contains general-purpose dimensionality-reduction techniques that
 Related:
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](../workflow/dr-analysis-workflow.md)
 - Task clarification prerequisite: [`docs/intake-question-tree.md`](../intake-question-tree.md)
+- Task axis/subtask policy: [`docs/task-taxonomy.md`](../task-taxonomy.md)
 - Selection policy: [`docs/metrics-and-libraries.md`](../metrics-and-libraries.md)
 - Metric catalog: [`docs/metrics/README.md`](../metrics/README.md)
 - Frequency ranking: [`docs/reference-coverage.md`](../reference-coverage.md)
+- Grouped reliability cautions: [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
 
 ## Required Sections
 - Technique Summary
@@ -16,6 +18,7 @@ Related:
 - Computation Outline
 - Hyperparameter Impact
 - Notable Properties
+- Strengths
 - Task Alignment
 - Known Tradeoffs
 - Source Notes
@@ -47,7 +50,8 @@ Related:
 - Exclude meta-frameworks and methods that are only domain-specific.
 
 ## Task-First Rule
-- Identify one primary analytical task before selecting a technique.
+- Identify one primary task axis before selecting a technique.
+- If a subtask exists, use it to refine within axis-valid candidates.
 - Label alignment statements as `Direct evidence` or `Inferred alignment`.
 - Pair technique choice with task-aligned metrics from `docs/metrics/`.
 - When multiple techniques fit the same task, use PDF-backed support frequency from `docs/reference-coverage.md` to set recommendation priority.

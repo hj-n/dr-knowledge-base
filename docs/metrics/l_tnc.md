@@ -39,6 +39,12 @@ A strong property of this metric is that it provides a compact diagnostic that i
 
 In review workflows, this metric works best as one component in a bundle: local, global, and label-aware signals together. That bundle-based interpretation reduces the chance of selecting a method that is numerically strong but operationally misaligned.
 
+## Strengths
+This metric is strong for checking whether label-conditioned neighborhood reliability is preserved across spaces. It focuses on class-structure consistency directly, making it useful when label reliability is a first-order requirement.
+
+It complements label-agnostic local metrics by highlighting whether local geometric quality also aligns with class semantics.
+
+
 ## Task Alignment
 This metric is best aligned to the task set implied by its structural role. The alignment basis is label-structure source note for Label-T&C.[^cat]
 - Best-aligned tasks:

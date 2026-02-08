@@ -19,8 +19,10 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `docs/workflow/dr-analysis-workflow.md`
 - `docs/overview.md`
 - `docs/intake-question-tree.md`
+- `docs/task-taxonomy.md`
 - `docs/metrics-and-libraries.md`
 - `docs/reference-coverage.md`
+- `docs/reliability-cautions-and-tips.md`
 - `docs/paper-catalog.md`
 - `docs/paper-catalog.csv`
 - `docs/metrics/`
@@ -43,12 +45,15 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 ## Task Axis Contract
 - Workflow anchor: `docs/workflow/dr-analysis-workflow.md`.
 - Intake anchor: 7 analytical tasks from Jeon et al. (2025).
+- 7 tasks are fixed primary axes; do not change or replace them.
+- Subtask refinement is allowed under each axis per `docs/task-taxonomy.md`.
 - Ask plain-language task questions first.
-- Confirm one primary task before recommending techniques or metrics.
+- Confirm one primary task axis before recommending techniques or metrics.
 
 ## Metric Governance Contract
 - Default reliability library: `zadu` (`/hj-n/zadu` via Context7).
-- Use exact metric IDs from `docs/metrics-and-libraries.md`.
+- Use exact metric IDs from `docs/metrics-and-libraries.md` for ZADU metrics.
+- Non-ZADU metrics are allowed when needed, but must include explicit provenance in source notes and metric docs.
 - Apply label-separation warning gate for: `dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`.
 
 ## Ingestion Workflow
@@ -63,6 +68,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
    - `docs/metrics/<metric>.md` for metric-level changes.
    - `docs/techniques/<technique>.md` for technique-level changes.
    - `docs/metrics-and-libraries.md` for summary-level changes.
+   - `docs/reliability-cautions-and-tips.md` for grouped cautions/tips and mitigations.
 7. Recompute conflict status using `builder/evidence/conflict-policy.md` and update `builder/evidence/conflict-register.md`.
 8. Recompute reference frequency index with `python scripts/update_reference_coverage.py`.
 9. Recompute paper catalog with `python scripts/update_paper_catalog.py`.
@@ -91,7 +97,7 @@ Reject a note as incomplete if any condition fails:
 - Detailed quote-level evidence stays in `papers/notes/*`.
 - `docs/` must keep a drill-down link chain:
   - `docs/overview.md` -> `docs/workflow/dr-analysis-workflow.md`
-  - workflow step links -> step-relevant docs (`intake-question-tree`, `metrics-and-libraries`, `metrics/README`, `techniques/README`, `reference-coverage`)
+  - workflow step links -> step-relevant docs (`intake-question-tree`, `task-taxonomy`, `metrics-and-libraries`, `metrics/README`, `techniques/README`, `reference-coverage`, `reliability-cautions-and-tips`)
   - `docs/overview.md` should link to `docs/paper-catalog.md` and `docs/paper-catalog.csv` for source transparency
 - For `docs/metrics/*` and `docs/techniques/*`, each required section must contain substantial prose:
   - target depth: at least one full paragraph, preferably two paragraphs for core sections
@@ -105,14 +111,20 @@ Reject a note as incomplete if any condition fails:
   - `Task Alignment`
   - `Hyperparameter Impact`
   - `Notable Properties`
+  - `Strengths`
   - `Interpretation Notes`
   - `Source Notes`
-- Metric task alignment should be expressed in the 7-task vocabulary.
+- Metric task alignment should be expressed in the 7-task axis vocabulary.
+- If subtask refinement is used, map the subtask back to one axis in the note and recommendation rationale.
 - Hyperparameter-impact statements must be evidence-backed or explicitly marked as unavailable.
 - Label-separation-sensitive metrics (`dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`) must keep the warning gate text.
+- Non-ZADU metrics may be added, but must satisfy provenance clarity:
+  - `Source Notes` must include explicit `papers/notes/*` links for definition/use/caveat claims
+  - metric ID must be unique `snake_case` and not collide with existing IDs
+  - if evidence is thin, mark recommendation confidence conservatively in docs
 - Before creating a new metric file, run canonicalization check to avoid alias duplicates.
 - Minimum prose depth for each metric section:
-  - `Metric Definition`, `What It Quantifies`, `Computation Outline`, `Hyperparameter Impact`, `Notable Properties`, `Task Alignment`, and `Interpretation Notes` must each include at least one full paragraph.
+  - `Metric Definition`, `What It Quantifies`, `Computation Outline`, `Hyperparameter Impact`, `Notable Properties`, `Strengths`, `Task Alignment`, and `Interpretation Notes` must each include at least one full paragraph.
   - At least three of those sections should include two paragraphs when evidence supports deeper detail.
 
 ## Technique Sync Gate (Mandatory)
@@ -126,6 +138,7 @@ Reject a note as incomplete if any condition fails:
   - `Task Alignment`
   - `Hyperparameter Impact`
   - `Notable Properties`
+  - `Strengths`
   - `Known Tradeoffs`
   - `Source Notes`
 - Technique inclusion scope:
@@ -136,11 +149,12 @@ Reject a note as incomplete if any condition fails:
 - Task alignment claims must be labeled:
   - `Direct evidence` when the source explicitly maps technique to tasks.
   - `Inferred alignment` when mapped by structure/behavior and not stated directly.
+- If subtask refinement is used, keep axis-level task alignment as the primary label and document subtask-level refinement as secondary rationale.
 - Hyperparameter claims must be traceable to source-note evidence IDs.
 - If no parameter evidence exists for a technique in current sources, state that explicitly instead of inventing defaults.
 - Before creating a new technique file, run canonicalization check to avoid alias duplicates.
 - Minimum prose depth for each technique section:
-  - `Technique Summary`, `I/O Contract`, `Core Objective`, `Computation Outline`, `Hyperparameter Impact`, `Notable Properties`, `Task Alignment`, and `Known Tradeoffs` must each include at least one full paragraph.
+  - `Technique Summary`, `I/O Contract`, `Core Objective`, `Computation Outline`, `Hyperparameter Impact`, `Notable Properties`, `Strengths`, `Task Alignment`, and `Known Tradeoffs` must each include at least one full paragraph.
   - At least three of those sections should include two paragraphs when evidence supports deeper detail.
 
 ## Alias Safety Rule
@@ -157,6 +171,14 @@ Reject a note as incomplete if any condition fails:
   3. higher average evidence level of linked source notes
   4. if still tied, keep both and mark tie explicitly in rationale
 - If `builder/evidence/conflict-register.md` marks a claim as `contested`, down-rank by one tier unless user explicitly requests exploratory comparison.
+
+## Reliability Cautions Sync Gate
+- When new paper notes add reliability caveats or operational tips, update `docs/reliability-cautions-and-tips.md` in the same turn.
+- Group semantically similar cautions into one theme instead of duplicating near-identical bullets.
+- Each caution group must include:
+  - what can go wrong
+  - what to do to mitigate it
+  - source-note links
 
 ## Context7 Maintenance
 - Keep `context7.json` indexing scope limited to:

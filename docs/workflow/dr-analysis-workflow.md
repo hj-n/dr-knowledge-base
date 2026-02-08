@@ -4,14 +4,16 @@ Use this sequence as the default DR-analysis workflow.
 
 ## Step-to-Document Map
 1. Task clarification:
-   [`docs/intake-question-tree.md`](../intake-question-tree.md)
+   [`docs/intake-question-tree.md`](../intake-question-tree.md),
+   [`docs/task-taxonomy.md`](../task-taxonomy.md)
 2. Data audit + preprocessing:
    this file (Step 2 contract) + selected technique file in
    [`docs/techniques/`](../techniques/README.md)
 3. Task-aligned technique/metric selection:
    [`docs/metrics-and-libraries.md`](../metrics-and-libraries.md),
    [`docs/metrics/README.md`](../metrics/README.md),
-   [`docs/techniques/README.md`](../techniques/README.md)
+   [`docs/techniques/README.md`](../techniques/README.md),
+   [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
 4. Hyperparameter optimization:
    this file (Step 4 contract) + selected technique file in
    [`docs/techniques/`](../techniques/README.md)
@@ -20,16 +22,20 @@ Use this sequence as the default DR-analysis workflow.
    [`docs/techniques/`](../techniques/README.md)
 6. Final recommendation explanation:
    this file (Step 6 contract) + frequency ranking in
-   [`docs/reference-coverage.md`](../reference-coverage.md)
+   [`docs/reference-coverage.md`](../reference-coverage.md) +
+   reliability notes in [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
 
 ## 1) Task clarification
 - Ask plain-language questions.
 - Identify one primary analytical task.
+- Optionally define one subtask under the selected primary axis.
 - Read:
-  [`docs/intake-question-tree.md`](../intake-question-tree.md)
+  [`docs/intake-question-tree.md`](../intake-question-tree.md),
+  [`docs/task-taxonomy.md`](../task-taxonomy.md)
 
 Output:
-- `primary_task`
+- `primary_task_axis`
+- `task_subtype` (optional)
 - `success_criteria`
 
 ## 2) Data audit + preprocessing
@@ -37,22 +43,26 @@ Output:
 - Apply preprocessing needed for stable comparison.
 - Read:
   this section first, then selected-technique hyperparameter constraints in
-  [`docs/techniques/README.md`](../techniques/README.md)
+  [`docs/techniques/README.md`](../techniques/README.md),
+  and relevant cautions in [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
 
 Output:
 - `preprocessing_plan`
 - `data_constraints`
 
 ## 3) Task-aligned technique/metric selection
-- Choose technique family aligned with the primary task.
+- Choose technique family aligned with the primary task axis.
+- Refine ranking with subtask constraints if `task_subtype` is present.
 - Choose a small metric set across local/cluster/global levels.
+- If a required quality check is not covered by ZADU metrics, an external metric may be added only with explicit source-note provenance.
 - Run warning gate for label-separation-sensitive metrics:
   - `dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`
 - Read:
   [`docs/metrics-and-libraries.md`](../metrics-and-libraries.md),
   [`docs/metrics/README.md`](../metrics/README.md),
   [`docs/techniques/README.md`](../techniques/README.md),
-  [`docs/reference-coverage.md`](../reference-coverage.md)
+  [`docs/reference-coverage.md`](../reference-coverage.md),
+  [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
 
 Output:
 - `selected_technique_family`
@@ -65,7 +75,9 @@ Output:
 - Read:
   selected metric/technique file(s) under
   [`docs/metrics/`](../metrics/README.md) and
-  [`docs/techniques/`](../techniques/README.md)
+  [`docs/techniques/`](../techniques/README.md),
+  then apply grouped pitfalls from
+  [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
 
 Output:
 - `best_params`
@@ -85,10 +97,13 @@ Output:
 ## 6) Explain the selection to users
 - Explain why this task mapping was chosen.
 - Explain why this technique/metric set was chosen.
+- Explain technique and metric strengths for the selected task axis/subtask.
 - Explain warning-gate status and remaining limits.
 - Read:
   [`docs/metrics-and-libraries.md`](../metrics-and-libraries.md) and
-  [`docs/reference-coverage.md`](../reference-coverage.md)
+  [`docs/reference-coverage.md`](../reference-coverage.md),
+  plus grouped limitations in
+  [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
 
 Output:
 - `final_explanation`

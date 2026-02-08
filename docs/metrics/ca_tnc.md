@@ -40,6 +40,12 @@ A strong property of this metric is that it provides a compact diagnostic that i
 
 In review workflows, this metric works best as one component in a bundle: local, global, and label-aware signals together. That bundle-based interpretation reduces the chance of selecting a method that is numerically strong but operationally misaligned.
 
+## Strengths
+This metric is strong for decomposing local distortions into class-preserving versus class-breaking components. It adds diagnostic depth beyond plain trustworthiness/continuity by showing where class boundaries are respected or violated.
+
+It is particularly useful for class-centric analyses where local errors near boundaries have higher decision impact than within-class perturbations.
+
+
 ## Task Alignment
 This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
 - Best-aligned tasks:
