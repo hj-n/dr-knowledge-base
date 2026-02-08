@@ -16,12 +16,29 @@ This KB is centered on seven analytical tasks:
 - Cluster distance investigation
 - Cluster density investigation
 
-## Key Documents
-- `docs/workflow/dr-analysis-workflow.md`
-- `docs/intake-question-tree.md`
-- `docs/metrics-and-libraries.md`
-- `docs/metrics/`
-- `docs/techniques/`
+## Navigation
+- Start workflow: [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md)
+- Intake questions first: [`docs/intake-question-tree.md`](./intake-question-tree.md)
+- Metric policy and warning gate: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
+- Frequency-based priority (user-facing): [`docs/reference-coverage.md`](./reference-coverage.md)
+- Metric details: [`docs/metrics/README.md`](./metrics/README.md)
+- Technique details: [`docs/techniques/README.md`](./techniques/README.md)
+
+## Drill-Down Path
+Use this order when an LLM starts from this file.
+
+1. Task clarification:
+   [`docs/intake-question-tree.md`](./intake-question-tree.md)
+2. Data audit + preprocessing:
+   [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md) (Step 2)
+3. Technique/metric selection:
+   [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md),
+   [`docs/techniques/README.md`](./techniques/README.md),
+   [`docs/metrics/README.md`](./metrics/README.md)
+4. Candidate prioritization:
+   [`docs/reference-coverage.md`](./reference-coverage.md)
+5. Final explanation contract:
+   [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md) (Step 6)
 
 ## Design Rules
 - Task-first: no method recommendation before task clarification.

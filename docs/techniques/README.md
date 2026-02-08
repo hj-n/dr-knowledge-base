@@ -2,6 +2,13 @@
 
 This directory contains general-purpose dimensionality-reduction techniques that map high-dimensional input data to low-dimensional projections.
 
+Related:
+- Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](../workflow/dr-analysis-workflow.md)
+- Task clarification prerequisite: [`docs/intake-question-tree.md`](../intake-question-tree.md)
+- Selection policy: [`docs/metrics-and-libraries.md`](../metrics-and-libraries.md)
+- Metric catalog: [`docs/metrics/README.md`](../metrics/README.md)
+- Frequency ranking: [`docs/reference-coverage.md`](../reference-coverage.md)
+
 ## Required Sections
 - Technique Summary
 - I/O Contract
@@ -43,3 +50,4 @@ This directory contains general-purpose dimensionality-reduction techniques that
 - Identify one primary analytical task before selecting a technique.
 - Label alignment statements as `Direct evidence` or `Inferred alignment`.
 - Pair technique choice with task-aligned metrics from `docs/metrics/`.
+- When multiple techniques fit the same task, use PDF-backed support frequency from `docs/reference-coverage.md` to set recommendation priority.

@@ -1,0 +1,2397 @@
+{
+  "updated_at": "2026-02-08",
+  "source": "docs/*/Source Notes",
+  "support_tier_rule": {
+    "very_high": ">=6 PDFs",
+    "high": "4-5 PDFs",
+    "medium": "2-3 PDFs",
+    "low": "1 PDF",
+    "none": "0 PDFs"
+  },
+  "metrics": [
+    {
+      "id": "stress",
+      "kind": "metric",
+      "doc_path": "docs/metrics/stress.md",
+      "source_note_count": 8,
+      "source_pdf_note_count": 8,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 8,
+      "support_tier": "very_high",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-06-least-square-projection-a-fast-high-precision-multidimensional-projection-techni.md",
+          "title": "Least Square Projection: A Fast High-Precision",
+          "year": "2008",
+          "source_pdf": "papers/raw/zadu-table1-references/Least_Square_Projection_A_Fast_High-Precision_Multidimensional_Projection_Technique_and_Its_Application_to_Document_Mapping.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-13-ref03-geometric-inference-for-probability-measures.md",
+          "title": "Geometric Inference for Measures based on Distance Functions",
+          "year": "2010",
+          "source_pdf": "papers/raw/zadu-table1-references/ref03_geometric_inference_for_probability_measures.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md",
+          "title": "Stochastic Neighbor Embedding",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md",
+          "title": "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analy",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-06-least-square-projection-a-fast-high-precision-multidimensional-projection-techni.md",
+          "title": "Least Square Projection: A Fast High-Precision",
+          "year": "2008",
+          "source_pdf": "papers/raw/zadu-table1-references/Least_Square_Projection_A_Fast_High-Precision_Multidimensional_Projection_Technique_and_Its_Application_to_Document_Mapping.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-13-ref03-geometric-inference-for-probability-measures.md",
+          "title": "Geometric Inference for Measures based on Distance Functions",
+          "year": "2010",
+          "source_pdf": "papers/raw/zadu-table1-references/ref03_geometric_inference_for_probability_measures.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md",
+          "title": "Stochastic Neighbor Embedding",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md",
+          "title": "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analy",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/Least_Square_Projection_A_Fast_High-Precision_Multidimensional_Projection_Technique_and_Its_Application_to_Document_Mapping.pdf",
+        "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+        "papers/raw/zadu-table1-references/ref03_geometric_inference_for_probability_measures.pdf",
+        "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf",
+        "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+        "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+        "papers/raw/zadu-table1-references/2510.08660v1.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "tnc",
+      "kind": "metric",
+      "doc_path": "docs/metrics/tnc.md",
+      "source_note_count": 7,
+      "source_pdf_note_count": 7,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 7,
+      "support_tier": "very_high",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md",
+          "title": "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analy",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-01-1-s2-0-s0893608006000724-main.md",
+          "title": "doi:10.1016/j.neunet.2006.05.014",
+          "year": "2006",
+          "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0893608006000724-main.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md",
+          "title": "doi:10.1016/j.neucom.2008.12.017",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0925231209000101-main.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md",
+          "title": "Local Affine Multidimensional Projection",
+          "year": "2011",
+          "source_pdf": "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md",
+          "title": "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analy",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-01-1-s2-0-s0893608006000724-main.md",
+          "title": "doi:10.1016/j.neunet.2006.05.014",
+          "year": "2006",
+          "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0893608006000724-main.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md",
+          "title": "doi:10.1016/j.neucom.2008.12.017",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0925231209000101-main.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md",
+          "title": "Local Affine Multidimensional Projection",
+          "year": "2011",
+          "source_pdf": "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+        "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+        "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+        "papers/raw/zadu-table1-references/1-s2.0-S0893608006000724-main.pdf",
+        "papers/raw/zadu-table1-references/1-s2.0-S0925231209000101-main.pdf",
+        "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "kl_div",
+      "kind": "metric",
+      "doc_path": "docs/metrics/kl_div.md",
+      "source_note_count": 6,
+      "source_pdf_note_count": 6,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 6,
+      "support_tier": "very_high",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md",
+          "title": "Stochastic Neighbor Embedding",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md",
+          "title": "Steering Distortions to Preserve Classes and",
+          "year": "2020",
+          "source_pdf": "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md",
+          "title": "Stochastic Neighbor Embedding",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md",
+          "title": "Steering Distortions to Preserve Classes and",
+          "year": "2020",
+          "source_pdf": "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+        "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf",
+        "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+        "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+        "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "mrre",
+      "kind": "metric",
+      "doc_path": "docs/metrics/mrre.md",
+      "source_note_count": 6,
+      "source_pdf_note_count": 6,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 6,
+      "support_tier": "very_high",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md",
+          "title": "doi:10.1016/j.neucom.2008.12.017",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0925231209000101-main.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md",
+          "title": "doi:10.1016/j.neucom.2008.12.017",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0925231209000101-main.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+        "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+        "papers/raw/zadu-table1-references/1-s2.0-S0925231209000101-main.pdf",
+        "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+        "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "snc",
+      "kind": "metric",
+      "doc_path": "docs/metrics/snc.md",
+      "source_note_count": 6,
+      "source_pdf_note_count": 6,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 6,
+      "support_tier": "very_high",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md",
+          "title": "Feature Learning for Nonlinear Dimensionality Reduction toward",
+          "year": "2023",
+          "source_pdf": "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md",
+          "title": "Feature Learning for Nonlinear Dimensionality Reduction toward",
+          "year": "2023",
+          "source_pdf": "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+        "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+        "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+        "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+        "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "dsc",
+      "kind": "metric",
+      "doc_path": "docs/metrics/dsc.md",
+      "source_note_count": 6,
+      "source_pdf_note_count": 5,
+      "non_pdf_note_count": 1,
+      "source_pdf_count": 5,
+      "support_tier": "high",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-05-computer-graphics-forum-2009-sips-selecting-good-views-of-high-e2-80-90dimension.md",
+          "title": "Selecting good views of high\u2010dimensional data using class consistency",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/Computer Graphics Forum - 2009 - Sips - Selecting good views of high%E2%80%90dimensional data using class consistency.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2026-zadu-readme-warning.md",
+          "title": "ZADU README Operational Warning for Label-Separation-Sensitive Metrics",
+          "year": "2026",
+          "source_pdf": "https://github.com/hj-n/zadu/blob/master/README.md",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-05-computer-graphics-forum-2009-sips-selecting-good-views-of-high-e2-80-90dimension.md",
+          "title": "Selecting good views of high\u2010dimensional data using class consistency",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/Computer Graphics Forum - 2009 - Sips - Selecting good views of high%E2%80%90dimensional data using class consistency.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [
+        {
+          "note_path": "papers/notes/2026-zadu-readme-warning.md",
+          "title": "ZADU README Operational Warning for Label-Separation-Sensitive Metrics",
+          "year": "2026",
+          "source_pdf": "https://github.com/hj-n/zadu/blob/master/README.md",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+        "papers/raw/zadu-table1-references/Computer Graphics Forum - 2009 - Sips - Selecting good views of high%E2%80%90dimensional data using class consistency.pdf",
+        "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+        "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "ivm",
+      "kind": "metric",
+      "doc_path": "docs/metrics/ivm.md",
+      "source_note_count": 6,
+      "source_pdf_note_count": 5,
+      "non_pdf_note_count": 1,
+      "source_pdf_count": 5,
+      "support_tier": "high",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-19-ref42-a-comparison-for-dimensionality-reduction-methods-of-single-cell-rna-seq-d.md",
+          "title": "A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref42_a_comparison_for_dimensionality_reduction_methods_of_single_cell_rna_seq_data.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md",
+          "title": "Local Affine Multidimensional Projection",
+          "year": "2011",
+          "source_pdf": "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2026-zadu-readme-warning.md",
+          "title": "ZADU README Operational Warning for Label-Separation-Sensitive Metrics",
+          "year": "2026",
+          "source_pdf": "https://github.com/hj-n/zadu/blob/master/README.md",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-19-ref42-a-comparison-for-dimensionality-reduction-methods-of-single-cell-rna-seq-d.md",
+          "title": "A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref42_a_comparison_for_dimensionality_reduction_methods_of_single_cell_rna_seq_data.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md",
+          "title": "Local Affine Multidimensional Projection",
+          "year": "2011",
+          "source_pdf": "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [
+        {
+          "note_path": "papers/notes/2026-zadu-readme-warning.md",
+          "title": "ZADU README Operational Warning for Label-Separation-Sensitive Metrics",
+          "year": "2026",
+          "source_pdf": "https://github.com/hj-n/zadu/blob/master/README.md",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+        "papers/raw/zadu-table1-references/ref42_a_comparison_for_dimensionality_reduction_methods_of_single_cell_rna_seq_data.pdf",
+        "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf",
+        "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "pr",
+      "kind": "metric",
+      "doc_path": "docs/metrics/pr.md",
+      "source_note_count": 5,
+      "source_pdf_note_count": 5,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 5,
+      "support_tier": "high",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md",
+          "title": "Feature Learning for Nonlinear Dimensionality Reduction toward",
+          "year": "2023",
+          "source_pdf": "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md",
+          "title": "Steering Distortions to Preserve Classes and",
+          "year": "2020",
+          "source_pdf": "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md",
+          "title": "Feature Learning for Nonlinear Dimensionality Reduction toward",
+          "year": "2023",
+          "source_pdf": "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md",
+          "title": "Steering Distortions to Preserve Classes and",
+          "year": "2020",
+          "source_pdf": "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+        "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+        "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+        "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "proc",
+      "kind": "metric",
+      "doc_path": "docs/metrics/proc.md",
+      "source_note_count": 4,
+      "source_pdf_note_count": 4,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 4,
+      "support_tier": "high",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md",
+          "title": "Feature Learning for Nonlinear Dimensionality Reduction toward",
+          "year": "2023",
+          "source_pdf": "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md",
+          "title": "Local Affine Multidimensional Projection",
+          "year": "2011",
+          "source_pdf": "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-16-ref12-local-procrustes-for-manifold-embedding-a-measure-of-embedding-quality-and.md",
+          "title": "Mach Learn (2009) 77: 1\u201325",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/ref12_local_procrustes_for_manifold_embedding_a_measure_of_embedding_quality_and_embedding_algor.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md",
+          "title": "Feature Learning for Nonlinear Dimensionality Reduction toward",
+          "year": "2023",
+          "source_pdf": "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md",
+          "title": "Local Affine Multidimensional Projection",
+          "year": "2011",
+          "source_pdf": "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-16-ref12-local-procrustes-for-manifold-embedding-a-measure-of-embedding-quality-and.md",
+          "title": "Mach Learn (2009) 77: 1\u201325",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/ref12_local_procrustes_for_manifold_embedding_a_measure_of_embedding_quality_and_embedding_algor.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+        "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf",
+        "papers/raw/zadu-table1-references/ref12_local_procrustes_for_manifold_embedding_a_measure_of_embedding_quality_and_embedding_algor.pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "srho",
+      "kind": "metric",
+      "doc_path": "docs/metrics/srho.md",
+      "source_note_count": 4,
+      "source_pdf_note_count": 4,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 4,
+      "support_tier": "high",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md",
+          "title": "Feature Learning for Nonlinear Dimensionality Reduction toward",
+          "year": "2023",
+          "source_pdf": "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md",
+          "title": "Feature Learning for Nonlinear Dimensionality Reduction toward",
+          "year": "2023",
+          "source_pdf": "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+        "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+        "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "c_evm",
+      "kind": "metric",
+      "doc_path": "docs/metrics/c_evm.md",
+      "source_note_count": 4,
+      "source_pdf_note_count": 3,
+      "non_pdf_note_count": 1,
+      "source_pdf_count": 3,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-19-ref42-a-comparison-for-dimensionality-reduction-methods-of-single-cell-rna-seq-d.md",
+          "title": "A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref42_a_comparison_for_dimensionality_reduction_methods_of_single_cell_rna_seq_data.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2026-zadu-readme-warning.md",
+          "title": "ZADU README Operational Warning for Label-Separation-Sensitive Metrics",
+          "year": "2026",
+          "source_pdf": "https://github.com/hj-n/zadu/blob/master/README.md",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-19-ref42-a-comparison-for-dimensionality-reduction-methods-of-single-cell-rna-seq-d.md",
+          "title": "A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref42_a_comparison_for_dimensionality_reduction_methods_of_single_cell_rna_seq_data.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [
+        {
+          "note_path": "papers/notes/2026-zadu-readme-warning.md",
+          "title": "ZADU README Operational Warning for Label-Separation-Sensitive Metrics",
+          "year": "2026",
+          "source_pdf": "https://github.com/hj-n/zadu/blob/master/README.md",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/ref42_a_comparison_for_dimensionality_reduction_methods_of_single_cell_rna_seq_data.pdf",
+        "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "dtm",
+      "kind": "metric",
+      "doc_path": "docs/metrics/dtm.md",
+      "source_note_count": 3,
+      "source_pdf_note_count": 3,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 3,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-13-ref03-geometric-inference-for-probability-measures.md",
+          "title": "Geometric Inference for Measures based on Distance Functions",
+          "year": "2010",
+          "source_pdf": "papers/raw/zadu-table1-references/ref03_geometric_inference_for_probability_measures.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-13-ref03-geometric-inference-for-probability-measures.md",
+          "title": "Geometric Inference for Measures based on Distance Functions",
+          "year": "2010",
+          "source_pdf": "papers/raw/zadu-table1-references/ref03_geometric_inference_for_probability_measures.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/ref03_geometric_inference_for_probability_measures.pdf",
+        "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "lcmc",
+      "kind": "metric",
+      "doc_path": "docs/metrics/lcmc.md",
+      "source_note_count": 3,
+      "source_pdf_note_count": 3,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 3,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md",
+          "title": "doi:10.1016/j.neucom.2008.12.017",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0925231209000101-main.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md",
+          "title": "doi:10.1016/j.neucom.2008.12.017",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0925231209000101-main.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+        "papers/raw/zadu-table1-references/1-s2.0-S0925231209000101-main.pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "nd",
+      "kind": "metric",
+      "doc_path": "docs/metrics/nd.md",
+      "source_note_count": 3,
+      "source_pdf_note_count": 3,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 3,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md",
+          "title": "Feature Learning for Nonlinear Dimensionality Reduction toward",
+          "year": "2023",
+          "source_pdf": "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md",
+          "title": "Feature Learning for Nonlinear Dimensionality Reduction toward",
+          "year": "2023",
+          "source_pdf": "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
+          "title": "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections",
+          "year": "2021",
+          "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
+        "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "nm_stress",
+      "kind": "metric",
+      "doc_path": "docs/metrics/nm_stress.md",
+      "source_note_count": 3,
+      "source_pdf_note_count": 3,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 3,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+        "papers/raw/zadu-table1-references/2408.07724v2.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "sn_stress",
+      "kind": "metric",
+      "doc_path": "docs/metrics/sn_stress.md",
+      "source_note_count": 3,
+      "source_pdf_note_count": 3,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 3,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+        "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "ca_tnc",
+      "kind": "metric",
+      "doc_path": "docs/metrics/ca_tnc.md",
+      "source_note_count": 3,
+      "source_pdf_note_count": 2,
+      "non_pdf_note_count": 1,
+      "source_pdf_count": 2,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2026-zadu-readme-warning.md",
+          "title": "ZADU README Operational Warning for Label-Separation-Sensitive Metrics",
+          "year": "2026",
+          "source_pdf": "https://github.com/hj-n/zadu/blob/master/README.md",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [
+        {
+          "note_path": "papers/notes/2026-zadu-readme-warning.md",
+          "title": "ZADU README Operational Warning for Label-Separation-Sensitive Metrics",
+          "year": "2026",
+          "source_pdf": "https://github.com/hj-n/zadu/blob/master/README.md",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "nh",
+      "kind": "metric",
+      "doc_path": "docs/metrics/nh.md",
+      "source_note_count": 3,
+      "source_pdf_note_count": 2,
+      "non_pdf_note_count": 1,
+      "source_pdf_count": 2,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2026-zadu-readme-warning.md",
+          "title": "ZADU README Operational Warning for Label-Separation-Sensitive Metrics",
+          "year": "2026",
+          "source_pdf": "https://github.com/hj-n/zadu/blob/master/README.md",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [
+        {
+          "note_path": "papers/notes/2026-zadu-readme-warning.md",
+          "title": "ZADU README Operational Warning for Label-Separation-Sensitive Metrics",
+          "year": "2026",
+          "source_pdf": "https://github.com/hj-n/zadu/blob/master/README.md",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "topo",
+      "kind": "metric",
+      "doc_path": "docs/metrics/topo.md",
+      "source_note_count": 2,
+      "source_pdf_note_count": 2,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 2,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-10-download-2.md",
+          "title": "Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/download (2).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-10-download-2.md",
+          "title": "Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/download (2).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2023-zadu-library.md",
+          "title": "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings",
+          "year": "2023",
+          "source_pdf": "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/download (2).pdf",
+        "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "l_tnc",
+      "kind": "metric",
+      "doc_path": "docs/metrics/l_tnc.md",
+      "source_note_count": 1,
+      "source_pdf_note_count": 1,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 1,
+      "support_tier": "low",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
+          "title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf"
+      ],
+      "unresolved_note_refs": []
+    }
+  ],
+  "techniques": [
+    {
+      "id": "mds",
+      "kind": "technique",
+      "doc_path": "docs/techniques/mds.md",
+      "source_note_count": 3,
+      "source_pdf_note_count": 3,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 3,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
+          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
+          "year": "2025",
+          "source_pdf": "papers/raw/2506.08725v2.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md",
+          "title": "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analy",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
+          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
+          "year": "2025",
+          "source_pdf": "papers/raw/2506.08725v2.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md",
+          "title": "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analy",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-03-2408-07724v2.md",
+          "title": "'Normalized Stress' is Not Normalized: How to Interpret Stress Correctly",
+          "year": "2025",
+          "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/2506.08725v2.pdf",
+        "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+        "papers/raw/zadu-table1-references/2408.07724v2.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "t-sne",
+      "kind": "technique",
+      "doc_path": "docs/techniques/t-sne.md",
+      "source_note_count": 3,
+      "source_pdf_note_count": 3,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 3,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
+          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
+          "year": "2025",
+          "source_pdf": "papers/raw/2506.08725v2.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md",
+          "title": "Stochastic Neighbor Embedding",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
+          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
+          "year": "2025",
+          "source_pdf": "papers/raw/2506.08725v2.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-04-2510-08660v1.md",
+          "title": "How Scale Breaks 'Normalized Stress' and KL Divergence: Rethinking Quality Metrics",
+          "year": "2024",
+          "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md",
+          "title": "Stochastic Neighbor Embedding",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/2506.08725v2.pdf",
+        "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+        "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "isomap",
+      "kind": "technique",
+      "doc_path": "docs/techniques/isomap.md",
+      "source_note_count": 2,
+      "source_pdf_note_count": 2,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 2,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-01-1-s2-0-s0893608006000724-main.md",
+          "title": "doi:10.1016/j.neunet.2006.05.014",
+          "year": "2006",
+          "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0893608006000724-main.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-09-supervised-nonlinear-dimensionality-reduction-for-visualization-and-classificati.md",
+          "title": "Supervised nonlinear dimensionality reduction for visualization and classification",
+          "year": "2005",
+          "source_pdf": "papers/raw/zadu-table1-references/Supervised_nonlinear_dimensionality_reduction_for_visualization_and_classification.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-01-1-s2-0-s0893608006000724-main.md",
+          "title": "doi:10.1016/j.neunet.2006.05.014",
+          "year": "2006",
+          "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0893608006000724-main.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-09-supervised-nonlinear-dimensionality-reduction-for-visualization-and-classificati.md",
+          "title": "Supervised nonlinear dimensionality reduction for visualization and classification",
+          "year": "2005",
+          "source_pdf": "papers/raw/zadu-table1-references/Supervised_nonlinear_dimensionality_reduction_for_visualization_and_classification.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/1-s2.0-S0893608006000724-main.pdf",
+        "papers/raw/zadu-table1-references/Supervised_nonlinear_dimensionality_reduction_for_visualization_and_classification.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "lle",
+      "kind": "technique",
+      "doc_path": "docs/techniques/lle.md",
+      "source_note_count": 2,
+      "source_pdf_note_count": 2,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 2,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md",
+          "title": "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analy",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-16-ref12-local-procrustes-for-manifold-embedding-a-measure-of-embedding-quality-and.md",
+          "title": "Mach Learn (2009) 77: 1\u201325",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/ref12_local_procrustes_for_manifold_embedding_a_measure_of_embedding_quality_and_embedding_algor.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md",
+          "title": "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analy",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-16-ref12-local-procrustes-for-manifold-embedding-a-measure-of-embedding-quality-and.md",
+          "title": "Mach Learn (2009) 77: 1\u201325",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/ref12_local_procrustes_for_manifold_embedding_a_measure_of_embedding_quality_and_embedding_algor.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+        "papers/raw/zadu-table1-references/ref12_local_procrustes_for_manifold_embedding_a_measure_of_embedding_quality_and_embedding_algor.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "som",
+      "kind": "technique",
+      "doc_path": "docs/techniques/som.md",
+      "source_note_count": 2,
+      "source_pdf_note_count": 2,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 2,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-10-download-2.md",
+          "title": "Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/download (2).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md",
+          "title": "doi:10.1016/j.neucom.2008.12.017",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0925231209000101-main.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-10-download-2.md",
+          "title": "Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/download (2).pdf",
+          "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md",
+          "title": "doi:10.1016/j.neucom.2008.12.017",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0925231209000101-main.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/download (2).pdf",
+        "papers/raw/zadu-table1-references/1-s2.0-S0925231209000101-main.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "catsne",
+      "kind": "technique",
+      "doc_path": "docs/techniques/catsne.md",
+      "source_note_count": 1,
+      "source_pdf_note_count": 1,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 1,
+      "support_tier": "low",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md",
+          "title": "Steering Distortions to Preserve Classes and",
+          "year": "2020",
+          "source_pdf": "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md",
+          "title": "Steering Distortions to Preserve Classes and",
+          "year": "2020",
+          "source_pdf": "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "cca",
+      "kind": "technique",
+      "doc_path": "docs/techniques/cca.md",
+      "source_note_count": 1,
+      "source_pdf_note_count": 1,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 1,
+      "support_tier": "low",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-01-1-s2-0-s0893608006000724-main.md",
+          "title": "doi:10.1016/j.neunet.2006.05.014",
+          "year": "2006",
+          "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0893608006000724-main.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-01-1-s2-0-s0893608006000724-main.md",
+          "title": "doi:10.1016/j.neunet.2006.05.014",
+          "year": "2006",
+          "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0893608006000724-main.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/1-s2.0-S0893608006000724-main.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "classimap",
+      "kind": "technique",
+      "doc_path": "docs/techniques/classimap.md",
+      "source_note_count": 1,
+      "source_pdf_note_count": 1,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 1,
+      "support_tier": "low",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md",
+          "title": "Steering Distortions to Preserve Classes and",
+          "year": "2020",
+          "source_pdf": "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md",
+          "title": "Steering Distortions to Preserve Classes and",
+          "year": "2020",
+          "source_pdf": "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "classnerv",
+      "kind": "technique",
+      "doc_path": "docs/techniques/classnerv.md",
+      "source_note_count": 1,
+      "source_pdf_note_count": 1,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 1,
+      "support_tier": "low",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md",
+          "title": "Steering Distortions to Preserve Classes and",
+          "year": "2020",
+          "source_pdf": "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md",
+          "title": "Steering Distortions to Preserve Classes and",
+          "year": "2020",
+          "source_pdf": "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "kpca",
+      "kind": "technique",
+      "doc_path": "docs/techniques/kpca.md",
+      "source_note_count": 1,
+      "source_pdf_note_count": 1,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 1,
+      "support_tier": "low",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md",
+          "title": "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analy",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md",
+          "title": "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analy",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "lamp",
+      "kind": "technique",
+      "doc_path": "docs/techniques/lamp.md",
+      "source_note_count": 1,
+      "source_pdf_note_count": 1,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 1,
+      "support_tier": "low",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md",
+          "title": "Local Affine Multidimensional Projection",
+          "year": "2011",
+          "source_pdf": "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md",
+          "title": "Local Affine Multidimensional Projection",
+          "year": "2011",
+          "source_pdf": "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "lmds",
+      "kind": "technique",
+      "doc_path": "docs/techniques/lmds.md",
+      "source_note_count": 1,
+      "source_pdf_note_count": 1,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 1,
+      "support_tier": "low",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md",
+          "title": "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analy",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md",
+          "title": "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analy",
+          "year": "2009",
+          "source_pdf": "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "lsp",
+      "kind": "technique",
+      "doc_path": "docs/techniques/lsp.md",
+      "source_note_count": 1,
+      "source_pdf_note_count": 1,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 1,
+      "support_tier": "low",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-06-least-square-projection-a-fast-high-precision-multidimensional-projection-techni.md",
+          "title": "Least Square Projection: A Fast High-Precision",
+          "year": "2008",
+          "source_pdf": "papers/raw/zadu-table1-references/Least_Square_Projection_A_Fast_High-Precision_Multidimensional_Projection_Technique_and_Its_Application_to_Document_Mapping.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-06-least-square-projection-a-fast-high-precision-multidimensional-projection-techni.md",
+          "title": "Least Square Projection: A Fast High-Precision",
+          "year": "2008",
+          "source_pdf": "papers/raw/zadu-table1-references/Least_Square_Projection_A_Fast_High-Precision_Multidimensional_Projection_Technique_and_Its_Application_to_Document_Mapping.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/Least_Square_Projection_A_Fast_High-Precision_Multidimensional_Projection_Technique_and_Its_Application_to_Document_Mapping.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "nerv",
+      "kind": "technique",
+      "doc_path": "docs/techniques/nerv.md",
+      "source_note_count": 1,
+      "source_pdf_note_count": 1,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 1,
+      "support_tier": "low",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md",
+          "title": "Steering Distortions to Preserve Classes and",
+          "year": "2020",
+          "source_pdf": "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md",
+          "title": "Steering Distortions to Preserve Classes and",
+          "year": "2020",
+          "source_pdf": "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "pca",
+      "kind": "technique",
+      "doc_path": "docs/techniques/pca.md",
+      "source_note_count": 1,
+      "source_pdf_note_count": 1,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 1,
+      "support_tier": "low",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
+          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
+          "year": "2025",
+          "source_pdf": "papers/raw/2506.08725v2.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
+          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
+          "year": "2025",
+          "source_pdf": "papers/raw/2506.08725v2.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/2506.08725v2.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "plmp",
+      "kind": "technique",
+      "doc_path": "docs/techniques/plmp.md",
+      "source_note_count": 1,
+      "source_pdf_note_count": 1,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 1,
+      "support_tier": "low",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md",
+          "title": "Local Affine Multidimensional Projection",
+          "year": "2011",
+          "source_pdf": "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md",
+          "title": "Local Affine Multidimensional Projection",
+          "year": "2011",
+          "source_pdf": "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "s-isomap",
+      "kind": "technique",
+      "doc_path": "docs/techniques/s-isomap.md",
+      "source_note_count": 1,
+      "source_pdf_note_count": 1,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 1,
+      "support_tier": "low",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-09-supervised-nonlinear-dimensionality-reduction-for-visualization-and-classificati.md",
+          "title": "Supervised nonlinear dimensionality reduction for visualization and classification",
+          "year": "2005",
+          "source_pdf": "papers/raw/zadu-table1-references/Supervised_nonlinear_dimensionality_reduction_for_visualization_and_classification.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-09-supervised-nonlinear-dimensionality-reduction-for-visualization-and-classificati.md",
+          "title": "Supervised nonlinear dimensionality reduction for visualization and classification",
+          "year": "2005",
+          "source_pdf": "papers/raw/zadu-table1-references/Supervised_nonlinear_dimensionality_reduction_for_visualization_and_classification.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/Supervised_nonlinear_dimensionality_reduction_for_visualization_and_classification.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "sne",
+      "kind": "technique",
+      "doc_path": "docs/techniques/sne.md",
+      "source_note_count": 1,
+      "source_pdf_note_count": 1,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 1,
+      "support_tier": "low",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md",
+          "title": "Stochastic Neighbor Embedding",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md",
+          "title": "Stochastic Neighbor Embedding",
+          "year": "2026",
+          "source_pdf": "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf"
+      ],
+      "unresolved_note_refs": []
+    },
+    {
+      "id": "umap",
+      "kind": "technique",
+      "doc_path": "docs/techniques/umap.md",
+      "source_note_count": 1,
+      "source_pdf_note_count": 1,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 1,
+      "support_tier": "low",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
+          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
+          "year": "2025",
+          "source_pdf": "papers/raw/2506.08725v2.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
+          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
+          "year": "2025",
+          "source_pdf": "papers/raw/2506.08725v2.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/2506.08725v2.pdf"
+      ],
+      "unresolved_note_refs": []
+    }
+  ]
+}

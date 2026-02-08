@@ -20,6 +20,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `docs/overview.md`
 - `docs/intake-question-tree.md`
 - `docs/metrics-and-libraries.md`
+- `docs/reference-coverage.md`
 - `docs/metrics/`
 - `docs/techniques/`
 - `builder/evidence/conflict-policy.md`
@@ -27,9 +28,12 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `builder/evidence/relevance-policy.md`
 - `builder/evidence/canonicalization-policy.md`
 - `builder/evidence/alias-register.md`
+- `builder/evidence/reference-coverage.md`
+- `builder/evidence/reference-coverage.json`
 - `papers/raw/`
 - `papers/notes/`
 - `templates/paper-note-template.md`
+- `scripts/update_reference_coverage.py`
 
 ## Task Axis Contract
 - Workflow anchor: `docs/workflow/dr-analysis-workflow.md`.
@@ -55,6 +59,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
    - `docs/techniques/<technique>.md` for technique-level changes.
    - `docs/metrics-and-libraries.md` for summary-level changes.
 7. Recompute conflict status using `builder/evidence/conflict-policy.md` and update `builder/evidence/conflict-register.md`.
+8. Recompute reference frequency index with `python scripts/update_reference_coverage.py`.
 
 ## Non-Negotiable Note Quality Gate
 Reject a note as incomplete if any condition fails:
@@ -72,6 +77,9 @@ Reject a note as incomplete if any condition fails:
 - `docs/` should explain what to do, when to use it, and what to avoid.
 - Source-note links in `docs/` should map claims to `papers/notes/*`.
 - Detailed quote-level evidence stays in `papers/notes/*`.
+- `docs/` must keep a drill-down link chain:
+  - `docs/overview.md` -> `docs/workflow/dr-analysis-workflow.md`
+  - workflow step links -> step-relevant docs (`intake-question-tree`, `metrics-and-libraries`, `metrics/README`, `techniques/README`, `reference-coverage`)
 - For `docs/metrics/*` and `docs/techniques/*`, each required section must contain substantial prose:
   - target depth: at least one full paragraph, preferably two paragraphs for core sections
   - avoid one-line placeholders or bullet-only sections for core explanations
@@ -126,6 +134,16 @@ Reject a note as incomplete if any condition fails:
 - If two names look similar, do not merge by string similarity alone.
 - Merge only when objective/input/hyperparameter-role/task-alignment checks match per canonicalization policy.
 - If uncertain, log `needs-review` in alias register and keep canonical docs unchanged until resolved.
+
+## Reference-Frequency Priority Rule
+- Recommendation priority must use PDF-backed reference frequency from `docs/reference-coverage.md` (user-facing) and `builder/evidence/reference-coverage.md` (builder detail).
+- Count only PDF sources for ranking; non-PDF sources are supporting context and do not increase frequency rank.
+- Ranking order inside a task-aligned candidate set:
+  1. higher `source_pdf_count`
+  2. higher `source_pdf_note_count`
+  3. higher average evidence level of linked source notes
+  4. if still tied, keep both and mark tie explicitly in rationale
+- If `builder/evidence/conflict-register.md` marks a claim as `contested`, down-rank by one tier unless user explicitly requests exploratory comparison.
 
 ## Context7 Maintenance
 - Keep `context7.json` indexing scope limited to:

@@ -4,9 +4,11 @@ This repository is a task-first DR guidance base for LLMs.
 The runtime goal is simple: identify the user's analytical task first, then recommend aligned techniques and reliability metrics.
 
 ## Start Here
-- `docs/workflow/dr-analysis-workflow.md`
-- `docs/intake-question-tree.md`
-- `docs/metrics-and-libraries.md`
+- [`docs/overview.md`](docs/overview.md)
+- [`docs/workflow/dr-analysis-workflow.md`](docs/workflow/dr-analysis-workflow.md)
+- [`docs/intake-question-tree.md`](docs/intake-question-tree.md)
+- [`docs/metrics-and-libraries.md`](docs/metrics-and-libraries.md)
+- [`docs/reference-coverage.md`](docs/reference-coverage.md)
 
 ## What Consumer LLMs Should Do
 1. Clarify one primary analytical task.
@@ -21,6 +23,7 @@ The runtime goal is simple: identify the user's analytical task first, then reco
 - `papers/notes/`: source notes that back the guidance.
 - `papers/raw/`: raw source files.
 - `builder/evidence/`: builder-only relevance/conflict policies.
+- `builder/evidence/reference-coverage.md`: metric/technique reference-frequency index (PDF-backed priority).
 
 ## Note Contract (for source notes)
 Each note in `papers/notes/*.md` must include frontmatter:
