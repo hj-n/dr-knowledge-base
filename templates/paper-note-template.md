@@ -1,12 +1,22 @@
 ---
 id: paper-YYYY-short-key
 title: "Paper Title"
+authors: "Author A; Author B; Author C"
+venue: "Conference or Journal"
 year: 2025
 tags: [dr, manifold, evaluation]
 source_pdf: papers/raw/paper-file.pdf
+seed_note_id: ""
 evidence_level: high
 updated_at: 2026-02-07
 ---
+
+Frontmatter guidance:
+- `authors`: semicolon-separated full author list if available.
+- `venue`: publication venue name; use `UNKNOWN` only if not available from source.
+- `seed_note_id`:
+  - seed paper note: leave as empty string.
+  - reference note from a seed paper's subdirectory source: set to the parent seed note ID (for example `paper-2023-zadu-library`).
 
 # Problem
 - State the concrete analysis problem in 2-4 bullets.

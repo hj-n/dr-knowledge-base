@@ -21,6 +21,8 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `docs/intake-question-tree.md`
 - `docs/metrics-and-libraries.md`
 - `docs/reference-coverage.md`
+- `docs/paper-catalog.md`
+- `docs/paper-catalog.csv`
 - `docs/metrics/`
 - `docs/techniques/`
 - `builder/evidence/conflict-policy.md`
@@ -30,10 +32,13 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `builder/evidence/alias-register.md`
 - `builder/evidence/reference-coverage.md`
 - `builder/evidence/reference-coverage.json`
+- `builder/evidence/reference-group-map.json`
+- `builder/evidence/paper-catalog.json`
 - `papers/raw/`
 - `papers/notes/`
 - `templates/paper-note-template.md`
 - `scripts/update_reference_coverage.py`
+- `scripts/update_paper_catalog.py`
 
 ## Task Axis Contract
 - Workflow anchor: `docs/workflow/dr-analysis-workflow.md`.
@@ -60,6 +65,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
    - `docs/metrics-and-libraries.md` for summary-level changes.
 7. Recompute conflict status using `builder/evidence/conflict-policy.md` and update `builder/evidence/conflict-register.md`.
 8. Recompute reference frequency index with `python scripts/update_reference_coverage.py`.
+9. Recompute paper catalog with `python scripts/update_paper_catalog.py`.
 
 ## Non-Negotiable Note Quality Gate
 Reject a note as incomplete if any condition fails:
@@ -71,6 +77,12 @@ Reject a note as incomplete if any condition fails:
 - Missing concrete usage boundaries in `When To Use / Not Use`.
 - Fewer than 5 evidence entries, unless the source text is genuinely short.
 - Claim atoms are generic and not tied to metric or method behavior.
+- Missing catalog metadata in frontmatter:
+  - `authors`
+  - `venue`
+  - `year`
+  - `source_pdf`
+- For reference papers (`papers/raw/<subdirectory>/...`), missing `seed_note_id` when no mapping exists in `builder/evidence/reference-group-map.json`.
 
 ## Documentation Quality Gate
 - `docs/` must be concise and user-operational.
@@ -80,6 +92,7 @@ Reject a note as incomplete if any condition fails:
 - `docs/` must keep a drill-down link chain:
   - `docs/overview.md` -> `docs/workflow/dr-analysis-workflow.md`
   - workflow step links -> step-relevant docs (`intake-question-tree`, `metrics-and-libraries`, `metrics/README`, `techniques/README`, `reference-coverage`)
+  - `docs/overview.md` should link to `docs/paper-catalog.md` and `docs/paper-catalog.csv` for source transparency
 - For `docs/metrics/*` and `docs/techniques/*`, each required section must contain substantial prose:
   - target depth: at least one full paragraph, preferably two paragraphs for core sections
   - avoid one-line placeholders or bullet-only sections for core explanations
@@ -156,4 +169,5 @@ Reject a note as incomplete if any condition fails:
 - Individual source note created/updated with quality gate passed.
 - Affected metric/technique docs updated.
 - Conflict register refreshed.
+- Paper catalog refreshed (`docs/paper-catalog.csv`, `builder/evidence/paper-catalog.json`).
 - `docs/` and `papers/notes/` remain role-separated and consistent.

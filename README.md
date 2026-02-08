@@ -9,6 +9,8 @@ The runtime goal is simple: identify the user's analytical task first, then reco
 - [`docs/intake-question-tree.md`](docs/intake-question-tree.md)
 - [`docs/metrics-and-libraries.md`](docs/metrics-and-libraries.md)
 - [`docs/reference-coverage.md`](docs/reference-coverage.md)
+- [`docs/paper-catalog.md`](docs/paper-catalog.md)
+- [`docs/paper-catalog.csv`](docs/paper-catalog.csv)
 
 ## What Consumer LLMs Should Do
 1. Clarify one primary analytical task.
@@ -24,6 +26,7 @@ The runtime goal is simple: identify the user's analytical task first, then reco
 - `papers/raw/`: raw source files.
 - `builder/evidence/`: builder-only relevance/conflict policies.
 - `builder/evidence/reference-coverage.md`: metric/technique reference-frequency index (PDF-backed priority).
+- `docs/paper-catalog.csv`: user-facing paper list (seed/reference, metadata, source note mapping).
 
 ## Note Contract (for source notes)
 Each note in `papers/notes/*.md` must include frontmatter:
@@ -44,6 +47,10 @@ And sections:
 6. Evidence
 
 Template: `templates/paper-note-template.md`
+
+After adding or updating paper notes, refresh indexes:
+- `python scripts/update_paper_catalog.py`
+- `python scripts/update_reference_coverage.py`
 
 ## Context7 Indexing
 - Included: `docs`, `papers/notes`

@@ -248,6 +248,7 @@ def to_docs_markdown(metrics: List[Dict], techniques: List[Dict]) -> str:
     lines.append("- Selection policy: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)")
     lines.append("- Metric catalog: [`docs/metrics/README.md`](./metrics/README.md)")
     lines.append("- Technique catalog: [`docs/techniques/README.md`](./techniques/README.md)")
+    lines.append("- Paper catalog: [`docs/paper-catalog.md`](./paper-catalog.md)")
     lines.append("")
     lines.append(f"Updated at: `{today}`")
     lines.append("")

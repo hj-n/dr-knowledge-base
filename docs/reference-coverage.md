@@ -9,6 +9,7 @@ Related:
 - Selection policy: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
 - Metric catalog: [`docs/metrics/README.md`](./metrics/README.md)
 - Technique catalog: [`docs/techniques/README.md`](./techniques/README.md)
+- Paper catalog: [`docs/paper-catalog.md`](./paper-catalog.md)
 
 Updated at: `2026-02-08`
 

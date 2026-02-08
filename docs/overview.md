@@ -21,6 +21,8 @@ This KB is centered on seven analytical tasks:
 - Intake questions first: [`docs/intake-question-tree.md`](./intake-question-tree.md)
 - Metric policy and warning gate: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
 - Frequency-based priority (user-facing): [`docs/reference-coverage.md`](./reference-coverage.md)
+- Paper catalog guide: [`docs/paper-catalog.md`](./paper-catalog.md)
+- Paper list (CSV): [`docs/paper-catalog.csv`](./paper-catalog.csv)
 - Metric details: [`docs/metrics/README.md`](./metrics/README.md)
 - Technique details: [`docs/techniques/README.md`](./techniques/README.md)
 
@@ -37,7 +39,10 @@ Use this order when an LLM starts from this file.
    [`docs/metrics/README.md`](./metrics/README.md)
 4. Candidate prioritization:
    [`docs/reference-coverage.md`](./reference-coverage.md)
-5. Final explanation contract:
+5. Source transparency:
+   [`docs/paper-catalog.md`](./paper-catalog.md),
+   [`docs/paper-catalog.csv`](./paper-catalog.csv)
+6. Final explanation contract:
    [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md) (Step 6)
 
 ## Design Rules
