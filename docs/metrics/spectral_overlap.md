@@ -1,0 +1,48 @@
+# spectral_overlap - Spectral Overlap
+
+## Metric Definition
+`spectral_overlap` is a neighborhood-overlap-style DR quality metric designed to evaluate embedding faithfulness with minimal additional metric tuning burden. It is positioned as a robust objective for DR quality optimization.
+
+In this repository, use it as a local-structure reliability metric that can serve as an optimization objective when tuning DR hyperparameters.
+
+## What It Quantifies
+The metric quantifies overlap quality of neighborhood/spectral structure between original and embedded representations. Higher values generally indicate stronger preservation of local manifold organization.
+
+Its interpretation is strongest when the analytical question is about local structure and neighborhood relations, rather than exact global distance scaling.
+
+## Computation Outline
+Computation is based on comparing local structure consistency across spaces using overlap-oriented criteria. Exact implementation details can differ by library, but the essential output is a score of local-structure agreement.
+
+For fair method comparisons, keep preprocessing, distance settings, and random-seed policy fixed. Otherwise observed differences can reflect protocol drift rather than true quality changes.
+
+## Hyperparameter Impact
+A key motivation for this metric is reduced dependence on additional metric hyperparameters compared with many alternatives. This can improve objective stability during DR hyperparameter search.
+
+Still, the surrounding evaluation pipeline matters. Changes in data scaling or neighborhood construction can change metric values and therefore selected DR parameters.
+
+## Notable Properties
+In benchmark evidence, this metric is reported as a robust performer for selecting DR settings, including in low-dimensional visualization contexts. It is specifically highlighted alongside `qnx`.
+
+Its practical value is that it can be used as a direct optimization target while retaining interpretable local-structure semantics.
+
+## Strengths
+This metric is strong for local-fidelity objective design in automated DR tuning workflows. It supports stable optimization behavior and meaningful neighborhood-level interpretation.
+
+It is useful when you need a local-structure metric that is easier to operationalize than heavily tuned evaluation objectives.
+
+## Task Alignment
+Best-aligned tasks are:
+- Neighborhood identification
+- Outlier identification
+- Cluster identification (for local membership consistency)
+
+For point/cluster distance or density-heavy tasks, pair this metric with global metrics before final decisions.
+
+## Interpretation Notes
+Use this metric as one component of a multi-metric bundle, not as the sole decision criterion. Local-structure strength does not guarantee faithful global arrangement.
+
+When reporting results, state clearly that `spectral_overlap` supports neighborhood-level confidence and include complementary global evidence.
+
+## Source Notes
+- `papers/notes/2019-spectral-overlap-quality-metrics.md` -> `CLAIM-JT19-C3`
+- `papers/notes/2021-quantitative-survey-dr-techniques.md` -> `CLAIM-QSUR21-C1`

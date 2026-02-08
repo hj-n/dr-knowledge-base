@@ -1,6 +1,8 @@
 ---
 id: paper-2009-zadu-ref-16
 title: "Mach Learn (2009) 77: 1–25"
+authors: "UNKNOWN"
+venue: "UNKNOWN"
 year: 2009
 tags: [dr, zadu-table1-reference, proc, tnc]
 source_pdf: papers/raw/zadu-table1-references/ref12_local_procrustes_for_manifold_embedding_a_measure_of_embedding_quality_and_embedding_algor.pdf

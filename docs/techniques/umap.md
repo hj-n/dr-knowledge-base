@@ -32,7 +32,8 @@ Implementation quality depends on stable preprocessing, deterministic settings w
 For reproducible comparison, evaluate this technique under a fixed protocol and report parameter context with results. This converts the outline from a conceptual recipe into an auditable procedure for downstream agents and reviewers.
 
 ## Hyperparameter Impact
-- Current attached notes do not provide explicit parameter-evidence claims for UMAP internals.
+- neighborhood and optimization settings remain key controls for local-vs-global behavior.
+- initialization policy can strongly affect global-structure interpretation and reproducibility in comparisons.
 - Operationally, neighborhood-scale and optimization settings should be tuned with task-aligned metrics and recorded assumptions.
 
 Hyperparameters determine the local-vs-global balance, optimization stability, and visual behavior of the embedding. They should be tuned against task-aligned metrics rather than aesthetics alone, especially when outputs influence model or policy decisions.
@@ -72,3 +73,5 @@ In reporting, document which tradeoffs were accepted and why they were acceptabl
 
 ## Source Notes
 - `papers/notes/2506.08725v2-stop-misusing-tsne-umap.md` (JEON25-E2, JEON25-E3, JEON25-E4, JEON25-E5, JEON25-E6)
+- `papers/notes/2020-kobak-initialization-tsne-umap.md` (CLAIM-KOBAK20-C1, CLAIM-KOBAK20-C2, CLAIM-KOBAK20-C3)
+- `papers/notes/2022-revisiting-dr-visual-cluster-analysis.md` (CLAIM-REV22-C2)

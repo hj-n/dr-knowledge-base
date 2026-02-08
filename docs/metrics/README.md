@@ -23,9 +23,9 @@ Related:
 - Source Notes
 
 ## Coverage
-- Metrics tracked: 20
+- Metrics tracked: 22
 - Core set from ZADU paper: 17
-- Additional tracked metrics: `l_tnc`, `sn_stress`, `nm_stress`
+- Additional tracked metrics: `l_tnc`, `sn_stress`, `nm_stress`, `qnx`, `spectral_overlap`
 - ZADU is the default set, but non-ZADU metrics may be added with explicit source-note provenance.
 
 ## Non-ZADU Metric Onboarding

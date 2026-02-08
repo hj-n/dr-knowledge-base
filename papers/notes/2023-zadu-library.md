@@ -1,11 +1,14 @@
 ---
 id: paper-2023-zadu-library
 title: "ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings"
+authors: "UNKNOWN"
+venue: "UNKNOWN"
 year: 2023
 tags: [dr, evaluation, zadu, metrics]
 source_pdf: papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf
+seed_note_id: ""
 evidence_level: high
-updated_at: 2026-02-07
+updated_at: 2026-02-08
 ---
 
 # Problem
@@ -37,6 +40,11 @@ updated_at: 2026-02-07
 - CLAIM-ZADU-LOCAL-LIST | stance: support | summary: core local list includes tnc, mrre, lcmc, nh, nd, ca_tnc, proc | evidence_ids: ZADU23-E3
 - CLAIM-ZADU-CLUSTER-LIST | stance: support | summary: core cluster-level list includes snc, dsc, ivm, c_evm | evidence_ids: ZADU23-E4
 - CLAIM-ZADU-GLOBAL-LIST | stance: support | summary: core global list includes stress, kl_div, dtm, topo, pr, srho | evidence_ids: ZADU23-E5
+
+# Workflow Relevance Map
+- step: 3 | relevance: high | note: Defines the local/cluster/global metric grouping used for task-aligned bundle selection.
+- step: 5 | relevance: medium | note: Supports multi-metric objective design for hyperparameter optimization.
+- step: 7 | relevance: high | note: Provides the primary rationale language for explaining why a metric bundle was chosen.
 
 # Evidence
 - ZADU23-E1 | page: 1, section: Abstract and Introduction, quote: "Distortion measures can be broadly divided into three categories-local measures, global measures, and cluster-level measures"

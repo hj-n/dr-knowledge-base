@@ -22,6 +22,7 @@ Subtask refinement is allowed under each axis when needed:
 
 ## Navigation
 - Start workflow: [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md)
+- Task-aligned initialization rules: [`docs/workflow/task-aligned-initialization.md`](./workflow/task-aligned-initialization.md)
 - Intake questions first: [`docs/intake-question-tree.md`](./intake-question-tree.md)
 - Task axis and subtask policy: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 - Metric policy and warning gate: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
@@ -45,15 +46,17 @@ Use this order when an LLM starts from this file.
    [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md),
    [`docs/techniques/README.md`](./techniques/README.md),
    [`docs/metrics/README.md`](./metrics/README.md)
-5. Candidate prioritization:
+5. Task-aligned initialization decision:
+   [`docs/workflow/task-aligned-initialization.md`](./workflow/task-aligned-initialization.md)
+6. Candidate prioritization:
    [`docs/reference-coverage.md`](./reference-coverage.md)
-6. Reliability caution check:
+7. Reliability caution check:
    [`docs/reliability-cautions-and-tips.md`](./reliability-cautions-and-tips.md)
-7. Source transparency:
+8. Source transparency:
    [`docs/paper-catalog.md`](./paper-catalog.md),
    [`docs/paper-catalog.csv`](./paper-catalog.csv)
-8. Final explanation contract:
-   [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md) (Step 6)
+9. Final explanation contract:
+   [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md) (Step 7)
 
 ## Design Rules
 - Task-first: no method recommendation before task clarification.

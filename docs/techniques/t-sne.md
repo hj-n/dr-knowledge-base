@@ -34,6 +34,7 @@ For reproducible comparison, evaluate this technique under a fixed protocol and 
 ## Hyperparameter Impact
 - `perplexity` controls effective neighborhood scale.
 - `learning rate`, iteration schedule, and noise/jitter handling affect convergence and stability.
+- initialization policy (random vs informative) can materially change global-structure behavior and comparison outcomes.
 - Scale handling policy matters for downstream stress/KL-based evaluation comparisons.
 
 Hyperparameters determine the local-vs-global balance, optimization stability, and visual behavior of the embedding. They should be tuned against task-aligned metrics rather than aesthetics alone, especially when outputs influence model or policy decisions.
@@ -75,3 +76,5 @@ In reporting, document which tradeoffs were accepted and why they were acceptabl
 - `papers/notes/2506.08725v2-stop-misusing-tsne-umap.md` (JEON25-E2)
 - `papers/notes/zadu-ref-04-2510-08660v1.md` (ZR04-E9, ZR04-E10)
 - `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md` (ZR17-E7, ZR17-E8, ZR17-E9)
+- `papers/notes/2020-kobak-initialization-tsne-umap.md` (CLAIM-KOBAK20-C1, CLAIM-KOBAK20-C2, CLAIM-KOBAK20-C3)
+- `papers/notes/2022-revisiting-dr-visual-cluster-analysis.md` (CLAIM-REV22-C2)

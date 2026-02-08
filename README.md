@@ -6,6 +6,7 @@ The runtime goal is simple: identify the user's analytical task first, then reco
 ## Start Here
 - [`docs/overview.md`](docs/overview.md)
 - [`docs/workflow/dr-analysis-workflow.md`](docs/workflow/dr-analysis-workflow.md)
+- [`docs/workflow/task-aligned-initialization.md`](docs/workflow/task-aligned-initialization.md)
 - [`docs/intake-question-tree.md`](docs/intake-question-tree.md)
 - [`docs/task-taxonomy.md`](docs/task-taxonomy.md)
 - [`docs/metrics-and-libraries.md`](docs/metrics-and-libraries.md)
@@ -20,8 +21,9 @@ The runtime goal is simple: identify the user's analytical task first, then reco
 2. Audit/preprocess data constraints.
 3. Select task-aligned technique family and ZADU metric IDs.
 4. Run warning gate for label-separation-sensitive metrics.
-5. Optimize hyperparameters (`bayes_opt`) and visualize.
-6. Explain the final choice in user language with source-note links.
+5. Decide task-aligned initialization method.
+6. Optimize hyperparameters (`bayes_opt`) and visualize.
+7. Explain the final choice in user language with source-note links.
 
 ## Key Directories
 - `docs/`: consumer-facing operational guidance.
@@ -35,6 +37,8 @@ The runtime goal is simple: identify the user's analytical task first, then reco
 Each note in `papers/notes/*.md` must include frontmatter:
 - `id`
 - `title`
+- `authors`
+- `venue`
 - `year`
 - `tags`
 - `source_pdf`
@@ -47,7 +51,9 @@ And sections:
 3. When To Use / Not Use
 4. Metrics Mentioned
 5. Implementation Notes
-6. Evidence
+6. Claim Atoms (For Conflict Resolution)
+7. Workflow Relevance Map
+8. Evidence
 
 Template: `templates/paper-note-template.md`
 

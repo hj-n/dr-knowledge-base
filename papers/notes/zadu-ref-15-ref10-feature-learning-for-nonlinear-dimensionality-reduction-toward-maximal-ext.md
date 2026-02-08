@@ -1,6 +1,8 @@
 ---
 id: paper-2023-zadu-ref-15
 title: "Feature Learning for Nonlinear Dimensionality Reduction toward"
+authors: "UNKNOWN"
+venue: "UNKNOWN"
 year: 2023
 tags: [dr, zadu-table1-reference, nd, pr, proc, snc, srho]
 source_pdf: papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf

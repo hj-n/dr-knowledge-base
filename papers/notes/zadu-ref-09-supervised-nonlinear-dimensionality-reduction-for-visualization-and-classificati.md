@@ -1,6 +1,8 @@
 ---
 id: paper-2005-zadu-ref-09
 title: "Supervised nonlinear dimensionality reduction for visualization and classification"
+authors: "UNKNOWN"
+venue: "UNKNOWN"
 year: 2005
 tags: [dr, zadu-table1-reference]
 source_pdf: papers/raw/zadu-table1-references/Supervised_nonlinear_dimensionality_reduction_for_visualization_and_classification.pdf

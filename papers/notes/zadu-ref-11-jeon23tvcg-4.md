@@ -1,6 +1,8 @@
 ---
 id: paper-2026-zadu-ref-11
 title: "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction"
+authors: "UNKNOWN"
+venue: "UNKNOWN"
 year: 2026
 tags: [dr, zadu-table1-reference, c_evm, ca_tnc, dsc, dtm, ivm, kl_div, l_tnc, mrre, snc, tnc]
 source_pdf: papers/raw/zadu-table1-references/jeon23tvcg (4).pdf

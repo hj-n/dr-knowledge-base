@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 NOTES_DIR = ROOT / "papers" / "notes"
 METRICS_DIR = ROOT / "docs" / "metrics"
 TECHNIQUES_DIR = ROOT / "docs" / "techniques"
+CONFLICT_REGISTER = ROOT / "builder" / "evidence" / "conflict-register.md"
 OUT_JSON = ROOT / "builder" / "evidence" / "reference-coverage.json"
 OUT_MD = ROOT / "builder" / "evidence" / "reference-coverage.md"
 OUT_DOCS_MD = ROOT / "docs" / "reference-coverage.md"
@@ -93,7 +94,87 @@ def support_tier(count: int) -> str:
     return "none"
 
 
-def build_index(folder: Path, note_meta: Dict[str, NoteMeta], kind: str) -> List[Dict]:
+def _slug(s: str) -> str:
+    return re.sub(r"[^A-Z0-9]+", "_", s.upper()).strip("_")
+
+
+def _claim_matches_entity(claim_id: str, entity_id: str) -> bool:
+    c = f"_{_slug(claim_id)}_"
+    e = _slug(entity_id)
+    if not e:
+        return False
+    if f"_{e}_" in c:
+        return True
+    # handle known aliases
+    aliases = {
+        "T_SNE": ["TSNE"],
+        "S_ISOMAP": ["SISOMAP"],
+        "C_EVM": ["CEVM"],
+        "CA_TNC": ["CATNC"],
+        "L_TNC": ["LTNC"],
+        "KL_DIV": ["KLDIV"],
+        "NM_STRESS": ["NMSTRESS"],
+        "SN_STRESS": ["SNSTRESS"],
+        "SPECTRAL_OVERLAP": ["SPECTRALOVERLAP"],
+        "RANDOM_PROJECTION": ["RP"],
+    }
+    for a in aliases.get(e, []):
+        if f"_{a}_" in c:
+            return True
+    return False
+
+
+def load_conflict_decisions() -> Dict[str, str]:
+    if not CONFLICT_REGISTER.exists():
+        return {}
+    text = CONFLICT_REGISTER.read_text(encoding="utf-8")
+    out: Dict[str, str] = {}
+    for raw in text.splitlines():
+        line = raw.strip()
+        if not line.startswith("|"):
+            continue
+        if "claim_id" in line.lower():
+            continue
+        parts = [p.strip() for p in line.split("|")]
+        if len(parts) < 9:
+            continue
+        claim_id = parts[1]
+        decision = parts[7].lower()
+        if not claim_id or claim_id == "---":
+            continue
+        if "contested" in decision:
+            out[claim_id] = "contested"
+        elif "accepted" in decision:
+            out[claim_id] = "accepted"
+        elif "insufficient" in decision:
+            out[claim_id] = "insufficient"
+        else:
+            out[claim_id] = "unknown"
+    return out
+
+
+def entity_conflict_status(entity_id: str, conflict_decisions: Dict[str, str]) -> str:
+    matches = []
+    for claim_id, status in conflict_decisions.items():
+        if _claim_matches_entity(claim_id, entity_id):
+            matches.append(status)
+    if not matches:
+        return "unknown"
+    if "contested" in matches:
+        return "contested"
+    if "insufficient" in matches:
+        return "insufficient"
+    if "accepted" in matches:
+        return "accepted"
+    return "unknown"
+
+
+def build_index(
+    folder: Path,
+    note_meta: Dict[str, NoteMeta],
+    kind: str,
+    conflict_decisions: Dict[str, str],
+) -> List[Dict]:
     rows = []
     for p in sorted(folder.glob("*.md")):
         if p.name.lower() == "readme.md":
@@ -143,12 +224,20 @@ def build_index(folder: Path, note_meta: Dict[str, NoteMeta], kind: str) -> List
                 "non_pdf_notes": non_pdf_notes,
                 "source_pdfs": pdfs,
                 "unresolved_note_refs": unresolved,
+                "conflict_status": entity_conflict_status(entity_id, conflict_decisions),
             }
         )
 
+    def rank_pdf_count(row: Dict) -> int:
+        c = int(row["source_pdf_count"])
+        # Contested entities are down-ranked by one tier-equivalent count.
+        if row.get("conflict_status") == "contested" and c > 0:
+            return c - 1
+        return c
+
     rows.sort(
         key=lambda x: (
-            -x["source_pdf_count"],
+            -rank_pdf_count(x),
             -x["source_pdf_note_count"],
             -x["source_note_count"],
             x["id"],
@@ -173,11 +262,11 @@ def to_markdown(metrics: List[Dict], techniques: List[Dict]) -> str:
 
     lines.append("## Metrics Coverage")
     lines.append("")
-    lines.append("| Metric | PDF Count | PDF Note Count | Total Note Count | Support Tier |")
-    lines.append("|---|---:|---:|---:|---|")
+    lines.append("| Metric | PDF Count | PDF Note Count | Total Note Count | Support Tier | Conflict Status |")
+    lines.append("|---|---:|---:|---:|---|---|")
     for r in metrics:
         lines.append(
-            f"| `{r['id']}` | {r['source_pdf_count']} | {r['source_pdf_note_count']} | {r['source_note_count']} | `{r['support_tier']}` |"
+            f"| `{r['id']}` | {r['source_pdf_count']} | {r['source_pdf_note_count']} | {r['source_note_count']} | `{r['support_tier']}` | `{r['conflict_status']}` |"
         )
     lines.append("")
 
@@ -203,11 +292,11 @@ def to_markdown(metrics: List[Dict], techniques: List[Dict]) -> str:
 
     lines.append("## Techniques Coverage")
     lines.append("")
-    lines.append("| Technique | PDF Count | PDF Note Count | Total Note Count | Support Tier |")
-    lines.append("|---|---:|---:|---:|---|")
+    lines.append("| Technique | PDF Count | PDF Note Count | Total Note Count | Support Tier | Conflict Status |")
+    lines.append("|---|---:|---:|---:|---|---|")
     for r in techniques:
         lines.append(
-            f"| `{r['id']}` | {r['source_pdf_count']} | {r['source_pdf_note_count']} | {r['source_note_count']} | `{r['support_tier']}` |"
+            f"| `{r['id']}` | {r['source_pdf_count']} | {r['source_pdf_note_count']} | {r['source_note_count']} | `{r['support_tier']}` | `{r['conflict_status']}` |"
         )
     lines.append("")
 
@@ -258,25 +347,30 @@ def to_docs_markdown(metrics: List[Dict], techniques: List[Dict]) -> str:
     lines.append("1. Filter by task alignment first.")
     lines.append("2. Apply warning gates (for example, label-separation-sensitive metrics).")
     lines.append("3. Prefer higher `PDF Count` among remaining candidates.")
-    lines.append("4. If tied, inspect source-note list and choose the better-justified option.")
+    lines.append("4. Down-rank candidates with `contested` conflict status by one tier.")
+    lines.append("5. If tied, inspect source-note list and choose the better-justified option.")
     lines.append("")
     lines.append("Support tier by distinct PDF count: `very_high` >= 6, `high` 4-5, `medium` 2-3, `low` 1, `none` 0.")
     lines.append("")
 
     lines.append("## Metrics Ranking")
     lines.append("")
-    lines.append("| Rank | Metric | PDF Count | Support Tier |")
-    lines.append("|---:|---|---:|---|")
+    lines.append("| Rank | Metric | PDF Count | Support Tier | Conflict Status |")
+    lines.append("|---:|---|---:|---|---|")
     for i, r in enumerate(metrics, start=1):
-        lines.append(f"| {i} | `{r['id']}` | {r['source_pdf_count']} | `{r['support_tier']}` |")
+        lines.append(
+            f"| {i} | `{r['id']}` | {r['source_pdf_count']} | `{r['support_tier']}` | `{r['conflict_status']}` |"
+        )
     lines.append("")
 
     lines.append("## Technique Ranking")
     lines.append("")
-    lines.append("| Rank | Technique | PDF Count | Support Tier |")
-    lines.append("|---:|---|---:|---|")
+    lines.append("| Rank | Technique | PDF Count | Support Tier | Conflict Status |")
+    lines.append("|---:|---|---:|---|---|")
     for i, r in enumerate(techniques, start=1):
-        lines.append(f"| {i} | `{r['id']}` | {r['source_pdf_count']} | `{r['support_tier']}` |")
+        lines.append(
+            f"| {i} | `{r['id']}` | {r['source_pdf_count']} | `{r['support_tier']}` | `{r['conflict_status']}` |"
+        )
     lines.append("")
 
     lines.append("## Metric Source Map")
@@ -284,7 +378,9 @@ def to_docs_markdown(metrics: List[Dict], techniques: List[Dict]) -> str:
     lines.append("Each item below shows where the metric is mentioned.")
     lines.append("")
     for r in metrics:
-        lines.append(f"### `{r['id']}` (`{r['source_pdf_count']}` PDFs)")
+        lines.append(
+            f"### `{r['id']}` (`{r['source_pdf_count']}` PDFs, conflict: `{r['conflict_status']}`)"
+        )
         if r["source_pdf_notes"]:
             for n in r["source_pdf_notes"]:
                 lines.append(f"- `{n['note_path']}`")
@@ -297,7 +393,9 @@ def to_docs_markdown(metrics: List[Dict], techniques: List[Dict]) -> str:
     lines.append("Each item below shows where the technique is mentioned.")
     lines.append("")
     for r in techniques:
-        lines.append(f"### `{r['id']}` (`{r['source_pdf_count']}` PDFs)")
+        lines.append(
+            f"### `{r['id']}` (`{r['source_pdf_count']}` PDFs, conflict: `{r['conflict_status']}`)"
+        )
         if r["source_pdf_notes"]:
             for n in r["source_pdf_notes"]:
                 lines.append(f"- `{n['note_path']}`")
@@ -310,12 +408,14 @@ def to_docs_markdown(metrics: List[Dict], techniques: List[Dict]) -> str:
 
 def main() -> int:
     note_meta = load_note_meta()
-    metrics = build_index(METRICS_DIR, note_meta, "metric")
-    techniques = build_index(TECHNIQUES_DIR, note_meta, "technique")
+    conflict_decisions = load_conflict_decisions()
+    metrics = build_index(METRICS_DIR, note_meta, "metric", conflict_decisions)
+    techniques = build_index(TECHNIQUES_DIR, note_meta, "technique", conflict_decisions)
 
     payload = {
         "updated_at": date.today().isoformat(),
         "source": "docs/*/Source Notes",
+        "conflict_source": str(CONFLICT_REGISTER.relative_to(ROOT)),
         "support_tier_rule": {
             "very_high": ">=6 PDFs",
             "high": "4-5 PDFs",

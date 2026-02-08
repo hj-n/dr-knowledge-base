@@ -1,6 +1,8 @@
 ---
 id: paper-2010-zadu-ref-13
 title: "Geometric Inference for Measures based on Distance Functions"
+authors: "UNKNOWN"
+venue: "UNKNOWN"
 year: 2010
 tags: [dr, zadu-table1-reference, dtm, stress]
 source_pdf: papers/raw/zadu-table1-references/ref03_geometric_inference_for_probability_measures.pdf

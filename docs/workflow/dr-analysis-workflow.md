@@ -14,14 +14,19 @@ Use this sequence as the default DR-analysis workflow.
    [`docs/metrics/README.md`](../metrics/README.md),
    [`docs/techniques/README.md`](../techniques/README.md),
    [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
-4. Hyperparameter optimization:
-   this file (Step 4 contract) + selected technique file in
+4. Task-aligned initialization decision:
+   this file (Step 4 contract) +
+   [`docs/workflow/task-aligned-initialization.md`](./task-aligned-initialization.md) +
+   selected technique file in
    [`docs/techniques/`](../techniques/README.md)
-5. Visualization:
+5. Hyperparameter optimization:
    this file (Step 5 contract) + selected technique file in
    [`docs/techniques/`](../techniques/README.md)
-6. Final recommendation explanation:
-   this file (Step 6 contract) + frequency ranking in
+6. Visualization:
+   this file (Step 6 contract) + selected technique file in
+   [`docs/techniques/`](../techniques/README.md)
+7. Final recommendation explanation:
+   this file (Step 7 contract) + frequency ranking in
    [`docs/reference-coverage.md`](../reference-coverage.md) +
    reliability notes in [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
 
@@ -29,6 +34,7 @@ Use this sequence as the default DR-analysis workflow.
 - Ask plain-language questions.
 - Identify one primary analytical task.
 - Optionally define one subtask under the selected primary axis.
+- Reconfirm task intent if the user shifts analytical action mid-session (for example, from cluster finding to class matching).
 - Read:
   [`docs/intake-question-tree.md`](../intake-question-tree.md),
   [`docs/task-taxonomy.md`](../task-taxonomy.md)
@@ -69,8 +75,26 @@ Output:
 - `selected_metrics`
 - `warning_gate_result`
 
-## 4) Bayesian hyperparameter optimization (`bayes_opt`)
-- Optimize hyperparameters against Step-3 objective.
+## 4) Task-aligned initialization decision
+- Decide initialization policy after task, method, and metric selection are fixed.
+- Use task-aligned rules from:
+  [`docs/workflow/task-aligned-initialization.md`](./task-aligned-initialization.md)
+- For initialization-sensitive methods, set informative initialization as default unless explicitly justified otherwise.
+- Read:
+  [`docs/workflow/task-aligned-initialization.md`](./task-aligned-initialization.md),
+  selected technique file(s) in
+  [`docs/techniques/`](../techniques/README.md),
+  and initialization cautions in
+  [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
+
+Output:
+- `initialization_mode`
+- `initialization_method`
+- `initialization_rationale`
+- `initialization_comparison_protocol`
+
+## 5) Bayesian hyperparameter optimization (`bayes_opt`)
+- Optimize hyperparameters against Step-3 objective, under the fixed Step-4 initialization policy.
 - Keep seed/search-space settings explicit.
 - Read:
   selected metric/technique file(s) under
@@ -83,7 +107,7 @@ Output:
 - `best_params`
 - `optimization_trace`
 
-## 5) Visualization
+## 6) Visualization
 - Generate 2D visual artifacts for analysis communication.
 - Apply project-approved visualization constraints only.
 - Read:
@@ -94,9 +118,10 @@ Output:
 - `visual_artifacts`
 - `visual_notes`
 
-## 6) Explain the selection to users
+## 7) Explain the selection to users
 - Explain why this task mapping was chosen.
 - Explain why this technique/metric set was chosen.
+- Explain why this initialization policy was chosen for the selected task and technique.
 - Explain technique and metric strengths for the selected task axis/subtask.
 - Explain warning-gate status and remaining limits.
 - Read:
@@ -111,5 +136,6 @@ Output:
 
 ## Execution Contract
 1. Do not skip Step 1.
-2. Do not finalize recommendation before warning gate is resolved.
-3. If source notes conflict, mark recommendation status as `contested`.
+2. Do not run Step 5 before Step 4 is resolved.
+3. Do not finalize recommendation before warning gate is resolved.
+4. If source notes conflict, mark recommendation status as `contested`.

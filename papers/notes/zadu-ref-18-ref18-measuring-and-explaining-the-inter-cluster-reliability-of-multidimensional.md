@@ -1,6 +1,8 @@
 ---
 id: paper-2021-zadu-ref-18
 title: "Measuring and Explaining the Inter-Cluster Reliability  of Multidimensional Projections"
+authors: "UNKNOWN"
+venue: "UNKNOWN"
 year: 2021
 tags: [dr, zadu-table1-reference, ivm, lcmc, mrre, nd, pr, snc, stress, tnc]
 source_pdf: papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf

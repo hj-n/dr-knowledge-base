@@ -73,3 +73,5 @@ In reporting, document which tradeoffs were accepted and why they were acceptabl
 
 ## Source Notes
 - `papers/notes/2506.08725v2-stop-misusing-tsne-umap.md` (JEON25-E3, JEON25-E4, JEON25-E5, JEON25-E6)
+- `papers/notes/2009-comparative-review-dr-techniques.md` (CLAIM-COMP09-C1, CLAIM-COMP09-C3)
+- `papers/notes/2014-sorzano-survey-dr-techniques.md` (CLAIM-SORZANO14-C2)

@@ -5,6 +5,7 @@ Similar claims from multiple papers are grouped into shared themes.
 
 Related:
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md)
+- Task-aligned initialization rules: [`docs/workflow/task-aligned-initialization.md`](./workflow/task-aligned-initialization.md)
 - Selection policy: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
 - Frequency ranking: [`docs/reference-coverage.md`](./reference-coverage.md)
 
@@ -18,8 +19,21 @@ Reliability action:
 
 Source notes:
 - `papers/notes/2506.08725v2-stop-misusing-tsne-umap.md`
+- `papers/notes/2014-brehmer-task-sequences.md`
+- `papers/notes/2012-sedlmair-dr-in-the-wild.md`
 
-### 2) Label-Separation Assumption Violations
+### 2) Hidden Task-Sequence Drift
+Even when a high-level task is stated, analysts often switch to a different subtask sequence during exploration (for example, cluster verification to class matching). If the workflow does not detect this drift, metric/technique choices become misaligned.
+
+Reliability action:
+- Re-confirm the active task whenever users switch from one interpretive action to another.
+- Keep one primary task axis fixed, and track sequence transitions as optional subtask updates.
+
+Source notes:
+- `papers/notes/2014-brehmer-task-sequences.md`
+- `papers/notes/2012-sedlmair-dr-in-the-wild.md`
+
+### 3) Label-Separation Assumption Violations
 Some class-aware metrics assume class labels are already well separated in the original high-dimensional space. If that assumption is weak, these metrics can become unreliable and overstate embedding quality.
 
 Affected metrics:
@@ -36,7 +50,7 @@ Source notes:
 - `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md`
 - `papers/notes/zadu-ref-19-ref42-a-comparison-for-dimensionality-reduction-methods-of-single-cell-rna-seq-d.md`
 
-### 3) Scale-Sensitive Metric Misinterpretation
+### 4) Scale-Sensitive Metric Misinterpretation
 Raw stress-like and KL-like scores can be distorted by embedding scale choices. Comparing methods without consistent scale handling can flip rankings and hide true quality differences.
 
 Reliability action:
@@ -48,7 +62,7 @@ Source notes:
 - `papers/notes/zadu-ref-04-2510-08660v1.md`
 - `papers/notes/zadu-ref-12-kruskal-1964a.md`
 
-### 4) Single-Metric Overconfidence
+### 5) Single-Metric Overconfidence
 A single metric rarely captures all reliability dimensions. Over-relying on one score can optimize one structural property while silently degrading others.
 
 Reliability action:
@@ -66,7 +80,19 @@ Source notes:
 - `papers/notes/zadu-ref-16-ref12-local-procrustes-for-manifold-embedding-a-measure-of-embedding-quality-and.md`
 - `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md`
 
-### 5) Reproducibility Drift (Preprocessing/Seed/Protocol)
+### 6) Initialization Confounding in Method Comparisons
+Method-comparison claims can be invalid when initialization policies differ across algorithms. This is especially critical for t-SNE/UMAP global-structure interpretations.
+
+Reliability action:
+- Hold all settings constant except the factor being tested.
+- Log initialization policy as mandatory experiment metadata.
+- Prefer informative initialization when global structure is part of the decision.
+
+Source notes:
+- `papers/notes/2020-kobak-initialization-tsne-umap.md`
+- `papers/notes/2025-jeon-reliable-va-survey.md`
+
+### 7) Reproducibility Drift (Preprocessing/Seed/Protocol)
 Score comparisons are unreliable when preprocessing, random seeds, or evaluation settings change across runs. Apparent improvements may be protocol artifacts.
 
 Reliability action:
@@ -80,7 +106,7 @@ Source notes:
 - `papers/notes/zadu-ref-13-ref03-geometric-inference-for-probability-measures.md`
 - `papers/notes/zadu-ref-16-ref12-local-procrustes-for-manifold-embedding-a-measure-of-embedding-quality-and.md`
 
-### 6) Hyperparameter and Optimization Pitfalls
+### 8) Hyperparameter and Optimization Pitfalls
 Method behavior can change materially with hyperparameters and optimization path. Local optima, unstable settings, and undocumented search ranges reduce trustworthiness of final recommendations.
 
 Reliability action:
@@ -91,8 +117,10 @@ Source notes:
 - `papers/notes/zadu-ref-11-jeon23tvcg-4.md`
 - `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md`
 - `papers/notes/zadu-ref-04-2510-08660v1.md`
+- `papers/notes/2019-spectral-overlap-quality-metrics.md`
+- `papers/notes/2024-large-scale-text-spatialization.md`
 
-### 7) Runtime-Quality Tradeoff Blind Spots
+### 9) Runtime-Quality Tradeoff Blind Spots
 Some methods or evaluation procedures incur high runtime/complexity cost, and naive runtime assumptions can bias method choice.
 
 Reliability action:
@@ -105,14 +133,16 @@ Source notes:
 - `papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md`
 - `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md`
 - `papers/notes/zadu-ref-19-ref42-a-comparison-for-dimensionality-reduction-methods-of-single-cell-rna-seq-d.md`
+- `papers/notes/2017-random-projection-survey.md`
 
 ## Reliability Improvement Checklist
 
 1. Confirm one primary analytical task before method selection.
-2. Validate label separability before using class-aware metrics.
-3. Use a multi-level metric bundle instead of a single metric.
-4. Control scale when comparing stress/KL-related scores.
-5. Freeze preprocessing and seeds for fair comparison.
-6. Log hyperparameter search space and optimization trace.
-7. Include runtime feasibility with quality evidence.
-8. Explain residual uncertainty and limits in the final recommendation.
+2. Re-check task sequence when the analysis intent shifts.
+3. Validate label separability before using class-aware metrics.
+4. Use a multi-level metric bundle instead of a single metric.
+5. Control scale when comparing stress/KL-related scores.
+6. Freeze preprocessing, seeds, and initialization policy for fair comparison.
+7. Log hyperparameter search space and optimization trace.
+8. Include runtime feasibility with quality evidence.
+9. Explain residual uncertainty and limits in the final recommendation.

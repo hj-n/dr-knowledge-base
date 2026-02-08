@@ -1,6 +1,7 @@
 {
   "updated_at": "2026-02-08",
   "source": "docs/*/Source Notes",
+  "conflict_source": "builder/evidence/conflict-register.md",
   "support_tier_rule": {
     "very_high": ">=6 PDFs",
     "high": "4-5 PDFs",
@@ -145,7 +146,8 @@
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
         "papers/raw/zadu-table1-references/2510.08660v1.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "tnc",
@@ -268,7 +270,8 @@
         "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "kl_div",
@@ -376,7 +379,8 @@
         "papers/raw/zadu-table1-references/2510.08660v1.pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "mrre",
@@ -484,7 +488,8 @@
         "papers/raw/zadu-table1-references/2510.08660v1.pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "snc",
@@ -592,7 +597,8 @@
         "papers/raw/zadu-table1-references/2510.08660v1.pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "dsc",
@@ -700,7 +706,8 @@
         "papers/raw/zadu-table1-references/2510.08660v1.pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "ivm",
@@ -808,7 +815,8 @@
         "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "pr",
@@ -901,7 +909,8 @@
         "papers/raw/zadu-table1-references/2510.08660v1.pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "proc",
@@ -979,7 +988,8 @@
         "papers/raw/zadu-table1-references/ref12_local_procrustes_for_manifold_embedding_a_measure_of_embedding_quality_and_embedding_algor.pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "srho",
@@ -1057,7 +1067,8 @@
         "papers/raw/zadu-table1-references/2510.08660v1.pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "c_evm",
@@ -1135,7 +1146,8 @@
         "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "dtm",
@@ -1198,7 +1210,8 @@
         "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "lcmc",
@@ -1261,7 +1274,8 @@
         "papers/raw/zadu-table1-references/1-s2.0-S0925231209000101-main.pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "nd",
@@ -1324,7 +1338,8 @@
         "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "nm_stress",
@@ -1387,7 +1402,8 @@
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf",
         "papers/raw/zadu-table1-references/2408.07724v2.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "sn_stress",
@@ -1450,7 +1466,8 @@
         "papers/raw/zadu-table1-references/2510.08660v1.pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "ca_tnc",
@@ -1513,7 +1530,8 @@
         "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "nh",
@@ -1576,7 +1594,106 @@
         "papers/raw/zadu-table1-references/2510.08660v1.pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
+    },
+    {
+      "id": "qnx",
+      "kind": "metric",
+      "doc_path": "docs/metrics/qnx.md",
+      "source_note_count": 2,
+      "source_pdf_note_count": 2,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 2,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/2019-spectral-overlap-quality-metrics.md",
+          "title": "Spectral Overlap and a Comparison of Parameter-Free, Dimensionality Reduction Quality Metrics",
+          "year": "2019",
+          "source_pdf": "papers/raw/1907.01974v2.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2021-quantitative-survey-dr-techniques.md",
+          "title": "Toward a Quantitative Survey of Dimension Reduction Techniques",
+          "year": "2021",
+          "source_pdf": "papers/raw/Toward_a_Quantitative_Survey_of_Dimension_Reduction_Techniques (1).pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/2019-spectral-overlap-quality-metrics.md",
+          "title": "Spectral Overlap and a Comparison of Parameter-Free, Dimensionality Reduction Quality Metrics",
+          "year": "2019",
+          "source_pdf": "papers/raw/1907.01974v2.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2021-quantitative-survey-dr-techniques.md",
+          "title": "Toward a Quantitative Survey of Dimension Reduction Techniques",
+          "year": "2021",
+          "source_pdf": "papers/raw/Toward_a_Quantitative_Survey_of_Dimension_Reduction_Techniques (1).pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/1907.01974v2.pdf",
+        "papers/raw/Toward_a_Quantitative_Survey_of_Dimension_Reduction_Techniques (1).pdf"
+      ],
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
+    },
+    {
+      "id": "spectral_overlap",
+      "kind": "metric",
+      "doc_path": "docs/metrics/spectral_overlap.md",
+      "source_note_count": 2,
+      "source_pdf_note_count": 2,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 2,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/2019-spectral-overlap-quality-metrics.md",
+          "title": "Spectral Overlap and a Comparison of Parameter-Free, Dimensionality Reduction Quality Metrics",
+          "year": "2019",
+          "source_pdf": "papers/raw/1907.01974v2.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2021-quantitative-survey-dr-techniques.md",
+          "title": "Toward a Quantitative Survey of Dimension Reduction Techniques",
+          "year": "2021",
+          "source_pdf": "papers/raw/Toward_a_Quantitative_Survey_of_Dimension_Reduction_Techniques (1).pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/2019-spectral-overlap-quality-metrics.md",
+          "title": "Spectral Overlap and a Comparison of Parameter-Free, Dimensionality Reduction Quality Metrics",
+          "year": "2019",
+          "source_pdf": "papers/raw/1907.01974v2.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2021-quantitative-survey-dr-techniques.md",
+          "title": "Toward a Quantitative Survey of Dimension Reduction Techniques",
+          "year": "2021",
+          "source_pdf": "papers/raw/Toward_a_Quantitative_Survey_of_Dimension_Reduction_Techniques (1).pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/1907.01974v2.pdf",
+        "papers/raw/Toward_a_Quantitative_Survey_of_Dimension_Reduction_Techniques (1).pdf"
+      ],
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     },
     {
       "id": "topo",
@@ -1624,7 +1741,8 @@
         "papers/raw/zadu-table1-references/download (2).pdf",
         "papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "l_tnc",
@@ -1657,7 +1775,8 @@
       "source_pdfs": [
         "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     }
   ],
   "techniques": [
@@ -1665,11 +1784,11 @@
       "id": "mds",
       "kind": "technique",
       "doc_path": "docs/techniques/mds.md",
-      "source_note_count": 3,
-      "source_pdf_note_count": 3,
+      "source_note_count": 5,
+      "source_pdf_note_count": 5,
       "non_pdf_note_count": 0,
-      "source_pdf_count": 3,
-      "support_tier": "medium",
+      "source_pdf_count": 5,
+      "support_tier": "high",
       "source_notes": [
         {
           "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
@@ -1691,6 +1810,20 @@
           "year": "2025",
           "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
           "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2019-mdp-visual-analytics-survey.md",
+          "title": "Multidimensional Projection for Visual Analytics: Linking Techniques with Distortions, Tasks, and Layout Enrichment",
+          "year": "2019",
+          "source_pdf": "papers/raw/Multidimensional_Projection_for_Visual_Analytics_Linking_Techniques_with_Distortions_Tasks_and_Layout_Enrichment (1).pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2015-gisbrecht-nonlinear-dr-visualization.md",
+          "title": "Data Visualization by Nonlinear Dimensionality Reduction",
+          "year": "2015",
+          "source_pdf": "papers/raw/WIREs Data Min   Knowl - 2015 - Gisbrecht - Data visualization by nonlinear dimensionality reduction.pdf",
+          "evidence_level": "high"
         }
       ],
       "source_pdf_notes": [
@@ -1714,25 +1847,42 @@
           "year": "2025",
           "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
           "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2019-mdp-visual-analytics-survey.md",
+          "title": "Multidimensional Projection for Visual Analytics: Linking Techniques with Distortions, Tasks, and Layout Enrichment",
+          "year": "2019",
+          "source_pdf": "papers/raw/Multidimensional_Projection_for_Visual_Analytics_Linking_Techniques_with_Distortions_Tasks_and_Layout_Enrichment (1).pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2015-gisbrecht-nonlinear-dr-visualization.md",
+          "title": "Data Visualization by Nonlinear Dimensionality Reduction",
+          "year": "2015",
+          "source_pdf": "papers/raw/WIREs Data Min   Knowl - 2015 - Gisbrecht - Data visualization by nonlinear dimensionality reduction.pdf",
+          "evidence_level": "high"
         }
       ],
       "non_pdf_notes": [],
       "source_pdfs": [
         "papers/raw/2506.08725v2.pdf",
         "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
-        "papers/raw/zadu-table1-references/2408.07724v2.pdf"
+        "papers/raw/zadu-table1-references/2408.07724v2.pdf",
+        "papers/raw/Multidimensional_Projection_for_Visual_Analytics_Linking_Techniques_with_Distortions_Tasks_and_Layout_Enrichment (1).pdf",
+        "papers/raw/WIREs Data Min   Knowl - 2015 - Gisbrecht - Data visualization by nonlinear dimensionality reduction.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "t-sne",
       "kind": "technique",
       "doc_path": "docs/techniques/t-sne.md",
-      "source_note_count": 3,
-      "source_pdf_note_count": 3,
+      "source_note_count": 5,
+      "source_pdf_note_count": 5,
       "non_pdf_note_count": 0,
-      "source_pdf_count": 3,
-      "support_tier": "medium",
+      "source_pdf_count": 5,
+      "support_tier": "high",
       "source_notes": [
         {
           "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
@@ -1754,6 +1904,20 @@
           "year": "2026",
           "source_pdf": "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf",
           "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2020-kobak-initialization-tsne-umap.md",
+          "title": "Initialization Is Critical for Preserving Global Data Structure in Both t-SNE and UMAP",
+          "year": "2020",
+          "source_pdf": "papers/raw/s41587-020-00809-z (5).pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2022-revisiting-dr-visual-cluster-analysis.md",
+          "title": "Revisiting Dimensionality Reduction Techniques for Visual Cluster Analysis: An Empirical Study",
+          "year": "2022",
+          "source_pdf": "papers/raw/Revisiting_Dimensionality_Reduction_Techniques_for_Visual_Cluster_Analysis_An_Empirical_Study.pdf",
+          "evidence_level": "high"
         }
       ],
       "source_pdf_notes": [
@@ -1777,15 +1941,224 @@
           "year": "2026",
           "source_pdf": "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf",
           "evidence_level": "medium"
+        },
+        {
+          "note_path": "papers/notes/2020-kobak-initialization-tsne-umap.md",
+          "title": "Initialization Is Critical for Preserving Global Data Structure in Both t-SNE and UMAP",
+          "year": "2020",
+          "source_pdf": "papers/raw/s41587-020-00809-z (5).pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2022-revisiting-dr-visual-cluster-analysis.md",
+          "title": "Revisiting Dimensionality Reduction Techniques for Visual Cluster Analysis: An Empirical Study",
+          "year": "2022",
+          "source_pdf": "papers/raw/Revisiting_Dimensionality_Reduction_Techniques_for_Visual_Cluster_Analysis_An_Empirical_Study.pdf",
+          "evidence_level": "high"
         }
       ],
       "non_pdf_notes": [],
       "source_pdfs": [
         "papers/raw/2506.08725v2.pdf",
         "papers/raw/zadu-table1-references/2510.08660v1.pdf",
-        "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf"
+        "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf",
+        "papers/raw/s41587-020-00809-z (5).pdf",
+        "papers/raw/Revisiting_Dimensionality_Reduction_Techniques_for_Visual_Cluster_Analysis_An_Empirical_Study.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
+    },
+    {
+      "id": "laplacian_eigenmaps",
+      "kind": "technique",
+      "doc_path": "docs/techniques/laplacian_eigenmaps.md",
+      "source_note_count": 3,
+      "source_pdf_note_count": 3,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 3,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/2009-comparative-review-dr-techniques.md",
+          "title": "Dimensionality Reduction: A Comparative Review",
+          "year": "2009",
+          "source_pdf": "papers/raw/Dimensionality_Reduction_A_Comparative_Review.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2020-kobak-initialization-tsne-umap.md",
+          "title": "Initialization Is Critical for Preserving Global Data Structure in Both t-SNE and UMAP",
+          "year": "2020",
+          "source_pdf": "papers/raw/s41587-020-00809-z (5).pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2011-hamann-survey-dimension-reduction.md",
+          "title": "On the Exploration of Dimension Reduction Techniques for Visual Data Mining",
+          "year": "2011",
+          "source_pdf": "papers/raw/OASIcs.VLUDS.2011.135.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/2009-comparative-review-dr-techniques.md",
+          "title": "Dimensionality Reduction: A Comparative Review",
+          "year": "2009",
+          "source_pdf": "papers/raw/Dimensionality_Reduction_A_Comparative_Review.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2020-kobak-initialization-tsne-umap.md",
+          "title": "Initialization Is Critical for Preserving Global Data Structure in Both t-SNE and UMAP",
+          "year": "2020",
+          "source_pdf": "papers/raw/s41587-020-00809-z (5).pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2011-hamann-survey-dimension-reduction.md",
+          "title": "On the Exploration of Dimension Reduction Techniques for Visual Data Mining",
+          "year": "2011",
+          "source_pdf": "papers/raw/OASIcs.VLUDS.2011.135.pdf",
+          "evidence_level": "medium"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/Dimensionality_Reduction_A_Comparative_Review.pdf",
+        "papers/raw/s41587-020-00809-z (5).pdf",
+        "papers/raw/OASIcs.VLUDS.2011.135.pdf"
+      ],
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
+    },
+    {
+      "id": "pca",
+      "kind": "technique",
+      "doc_path": "docs/techniques/pca.md",
+      "source_note_count": 3,
+      "source_pdf_note_count": 3,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 3,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
+          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
+          "year": "2025",
+          "source_pdf": "papers/raw/2506.08725v2.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2009-comparative-review-dr-techniques.md",
+          "title": "Dimensionality Reduction: A Comparative Review",
+          "year": "2009",
+          "source_pdf": "papers/raw/Dimensionality_Reduction_A_Comparative_Review.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2014-sorzano-survey-dr-techniques.md",
+          "title": "A Survey of Dimensionality Reduction Techniques",
+          "year": "2014",
+          "source_pdf": "papers/raw/1403.2877v1.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
+          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
+          "year": "2025",
+          "source_pdf": "papers/raw/2506.08725v2.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2009-comparative-review-dr-techniques.md",
+          "title": "Dimensionality Reduction: A Comparative Review",
+          "year": "2009",
+          "source_pdf": "papers/raw/Dimensionality_Reduction_A_Comparative_Review.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2014-sorzano-survey-dr-techniques.md",
+          "title": "A Survey of Dimensionality Reduction Techniques",
+          "year": "2014",
+          "source_pdf": "papers/raw/1403.2877v1.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/2506.08725v2.pdf",
+        "papers/raw/Dimensionality_Reduction_A_Comparative_Review.pdf",
+        "papers/raw/1403.2877v1.pdf"
+      ],
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
+    },
+    {
+      "id": "umap",
+      "kind": "technique",
+      "doc_path": "docs/techniques/umap.md",
+      "source_note_count": 3,
+      "source_pdf_note_count": 3,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 3,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
+          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
+          "year": "2025",
+          "source_pdf": "papers/raw/2506.08725v2.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2020-kobak-initialization-tsne-umap.md",
+          "title": "Initialization Is Critical for Preserving Global Data Structure in Both t-SNE and UMAP",
+          "year": "2020",
+          "source_pdf": "papers/raw/s41587-020-00809-z (5).pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2022-revisiting-dr-visual-cluster-analysis.md",
+          "title": "Revisiting Dimensionality Reduction Techniques for Visual Cluster Analysis: An Empirical Study",
+          "year": "2022",
+          "source_pdf": "papers/raw/Revisiting_Dimensionality_Reduction_Techniques_for_Visual_Cluster_Analysis_An_Empirical_Study.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
+          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
+          "year": "2025",
+          "source_pdf": "papers/raw/2506.08725v2.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2020-kobak-initialization-tsne-umap.md",
+          "title": "Initialization Is Critical for Preserving Global Data Structure in Both t-SNE and UMAP",
+          "year": "2020",
+          "source_pdf": "papers/raw/s41587-020-00809-z (5).pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2022-revisiting-dr-visual-cluster-analysis.md",
+          "title": "Revisiting Dimensionality Reduction Techniques for Visual Cluster Analysis: An Empirical Study",
+          "year": "2022",
+          "source_pdf": "papers/raw/Revisiting_Dimensionality_Reduction_Techniques_for_Visual_Cluster_Analysis_An_Empirical_Study.pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/2506.08725v2.pdf",
+        "papers/raw/s41587-020-00809-z (5).pdf",
+        "papers/raw/Revisiting_Dimensionality_Reduction_Techniques_for_Visual_Cluster_Analysis_An_Empirical_Study.pdf"
+      ],
+      "unresolved_note_refs": [],
+      "conflict_status": "accepted"
     },
     {
       "id": "isomap",
@@ -1833,7 +2206,8 @@
         "papers/raw/zadu-table1-references/1-s2.0-S0893608006000724-main.pdf",
         "papers/raw/zadu-table1-references/Supervised_nonlinear_dimensionality_reduction_for_visualization_and_classification.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     },
     {
       "id": "lle",
@@ -1881,7 +2255,57 @@
         "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
         "papers/raw/zadu-table1-references/ref12_local_procrustes_for_manifold_embedding_a_measure_of_embedding_quality_and_embedding_algor.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
+    },
+    {
+      "id": "random_projection",
+      "kind": "technique",
+      "doc_path": "docs/techniques/random_projection.md",
+      "source_note_count": 2,
+      "source_pdf_note_count": 2,
+      "non_pdf_note_count": 0,
+      "source_pdf_count": 2,
+      "support_tier": "medium",
+      "source_notes": [
+        {
+          "note_path": "papers/notes/2017-random-projection-survey.md",
+          "title": "A Survey of Dimensionality Reduction Techniques Based on Random Projection",
+          "year": "2017",
+          "source_pdf": "papers/raw/1706.04371v4.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2021-quantitative-survey-dr-techniques.md",
+          "title": "Toward a Quantitative Survey of Dimension Reduction Techniques",
+          "year": "2021",
+          "source_pdf": "papers/raw/Toward_a_Quantitative_Survey_of_Dimension_Reduction_Techniques (1).pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "source_pdf_notes": [
+        {
+          "note_path": "papers/notes/2017-random-projection-survey.md",
+          "title": "A Survey of Dimensionality Reduction Techniques Based on Random Projection",
+          "year": "2017",
+          "source_pdf": "papers/raw/1706.04371v4.pdf",
+          "evidence_level": "high"
+        },
+        {
+          "note_path": "papers/notes/2021-quantitative-survey-dr-techniques.md",
+          "title": "Toward a Quantitative Survey of Dimension Reduction Techniques",
+          "year": "2021",
+          "source_pdf": "papers/raw/Toward_a_Quantitative_Survey_of_Dimension_Reduction_Techniques (1).pdf",
+          "evidence_level": "high"
+        }
+      ],
+      "non_pdf_notes": [],
+      "source_pdfs": [
+        "papers/raw/1706.04371v4.pdf",
+        "papers/raw/Toward_a_Quantitative_Survey_of_Dimension_Reduction_Techniques (1).pdf"
+      ],
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     },
     {
       "id": "som",
@@ -1929,7 +2353,8 @@
         "papers/raw/zadu-table1-references/download (2).pdf",
         "papers/raw/zadu-table1-references/1-s2.0-S0925231209000101-main.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     },
     {
       "id": "catsne",
@@ -1962,7 +2387,8 @@
       "source_pdfs": [
         "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     },
     {
       "id": "cca",
@@ -1995,7 +2421,8 @@
       "source_pdfs": [
         "papers/raw/zadu-table1-references/1-s2.0-S0893608006000724-main.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     },
     {
       "id": "classimap",
@@ -2028,7 +2455,8 @@
       "source_pdfs": [
         "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     },
     {
       "id": "classnerv",
@@ -2061,7 +2489,8 @@
       "source_pdfs": [
         "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     },
     {
       "id": "kpca",
@@ -2094,7 +2523,8 @@
       "source_pdfs": [
         "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     },
     {
       "id": "lamp",
@@ -2127,7 +2557,8 @@
       "source_pdfs": [
         "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     },
     {
       "id": "lmds",
@@ -2160,7 +2591,8 @@
       "source_pdfs": [
         "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     },
     {
       "id": "lsp",
@@ -2193,7 +2625,8 @@
       "source_pdfs": [
         "papers/raw/zadu-table1-references/Least_Square_Projection_A_Fast_High-Precision_Multidimensional_Projection_Technique_and_Its_Application_to_Document_Mapping.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     },
     {
       "id": "nerv",
@@ -2226,40 +2659,8 @@
       "source_pdfs": [
         "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf"
       ],
-      "unresolved_note_refs": []
-    },
-    {
-      "id": "pca",
-      "kind": "technique",
-      "doc_path": "docs/techniques/pca.md",
-      "source_note_count": 1,
-      "source_pdf_note_count": 1,
-      "non_pdf_note_count": 0,
-      "source_pdf_count": 1,
-      "support_tier": "low",
-      "source_notes": [
-        {
-          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
-          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
-          "year": "2025",
-          "source_pdf": "papers/raw/2506.08725v2.pdf",
-          "evidence_level": "high"
-        }
-      ],
-      "source_pdf_notes": [
-        {
-          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
-          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
-          "year": "2025",
-          "source_pdf": "papers/raw/2506.08725v2.pdf",
-          "evidence_level": "high"
-        }
-      ],
-      "non_pdf_notes": [],
-      "source_pdfs": [
-        "papers/raw/2506.08725v2.pdf"
-      ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     },
     {
       "id": "plmp",
@@ -2292,7 +2693,8 @@
       "source_pdfs": [
         "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     },
     {
       "id": "s-isomap",
@@ -2325,7 +2727,8 @@
       "source_pdfs": [
         "papers/raw/zadu-table1-references/Supervised_nonlinear_dimensionality_reduction_for_visualization_and_classification.pdf"
       ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     },
     {
       "id": "sne",
@@ -2358,40 +2761,8 @@
       "source_pdfs": [
         "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf"
       ],
-      "unresolved_note_refs": []
-    },
-    {
-      "id": "umap",
-      "kind": "technique",
-      "doc_path": "docs/techniques/umap.md",
-      "source_note_count": 1,
-      "source_pdf_note_count": 1,
-      "non_pdf_note_count": 0,
-      "source_pdf_count": 1,
-      "support_tier": "low",
-      "source_notes": [
-        {
-          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
-          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
-          "year": "2025",
-          "source_pdf": "papers/raw/2506.08725v2.pdf",
-          "evidence_level": "high"
-        }
-      ],
-      "source_pdf_notes": [
-        {
-          "note_path": "papers/notes/2506.08725v2-stop-misusing-tsne-umap.md",
-          "title": "Stop Misusing t-SNE and UMAP for Visual Analytics",
-          "year": "2025",
-          "source_pdf": "papers/raw/2506.08725v2.pdf",
-          "evidence_level": "high"
-        }
-      ],
-      "non_pdf_notes": [],
-      "source_pdfs": [
-        "papers/raw/2506.08725v2.pdf"
-      ],
-      "unresolved_note_refs": []
+      "unresolved_note_refs": [],
+      "conflict_status": "unknown"
     }
   ]
 }

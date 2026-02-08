@@ -75,3 +75,5 @@ In reporting, document which tradeoffs were accepted and why they were acceptabl
 - `papers/notes/2506.08725v2-stop-misusing-tsne-umap.md` (JEON25-E3, JEON25-E4, JEON25-E5, JEON25-E6)
 - `papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md` (ZR07-E2, ZR07-E8)
 - `papers/notes/zadu-ref-03-2408-07724v2.md` (ZR03-E6, ZR03-E7)
+- `papers/notes/2019-mdp-visual-analytics-survey.md` (CLAIM-MDP19-C1, CLAIM-MDP19-C2)
+- `papers/notes/2015-gisbrecht-nonlinear-dr-visualization.md` (CLAIM-GIS15-C1)

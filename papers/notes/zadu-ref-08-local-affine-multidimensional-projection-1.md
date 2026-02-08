@@ -1,6 +1,8 @@
 ---
 id: paper-2011-zadu-ref-08
 title: "Local Affine Multidimensional Projection"
+authors: "UNKNOWN"
+venue: "UNKNOWN"
 year: 2011
 tags: [dr, zadu-table1-reference, ivm, proc, stress, tnc]
 source_pdf: papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf

@@ -1,6 +1,8 @@
 ---
 id: paper-2008-zadu-ref-06
 title: "Least Square Projection: A Fast High-Precision"
+authors: "UNKNOWN"
+venue: "UNKNOWN"
 year: 2008
 tags: [dr, zadu-table1-reference, stress]
 source_pdf: papers/raw/zadu-table1-references/Least_Square_Projection_A_Fast_High-Precision_Multidimensional_Projection_Technique_and_Its_Application_to_Document_Mapping.pdf

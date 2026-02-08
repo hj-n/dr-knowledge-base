@@ -17,6 +17,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 
 ## Required Structure
 - `docs/workflow/dr-analysis-workflow.md`
+- `docs/workflow/task-aligned-initialization.md`
 - `docs/overview.md`
 - `docs/intake-question-tree.md`
 - `docs/task-taxonomy.md`
@@ -44,6 +45,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 
 ## Task Axis Contract
 - Workflow anchor: `docs/workflow/dr-analysis-workflow.md`.
+- Initialization anchor: `docs/workflow/task-aligned-initialization.md` (must run after technique/metric selection and before hyperparameter optimization).
 - Intake anchor: 7 analytical tasks from Jeon et al. (2025).
 - 7 tasks are fixed primary axes; do not change or replace them.
 - Subtask refinement is allowed under each axis per `docs/task-taxonomy.md`.
@@ -60,6 +62,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 1. Confirm source file exists in `papers/raw/`.
 2. Run relevance gate in `builder/evidence/relevance-policy.md`.
 3. If relevant, create/update one individual note per source file in `papers/notes/`.
+   - Seed-paper rule: every PDF directly under `papers/raw/` must have its own dedicated note file (no merged seed notes).
 4. Run canonicalization gate in `builder/evidence/canonicalization-policy.md`:
    - decide `alias-existing`, `new-concept`, or `needs-review`
    - record decision in `builder/evidence/alias-register.md`
@@ -68,10 +71,12 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
    - `docs/metrics/<metric>.md` for metric-level changes.
    - `docs/techniques/<technique>.md` for technique-level changes.
    - `docs/metrics-and-libraries.md` for summary-level changes.
+   - `docs/workflow/task-aligned-initialization.md` when initialization-policy evidence is added or changed.
    - `docs/reliability-cautions-and-tips.md` for grouped cautions/tips and mitigations.
 7. Recompute conflict status using `builder/evidence/conflict-policy.md` and update `builder/evidence/conflict-register.md`.
 8. Recompute reference frequency index with `python scripts/update_reference_coverage.py`.
 9. Recompute paper catalog with `python scripts/update_paper_catalog.py`.
+10. Run consistency checks (section completeness, metadata completeness, workflow-step sync).
 
 ## Non-Negotiable Note Quality Gate
 Reject a note as incomplete if any condition fails:
@@ -88,6 +93,7 @@ Reject a note as incomplete if any condition fails:
   - `venue`
   - `year`
   - `source_pdf`
+  - `authors`/`venue` may be `UNKNOWN` only when unavailable from source, but keys must be present.
 - For reference papers (`papers/raw/<subdirectory>/...`), missing `seed_note_id` when no mapping exists in `builder/evidence/reference-group-map.json`.
 
 ## Documentation Quality Gate
@@ -97,6 +103,7 @@ Reject a note as incomplete if any condition fails:
 - Detailed quote-level evidence stays in `papers/notes/*`.
 - `docs/` must keep a drill-down link chain:
   - `docs/overview.md` -> `docs/workflow/dr-analysis-workflow.md`
+  - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/task-aligned-initialization.md`
   - workflow step links -> step-relevant docs (`intake-question-tree`, `task-taxonomy`, `metrics-and-libraries`, `metrics/README`, `techniques/README`, `reference-coverage`, `reliability-cautions-and-tips`)
   - `docs/overview.md` should link to `docs/paper-catalog.md` and `docs/paper-catalog.csv` for source transparency
 - For `docs/metrics/*` and `docs/techniques/*`, each required section must contain substantial prose:
@@ -186,6 +193,30 @@ Reject a note as incomplete if any condition fails:
   - `papers/notes`
 - Exclude `papers/raw` from indexing.
 - Refresh Context7 after meaningful doc updates.
+
+## Workflow-Step Sync Rule
+- If workflow step count/order changes, update all synchronized docs in the same turn:
+  - `docs/workflow/dr-analysis-workflow.md`
+  - `docs/overview.md`
+  - `README.md`
+  - `templates/paper-note-template.md` (`Workflow Relevance Map` step numbering)
+- Do not leave mixed step numbering across files.
+
+## Pre-Completion Self-Check (Mandatory)
+Before ending a doc-update turn, verify:
+1. Every edited/created note includes all required sections:
+   - `Problem`
+   - `Method Summary`
+   - `When To Use / Not Use`
+   - `Metrics Mentioned`
+   - `Implementation Notes`
+   - `Claim Atoms (For Conflict Resolution)`
+   - `Workflow Relevance Map`
+   - `Evidence`
+2. Every edited/created note has at least 5 evidence entries unless the source is genuinely short.
+3. Every note has `authors` and `venue` keys in frontmatter.
+4. `docs/reference-coverage.md` includes conflict status columns for ranking transparency.
+5. `python scripts/update_reference_coverage.py` and `python scripts/update_paper_catalog.py` run successfully.
 
 ## Definition of Done
 - Individual source note created/updated with quality gate passed.

@@ -1,6 +1,8 @@
 ---
 id: paper-2026-zadu-ref-17
 title: "Stochastic Neighbor Embedding"
+authors: "UNKNOWN"
+venue: "UNKNOWN"
 year: 2026
 tags: [dr, zadu-table1-reference, kl_div, stress]
 source_pdf: papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf

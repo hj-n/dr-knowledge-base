@@ -48,8 +48,8 @@ Frontmatter guidance:
 - CLAIM-<id> | stance: support|contradict | summary: <atomic claim> | evidence_ids: <E-ID list>
 
 # Workflow Relevance Map
-- step: 1|2|3|4|5|6 | relevance: high|medium|low | note: <how this source changes workflow decisions>
-- step: 1|2|3|4|5|6 | relevance: high|medium|low | note: <how this source changes workflow decisions>
+- step: 1|2|3|4|5|6|7 | relevance: high|medium|low | note: <how this source changes workflow decisions>
+- step: 1|2|3|4|5|6|7 | relevance: high|medium|low | note: <how this source changes workflow decisions>
 
 # Evidence
 - <E-ID> | page: <n-n>, section: <name>, quote: "..."

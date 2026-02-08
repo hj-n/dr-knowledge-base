@@ -31,7 +31,7 @@ Rules:
 - If a subtask is defined, keep axis alignment as the hard constraint and use subtask only for refinement.
 - After task clarification, choose a small metric set across local/cluster/global levels.
 
-## Metric IDs (20)
+## Metric IDs (22)
 1. `tnc`
 2. `mrre`
 3. `lcmc`
@@ -52,12 +52,23 @@ Rules:
 18. `stress`
 19. `sn_stress`
 20. `nm_stress`
+21. `qnx` (non-ZADU extension)
+22. `spectral_overlap` (non-ZADU extension)
 
 ## Structural Grouping (Core 17)
 - Local: `tnc`, `mrre`, `lcmc`, `nh`, `nd`, `ca_tnc`, `proc`
 - Cluster-level: `snc`, `dsc`, `ivm`, `c_evm`
 - Global: `stress`, `kl_div`, `dtm`, `topo`, `pr`, `srho`
-- Additional metrics: `l_tnc`, `sn_stress`, `nm_stress`
+- Additional metrics: `l_tnc`, `sn_stress`, `nm_stress`, `qnx`, `spectral_overlap`
+
+## Parameter-Light Extension Metrics
+Two non-ZADU metrics are currently tracked as practical local-structure extensions:
+- `qnx`
+- `spectral_overlap`
+
+Use these only after task clarification and as part of a bundle with at least one complementary global metric.
+Primary source note:
+- `papers/notes/2019-spectral-overlap-quality-metrics.md`
 
 ## Mandatory Warning Gate
 Before relying on `dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`, verify that class labels are well-separated in the original space.[^warn]
@@ -67,8 +78,9 @@ Every final recommendation should include:
 1. primary analytical task
 2. selected technique family
 3. selected metric IDs with short rationale (strengths + task-fit rationale)
-4. warning-gate result (pass/fail/unknown)
-5. source-note links used for justification
+4. selected initialization policy for initialization-sensitive methods
+5. warning-gate result (pass/fail/unknown)
+6. source-note links used for justification
 
 ## Reference-Frequency Priority
 When multiple metrics are valid for the same task, prioritize them by PDF-backed support frequency.
