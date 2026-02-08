@@ -18,6 +18,23 @@ The primary task must always map to exactly one of these seven:
 6. Cluster distance investigation
 7. Cluster density investigation
 
+## Internal Code IDs (Implementation Rule)
+For code logic, do not use long human labels as control keys.
+Use compact internal IDs and map them to labels only when rendering user text.
+
+Recommended mapping:
+- `T1_NEIGHBOR` -> Neighborhood identification
+- `T2_OUTLIER` -> Outlier identification
+- `T3_CLUSTER` -> Cluster identification
+- `T4_POINT_DISTANCE` -> Point distance investigation
+- `T5_CLASS_SEPARABILITY` -> Class separability investigation
+- `T6_CLUSTER_DISTANCE` -> Cluster distance investigation
+- `T7_CLUSTER_DENSITY` -> Cluster density investigation
+
+Rule:
+- Internal computation paths should branch on task IDs or enums.
+- User-facing explanations should use plain labels, not task IDs.
+
 ## Subtask Refinement (Extensible)
 When user intent requires finer granularity, add an optional subtask label under the chosen primary axis.
 

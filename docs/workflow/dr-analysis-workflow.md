@@ -21,6 +21,7 @@ Use this sequence as the mandatory execution order for reliable DR configuration
    [`docs/workflow/hyperparameter-optimization-protocol.md`](./hyperparameter-optimization-protocol.md)
 7. Visualization + user explanation:
    [`docs/workflow/visualization-policy.md`](./visualization-policy.md),
+   [`docs/workflow/communication-layer-policy.md`](./communication-layer-policy.md),
    [`docs/workflow/reliability-report-contract.md`](./reliability-report-contract.md),
    and `scripts/validate_reliability_report.py`
 
@@ -116,16 +117,23 @@ Gate:
 
 ## 7) Visualization + user explanation
 - Produce required visual artifacts and consistency check.
-- Explain why this task, configuration, and tradeoff were selected.
+- Produce two explanation layers:
+  - internal technical explanation for implementation/audit
+  - user explanation in novice-friendly language
 - Report residual risks and contested/unknown evidence status.
-- Write the final explanation in novice-friendly language.
+- Explicitly disclose final settings in a copyable user section.
 
 Required output:
 - `visual_artifacts`
 - `visual_consistency_check`
-- `final_explanation`
-- `plain_language_summary`
-- `term_explanations`
+- `technical_explanation`
+- `user_explanation`
+- `user_goal_restatement`
+- `user_what_was_compared`
+- `user_why_selected`
+- `user_risk_note`
+- `user_code_snippet`
+- `user_code_reason`
 - `final_configuration_for_users`
 - `source_note_links`
 - `residual_risk_statement`
@@ -134,8 +142,9 @@ Required output:
 
 Gate:
 - If visual and metric evidence materially conflict, set `recommendation_status = exploratory`.
-- If explanation is technical but not understandable to DR novices, set `report_contract_validation = fail` and revise wording.
+- If user explanation contains standalone internal jargon, set `report_contract_validation = fail` and revise wording.
 - If final configuration is not explicitly disclosed to users, set `report_contract_validation = fail`.
+- If concise user code and code reason are missing, set `report_contract_validation = fail`.
 
 ## Execution Contract
 1. Never skip Step 1.

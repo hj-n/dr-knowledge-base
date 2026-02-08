@@ -5,6 +5,7 @@ The report must make recommendation quality auditable and reproducible.
 
 Related:
 - Workflow: [`docs/workflow/dr-analysis-workflow.md`](./dr-analysis-workflow.md)
+- Communication layer policy: [`docs/workflow/communication-layer-policy.md`](./communication-layer-policy.md)
 - Selection scoring: [`docs/workflow/configuration-selection-policy.md`](./configuration-selection-policy.md)
 - Initialization rules: [`docs/workflow/task-aligned-initialization.md`](./task-aligned-initialization.md)
 - Optimization protocol: [`docs/workflow/hyperparameter-optimization-protocol.md`](./hyperparameter-optimization-protocol.md)
@@ -81,28 +82,44 @@ Rule:
 ## 7) Visualization and Communication Contract
 - `visual_artifacts`
 - `visual_consistency_check`
-- `final_explanation`
+- `technical_explanation` (internal layer)
+- `user_explanation` (user layer)
 - `source_note_links`
 - `residual_risk_statement`
 - `recommendation_status` (`accepted|provisional|exploratory|contested`)
-- `plain_language_summary`
-- `term_explanations`
 - `final_configuration_for_users`
+- `user_goal_restatement`
+- `user_what_was_compared`
+- `user_why_selected`
+- `user_risk_note`
+- `user_code_snippet`
+- `user_code_reason`
 
 Rule:
 - if visual evidence materially contradicts metric narrative, status cannot be `accepted`.
-- `final_explanation` must be understandable to DR novices:
-  - avoid internal shorthand as standalone phrasing (for example `preprocessing signature`, `guardrail`).
-  - when a technical term is required, define it in one short sentence.
-  - explain evidence in user terms: what was measured, what it means, and why it matters for the user's task.
 - The report must explicitly disclose the final configuration to users:
   - chosen technique/method name
   - key hyperparameters and fixed values
   - preprocessing choices that affect interpretation
   - initialization method and seed policy (if applicable)
+- The report must include concise runnable user code and a short reason block.
+
+## Dual-Layer Communication Contract (Mandatory)
+Every final report must contain both layers:
+
+1. Internal technical layer:
+   - full technical terms are allowed
+   - supports reproducibility and audit
+2. User explanation layer:
+   - must follow `docs/workflow/communication-layer-policy.md`
+   - must avoid standalone internal jargon
+   - must be understandable to a DR novice with basic CS background
+
+Hard rule:
+- if user layer contains forbidden standalone jargon, report is invalid.
 
 ## Final Configuration Disclosure (Mandatory)
-The final report must contain one compact section that users can copy and reuse directly.
+The user layer must contain one compact section that users can copy and reuse directly.
 
 Required keys in that section:
 - `method`
@@ -114,28 +131,25 @@ Required keys in that section:
 Rule:
 - Do not finalize any recommendation without this section, even when the explanation text is otherwise complete.
 
+## Concise Code Disclosure (Mandatory)
+The user layer must include:
+- `user_code_snippet`: minimal runnable code for the selected method/configuration.
+- `user_code_reason`: short plain-language rationale for why this code was chosen.
+
+Rules:
+- keep code focused on the selected path; do not expose internal policy wiring in user snippet.
+- keep explanation short and understandable to DR novices.
+
 ## Plain-Language Explanation Standard (Mandatory)
-Every final report must include this 4-part explanation:
+The user layer must include this 4-part explanation:
 1. `What you asked`:
    - restate the user's goal in plain words.
 2. `What we tested`:
-   - name candidate methods and metrics with one-line meaning each.
+   - name compared methods and quality checks with one-line meaning each.
 3. `What we found`:
    - summarize the top result and one rejected alternative in plain terms.
 4. `Why this is reliable enough`:
-   - mention stability check, warning-gate result, and one residual risk.
-
-Required term explanations:
-- `primary_task_axis`: the main question the user wants answered.
-- `metric`: a numeric check used to verify embedding quality.
-- `initialization`: the starting layout before DR optimization.
-- `stability`: whether conclusions stay similar across repeated runs.
-
-Preferred wording examples:
-- Instead of `same preprocessing signature`, write:
-  - `we prepared data in the same way for all methods, so the comparison is fair`.
-- Instead of `guardrail metric`, write:
-  - `a secondary safety-check metric to ensure one improvement does not hide another failure`.
+   - mention repeat-run consistency, safety-check result, and one residual risk.
 
 ## Minimal JSON-like Example
 ```text
@@ -176,10 +190,16 @@ visual_consistency_check: pass
 recommendation_status: accepted
 source_note_links: [papers/notes/..., papers/notes/...]
 residual_risk_statement: minor instability near sparse boundary clusters
-plain_language_summary: "We compared methods with the same data preparation and picked the one that best preserved class-level spacing while remaining stable."
-term_explanations:
-  metric: "A numeric quality check for embeddings."
-  stability: "How consistent the result is across repeated runs."
+technical_explanation: "Candidate ranking used weighted score with primary metrics and guardrail checks."
+user_explanation: "We compared several methods using the same data-preparation steps and chose the one that kept class distances most consistent."
+user_goal_restatement: "You want to compare how far apart digit classes are."
+user_what_was_compared: "We compared three mapping methods and checked distance quality with multiple scores."
+user_why_selected: "The selected method best preserved class-distance patterns and stayed stable across repeated runs."
+user_risk_note: "Nearby classes can still look slightly overlapped in 2D."
+user_code_snippet: |
+  reducer = umap.UMAP(n_components=2, n_neighbors=30, min_dist=0.05, random_state=42)
+  Z = reducer.fit_transform(X_scaled)
+user_code_reason: "This is the simplest runnable setup that keeps class-distance patterns stable."
 final_configuration_for_users:
   method: umap
   key_hyperparameters: {n_neighbors: 30, min_dist: 0.05, n_components: 2}
@@ -195,5 +215,6 @@ final_configuration_for_users:
 4. Candidate score table present.
 5. Initialization stability reported.
 6. Optimization and guardrail summaries reported.
-7. Final explanation includes source links and residual risk.
-8. Contract validator returns success for the report artifact.
+7. Internal and user explanation layers are both present.
+8. User layer includes concise code and code reason.
+9. Contract validator returns success for the report artifact.

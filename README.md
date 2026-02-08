@@ -12,6 +12,7 @@ The goal is for an agent to: lock user task intent, produce a strong DR configur
 - [`docs/workflow/task-aligned-initialization.md`](docs/workflow/task-aligned-initialization.md)
 - [`docs/workflow/hyperparameter-optimization-protocol.md`](docs/workflow/hyperparameter-optimization-protocol.md)
 - [`docs/workflow/visualization-policy.md`](docs/workflow/visualization-policy.md)
+- [`docs/workflow/communication-layer-policy.md`](docs/workflow/communication-layer-policy.md)
 - [`docs/workflow/reliability-report-contract.md`](docs/workflow/reliability-report-contract.md)
 - [`docs/metrics-and-libraries.md`](docs/metrics-and-libraries.md)
 
@@ -22,7 +23,7 @@ The goal is for an agent to: lock user task intent, produce a strong DR configur
 4. Score candidates with deterministic selection policy.
 5. Set task-aligned initialization policy.
 6. Optimize hyperparameters with `bayes_opt`.
-7. Produce visualization artifacts and final explanation contract.
+7. Produce visualization artifacts, concise runnable user code, and dual-layer explanations (technical + user-friendly).
 
 ## Key Directories
 - `docs/`: consumer-facing operational guidance.

@@ -23,6 +23,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `docs/workflow/task-aligned-initialization.md`
 - `docs/workflow/hyperparameter-optimization-protocol.md`
 - `docs/workflow/visualization-policy.md`
+- `docs/workflow/communication-layer-policy.md`
 - `docs/workflow/reliability-report-contract.md`
 - `docs/overview.md`
 - `docs/intake-question-tree.md`
@@ -136,6 +137,11 @@ Reject a note as incomplete if any condition fails:
   - do not rely on unexplained internal jargon.
   - if technical terms are required, define them in one sentence near first use.
   - final recommendation output must explicitly disclose final method and key parameter settings for end users.
+  - enforce dual-layer outputs for recommendations:
+    - internal technical layer (for code/audit)
+    - user explanation layer (for non-experts)
+  - in user layer, avoid standalone terms such as:
+    - `task axis`, `metric bundle`, `warning gate`, `preprocessing signature`, `guardrail metric`
 - Source-note links in `docs/` should map claims to `papers/notes/*`.
 - Detailed quote-level evidence stays in `papers/notes/*`.
 - Workflow-scope filter is mandatory:
@@ -150,6 +156,7 @@ Reject a note as incomplete if any condition fails:
   - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/task-aligned-initialization.md`
   - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/hyperparameter-optimization-protocol.md`
   - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/visualization-policy.md`
+  - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/communication-layer-policy.md`
   - workflow step links -> step-relevant docs (`intake-question-tree`, `task-taxonomy`, `metrics-and-libraries`, `metrics/README`, `techniques/README`, `reference-coverage`, `reliability-cautions-and-tips`)
   - `docs/overview.md` should link to `docs/paper-catalog.md` and `docs/paper-catalog.csv` for source transparency
 - For `docs/metrics/*` and `docs/techniques/*`, each required section must contain substantial prose:
@@ -259,6 +266,7 @@ Reject a note as incomplete if any condition fails:
   - `docs/workflow/configuration-selection-policy.md`
   - `docs/workflow/hyperparameter-optimization-protocol.md`
   - `docs/workflow/visualization-policy.md`
+  - `docs/workflow/communication-layer-policy.md`
   - `docs/workflow/reliability-report-contract.md`
   - `docs/overview.md`
   - `README.md`
@@ -283,12 +291,21 @@ Before ending a doc-update turn, verify:
 6. If a recommendation report artifact is produced, validate it with:
    - `python scripts/validate_reliability_report.py <report-file>`
 7. If a recommendation explanation is produced, verify novice readability:
-   - includes `plain_language_summary`
-   - includes `term_explanations` for required technical terms
+   - includes `user_goal_restatement`
+   - includes `user_what_was_compared`
+   - includes `user_why_selected`
+   - includes `user_risk_note`
    - avoids unexplained shorthand-only phrasing
 8. If a recommendation report artifact is produced, verify final configuration disclosure:
    - includes `final_configuration_for_users`
    - includes method name and key hyperparameter values
+9. If a recommendation explanation artifact is produced, verify dual-layer communication:
+   - includes both internal technical explanation and user explanation sections
+   - user section avoids forbidden standalone jargon
+10. If a recommendation explanation artifact is produced, verify concise code deliverable:
+   - includes `user_code_snippet`
+   - includes `user_code_reason`
+   - user code snippet does not expose internal policy keys as top-level API
 
 ## Definition of Done
 - Individual source note created/updated with quality gate passed.

@@ -27,6 +27,7 @@ See: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 - Initialization rules: [`docs/workflow/task-aligned-initialization.md`](./workflow/task-aligned-initialization.md)
 - Hyperparameter optimization protocol: [`docs/workflow/hyperparameter-optimization-protocol.md`](./workflow/hyperparameter-optimization-protocol.md)
 - Visualization policy: [`docs/workflow/visualization-policy.md`](./workflow/visualization-policy.md)
+- Communication layer policy: [`docs/workflow/communication-layer-policy.md`](./workflow/communication-layer-policy.md)
 - Report contract: [`docs/workflow/reliability-report-contract.md`](./workflow/reliability-report-contract.md)
 - Metric/technique policy: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
 - Reliability cautions: [`docs/reliability-cautions-and-tips.md`](./reliability-cautions-and-tips.md)
@@ -50,12 +51,28 @@ See: [`docs/task-taxonomy.md`](./task-taxonomy.md)
    [`docs/workflow/hyperparameter-optimization-protocol.md`](./workflow/hyperparameter-optimization-protocol.md)
 7. Visualize safely:
    [`docs/workflow/visualization-policy.md`](./workflow/visualization-policy.md)
-8. Deliver explanation contract:
+8. Split explanation layers:
+   [`docs/workflow/communication-layer-policy.md`](./workflow/communication-layer-policy.md)
+9. Deliver explanation contract:
    [`docs/workflow/reliability-report-contract.md`](./workflow/reliability-report-contract.md)
 
 ## Non-Negotiable Rules
 - Task-first: no recommendation before task is confirmed with high confidence.
 - Deterministic decisioning: use the scoring policy, not ad-hoc preference.
 - Evidence-first explanation: every final claim must map to source notes.
-- Novice-first communication: final user explanation must be understandable without DR background and must define technical terms inline.
+- Dual-layer communication: keep a technical layer for implementation and a separate novice-friendly user layer.
 - Final-configuration disclosure: always show users the exact final method and key parameter settings.
+- User-facing language must be simple: assume the user is not a DR expert.
+- User-facing code must be concise: show a minimal runnable path, not orchestration internals.
+- Do not expose internal policy wiring in user outputs (for example task-routing tables, warning-gate state keys, or internal scoring keys).
+
+## User-Facing Output Standard
+Every final user answer should satisfy all three:
+1. Easy explanation:
+   - short sentences, plain words, no internal jargon as standalone terms.
+2. Simple code:
+   - minimal runnable snippet focused on the selected method/configuration.
+3. Hidden internals:
+   - internal selection logic and policy keys stay in technical records, not in user snippet.
+
+If any of these fail, treat the output as incomplete and revise before finalizing.
