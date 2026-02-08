@@ -17,7 +17,12 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 
 ## Required Structure
 - `docs/workflow/dr-analysis-workflow.md`
+- `docs/workflow/task-confirmation-protocol.md`
+- `docs/workflow/preprocessing-profiles.md`
+- `docs/workflow/configuration-selection-policy.md`
 - `docs/workflow/task-aligned-initialization.md`
+- `docs/workflow/hyperparameter-optimization-protocol.md`
+- `docs/workflow/visualization-policy.md`
 - `docs/workflow/reliability-report-contract.md`
 - `docs/overview.md`
 - `docs/intake-question-tree.md`
@@ -46,21 +51,25 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `scripts/update_reference_coverage.py`
 - `scripts/update_paper_catalog.py`
 - `scripts/update_reference_backlog.py`
+- `scripts/validate_reliability_report.py`
 
 ## Task Axis Contract
 - Workflow anchor: `docs/workflow/dr-analysis-workflow.md`.
+- Task lock protocol anchor: `docs/workflow/task-confirmation-protocol.md`.
 - Initialization anchor: `docs/workflow/task-aligned-initialization.md` (must run after technique/metric selection and before hyperparameter optimization).
 - Intake anchor: 7 analytical tasks from Jeon et al. (2025).
 - 7 tasks are fixed primary axes; do not change or replace them.
 - Subtask refinement is allowed under each axis per `docs/task-taxonomy.md`.
 - Ask plain-language task questions first.
 - Confirm one primary task axis before recommending techniques or metrics.
+- Do not proceed to recommendation unless `axis_confidence = high` with explicit user confirmation quote.
 
 ## Metric Governance Contract
 - Default reliability library: `zadu` (`/hj-n/zadu` via Context7).
 - Use exact metric IDs from `docs/metrics-and-libraries.md` for ZADU metrics.
 - Non-ZADU metrics are allowed when needed, but must include explicit provenance in source notes and metric docs.
 - Apply label-separation warning gate for: `dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`.
+- Final configuration ranking must follow `docs/workflow/configuration-selection-policy.md`; ad-hoc ranking prose is not sufficient.
 
 ## Ingestion Workflow
 1. Confirm source file exists in `papers/raw/`.
@@ -123,6 +132,10 @@ Reject a note as incomplete if any condition fails:
 ## Documentation Quality Gate
 - `docs/` must be concise and user-operational.
 - `docs/` should explain what to do, when to use it, and what to avoid.
+- `docs/` user-facing guidance must be understandable to DR novices:
+  - do not rely on unexplained internal jargon.
+  - if technical terms are required, define them in one sentence near first use.
+  - final recommendation output must explicitly disclose final method and key parameter settings for end users.
 - Source-note links in `docs/` should map claims to `papers/notes/*`.
 - Detailed quote-level evidence stays in `papers/notes/*`.
 - Workflow-scope filter is mandatory:
@@ -131,7 +144,12 @@ Reject a note as incomplete if any condition fails:
   - Such content may remain in source notes, but must not become recommendation rules in `docs/workflow/*`, `docs/metrics-and-libraries.md`, or policy text.
 - `docs/` must keep a drill-down link chain:
   - `docs/overview.md` -> `docs/workflow/dr-analysis-workflow.md`
+  - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/task-confirmation-protocol.md`
+  - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/preprocessing-profiles.md`
+  - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/configuration-selection-policy.md`
   - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/task-aligned-initialization.md`
+  - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/hyperparameter-optimization-protocol.md`
+  - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/visualization-policy.md`
   - workflow step links -> step-relevant docs (`intake-question-tree`, `task-taxonomy`, `metrics-and-libraries`, `metrics/README`, `techniques/README`, `reference-coverage`, `reliability-cautions-and-tips`)
   - `docs/overview.md` should link to `docs/paper-catalog.md` and `docs/paper-catalog.csv` for source transparency
 - For `docs/metrics/*` and `docs/techniques/*`, each required section must contain substantial prose:
@@ -236,6 +254,12 @@ Reject a note as incomplete if any condition fails:
 ## Workflow-Step Sync Rule
 - If workflow step count/order changes, update all synchronized docs in the same turn:
   - `docs/workflow/dr-analysis-workflow.md`
+  - `docs/workflow/task-confirmation-protocol.md`
+  - `docs/workflow/preprocessing-profiles.md`
+  - `docs/workflow/configuration-selection-policy.md`
+  - `docs/workflow/hyperparameter-optimization-protocol.md`
+  - `docs/workflow/visualization-policy.md`
+  - `docs/workflow/reliability-report-contract.md`
   - `docs/overview.md`
   - `README.md`
   - `templates/paper-note-template.md` (`Workflow Relevance Map` step numbering)
@@ -256,6 +280,15 @@ Before ending a doc-update turn, verify:
 3. Every note has `authors` and `venue` keys in frontmatter.
 4. `docs/reference-coverage.md` includes conflict status columns for ranking transparency.
 5. `python scripts/update_reference_coverage.py` and `python scripts/update_paper_catalog.py` run successfully.
+6. If a recommendation report artifact is produced, validate it with:
+   - `python scripts/validate_reliability_report.py <report-file>`
+7. If a recommendation explanation is produced, verify novice readability:
+   - includes `plain_language_summary`
+   - includes `term_explanations` for required technical terms
+   - avoids unexplained shorthand-only phrasing
+8. If a recommendation report artifact is produced, verify final configuration disclosure:
+   - includes `final_configuration_for_users`
+   - includes method name and key hyperparameter values
 
 ## Definition of Done
 - Individual source note created/updated with quality gate passed.

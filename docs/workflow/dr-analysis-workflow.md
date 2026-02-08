@@ -1,151 +1,146 @@
 # DR Analysis Workflow (Primary Axis)
 
-Use this sequence as the default DR-analysis workflow.
+Use this sequence as the mandatory execution order for reliable DR configuration.
 
 ## Step-to-Document Map
-1. Task clarification:
+1. Task clarification and lock:
    [`docs/intake-question-tree.md`](../intake-question-tree.md),
-   [`docs/task-taxonomy.md`](../task-taxonomy.md)
-2. Data audit + preprocessing:
-   this file (Step 2 contract) + selected technique file in
-   [`docs/techniques/`](../techniques/README.md)
-3. Task-aligned technique/metric selection:
+   [`docs/workflow/task-confirmation-protocol.md`](./task-confirmation-protocol.md)
+2. Data audit + preprocessing freeze:
+   [`docs/workflow/preprocessing-profiles.md`](./preprocessing-profiles.md)
+3. Task-aligned candidate generation:
    [`docs/metrics-and-libraries.md`](../metrics-and-libraries.md),
    [`docs/metrics/README.md`](../metrics/README.md),
-   [`docs/techniques/README.md`](../techniques/README.md),
-   [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
-4. Task-aligned initialization decision:
-   this file (Step 4 contract) +
-   [`docs/workflow/task-aligned-initialization.md`](./task-aligned-initialization.md) +
-   selected technique file in
-   [`docs/techniques/`](../techniques/README.md)
-5. Hyperparameter optimization:
-   this file (Step 5 contract) + selected technique file in
-   [`docs/techniques/`](../techniques/README.md)
-6. Visualization:
-   this file (Step 6 contract) + selected technique file in
-   [`docs/techniques/`](../techniques/README.md)
-7. Final recommendation explanation:
-   this file (Step 7 contract) + frequency ranking in
-   [`docs/reference-coverage.md`](../reference-coverage.md) +
-   reliability notes in [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md) +
-   report contract in [`docs/workflow/reliability-report-contract.md`](./reliability-report-contract.md)
+   [`docs/techniques/README.md`](../techniques/README.md)
+4. Deterministic configuration scoring and selection:
+   [`docs/workflow/configuration-selection-policy.md`](./configuration-selection-policy.md),
+   [`docs/reference-coverage.md`](../reference-coverage.md)
+5. Task-aligned initialization decision:
+   [`docs/workflow/task-aligned-initialization.md`](./task-aligned-initialization.md)
+6. Bayesian hyperparameter optimization:
+   [`docs/workflow/hyperparameter-optimization-protocol.md`](./hyperparameter-optimization-protocol.md)
+7. Visualization + user explanation:
+   [`docs/workflow/visualization-policy.md`](./visualization-policy.md),
+   [`docs/workflow/reliability-report-contract.md`](./reliability-report-contract.md),
+   and `scripts/validate_reliability_report.py`
 
-## 1) Task clarification
-- Ask plain-language questions.
-- Identify one primary analytical task.
-- Optionally define one subtask under the selected primary axis.
-- Reconfirm task intent if the user shifts analytical action mid-session (for example, from cluster finding to class matching).
-- Read:
-  [`docs/intake-question-tree.md`](../intake-question-tree.md),
-  [`docs/task-taxonomy.md`](../task-taxonomy.md)
+## 1) Task clarification and lock
+- Ask plain-language goal question first.
+- Resolve ambiguity one question at a time.
+- Confirm one primary task axis in user wording.
 
-Output:
+Required output:
 - `primary_task_axis`
 - `task_subtype` (optional)
+- `axis_confidence`
+- `task_confirmation_quote`
 - `success_criteria`
 
-## 2) Data audit + preprocessing
-- Check shape, missingness, sparsity, scale, and label availability.
-- Apply preprocessing needed for stable comparison.
-- Read:
-  this section first, then selected-technique hyperparameter constraints in
-  [`docs/techniques/README.md`](../techniques/README.md),
-  and relevant cautions in [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
+Gate:
+- Do not continue unless `axis_confidence = high`.
 
-Output:
+## 2) Data audit + preprocessing freeze
+- Inspect shape, missingness, sparsity, scale, and label status.
+- Select and lock preprocessing profile.
+- Freeze distance metric and preprocessing signature.
+
+Required output:
+- `preprocessing_profile_id`
+- `distance_metric`
 - `preprocessing_plan`
 - `data_constraints`
+- `frozen_preprocessing_signature`
 
-## 3) Task-aligned technique/metric selection
-- Choose technique family aligned with the primary task axis.
-- Refine ranking with subtask constraints if `task_subtype` is present.
-- Choose a small metric set across local/cluster/global levels.
-- If a required quality check is not covered by ZADU metrics, an external metric may be added only with explicit source-note provenance.
-- Run warning gate for label-separation-sensitive metrics:
+Gate:
+- Do not compare methods under mixed preprocessing signatures.
+
+## 3) Task-aligned candidate generation
+- Build candidate technique list from task-aligned starters.
+- Build metric bundle: primary + guardrail.
+- Run warning gate for class-aware metrics:
   - `dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`
-- Read:
-  [`docs/metrics-and-libraries.md`](../metrics-and-libraries.md),
-  [`docs/metrics/README.md`](../metrics/README.md),
-  [`docs/techniques/README.md`](../techniques/README.md),
-  [`docs/reference-coverage.md`](../reference-coverage.md),
-  [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
 
-Output:
-- `selected_technique_family`
-- `selected_metrics`
+Required output:
+- `candidate_techniques`
+- `candidate_metrics`
 - `warning_gate_result`
-- `selection_tradeoffs` (what was improved and what was intentionally not optimized)
+- `warning_gate_notes`
 
-## 4) Task-aligned initialization decision
-- Decide initialization policy after task, method, and metric selection are fixed.
-- Use task-aligned rules from:
-  [`docs/workflow/task-aligned-initialization.md`](./task-aligned-initialization.md)
-- For initialization-sensitive methods, set informative initialization as default unless explicitly justified otherwise.
-- Read:
-  [`docs/workflow/task-aligned-initialization.md`](./task-aligned-initialization.md),
-  selected technique file(s) in
-  [`docs/techniques/`](../techniques/README.md),
-  and initialization cautions in
-  [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
+Gate:
+- If warning gate is `fail` or `unknown`, do not use class-aware metrics as primary objective.
 
-Output:
+## 4) Deterministic configuration scoring and selection
+- Apply hard gates from selection policy.
+- Score each technique+metric bundle with the fixed weighted formula.
+- Select top candidate by threshold and tie-break rules.
+
+Required output:
+- `candidate_score_table`
+- `selected_configuration`
+- `selection_status` (`accepted|provisional|exploratory`)
+- `selection_reasoning_summary`
+
+Gate:
+- Production recommendation requires `selection_status = accepted`.
+
+## 5) Task-aligned initialization decision
+- Set initialization policy after selected configuration is fixed.
+- For initialization-sensitive methods, informative initialization is default unless justified.
+- Record seed plan and comparison protocol.
+
+Required output:
 - `initialization_mode`
 - `initialization_method`
 - `initialization_rationale`
 - `initialization_comparison_protocol`
 - `initialization_stability_summary`
 
-## 5) Bayesian hyperparameter optimization (`bayes_opt`)
-- Optimize hyperparameters against Step-3 objective, under the fixed Step-4 initialization policy.
-- Keep seed/search-space settings explicit.
-- Prefer multi-objective scoring when task risk is high:
-  - one primary task metric
-  - one guardrail metric from a different structural level
-- Read:
-  selected metric/technique file(s) under
-  [`docs/metrics/`](../metrics/README.md) and
-  [`docs/techniques/`](../techniques/README.md),
-  then apply grouped pitfalls from
-  [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
+Gate:
+- Do not run optimization with unresolved initialization mode.
 
-Output:
+## 6) Bayesian hyperparameter optimization (`bayes_opt`)
+- Optimize under fixed preprocessing and initialization.
+- Use primary + guardrail objective.
+- Evaluate stability across seeds for top configurations.
+
+Required output:
+- `search_space`
+- `objective_definition`
 - `best_params`
 - `optimization_trace`
 - `seed_sensitivity_summary`
 - `guardrail_metric_summary`
 
-## 6) Visualization
-- Generate 2D visual artifacts for analysis communication.
-- Apply project-approved visualization constraints only.
-- Read:
-  selected technique tradeoffs in
-  [`docs/techniques/`](../techniques/README.md)
+Gate:
+- If top configurations are unstable across seeds, downgrade to `provisional`.
 
-Output:
+## 7) Visualization + user explanation
+- Produce required visual artifacts and consistency check.
+- Explain why this task, configuration, and tradeoff were selected.
+- Report residual risks and contested/unknown evidence status.
+- Write the final explanation in novice-friendly language.
+
+Required output:
 - `visual_artifacts`
-- `visual_notes`
-
-## 7) Explain the selection to users
-- Explain why this task mapping was chosen.
-- Explain why this technique/metric set was chosen.
-- Explain why this initialization policy was chosen for the selected task and technique.
-- Explain technique and metric strengths for the selected task axis/subtask.
-- Explain warning-gate status and remaining limits.
-- Read:
-  [`docs/metrics-and-libraries.md`](../metrics-and-libraries.md) and
-  [`docs/reference-coverage.md`](../reference-coverage.md),
-  plus grouped limitations in
-  [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
-
-Output:
+- `visual_consistency_check`
 - `final_explanation`
+- `plain_language_summary`
+- `term_explanations`
+- `final_configuration_for_users`
 - `source_note_links`
 - `residual_risk_statement`
+- `recommendation_status`
+- `report_contract_validation` (`pass|fail`)
+
+Gate:
+- If visual and metric evidence materially conflict, set `recommendation_status = exploratory`.
+- If explanation is technical but not understandable to DR novices, set `report_contract_validation = fail` and revise wording.
+- If final configuration is not explicitly disclosed to users, set `report_contract_validation = fail`.
 
 ## Execution Contract
-1. Do not skip Step 1.
-2. Do not run Step 5 before Step 4 is resolved.
-3. Do not finalize recommendation before warning gate is resolved.
-4. If source notes conflict, mark recommendation status as `contested`.
-5. For initialization-sensitive methods, do not finalize selection without reporting initialization/seed stability.
+1. Never skip Step 1.
+2. Never run Step 6 before Step 5 is fixed.
+3. Never finalize without warning-gate outcome.
+4. Never finalize without score table and seed-stability summary.
+5. If conflict status is `contested`, do not label recommendation as definitive.
+6. Do not close analysis until report-contract validation passes.

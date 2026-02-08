@@ -5,6 +5,9 @@ Similar claims from multiple papers are grouped into shared themes.
 
 Related:
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md)
+- Task lock protocol: [`docs/workflow/task-confirmation-protocol.md`](./workflow/task-confirmation-protocol.md)
+- Preprocessing profiles: [`docs/workflow/preprocessing-profiles.md`](./workflow/preprocessing-profiles.md)
+- Deterministic selection policy: [`docs/workflow/configuration-selection-policy.md`](./workflow/configuration-selection-policy.md)
 - Task-aligned initialization rules: [`docs/workflow/task-aligned-initialization.md`](./workflow/task-aligned-initialization.md)
 - Selection policy: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
 - Frequency ranking: [`docs/reference-coverage.md`](./reference-coverage.md)

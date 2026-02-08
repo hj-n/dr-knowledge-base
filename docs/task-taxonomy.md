@@ -4,6 +4,7 @@ This repository keeps a stable 7-task axis and allows optional subtask refinemen
 
 Related:
 - Intake flow: [`docs/intake-question-tree.md`](./intake-question-tree.md)
+- Task lock protocol: [`docs/workflow/task-confirmation-protocol.md`](./workflow/task-confirmation-protocol.md)
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md)
 - Selection policy: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
 

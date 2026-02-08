@@ -1,30 +1,27 @@
 # Intake Question Tree
 
-The only mandatory goal of intake is to identify one primary analytical task.
-Do not recommend DR techniques or metrics before this is fixed.
+The first goal is to lock exactly one primary analytical task.
+No technique or metric recommendation is allowed before this lock.
 
 Related:
+- Task confirmation protocol: [`docs/workflow/task-confirmation-protocol.md`](./workflow/task-confirmation-protocol.md)
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md)
-- Post-intake selection rules: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
 - Axis/subtask policy: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 
-## Step 1: Plain-Language Goal Question (Required)
-Ask first without task labels:
-- "What do you want to figure out from this embedding?"
-- "Are you trying to find similar items, outliers, groups, distance patterns, or density patterns?"
+## Step 1: Open Goal Prompt (Required)
+Ask in plain language first:
+- "What are you trying to learn from this projection?"
 
-## Step 2: Clarify One Task (Only If Needed)
-If the answer is vague, ask one short confirmation at a time:
-- "Do you want to find points similar to a target point?"
-- "Do you want to detect unusual/outlier points?"
-- "Do you want to identify groups or clusters?"
-- "Do you want to compare distances between individual points?"
-- "Do you want to check whether classes are well separated?"
-- "Do you want to compare distances between clusters?"
-- "Do you want to compare how dense or spread clusters are?"
+Do not list all task labels in the first question.
 
-## Step 3: Internal Mapping to the 7 Tasks
-After confirmation, map to exactly one primary task:
+## Step 2: One-Question Clarification (Only If Needed)
+If intent is ambiguous, ask one discriminating question at a time.
+Examples:
+- "Do you care more about finding similar points or comparing distances between groups?"
+- "Is your goal to find unusual points, or to verify class separation?"
+
+## Step 3: Internal Mapping to 7 Tasks
+Map confirmed intent to exactly one axis:
 1. Neighborhood identification
 2. Outlier identification
 3. Cluster identification
@@ -33,16 +30,26 @@ After confirmation, map to exactly one primary task:
 6. Cluster distance investigation
 7. Cluster density investigation
 
-## Step 4: Optional Subtask Refinement
-If needed, define a more specific subtask under the selected primary task.
+## Step 4: Plain-Language Confirmation (Required)
+Before moving forward, confirm in user wording:
+- "To confirm: your main goal is `<plain-language restatement>`. Is that right?"
+
+## Step 5: Optional Subtask Refinement
+If useful, add one subtask under the selected axis.
 
 Rules:
-- Keep exactly one primary task axis.
-- Subtask is optional and cannot replace the primary axis.
-- If subtask is unclear, proceed with axis-level guidance.
+- Keep one primary axis only.
+- Subtask is optional and cannot replace primary axis.
 
-## Gate
-- If multiple goals exist, ask for one primary goal first.
-- If still unclear, do not proceed to technique/metric selection.
-- If clear, proceed to Step 3 in
-  [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md).
+## Hard Gate
+Do not proceed to Step 2+ of workflow unless:
+- `primary_task_axis` is set
+- `axis_confidence = high`
+- user confirmation quote is captured
+
+## Required Output
+- `primary_task_axis`
+- `task_subtype` (optional)
+- `axis_confidence`
+- `task_confirmation_quote`
+- `success_criteria`

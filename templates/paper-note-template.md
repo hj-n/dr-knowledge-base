@@ -48,6 +48,14 @@ Frontmatter guidance:
 - CLAIM-<id> | stance: support|contradict | summary: <atomic claim> | evidence_ids: <E-ID list>
 
 # Workflow Relevance Map
+- Step legend:
+  - 1: Task clarification and lock
+  - 2: Data audit + preprocessing freeze
+  - 3: Task-aligned candidate generation
+  - 4: Deterministic configuration scoring and selection
+  - 5: Task-aligned initialization decision
+  - 6: Bayesian hyperparameter optimization
+  - 7: Visualization + user explanation
 - step: 1|2|3|4|5|6|7 | relevance: high|medium|low | note: <how this source changes workflow decisions>
 - step: 1|2|3|4|5|6|7 | relevance: high|medium|low | note: <how this source changes workflow decisions>
 
