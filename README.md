@@ -78,6 +78,7 @@ When generating end-user answers:
    - `primary_task_axis`, `warning_gate_result`, `candidate_score_table`, `selection_status`, etc.
 5. Run `scripts/validate_user_explanation_text.py` before finalizing if an answer artifact is produced.
 6. Ensure optimization method is `bayes_opt` only (no `grid search`, `random search`, or sweep loops).
+7. Keep `user_code_snippet` minimal (target: <= 35 non-empty lines) and avoid internal jargon in code/comments (`guardrail`, `metric bundle`, `task axis`, `warning gate`).
 
 ## Context7 Instruction Snippets (for AGENTS.md / CLAUDE.md)
 Use this single snippet in both `AGENTS.md` and `CLAUDE.md`:

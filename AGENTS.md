@@ -174,6 +174,8 @@ Reject a note as incomplete if any condition fails:
     - selected DR library call
     - `bayes_opt` for tuning
     - `zadu` for reliability scoring
+    - minimal runnable form (target: <= 35 non-empty lines)
+    - no internal jargon in code/comments (`guardrail`, `metric bundle`, `task axis`, `warning gate`)
 - Source-note links in `docs/` should map claims to `papers/notes/*`.
 - Detailed quote-level evidence stays in `papers/notes/*`.
 - Workflow-scope filter is mandatory:
@@ -370,6 +372,8 @@ Before ending a doc-update turn, verify:
    - `user_code_snippet` includes `bayes_opt`
    - `user_code_snippet` includes `zadu`
    - `user_code_snippet` includes a DR fit step (for example `fit_transform` / `.fit(`)
+   - `user_code_snippet` stays minimal (<= 35 non-empty lines)
+   - `user_code_snippet` avoids internal jargon (`guardrail`, `metric bundle`, `task axis`, `warning gate`)
 
 ## Definition of Done
 - Individual source note created/updated with quality gate passed.

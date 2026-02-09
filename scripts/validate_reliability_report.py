@@ -185,6 +185,18 @@ DR_STEP_CODE_HINTS = [
     ".fit(",
 ]
 
+BANNED_USER_CODE_JARGON_TERMS = [
+    "guardrail",
+    "metric bundle",
+    "task axis",
+    "warning gate",
+    "primary metric",
+    "selection_status",
+    "axis_confidence",
+]
+
+MAX_USER_CODE_NONEMPTY_LINES = 35
+
 
 def find_key(text: str, key: str) -> bool:
     pattern = rf"(?mi)^\s*{re.escape(key)}\s*:"
@@ -300,6 +312,7 @@ def main() -> int:
 
     code_leak_violations = []
     code_required_component_violations = []
+    code_minimality_violations = []
     code_snippet = read_value(text, "user_code_snippet")
     if code_snippet:
         snippet = code_snippet
@@ -317,6 +330,16 @@ def main() -> int:
             code_required_component_violations.append(("zadu", snippet))
         if not any(token in snippet_lower for token in DR_STEP_CODE_HINTS):
             code_required_component_violations.append(("dr_fit_step", snippet))
+
+        nonempty_lines = [ln for ln in snippet.splitlines() if ln.strip()]
+        if len(nonempty_lines) > MAX_USER_CODE_NONEMPTY_LINES:
+            code_minimality_violations.append(
+                (f"too_many_lines:{len(nonempty_lines)}", snippet)
+            )
+
+        for term in BANNED_USER_CODE_JARGON_TERMS:
+            if term in snippet_lower:
+                code_minimality_violations.append((f"internal_jargon:{term}", snippet))
 
     if missing:
         print("MISSING_KEYS")
@@ -367,6 +390,11 @@ def main() -> int:
         for token, snippet in code_required_component_violations:
             print(f"- user_code_snippet: missing required component '{token}' in '{snippet}'")
 
+    if code_minimality_violations:
+        print("USER_CODE_MINIMALITY_VIOLATIONS")
+        for token, snippet in code_minimality_violations:
+            print(f"- user_code_snippet: violates minimality rule '{token}' in '{snippet}'")
+
     if (
         missing
         or invalid
@@ -378,6 +406,7 @@ def main() -> int:
         or user_optimization_violations
         or code_leak_violations
         or code_required_component_violations
+        or code_minimality_violations
     ):
         return 1
 
