@@ -11,20 +11,21 @@ Related:
 
 ## Candidate Generation
 1. Start from task-aligned starter candidates in `docs/metrics-and-libraries.md`.
-2. Remove candidates that fail hard gates.
-3. Keep top candidates for scoring.
+2. For best/optimal selection requests, keep the full task-aligned candidate set for initial scoring.
+3. Remove candidates only when hard gates fail, with explicit rejection reason.
+4. Keep remaining candidates for scoring.
 
 ## Hard Gates (Mandatory)
 Reject candidate if any condition fails:
 - not aligned to `primary_task_axis`
-- label-separation warning gate is `fail` for class-aware metric usage
+- label-separation check is `fail` for class-aware metric usage
 - missing source-note provenance for core claim
 - conflict status is `contested` and no fallback candidate exists
 
 ## Scoring Model (0 to 100)
-For each technique+metric bundle candidate:
+For each technique+metric candidate:
 
-`score = 30*task_fit + 20*evidence_support + 20*stability + 15*guardrail_consistency + 10*runtime_feasibility + 5*interpretability`
+`score = 30*task_fit + 20*evidence_support + 20*stability + 15*safety_check_consistency + 10*runtime_feasibility + 5*interpretability`
 
 Each component is normalized to `[0,1]`.
 
@@ -39,8 +40,8 @@ Each component is normalized to `[0,1]`.
   - down-weight by 0.2 if conflict is `unknown`
 - `stability`:
   - based on seed/init consistency and metric rank consistency
-- `guardrail_consistency`:
-  - whether primary metric and guardrail metric agree on candidate rank direction
+- `safety_check_consistency`:
+  - whether main and safety check metrics agree on candidate rank direction
 - `runtime_feasibility`:
   - fit to dataset size and runtime constraints
 - `interpretability`:
@@ -69,9 +70,10 @@ If score difference < 3 points:
 - `selection_status` (`accepted|provisional|exploratory`)
 - `selection_reasoning_summary`
 - `rejected_candidates_with_reason`
+- `aligned_candidate_coverage` (`full|partial_with_reason`)
 
 ## Candidate Score Table Format
 ```text
-candidate_id,task_fit,evidence_support,stability,guardrail_consistency,runtime_feasibility,interpretability,total_score,status
+candidate_id,task_fit,evidence_support,stability,safety_check_consistency,runtime_feasibility,interpretability,total_score,status
 umap+tnc_snc_stress,0.90,0.80,0.78,0.85,0.90,0.70,83.8,accepted
 ```

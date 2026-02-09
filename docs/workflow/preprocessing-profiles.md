@@ -56,7 +56,7 @@ Use when class-aware metrics may be evaluated.
 
 Additional required checks:
 - evaluate baseline label separability in original space
-- if separability is weak/unknown, mark warning gate as `fail` or `unknown`
+- if separability is weak/unknown, mark label-separation check as `fail` or `unknown`
 - keep at least one label-agnostic metric in final bundle
 
 ## Output Contract

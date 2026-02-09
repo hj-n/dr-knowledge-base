@@ -18,6 +18,7 @@ The user-facing answer must not expose internal report keys.
 - Must satisfy `scripts/validate_reliability_report.py`.
 - Optimizer must be `bayes_opt`.
 - Non-`bayes_opt` optimization (`grid search`, `random search`, sweep loops) is invalid.
+- Include `aligned_candidate_coverage` as `full` when best/optimal selection mode is requested.
 
 ## User-Facing Answer Rule
 Required content:
@@ -41,7 +42,7 @@ User code must include all three:
 - `zadu` reliability scoring block
 
 User code must also:
-- be minimal (target: <= 35 non-empty lines)
+- be minimal (target: <= 25 non-empty lines)
 - avoid internal-policy variable names/dictionaries
 - avoid internal jargon in comments
 

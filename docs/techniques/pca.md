@@ -39,12 +39,12 @@ Detailed execution rule: run this method under a fixed preprocessing contract an
 
 Hyperparameters determine the local-vs-global balance, optimization stability, and visual behavior of the embedding. They should be tuned against task-aligned metrics rather than aesthetics alone, especially when outputs influence model or policy decisions.
 
-A practical default is Bayesian optimization with guardrails: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
+A practical default is Bayesian optimization with safety checks: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
 
 Decision-level tuning rule: report both best score and stability behavior (seed variance / restart variance). A configuration that wins once but is unstable should not be the default recommendation.
 
 ## Practical Reliability Notes
-PCA is deterministic under a fixed preprocessing policy and is therefore a strong baseline for reproducibility checks. If nonlinear methods do not outperform PCA on task-aligned metric bundles, prefer PCA for simpler and more auditable deployment.
+PCA is deterministic under a fixed preprocessing policy and is therefore a strong baseline for reproducibility checks. If nonlinear methods do not outperform PCA on task-aligned reliability check sets, prefer PCA for simpler and more auditable deployment.
 
 Component count is not only a compression choice; it changes what downstream neighborhood and distance claims are plausible. For 2D visualization, keep a separate check in higher retained dimension when decisions depend on subtle class or distance structure.
 
@@ -73,7 +73,7 @@ Task alignment indicates where this technique is expected to provide the most re
 
 When a project requires multiple task outcomes, combine this section with metric-level alignment and require agreement across both layers. If technique and metric recommendations diverge, collect more evidence before production use.
 
-Operational alignment rule: prioritize for distance and density tasks; for neighborhood-centric tasks use as baseline or guardrail, not as sole recommendation evidence.
+Operational alignment rule: prioritize for distance and density tasks; for neighborhood-centric tasks use as baseline or safety check, not as sole recommendation evidence.
 
 ## Known Tradeoffs
 - Low-dimensional variance capture does not guarantee local neighborhood preservation.

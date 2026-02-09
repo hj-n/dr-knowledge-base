@@ -49,11 +49,11 @@ It is also useful as a baseline representation transform before applying more ta
 
 ## Task Alignment
 - Inferred alignment: best as a preprocessing-oriented candidate when computational constraints dominate.
-- For the 7-task axis, treat RP as a conditional candidate that requires post-projection validation with task-aligned metrics.
+- For the 7-goal taxonomy, treat RP as a conditional candidate that requires post-projection validation with task-aligned metrics.
 
 Use caution for tasks requiring high-fidelity neighborhood or fine-grained class structure unless hybrid RP strategies are applied.
 
-Operational alignment rule: method alignment should constrain candidate ranking, but final acceptance still requires agreement with task-aligned metric bundles and warning-gate status.
+Operational alignment rule: method alignment should constrain candidate ranking, but final acceptance still requires agreement with task-aligned reliability check sets and label-separation check status.
 
 ## Known Tradeoffs
 RP can introduce meaningful distortion and may fail to preserve task-related information without additional structure-aware stages.

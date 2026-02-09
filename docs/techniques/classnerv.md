@@ -39,14 +39,14 @@ Detailed execution rule: keep label policy fixed and record how missing/noisy la
 
 Hyperparameters determine the local-vs-global balance, optimization stability, and visual behavior of the embedding. They should be tuned against task-aligned metrics rather than aesthetics alone, especially when outputs influence model or policy decisions.
 
-A practical default is Bayesian optimization with guardrails: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
+A practical default is Bayesian optimization with safety checks: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
 
 Decision-level tuning rule: report both best score and stability behavior (seed variance / restart variance). A configuration that wins once but is unstable should not be the default recommendation.
 
 ## Practical Reliability Notes
 ClassNeRV is intended for supervised settings where class labels are operationally trusted and class preservation is a primary goal. It explicitly trades distortion placement to retain class structure while keeping neighborhood signals usable.
 
-Because it is label-conditioned, apply the label-separation warning gate before treating class-focused improvements as global quality gains. If class assumptions fail, keep supervised variants as exploratory candidates rather than default recommendations.
+Because it is label-conditioned, apply the label-separation check before treating class-focused improvements as global quality gains. If class assumptions fail, keep supervised variants as exploratory candidates rather than default recommendations.
 
 ## Notable Properties
 - Strong for labeled class-structure diagnostics.

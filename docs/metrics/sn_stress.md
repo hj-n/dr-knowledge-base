@@ -40,7 +40,7 @@ Decision-level tuning rule: tune this metric only inside a task-aligned bundle o
 ## Practical Reliability Notes
 SN-Stress focuses on stress behavior under scale-normalized settings and is helpful when comparing methods with different natural embedding scales. It reduces some scale artifacts but does not remove all preprocessing dependencies.
 
-Use SN-Stress as part of global metric bundles for cluster-distance and density tasks. Pair it with topology or neighborhood metrics when decisions affect local interpretation, since stress-family metrics alone can hide local rearrangements.
+Use SN-Stress as part of global reliability check sets for cluster-distance and density tasks. Pair it with topology or neighborhood metrics when decisions affect local interpretation, since stress-family metrics alone can hide local rearrangements.
 
 ## Notable Properties
 It reduces scale artifacts when normalization is done consistently. It still requires clear protocol documentation for reproducibility.
@@ -67,7 +67,7 @@ Alignment here should be treated as a recommendation priority, not a hard constr
 
 When alignment is uncertain, prefer conservative interpretation and run clarification questions again. The task decision should remain primary, and metric selection should follow that decision rather than drive it.
 
-Operational alignment rule: use this metric as primary evidence for point-distance, cluster-distance, or density tasks; use as secondary guardrail for neighborhood tasks.
+Operational alignment rule: use this metric as primary evidence for point-distance, cluster-distance, or density tasks; use as secondary safety check for neighborhood tasks.
 
 ## Interpretation Notes
 Do not treat this metric as a standalone final decision criterion. Use it together with complementary metrics from other structural levels and keep preprocessing/seed policies fixed during comparison.

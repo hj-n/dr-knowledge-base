@@ -26,6 +26,7 @@ BANNED_PHRASES = [
     "preprocessing lock",
     "primary metric",
     "guardrail metric",
+    "guardrail",
     "candidate score table",
     "selection_status",
     "axis_confidence",
@@ -79,7 +80,7 @@ INTERNAL_KEYS = [
     "selection_status",
     "axis_confidence",
     "frozen_preprocessing_signature",
-    "guardrail_metric_summary",
+    "safety_check_summary",
     "metric_bundle",
 ]
 

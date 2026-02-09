@@ -40,7 +40,7 @@ Decision-level tuning rule: tune this metric only inside a task-aligned bundle o
 ## Practical Reliability Notes
 Distance Consistency reflects whether points remain closer to their own class prototypes than to other classes after projection. It is useful for class-separability analysis, but can become overly optimistic when classes overlap in original space or when class imbalance is severe.
 
-Before relying on DSC for recommendation decisions, run the label-separation warning gate and verify class overlap in the original feature space. If overlap is high, down-weight DSC and prioritize mixed bundles including non-label metrics and task-specific technique constraints.
+Before relying on DSC for recommendation decisions, run the label-separation check and verify class overlap in the original feature space. If overlap is high, down-weight DSC and prioritize mixed bundles including non-label metrics and task-specific technique constraints.
 
 ## Notable Properties
 It is aligned with separability-focused tasks and cluster-structure questions. It requires strong caution when label-separation assumptions do not hold.
@@ -66,7 +66,7 @@ Alignment here should be treated as a recommendation priority, not a hard constr
 
 When alignment is uncertain, prefer conservative interpretation and run clarification questions again. The task decision should remain primary, and metric selection should follow that decision rather than drive it.
 
-Operational alignment rule: this metric can prioritize candidates inside an already-selected task axis, but it must not redefine the task itself. If metric preference and user task conflict, keep task intent as the hard constraint.
+Operational alignment rule: this metric can prioritize candidates inside an already-selected main goal, but it must not redefine the task itself. If metric preference and user task conflict, keep task intent as the hard constraint.
 
 ## Interpretation Notes
 Do not treat this metric as a standalone final decision criterion. Use it together with complementary metrics from other structural levels and keep preprocessing/seed policies fixed during comparison.

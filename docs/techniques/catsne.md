@@ -39,14 +39,14 @@ Detailed execution rule: keep label policy fixed and record how missing/noisy la
 
 Hyperparameters determine the local-vs-global balance, optimization stability, and visual behavior of the embedding. They should be tuned against task-aligned metrics rather than aesthetics alone, especially when outputs influence model or policy decisions.
 
-A practical default is Bayesian optimization with guardrails: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
+A practical default is Bayesian optimization with safety checks: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
 
 Decision-level tuning rule: report both best score and stability behavior (seed variance / restart variance). A configuration that wins once but is unstable should not be the default recommendation.
 
 ## Practical Reliability Notes
 catSNE should be used when class-aware local organization is explicitly required, not as a universal replacement for unsupervised t-SNE. Its gains are most meaningful in class-separability and class-guided cluster workflows.
 
-Because catSNE is label-conditioned, validate label quality and separability before using it as the primary recommendation. In ambiguous-label scenarios, run catSNE alongside unsupervised baselines and compare both label-aware and label-agnostic metric bundles.
+Because catSNE is label-conditioned, validate label quality and separability before using it as the primary recommendation. In ambiguous-label scenarios, run catSNE alongside unsupervised baselines and compare both label-aware and label-agnostic reliability check sets.
 
 ## Notable Properties
 - Useful when class-aware local structure is part of the analysis objective.

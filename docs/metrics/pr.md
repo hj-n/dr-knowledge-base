@@ -39,7 +39,7 @@ Decision-level tuning rule: tune this metric only inside a task-aligned bundle o
 ## Practical Reliability Notes
 Pearson-style correlation is a coarse global trend indicator and can remain high even when local neighborhoods are heavily damaged. It is best for detecting monotonic global agreement, not for validating neighborhood-level interpretability.
 
-In workflow decisions, treat PR as a guardrail for distance-oriented tasks. If PR is high but local metrics are poor, report that global trend is preserved while local reliability is not, and avoid using the embedding for neighborhood-sensitive analysis.
+In workflow decisions, treat PR as a safety check for distance-oriented tasks. If PR is high but local metrics are poor, report that global trend is preserved while local reliability is not, and avoid using the embedding for neighborhood-sensitive analysis.
 
 ## Notable Properties
 It is straightforward to interpret as global linear agreement. It does not capture non-linear monotonic agreement as well as rank-based alternatives.
@@ -66,7 +66,7 @@ Alignment here should be treated as a recommendation priority, not a hard constr
 
 When alignment is uncertain, prefer conservative interpretation and run clarification questions again. The task decision should remain primary, and metric selection should follow that decision rather than drive it.
 
-Operational alignment rule: use this metric as primary evidence for point-distance, cluster-distance, or density tasks; use as secondary guardrail for neighborhood tasks.
+Operational alignment rule: use this metric as primary evidence for point-distance, cluster-distance, or density tasks; use as secondary safety check for neighborhood tasks.
 
 ## Interpretation Notes
 Do not treat this metric as a standalone final decision criterion. Use it together with complementary metrics from other structural levels and keep preprocessing/seed policies fixed during comparison.

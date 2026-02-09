@@ -39,9 +39,9 @@ Detailed execution rule: treat control-point/landmark selection as a controlled 
 
 Hyperparameters determine the local-vs-global balance, optimization stability, and visual behavior of the embedding. They should be tuned against task-aligned metrics rather than aesthetics alone, especially when outputs influence model or policy decisions.
 
-A practical default is Bayesian optimization with guardrails: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
+A practical default is Bayesian optimization with safety checks: fixed seed schedule, bounded search space, and multi-metric objective checks. This reduces manual trial-and-error while preserving traceability for why a specific configuration was selected.
 
-Decision-level tuning rule: optimize both landmark ratio and local fitting settings under the same task metric bundle; report whether conclusions persist across reasonable landmark policies.
+Decision-level tuning rule: optimize both landmark ratio and local fitting settings under the same task reliability check set; report whether conclusions persist across reasonable landmark policies.
 
 ## Practical Reliability Notes
 LAMP quality depends on control-point design and local affine fitting stability. Poor control-point coverage can create visually plausible but structurally biased embeddings.
@@ -72,7 +72,7 @@ Task alignment indicates where this technique is expected to provide the most re
 
 When a project requires multiple task outcomes, combine this section with metric-level alignment and require agreement across both layers. If technique and metric recommendations diverge, collect more evidence before production use.
 
-Operational alignment rule: method alignment should constrain candidate ranking, but final acceptance still requires agreement with task-aligned metric bundles and warning-gate status.
+Operational alignment rule: method alignment should constrain candidate ranking, but final acceptance still requires agreement with task-aligned reliability check sets and label-separation check status.
 
 ## Known Tradeoffs
 - Poor control-point design can degrade both fidelity and stability.

@@ -25,6 +25,10 @@ The goal is for an agent to: confirm the user's main analysis goal, produce a st
 6. Optimize hyperparameters with `bayes_opt` only.
 7. Produce visualization artifacts, concise runnable user code, and dual-layer explanations (technical + user-friendly).
 
+Best/optimal selection rule:
+- Compare all techniques and all metrics aligned to the selected task before final ranking.
+- Exclude candidates only when hard-gate failures are explicitly recorded.
+
 Optimization hard rule:
 - Do not use `grid search`, `random search`, or manual parameter sweep loops for final recommendations.
 - Use `bayes_opt` for tuning and `zadu` for reliability scoring in final analysis code.
@@ -78,7 +82,8 @@ When generating end-user answers:
    - `primary_task_axis`, `warning_gate_result`, `candidate_score_table`, `selection_status`, etc.
 5. Run `scripts/validate_user_explanation_text.py` before finalizing if an answer artifact is produced.
 6. Ensure optimization method is `bayes_opt` only (no `grid search`, `random search`, or sweep loops).
-7. Keep `user_code_snippet` minimal (target: <= 35 non-empty lines) and avoid internal jargon in code/comments (`guardrail`, `metric bundle`, `task axis`, `warning gate`).
+7. Keep `user_code_snippet` minimal (target: <= 25 non-empty lines) and avoid internal jargon in code/comments (`guardrail`, `metric bundle`, `task axis`, `warning gate`).
+8. Keep answer length proportional to question complexity; avoid over-detailed responses to simple questions.
 
 ## Context7 Instruction Snippets (for AGENTS.md / CLAUDE.md)
 Use this single snippet in both `AGENTS.md` and `CLAUDE.md`:

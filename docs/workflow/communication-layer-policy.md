@@ -25,7 +25,7 @@ Use these preferred words:
 - `same data preparation`
 
 Avoid internal wording in user output. Examples:
-- Bad: `task axis`, `metric bundle`, `warning gate`
+- Bad: `goal category label`, `reliability check set`, `label-separation check state`, `safety check objective`
 - Good: `main goal`, `reliability checks`, `safety check`
 
 ## User-Facing Code Rule
@@ -37,7 +37,7 @@ Required pattern:
 - `zadu` for reliability scoring
 
 Code quality constraints:
-- minimal runnable snippet (target: <= 35 non-empty lines)
+- minimal runnable snippet (target: <= 25 non-empty lines)
 - no internal policy objects or key-like variables
 - comments explain practical intent, not internal workflow terms
 

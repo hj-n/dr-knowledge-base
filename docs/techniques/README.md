@@ -58,7 +58,7 @@ Expectation:
 - Exclude meta-frameworks and methods that are only domain-specific.
 
 ## Task-First Rule
-- Identify one primary task axis before selecting a technique.
+- Identify one main goal before selecting a technique.
 - If a subtask exists, use it to refine within axis-valid candidates.
 - Label alignment statements as `Direct evidence` or `Inferred alignment`.
 - Pair technique choice with task-aligned metrics from `docs/metrics/`.

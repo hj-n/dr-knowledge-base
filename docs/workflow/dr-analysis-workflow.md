@@ -29,9 +29,9 @@ For end-user explanations, translate internal terms into plain wording (for exam
 ## 1) Task clarification and confirmation
 - Ask plain-language goal question first.
 - Resolve ambiguity one question at a time.
-- Confirm one primary task axis in user wording.
+- Confirm one main goal in user wording.
 
-Required output:
+Internal report fields (do not appear in user code):
 - `primary_task_axis`
 - `task_subtype` (optional)
 - `axis_confidence`
@@ -43,10 +43,10 @@ Gate:
 
 ## 2) Data audit + consistent preprocessing policy
 - Inspect shape, missingness, sparsity, scale, and label status.
-- Select and lock preprocessing profile.
-- Freeze distance metric and preprocessing signature.
+- Select one preprocessing profile and keep it consistent.
+- Keep one distance metric and one preprocessing signature consistent across comparisons.
 
-Required output:
+Internal report fields (do not appear in user code):
 - `preprocessing_profile_id`
 - `distance_metric`
 - `preprocessing_plan`
@@ -58,25 +58,30 @@ Gate:
 
 ## 3) Task-aligned candidate generation
 - Build candidate technique list from task-aligned starters.
-- Build metric bundle: primary + guardrail.
-- Run warning gate for class-aware metrics:
+- Build task-aligned metric set for comparison.
+- Run label-separation check for class-aware metrics:
   - `dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`
 
-Required output:
+For `best/optimal DR selection` requests:
+- compare all task-aligned techniques (do not pre-prune before scoring)
+- compare all task-aligned metrics defined for that task in `docs/metrics-and-libraries.md`
+- allow pruning only after hard-gate failures are recorded with reasons
+
+Internal report fields (do not appear in user code):
 - `candidate_techniques`
 - `candidate_metrics`
 - `warning_gate_result`
 - `warning_gate_notes`
 
 Gate:
-- If warning gate is `fail` or `unknown`, do not use class-aware metrics as primary objective.
+- If label-separation check is `fail` or `unknown`, do not use class-aware metrics as main scoring metrics.
 
 ## 4) Deterministic configuration scoring and selection
 - Apply hard gates from selection policy.
-- Score each technique+metric bundle with the fixed weighted formula.
+- Score each technique+metric combination with the fixed weighted formula.
 - Select top candidate by threshold and tie-break rules.
 
-Required output:
+Internal report fields (do not appear in user code):
 - `candidate_score_table`
 - `selected_configuration`
 - `selection_status` (`accepted|provisional|exploratory`)
@@ -90,7 +95,7 @@ Gate:
 - For initialization-sensitive methods, informative initialization is default unless justified.
 - Record seed plan and comparison protocol.
 
-Required output:
+Internal report fields (do not appear in user code):
 - `initialization_mode`
 - `initialization_method`
 - `initialization_rationale`
@@ -102,16 +107,16 @@ Gate:
 
 ## 6) Bayesian hyperparameter optimization (`bayes_opt`)
 - Optimize under fixed preprocessing and initialization.
-- Use primary + guardrail objective.
+- Use main objective + safety check objective.
 - Evaluate stability across seeds for top configurations.
 
-Required output:
+Internal report fields (do not appear in user code):
 - `search_space`
 - `objective_definition`
 - `best_params`
 - `optimization_trace`
 - `seed_sensitivity_summary`
-- `guardrail_metric_summary`
+- `safety_check_summary` (internal key; user-facing wording should say `safety check summary`)
 
 Gate:
 - Optimization method must be `bayes_opt` (only).
@@ -126,7 +131,7 @@ Gate:
 - Report residual risks and contested/unknown evidence status.
 - Explicitly disclose final settings in a copyable user section.
 
-Required output:
+Internal report fields (do not appear in user code):
 - `visual_artifacts`
 - `visual_consistency_check`
 - `technical_explanation`
@@ -152,7 +157,7 @@ Gate:
 ## Execution Contract
 1. Never skip Step 1.
 2. Never run Step 6 before Step 5 is fixed.
-3. Never finalize without warning-gate outcome.
+3. Never finalize without label-separation check outcome.
 4. Never finalize without score table and seed-stability summary.
 5. If conflict status is `contested`, do not label recommendation as definitive.
 6. Do not close analysis until report-contract validation passes.

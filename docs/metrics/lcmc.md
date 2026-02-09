@@ -39,7 +39,7 @@ Decision-level tuning rule: tune this metric only inside a task-aligned bundle o
 ## Practical Reliability Notes
 LCMC is sensitive to neighborhood scale selection and is best interpreted as a curve across scales rather than a single point estimate. Single-k reporting can overstate confidence by hiding where methods cross in quality.
 
-Use LCMC as a ranking support metric after task clarification, especially for neighborhood/cluster exploration. For production recommendations, pair it with at least one global guardrail metric so local improvements do not mask global collapse.
+Use LCMC as a ranking support metric after task clarification, especially for neighborhood/cluster exploration. For production recommendations, pair it with at least one global safety check metric so local improvements do not mask global collapse.
 
 ## Notable Properties
 It provides an intuitive overlap-centric local continuity signal. It is simple to explain, but it does not fully capture rank-order details within overlaps.
@@ -51,7 +51,7 @@ In review workflows, this metric works best as one component in a bundle: local,
 ## Strengths
 This metric is strong for measuring local-neighborhood overlap in an interpretable way. It provides a direct signal of whether nearby points remain nearby after projection, which is useful for practical neighborhood-preservation checks.
 
-Because it is simple to interpret and easy to compare across runs, it works well as a baseline local-fidelity signal in multi-metric bundles.
+Because it is simple to interpret and easy to compare across runs, it works well as a baseline local-fidelity signal in multi-reliability check sets.
 
 
 ## Task Alignment
@@ -65,7 +65,7 @@ Alignment here should be treated as a recommendation priority, not a hard constr
 
 When alignment is uncertain, prefer conservative interpretation and run clarification questions again. The task decision should remain primary, and metric selection should follow that decision rather than drive it.
 
-Operational alignment rule: this metric is strongest for neighborhood, outlier, and cluster-local tasks. For point-distance or density-dominant tasks, keep it as guardrail evidence rather than primary ranking evidence.
+Operational alignment rule: this metric is strongest for neighborhood, outlier, and cluster-local tasks. For point-distance or density-dominant tasks, keep it as safety check evidence rather than primary ranking evidence.
 
 ## Interpretation Notes
 Do not treat this metric as a standalone final decision criterion. Use it together with complementary metrics from other structural levels and keep preprocessing/seed policies fixed during comparison.

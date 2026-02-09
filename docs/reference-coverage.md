@@ -17,7 +17,7 @@ Updated at: `2026-02-08`
 
 Priority rule:
 1. Filter by task alignment first.
-2. Apply warning gates (for example, label-separation-sensitive metrics).
+2. Apply label-separation checks (for example, label-separation-sensitive metrics).
 3. Prefer higher `PDF Count` among remaining candidates.
 4. Down-rank candidates with `contested` conflict status by one tier.
 5. If tied, inspect source-note list and choose the better-justified option.

@@ -47,10 +47,10 @@ Best-aligned tasks are:
 
 For point/cluster distance or density-heavy tasks, pair this metric with global metrics before final decisions.
 
-Operational alignment rule: this metric is strongest for neighborhood, outlier, and cluster-local tasks. For point-distance or density-dominant tasks, keep it as guardrail evidence rather than primary ranking evidence.
+Operational alignment rule: this metric is strongest for neighborhood, outlier, and cluster-local tasks. For point-distance or density-dominant tasks, keep it as safety check evidence rather than primary ranking evidence.
 
 ## Interpretation Notes
-Use this metric as one component of a multi-metric bundle, not as the sole decision criterion. Local-structure strength does not guarantee faithful global arrangement.
+Use this metric as one component of a multi-reliability check set, not as the sole decision criterion. Local-structure strength does not guarantee faithful global arrangement.
 
 When reporting results, state clearly that `spectral_overlap` supports neighborhood-level confidence and include complementary global evidence.
 

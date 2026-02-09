@@ -1,6 +1,6 @@
 # Task Taxonomy
 
-This repository keeps a stable 7-task axis and allows optional subtask refinement when needed.
+This repository keeps a stable 7-goal taxonomy and allows optional subtask refinement when needed.
 
 Related:
 - Intake flow: [`docs/intake-question-tree.md`](./intake-question-tree.md)

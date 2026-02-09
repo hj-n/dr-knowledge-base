@@ -2,7 +2,7 @@
 
 The first goal is to confirm exactly one primary analytical task.
 No technique or metric recommendation is allowed before this confirmation.
-In user-facing text, call this `confirming the main goal` rather than `locking a task axis`.
+In user-facing text, call this `confirming the main goal` and avoid internal workflow labels.
 
 Related:
 - Task confirmation protocol: [`docs/workflow/task-confirmation-protocol.md`](./workflow/task-confirmation-protocol.md)

@@ -7,7 +7,7 @@ Enable an LLM to do three things reliably:
 3. explain the decision with explicit evidence and residual risk.
 
 ## Core Axis
-This KB uses a fixed 7-task axis:
+This KB uses a fixed 7-goal taxonomy:
 - Neighborhood identification
 - Outlier identification
 - Cluster identification
@@ -66,15 +66,15 @@ See: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 - User-facing code must be concise: show a minimal runnable path, not orchestration internals.
 - Hyperparameter tuning policy is fixed: use Bayesian optimization (`bayes_opt`) only.
 - Do not use grid search, random search, or manual sweep loops for final recommendations.
-- Do not expose internal policy wiring in user outputs (for example task-routing tables, warning-gate state keys, or internal scoring keys).
+- Do not expose internal policy wiring in user outputs (for example task-routing tables, label-separation check state keys, or internal scoring keys).
 - Do not use metric abbreviations in user explanation (for example `tnc`, `nh`, `nd`); use full names.
 - Do not expose platform/source interfaces in user explanation (for example `DR KB`, `Context7`, `this repo`).
-- Do not use internal workflow phrases in user explanation (for example `preprocessing freeze`, `primary metric`, `guardrail metric`, `task axis`, `metric bundle`).
+- Do not use internal workflow labels in user explanation; always rewrite into plain language.
 - Prefer plain user wording:
-  - say `main goal`, not `task axis`
-  - say `reliability checks`, not `metric bundle`
-  - say `confirm the goal`, not `lock the task`
-  - say `scored for reliability`, not `bundle scoring`
+  - say `main goal`
+  - say `reliability checks`
+  - say `confirm the goal`
+  - say `scored for reliability`
 
 ## User-Facing Output Standard
 Every final user answer should satisfy all three:

@@ -30,7 +30,7 @@ Even when a high-level task is stated, analysts often switch to a different subt
 
 Reliability action:
 - Re-confirm the active task whenever users switch from one interpretive action to another.
-- Keep one primary task axis fixed, and track sequence transitions as optional subtask updates.
+- Keep one main goal fixed, and track sequence transitions as optional subtask updates.
 
 Source notes:
 - `papers/notes/2014-brehmer-task-sequences.md`
@@ -69,7 +69,7 @@ Source notes:
 A single metric rarely captures all reliability dimensions. Over-relying on one score can optimize one structural property while silently degrading others.
 
 Reliability action:
-- Use a compact metric bundle across local, cluster-level, and global perspectives.
+- Use a compact reliability check set across local, cluster-level, and global perspectives.
 - Require consistency across the bundle before final recommendation.
 
 Source notes:
@@ -164,7 +164,7 @@ Source notes:
 1. Confirm one primary analytical task before method selection.
 2. Re-check task sequence when the analysis intent shifts.
 3. Validate label separability before using class-aware metrics.
-4. Use a multi-level metric bundle instead of a single metric.
+4. Use a multi-level reliability check set instead of a single metric.
 5. Control scale when comparing stress/KL-related scores.
 6. Freeze preprocessing, seeds, and initialization policy for fair comparison.
 7. Log hyperparameter search space and optimization trace.

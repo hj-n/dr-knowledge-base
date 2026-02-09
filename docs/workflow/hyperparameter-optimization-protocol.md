@@ -1,6 +1,6 @@
 # Hyperparameter Optimization Protocol
 
-Use this protocol to optimize DR method parameters after task, metric bundle, and initialization are fixed.
+Use this protocol to optimize DR method parameters after task, reliability check set, and initialization are fixed.
 Only allowed optimizer is `bayes_opt`.
 
 Related:
@@ -12,7 +12,7 @@ Related:
 - `primary_task_axis` is locked with `axis_confidence = high`
 - preprocessing signature is frozen
 - initialization policy is fixed
-- metric bundle is fixed (primary + guardrail)
+- reliability check set is fixed (primary + safety check)
 
 ## Optimizer Policy (Hard Rule)
 - `optimizer` must be exactly `bayes_opt`.
@@ -25,12 +25,12 @@ Related:
 ## Objective Construction
 Use two-level objective:
 - primary objective: task-aligned metric aggregate
-- guardrail objective: one metric from a different structural level
+- safety check objective: one metric from a different structural level
 
 Composite objective:
-`objective = 0.8 * primary_metric_score + 0.2 * guardrail_metric_score`
+`objective = 0.8 * primary_metric_score + 0.2 * safety_check_metric_score`
 
-If guardrail violates minimum acceptance, reject configuration regardless of objective value.
+If safety check violates minimum acceptance, reject configuration regardless of objective value.
 
 ## Search Budget Defaults (`bayes_opt`)
 - small datasets (`n < 10k`): 40-60 evaluations
@@ -65,7 +65,7 @@ Use bounded search spaces and document every bound.
 Stop optimization when one of the following holds:
 - no composite objective improvement for 10 consecutive evaluations
 - runtime budget exhausted
-- guardrail metric degrades below acceptance floor repeatedly
+- safety check metric degrades below acceptance floor repeatedly
 
 ## Output Contract
 Step 5 must output:
@@ -76,4 +76,4 @@ Step 5 must output:
 - `top_configurations`
 - `best_params`
 - `seed_sensitivity_summary`
-- `guardrail_metric_summary`
+- `safety_check_summary`

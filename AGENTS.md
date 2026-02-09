@@ -77,6 +77,12 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `grid search`, `random search`, and manual parameter sweep loops are prohibited as final optimization strategies.
 - If `bayes_opt` cannot run, mark recommendation as blocked/provisional and report the limitation; do not silently switch optimizer family.
 
+## Best-Selection Comparison Contract
+When user intent is best/optimal DR selection:
+- compare all task-aligned techniques before final ranking
+- compare all task-aligned metrics for that task (main + safety-check metrics)
+- allow exclusion only for explicit hard-gate failures with recorded reasons
+
 ## Ingestion Workflow
 1. Confirm source file exists in `papers/raw/`.
 2. Run relevance gate in `builder/evidence/relevance-policy.md`.
@@ -164,6 +170,9 @@ Reject a note as incomplete if any condition fails:
     - convert internal workflow terms to plain user wording
     - remove banned phrases and key tokens
     - keep explanation short and concrete
+    - keep answer length proportional to question complexity
+      - simple question -> short answer first
+      - complex request -> structured detail only as needed
   - optimization wording in user layer must stay simple and policy-compliant:
     - do not propose `grid search`, `random search`, or sweep loops
     - explain tuning as `Bayesian optimization` in plain language
@@ -174,7 +183,7 @@ Reject a note as incomplete if any condition fails:
     - selected DR library call
     - `bayes_opt` for tuning
     - `zadu` for reliability scoring
-    - minimal runnable form (target: <= 35 non-empty lines)
+    - minimal runnable form (target: <= 25 non-empty lines)
     - no internal jargon in code/comments (`guardrail`, `metric bundle`, `task axis`, `warning gate`)
 - Source-note links in `docs/` should map claims to `papers/notes/*`.
 - Detailed quote-level evidence stays in `papers/notes/*`.
@@ -368,11 +377,12 @@ Before ending a doc-update turn, verify:
 17. If a recommendation explanation artifact is produced, verify plain-language tone:
    - no `task lock` / `lock the task` phrasing
    - no `metric bundle` / `bundle scoring` phrasing
+   - no over-verbose response for simple question-like prompts
 18. If a recommendation report artifact is produced, verify user-code composition:
    - `user_code_snippet` includes `bayes_opt`
    - `user_code_snippet` includes `zadu`
    - `user_code_snippet` includes a DR fit step (for example `fit_transform` / `.fit(`)
-   - `user_code_snippet` stays minimal (<= 35 non-empty lines)
+   - `user_code_snippet` stays minimal (<= 25 non-empty lines)
    - `user_code_snippet` avoids internal jargon (`guardrail`, `metric bundle`, `task axis`, `warning gate`)
 
 ## Definition of Done

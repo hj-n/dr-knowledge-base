@@ -16,13 +16,20 @@ Related:
 ## User-Layer Wording Rule
 - In end-user explanations, do not expose internal terms from this page.
 - Prefer plain wording:
-  - `main goal` (instead of `task axis`)
-  - `reliability checks` (instead of `metric bundle`)
-  - `safety check` (instead of `warning gate`)
+  - `main goal`
+  - `reliability checks`
+  - `safety check`
 
 ## Task-First Rule
 - Do not pick metrics before task confirmation (`axis_confidence = high`).
 - Use one primary axis; optional subtask only refines within axis-valid candidates.
+
+## Optimal Selection Mode (Mandatory for "best/optimal" requests)
+When the user asks for the best/optimal DR configuration:
+- compare all techniques listed under the selected task in this document
+- compare all task-aligned metrics listed for that task (primary + safety check metrics)
+- do not skip aligned candidates unless a hard-gate failure is recorded
+- record excluded candidates with explicit reasons
 
 ## Metric IDs (22)
 1. `tnc`
@@ -54,41 +61,41 @@ Related:
 - Global: `stress`, `kl_div`, `dtm`, `topo`, `pr`, `srho`
 - Additional: `l_tnc`, `sn_stress`, `nm_stress`, `qnx`, `spectral_overlap`
 
-## Mandatory Warning Gate
+## Mandatory Label-Separation Check
 Before relying on class-aware metrics (`dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`), validate class separability in the original space.
 
-If `warning_gate_result = fail|unknown`:
-- class-aware metrics cannot be primary objective metrics
-- keep at least one local and one global label-agnostic metric in bundle
+If the check is `fail` or `unknown`:
+- class-aware metrics cannot be main scoring metrics
+- keep at least one local and one global label-agnostic metric in the comparison set
 
-## Bundle Construction Contract
-Each final bundle must include:
-- one primary metric aligned to the task axis
-- one guardrail metric from a different structural level
+## Task-Aligned Metric Set Contract
+Each comparison set must include:
+- one main metric aligned to the main goal
+- one safety check metric from a different structural level
 - optional third metric for tie-break
 
 ## Task-to-Metric Starter Bundles
 1. Neighborhood identification:
    - primary: `tnc`, `nh`, `nd`
-   - guardrail: `stress`
+   - safety check: `stress`
 2. Outlier identification:
    - primary: `tnc`, `nd`, `lcmc`
-   - guardrail: `stress`
+   - safety check: `stress`
 3. Cluster identification:
    - primary: `tnc`, `snc`, `nh`
-   - guardrail: `topo` or `stress`
+   - safety check: `topo` or `stress`
 4. Point distance investigation:
    - primary: `stress`, `kl_div`, `pr`
-   - guardrail: `tnc` or `proc`
+   - safety check: `tnc` or `proc`
 5. Class separability investigation:
    - primary: `dsc`, `ivm`, `c_evm`
-   - guardrail: `tnc` or `proc`
+   - safety check: `tnc` or `proc`
 6. Cluster distance investigation:
    - primary: `snc`, `stress`, `pr`
-   - guardrail: `topo`
+   - safety check: `topo`
 7. Cluster density investigation:
    - primary: `stress`, `kl_div`, `topo`
-   - guardrail: `tnc` or `proc`
+   - safety check: `tnc` or `proc`
 
 ## Task-to-Technique Starter Candidates
 1. Neighborhood identification:
@@ -112,9 +119,9 @@ No ad-hoc final ranking is allowed.
 
 Minimum acceptance for production recommendation:
 - `selection_status = accepted`
-- warning gate resolved
+- label-separation check resolved
 - initialization stability reported
-- guardrail consistency reported
+- safety check consistency reported
 
 ## Coverage Priority Rule
 When candidates remain valid after hard gates:

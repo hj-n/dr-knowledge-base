@@ -54,7 +54,7 @@ It is useful as both a standalone method and a reference point for initializatio
 
 For global distance/density-heavy tasks, combine with global metrics and alternative methods to avoid over-interpreting global arrangement.
 
-Operational alignment rule: method alignment should constrain candidate ranking, but final acceptance still requires agreement with task-aligned metric bundles and warning-gate status.
+Operational alignment rule: method alignment should constrain candidate ranking, but final acceptance still requires agreement with task-aligned reliability check sets and label-separation check status.
 
 ## Known Tradeoffs
 LE can be sensitive to graph construction and may not preserve global distances. Different neighborhood settings can lead to different embedding narratives.

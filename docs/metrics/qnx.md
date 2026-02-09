@@ -47,7 +47,7 @@ Best-aligned tasks are local structure tasks in the repository taxonomy:
 
 For global-distance or density-dominant tasks, `qnx` should be paired with global metrics instead of used alone.
 
-Operational alignment rule: this metric is strongest for neighborhood, outlier, and cluster-local tasks. For point-distance or density-dominant tasks, keep it as guardrail evidence rather than primary ranking evidence.
+Operational alignment rule: this metric is strongest for neighborhood, outlier, and cluster-local tasks. For point-distance or density-dominant tasks, keep it as safety check evidence rather than primary ranking evidence.
 
 ## Interpretation Notes
 Do not treat `qnx` as a universal quality score. It validates local neighborhood retention, not complete geometric faithfulness.

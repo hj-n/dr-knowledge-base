@@ -1,8 +1,8 @@
 # Task Confirmation Protocol
 
-Use this protocol to convert ambiguous user language into exactly one primary analytical task axis.
+Use this protocol to convert ambiguous user language into exactly one primary analysis goal.
 The goal is to prevent premature technique selection and ensure stable downstream configuration.
-In user-facing text, say `main analysis goal` instead of `task axis`.
+In user-facing text, say `main analysis goal`.
 
 Related:
 - Intake questions: [`docs/intake-question-tree.md`](../intake-question-tree.md)
@@ -11,7 +11,7 @@ Related:
 
 ## User-Layer Wording Rule
 - In user-facing answers, say `main analysis goal`.
-- Avoid `task axis` and `task lock` wording in end-user text.
+- Avoid internal workflow labels in end-user text.
 
 ## Required Inputs
 - `user_goal_text`: user statement in plain language
@@ -21,9 +21,9 @@ Related:
 1. Ask one open plain-language question first.
    - Example: "What do you want to learn from this embedding?"
 2. Extract candidate intent phrases from the response.
-3. Map each phrase to one or more of the 7 task axes.
-4. If more than one axis remains plausible, ask one clarification question at a time.
-5. Confirm the selected axis in plain language before moving on.
+3. Map each phrase to one or more of the 7 analysis goals.
+4. If more than one goal remains plausible, ask one clarification question at a time.
+5. Confirm the selected goal in plain language before moving on.
 
 ## Confidence Rubric
 Assign `axis_confidence` from evidence in the user response.

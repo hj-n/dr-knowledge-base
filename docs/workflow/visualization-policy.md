@@ -22,7 +22,7 @@ Each artifact must include:
 - `method` and key hyperparameters
 - initialization method
 - seed (for stochastic methods)
-- metric bundle summary
+- reliability check set summary
 - explicit caveat note
 
 ## Reliability Guardrails

@@ -22,6 +22,7 @@ REQUIRED_KEYS = [
     "candidate_metrics",
     "warning_gate_result",
     "candidate_score_table",
+    "aligned_candidate_coverage",
     "selected_configuration",
     "selection_status",
     "initialization_mode",
@@ -31,7 +32,7 @@ REQUIRED_KEYS = [
     "best_params",
     "optimization_trace",
     "seed_sensitivity_summary",
-    "guardrail_metric_summary",
+    "safety_check_summary",
     "visual_artifacts",
     "technical_explanation",
     "user_explanation",
@@ -53,6 +54,7 @@ STATUS_VALUES = {
     "axis_confidence": {"high", "medium", "low"},
     "warning_gate_result": {"pass", "fail", "unknown"},
     "stability_status": {"stable", "unstable"},
+    "aligned_candidate_coverage": {"full", "partial_with_reason"},
 }
 
 USER_TEXT_KEYS = [
@@ -77,6 +79,7 @@ BANNED_USER_JARGON = [
     "preprocessing freeze",
     "preprocessing lock",
     "guardrail metric",
+    "guardrail",
     "primary metric",
     "primary metric + guardrail metric",
     "candidate score table",
@@ -132,7 +135,7 @@ BANNED_USER_INTERNAL_KEYS = [
     "selection_status",
     "axis_confidence",
     "frozen_preprocessing_signature",
-    "guardrail_metric_summary",
+    "safety_check_summary",
     "metric_bundle",
 ]
 
@@ -195,7 +198,7 @@ BANNED_USER_CODE_JARGON_TERMS = [
     "axis_confidence",
 ]
 
-MAX_USER_CODE_NONEMPTY_LINES = 35
+MAX_USER_CODE_NONEMPTY_LINES = 25
 
 
 def find_key(text: str, key: str) -> bool:
