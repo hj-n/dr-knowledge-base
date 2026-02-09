@@ -1,20 +1,4 @@
 {
-  "$schema": "https://context7.com/schema/context7.json",
-  "projectTitle": "DR Knowledge Base",
-  "description": "Lean, evidence-backed dimensionality reduction knowledge base for LLM guidance.",
-  "folders": [
-    "docs",
-    "papers/notes"
-  ],
-  "excludeFolders": [
-    ".git",
-    "papers/raw"
-  ],
-  "excludeFiles": [],
-  "rules": [
-    "Ask intake questions first before method recommendation.",
-    "Do not provide DR method recommendations without evidence citations.",
-    "Cite both metrics guidance and at least one paper note in recommendation outputs.",
-    "If user context is insufficient, continue asking questions and pause recommendation."
-  ]
+	"url": "https://context7.com/hj-n/dr-knowledge-base",
+	"public_key": "pk_lRnfPRoUGB8BFds9D65Z9"
 }
