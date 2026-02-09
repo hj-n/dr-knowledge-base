@@ -13,6 +13,9 @@ Related:
 - Explain: what was compared, what was selected, why it fits the goal, and what risk remains.
 - Show final settings in a copyable form.
 - Do not expose internal key names or policy labels.
+- Match response length to question complexity.
+  - For simple questions: answer briefly first, then add only essential details.
+  - For complex requests: provide structured detail, but avoid unnecessary expansion.
 
 ## User-Facing Answer: Word Choice
 Use these preferred words:
@@ -50,3 +53,4 @@ Code quality constraints:
 ## Enforcement
 - Use `scripts/validate_user_explanation_text.py` for user-language leakage checks.
 - Use `scripts/validate_reliability_report.py` when a report artifact is produced.
+- Treat over-verbose responses to simple question-like prompts as rewrite warnings, not automatic failures.

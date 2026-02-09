@@ -94,6 +94,17 @@ BANNED_OPTIMIZATION_TERMS = [
     "randomizedsearchcv",
 ]
 
+VERBOSITY_WARNING_WORDS = 220
+
+QUESTION_CUE_TERMS = [
+    "what",
+    "why",
+    "how",
+    "can i",
+    "should i",
+    "?",
+]
+
 
 def main() -> int:
     if len(sys.argv) != 2:
@@ -109,6 +120,7 @@ def main() -> int:
     low = text.lower()
 
     violations = []
+    warnings = []
 
     for phrase in BANNED_PHRASES:
         if phrase in low:
@@ -130,10 +142,18 @@ def main() -> int:
         if phrase in low:
             violations.append(("OPTIMIZATION_POLICY_LEAK", phrase))
 
+    word_count = len(re.findall(r"\S+", text))
+    is_question_like = any(token in low for token in QUESTION_CUE_TERMS)
+    if is_question_like and word_count > VERBOSITY_WARNING_WORDS:
+        warnings.append(("POSSIBLE_OVER_VERBOSE_FOR_QUESTION", str(word_count)))
+
     if violations:
         for kind, token in violations:
             print(f"{kind}: {token}")
         return 1
+
+    for kind, token in warnings:
+        print(f"{kind}: {token}")
 
     print("OK: user-facing text has no blocked internal terms")
     return 0
