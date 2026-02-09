@@ -65,6 +65,8 @@ See: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 - User-facing language must be simple: assume the user is not a DR expert.
 - User-facing code must be concise: show a minimal runnable path, not orchestration internals.
 - Do not expose internal policy wiring in user outputs (for example task-routing tables, warning-gate state keys, or internal scoring keys).
+- Do not use metric abbreviations in user explanation (for example `tnc`, `nh`, `nd`); use full names.
+- Do not expose platform/source interfaces in user explanation (for example `DR KB`, `Context7`, `this repo`).
 
 ## User-Facing Output Standard
 Every final user answer should satisfy all three:

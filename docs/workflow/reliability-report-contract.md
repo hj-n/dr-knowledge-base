@@ -113,10 +113,14 @@ Every final report must contain both layers:
 2. User explanation layer:
    - must follow `docs/workflow/communication-layer-policy.md`
    - must avoid standalone internal jargon
+   - must avoid metric abbreviations/IDs (for example `tnc`, `nh`, `nd`) in user text
+   - must not expose platform/source interfaces (for example `DR KB`, `Context7`, `this repo`)
    - must be understandable to a DR novice with basic CS background
 
 Hard rule:
 - if user layer contains forbidden standalone jargon, report is invalid.
+- if user layer uses metric abbreviations/IDs instead of full names, report is invalid.
+- if user layer reveals platform/source interfaces, report is invalid.
 
 ## Final Configuration Disclosure (Mandatory)
 The user layer must contain one compact section that users can copy and reuse directly.

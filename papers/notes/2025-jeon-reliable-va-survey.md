@@ -53,7 +53,7 @@ updated_at: 2026-02-08
 # Evidence
 - JEON25S-E1 | page: 1, section: Abstract, quote: "visual analytics using DR often face unreliability"
 - JEON25S-E2 | page: 1, section: Introduction, quote: "distortions are inevitable in DR projections"
-- JEON25S-E3 | page: 1, section: Abstract, quote: "contribute ... a workflow model"
+- JEON25S-E3 | page: 3, section: Abstract, quote: "contribute ... a workflow model"
 - JEON25S-E4 | page: 1, section: Abstract, quote: "taxonomy that identifies where and why reliability issues arise"
 - JEON25S-E5 | page: 2, section: Introduction, quote: "suboptimal hyperparameter settings ... inherent instability"
 - JEON25S-E6 | page: 1, section: Survey Scope, quote: "review 133 papers"

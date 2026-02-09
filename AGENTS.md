@@ -115,8 +115,12 @@ Reject a note as incomplete if any condition fails:
   - "manual follow-up recommended" as a substitute for summary
 - Missing concrete method detail in `Method Summary`.
 - Missing concrete usage boundaries in `When To Use / Not Use`.
+- Contains boilerplate fallback text that does not describe the source itself (for example: generic "use this with complementary metrics" text repeated without source-specific conditions).
 - Fewer than 5 evidence entries, unless the source text is genuinely short.
+- For full papers, evidence must come from at least 2 distinct pages; single-page evidence-only notes are incomplete unless the source itself is a short note/extended abstract.
 - Claim atoms are generic and not tied to metric or method behavior.
+- `title` contains HTML tags (for example `<i>...</i>`) or parser artifacts.
+- Section bullets are dominated by metadata noise (author addresses, DOI/copyright blocks, submission dates) instead of technical content.
 - Missing catalog metadata in frontmatter:
   - `authors`
   - `venue`
@@ -129,6 +133,9 @@ Reject a note as incomplete if any condition fails:
   - `authors` must not contain affiliation/address-only lines (for example, department addresses or correspondence markers).
   - if PDF extraction yields noisy metadata, re-check with DOI/arXiv/Crossref before finalizing frontmatter.
   - if venue cannot be resolved with high confidence, keep `venue: "UNKNOWN"` rather than writing a guessed venue.
+- Formula/detail gate for method papers:
+  - if a source defines a metric/technique computation explicitly (equation or algorithmic step list), note sections must include that computation detail in plain text.
+  - do not replace explicit computation with generic summaries.
 
 ## Documentation Quality Gate
 - `docs/` must be concise and user-operational.
@@ -142,6 +149,10 @@ Reject a note as incomplete if any condition fails:
     - user explanation layer (for non-experts)
   - in user layer, avoid standalone terms such as:
     - `task axis`, `metric bundle`, `warning gate`, `preprocessing signature`, `guardrail metric`
+  - in user layer, avoid metric abbreviations/IDs and write full names instead:
+    - examples: use `Trustworthiness and Continuity`, not `tnc`; use `Neighborhood Hit`, not `nh`.
+  - in user layer, avoid platform/source interface mentions:
+    - `DR KB`, `Context7`, `this repo`, `workflow step`, `contract validator`
 - Source-note links in `docs/` should map claims to `papers/notes/*`.
 - Detailed quote-level evidence stays in `papers/notes/*`.
 - Workflow-scope filter is mandatory:
@@ -181,6 +192,8 @@ Reject a note as incomplete if any condition fails:
 - Metric task alignment should be expressed in the 7-task axis vocabulary.
 - If subtask refinement is used, map the subtask back to one axis in the note and recommendation rationale.
 - Hyperparameter-impact statements must be evidence-backed or explicitly marked as unavailable.
+- Computation-outline statements must be evidence-backed; avoid template text that could apply to any metric.
+- If a source note contains explicit equations for the metric, include those equation-level details (or faithful textual equivalents) in `Computation Outline`.
 - Label-separation-sensitive metrics (`dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`) must keep the warning gate text.
 - Non-ZADU metrics may be added, but must satisfy provenance clarity:
   - `Source Notes` must include explicit `papers/notes/*` links for definition/use/caveat claims
@@ -193,6 +206,9 @@ Reject a note as incomplete if any condition fails:
 - Partial-update prohibition:
   - A metric update is invalid if it modifies only `Source Notes` and/or only `Practical Reliability Notes`.
   - Each metric update must also revise at least one of `Computation Outline`, `Hyperparameter Impact`, `Task Alignment`, or `Interpretation Notes` when new evidence is added.
+- Boilerplate prohibition:
+  - avoid repeated generic paragraphs copied across many metric files.
+  - each metric file must include metric-specific computation and failure-mode details tied to linked source notes.
 
 ## Technique Sync Gate (Mandatory)
 - If a new or updated source note contains technique-level information, update `docs/techniques/` in the same turn.
@@ -219,6 +235,7 @@ Reject a note as incomplete if any condition fails:
   - `Inferred alignment` when mapped by structure/behavior and not stated directly.
 - If subtask refinement is used, keep axis-level task alignment as the primary label and document subtask-level refinement as secondary rationale.
 - Hyperparameter claims must be traceable to source-note evidence IDs.
+- Computation claims must be traceable to source-note evidence IDs.
 - If no parameter evidence exists for a technique in current sources, state that explicitly instead of inventing defaults.
 - Before creating a new technique file, run canonicalization check to avoid alias duplicates.
 - Minimum prose depth for each technique section:
@@ -288,24 +305,35 @@ Before ending a doc-update turn, verify:
 3. Every note has `authors` and `venue` keys in frontmatter.
 4. `docs/reference-coverage.md` includes conflict status columns for ranking transparency.
 5. `python scripts/update_reference_coverage.py` and `python scripts/update_paper_catalog.py` run successfully.
-6. If a recommendation report artifact is produced, validate it with:
+6. `python scripts/audit_note_quality.py` runs successfully and no edited note is flagged with `boilerplate-fallback`, `html-tag-title`, or `single-page-evidence` (unless explicitly justified in commit notes).
+7. `python scripts/verify_note_pdf_grounding.py` runs successfully and edited notes have:
+   - `not_found = 0`
+   - `exact_other_page = 0`
+   - `fuzzy_other_page = 0`
+   - if page mismatch exists, repair page fields and re-run verification before completion.
+8. If a recommendation report artifact is produced, validate it with:
    - `python scripts/validate_reliability_report.py <report-file>`
-7. If a recommendation explanation is produced, verify novice readability:
+9. If a recommendation explanation is produced, verify novice readability:
    - includes `user_goal_restatement`
    - includes `user_what_was_compared`
    - includes `user_why_selected`
    - includes `user_risk_note`
    - avoids unexplained shorthand-only phrasing
-8. If a recommendation report artifact is produced, verify final configuration disclosure:
+10. If a recommendation report artifact is produced, verify final configuration disclosure:
    - includes `final_configuration_for_users`
    - includes method name and key hyperparameter values
-9. If a recommendation explanation artifact is produced, verify dual-layer communication:
+11. If a recommendation explanation artifact is produced, verify dual-layer communication:
    - includes both internal technical explanation and user explanation sections
    - user section avoids forbidden standalone jargon
-10. If a recommendation explanation artifact is produced, verify concise code deliverable:
+12. If a recommendation explanation artifact is produced, verify concise code deliverable:
    - includes `user_code_snippet`
    - includes `user_code_reason`
    - user code snippet does not expose internal policy keys as top-level API
+13. If a recommendation explanation artifact is produced, verify naming clarity:
+   - user section does not use metric IDs/abbreviations (`tnc`, `nh`, `nd`, etc.)
+   - user section uses full metric names
+14. If a recommendation explanation artifact is produced, verify interface concealment:
+   - user section does not mention `DR KB`, `Context7`, `this repo`, or validation/workflow internals
 
 ## Definition of Done
 - Individual source note created/updated with quality gate passed.

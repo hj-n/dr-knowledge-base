@@ -328,7 +328,7 @@
     },
     {
       "source_note": "papers/notes/pending-ref-099-clams-a-cluster-ambiguity-measure-for-estimating-perceptua.md",
-      "paper_title": "<i>CLAMS</i>: A Cluster Ambiguity Measure for Estimating Perceptual Variability in Visual Clustering",
+      "paper_title": "CLAMS: A Cluster Ambiguity Measure for Estimating Perceptual Variability in Visual Clustering",
       "authors": "Hyeon Jeon, Ghulam Jilani Quadri, Hyunwook Lee, Paul Rosen, Danielle Albers Szafir, and Jinwook Seo",
       "venue": "IEEE Transactions on Visualization and Computer Graphics",
       "year": "2024",
@@ -398,7 +398,7 @@
     },
     {
       "source_note": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
-      "paper_title": "<i>Classes are Not Clusters</i>: Improving Label-Based Evaluation of Dimensionality Reduction",
+      "paper_title": "Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction",
       "authors": "Hyeon Jeon, Yun-Hsin Kuo, Micha\u00ebl Aupetit, Kwan-Liu Ma, Jinwook Seo",
       "venue": "IEEE Transactions on Visualization and Computer Graphics",
       "year": "2024",
@@ -407,7 +407,7 @@
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
+      "evidence_level": "high",
       "updated_at": "2026-02-08"
     },
     {

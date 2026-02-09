@@ -56,3 +56,5 @@ updated_at: 2026-02-08
 - MDP19-E4 | page: 1, section: Abstract, quote: "impact of distortions on the different analytic tasks"
 - MDP19-E5 | page: 1, section: Abstract, quote: "Guidelines for choosing the best MDP for an intended task"
 - MDP19-E6 | page: 1, section: Abstract, quote: "layout enrichment schemes to debunk MDP distortions"
+- MDP19-E7 | page: 2, section: extracted, quote: "of methods also produce point-base layouts, they are not designed to directly preserve similarity between instances, even though some variants bear such property [2]."
+- MDP19-E8 | page: 3, section: extracted, quote: "A cluster can be formed by items perceived as nearby each other in the visual space M,o rb y running an automatic clustering algorithm in the data space D."

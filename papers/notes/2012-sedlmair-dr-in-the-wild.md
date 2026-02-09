@@ -56,3 +56,5 @@ updated_at: 2026-02-08
 - WILD12-E4 | page: 1, section: Introduction, quote: "problem-driven visualization ... tasks and data of potential users"
 - WILD12-E5 | page: 1, section: Abstract, quote: "identify seven gaps ... and three mismatches"
 - WILD12-E6 | page: 1, section: Abstract, quote: "lack of support for users without expertise in the mathematics of DR"
+- WILD12-E7 | page: 2, section: extracted, quote: "[34], which describes DR for parameter optimization in the domain of image analysis."
+- WILD12-E8 | page: 3, section: extracted, quote: "While most of the interviews resulted in one usage example, we also had several interviews in which data analysts described multiple yet fundamentally different analysis tasks or situations in which they used or wanted to use DR; these became multiple usage examples, allowing for their concise description in our taxonomy."

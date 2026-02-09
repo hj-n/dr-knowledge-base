@@ -68,5 +68,5 @@ updated_at: 2026-02-08
 - PENDING-REF-044-E4 | page: 10, section: extracted, quote: "Nosso benchmark também oferece uma metodologia concreta e detalhada, que pode ser utilizada por usuários que desejam escolher técnicas ótimas para os seus próprios problemas, de modo a satisfazer seus requisitos práticos."
 - PENDING-REF-044-E5 | page: 8, section: extracted, quote: "Our benchmark also oﬀers a detailed, concrete, and quantitative methodology for practitioners to choose optimal projections based on the concerns they want to satisfy in practice."
 - PENDING-REF-044-E6 | page: 8, section: extracted, quote: "However, the problem of dimensionality reduction is far from solved – there is no ‘perfect’ projection method out there."
-- PENDING-REF-044-E7 | page: 18, section: extracted, quote: "Local procrustes for manifold embedding: a measure of embedding quality and embedding algorithms."
+- PENDING-REF-044-E7 | page: 184, section: extracted, quote: "Local procrustes for manifold embedding: a measure of embedding quality and embedding algorithms."
 - PENDING-REF-044-E8 | page: 12, section: extracted, quote: "Selecting and Sharing Multidimensional Projection Algorithms: A Practical View [60] • M."

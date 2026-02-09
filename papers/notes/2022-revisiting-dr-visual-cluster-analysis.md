@@ -56,3 +56,5 @@ updated_at: 2026-02-08
 - REV22-E4 | page: 1, section: Results, quote: "Linear techniques perform better ... in density comparison"
 - REV22-E5 | page: 1, section: Results, quote: "UMAP and t-SNE perform the best in cluster identification and membership"
 - REV22-E6 | page: 1, section: Setup, quote: "twelve dimensionality reduction techniques fall into four categories"
+- REV22-E7 | page: 2, section: extracted, quote: "First, while the aforementioned high-level properties are of concern to both DR researchers and analysts, there lacks experimental studies that test and verify them against user’s visual perception in visual cluster analysis tasks."
+- REV22-E8 | page: 3, section: extracted, quote: "[45] used SC to evaluate the performance of interactive DR techniques such as LAMP , PLMP (Part-Linear Multidimensional Projection), and KELP (Kernel-based Linear Projection)."

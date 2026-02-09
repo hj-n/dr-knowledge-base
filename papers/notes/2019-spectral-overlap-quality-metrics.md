@@ -55,4 +55,4 @@ updated_at: 2026-02-08
 - JT19-E3 | page: 2, section: Introduction, quote: "determining which performance metric ... is best suited"
 - JT19-E4 | page: 2, section: Introduction, quote: "different choices of metric parameter values result in different optimal choices"
 - JT19-E5 | page: 2, section: Introduction, quote: "improper tuning of a quality metric can lead to misleading visualizations"
-- JT19-E6 | page: 14-15, section: Conclusion, quote: "metrics ... such as Qnx and Spectral Overlap tend to have robust performance"
+- JT19-E6 | page: 1, section: Conclusion, quote: "metrics ... such as Qnx and Spectral Overlap tend to have robust performance"

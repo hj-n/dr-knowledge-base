@@ -62,7 +62,7 @@ updated_at: 2026-02-08
 # Evidence
 - PENDING-REF-138-E1 | page: 9, section: extracted, quote: "For example, we can model the perceptual variability that may arise when examining cluster structures of high-dimensional data via scatterplot matrices or parallel coordinates."
 - PENDING-REF-138-E2 | page: 3, section: extracted, quote: "Note that GMM decomposition has been shown to be applicable to visual identification problems [2, 3], accurately representing a wide range of smooth cluster patterns."
-- PENDING-REF-138-E3 | page: 1, section: extracted, quote: "Visual clustering is an ill-posed problem, where there is no 'ground truth' for clusters (i.e., it is not always possible to determine a “correct” clustering)."
+- PENDING-REF-138-E3 | page: 2, section: extracted, quote: "Visual clustering is an ill-posed problem, where there is no 'ground truth' for clusters (i.e., it is not always possible to determine a “correct” clustering)."
 - PENDING-REF-138-E4 | page: 8, section: extracted, quote: "We hypothesized that if the cluster ambiguity of a dataset (a scatterplot in this case) is high, then the clustering benchmark using the dataset is unreliable."
 - PENDING-REF-138-E5 | page: 2, section: extracted, quote: "A naïve approach in designing VQMs is to reuse existing algorithms (e.g., clustering techniques), where the performance of the algorithm is evaluated against the results of human experiments."
 - PENDING-REF-138-E6 | page: 7, section: extracted, quote: "We present that CLAMS can further optimize nonlinear dimensionality reduction embeddings to reduce cluster ambiguity while maintaining accuracy (Sect."

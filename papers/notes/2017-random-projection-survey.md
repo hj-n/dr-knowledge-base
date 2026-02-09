@@ -56,4 +56,4 @@ updated_at: 2026-02-08
 - RP17-E3 | page: 1, section: Introduction, quote: "project n points ... onto an O(log n)-dimensional space"
 - RP17-E4 | page: 1, section: Introduction, quote: "fails to capture the task-related information"
 - RP17-E5 | page: 2, section: Survey Motivation, quote: "guidelines to select the proper approach"
-- RP17-E6 | page: 4, section: SRP Architecture, quote: "dk = alpha floor(sqrt(dk-1)) where alpha is a hyperparameter"
+- RP17-E6 | page: 4, section: SRP Architecture, quote: "The relationship between the dimensionality of the k-th and (k−1)-th SRP layer can be calculated as"

@@ -73,6 +73,38 @@ BANNED_USER_JARGON = [
     "axis_confidence",
 ]
 
+BANNED_USER_METRIC_IDS = [
+    "tnc",
+    "nh",
+    "nd",
+    "mrre",
+    "lcmc",
+    "ca_tnc",
+    "l_tnc",
+    "dsc",
+    "ivm",
+    "c_evm",
+    "snc",
+    "stress",
+    "kl_div",
+    "dtm",
+    "topo",
+    "pr",
+    "srho",
+    "proc",
+    "qnx",
+    "spectral_overlap",
+]
+
+BANNED_USER_INTERFACE_TERMS = [
+    "dr kb",
+    "knowledge base",
+    "context7",
+    "this repo",
+    "workflow step",
+    "contract validator",
+]
+
 BANNED_USER_CODE_TOKENS = [
     "TASK_METRIC_BUNDLES",
     "primary_task_axis",
@@ -150,6 +182,26 @@ def main() -> int:
             if term in lv:
                 jargon_violations.append((key, term, value))
 
+    metric_id_violations = []
+    for key in USER_TEXT_KEYS:
+        value = read_value(text, key)
+        if not value:
+            continue
+        lv = value.lower()
+        for token in BANNED_USER_METRIC_IDS:
+            if re.search(rf"\b{re.escape(token)}\b", lv):
+                metric_id_violations.append((key, token, value))
+
+    interface_violations = []
+    for key in USER_TEXT_KEYS:
+        value = read_value(text, key)
+        if not value:
+            continue
+        lv = value.lower()
+        for term in BANNED_USER_INTERFACE_TERMS:
+            if term in lv:
+                interface_violations.append((key, term, value))
+
     code_leak_violations = []
     code_snippet = read_value(text, "user_code_snippet")
     if code_snippet:
@@ -173,12 +225,29 @@ def main() -> int:
         for key, term, value in jargon_violations:
             print(f"- {key}: contains forbidden term '{term}' in '{value}'")
 
+    if metric_id_violations:
+        print("USER_METRIC_ABBREVIATION_VIOLATIONS")
+        for key, token, value in metric_id_violations:
+            print(f"- {key}: contains metric ID/abbreviation '{token}' in '{value}'")
+
+    if interface_violations:
+        print("USER_INTERFACE_LEAK_VIOLATIONS")
+        for key, term, value in interface_violations:
+            print(f"- {key}: contains forbidden interface term '{term}' in '{value}'")
+
     if code_leak_violations:
         print("USER_CODE_POLICY_LEAK")
         for token, snippet in code_leak_violations:
             print(f"- user_code_snippet: contains internal token '{token}' in '{snippet}'")
 
-    if missing or invalid or jargon_violations or code_leak_violations:
+    if (
+        missing
+        or invalid
+        or jargon_violations
+        or metric_id_violations
+        or interface_violations
+        or code_leak_violations
+    ):
         return 1
 
     print("OK: report satisfies required key contract")

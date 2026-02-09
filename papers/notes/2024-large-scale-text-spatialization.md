@@ -57,3 +57,5 @@ updated_at: 2026-02-08
 - TEXT24-E4 | page: 1, section: Results, quote: "over 45 000 individual layouts and corresponding quality metrics"
 - TEXT24-E5 | page: 1, section: Guidelines, quote: "recommend the use of t-SNE as a subsequent dimensionality reduction"
 - TEXT24-E6 | page: 1, section: Metrics, quote: "metrics quantify the preservation of local and global properties"
+- TEXT24-E7 | page: 2, section: extracted, quote: "Thereby, TMs are specified by several hyperparameters that control the underlying model and the training algorithm."
+- TEXT24-E8 | page: 3, section: extracted, quote: "Dataset Size m N nk 20 Newsgroup 575.9 MiB 11 314 176 6 672 20 Emails 486.0 MiB 9 111 182 6 992 4 GitHub Projects 2 024.5 MiB 653 52 635 405 117 8 Reuters 205.5 MiB 9 122 102 2 953 65 Seven Categories 993.8 MiB 3 127 396 11 373 7 quality of the resulting layouts."

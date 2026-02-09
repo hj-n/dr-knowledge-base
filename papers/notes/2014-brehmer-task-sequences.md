@@ -50,7 +50,7 @@ updated_at: 2026-02-08
 - step: 6 | relevance: high | note: supports user-facing explanations tied to concrete analyst intents.
 
 # Evidence
-- BEL14-E1 | page: 2, section: Abstract, quote: "We characterize five task sequences"
+- BEL14-E1 | page: 2, section: Abstract, quote: "We characterize ﬁve task sequences related to visualizing dimensionally-reduced data"
 - BEL14-E2 | page: 2, section: Abstract, quote: "drawing from data collected from interviews"
 - BEL14-E3 | page: 2, section: Contribution, quote: "fills a gap ... abundance of proposed techniques and tools"
 - BEL14-E4 | page: 2, section: Contribution, quote: "naming synthesized dimensions ... matching clusters and classes"

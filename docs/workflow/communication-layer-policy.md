@@ -37,6 +37,27 @@ Forbidden standalone jargon in user layer:
 - `selection_status`
 - `axis_confidence`
 
+Forbidden metric abbreviations/IDs in user layer:
+- `tnc`, `nh`, `nd`, `mrre`, `lcmc`, `ca_tnc`, `l_tnc`
+- `dsc`, `ivm`, `c_evm`, `snc`
+- `stress`, `kl_div`, `dtm`, `topo`, `pr`, `srho`, `proc`, `qnx`, `spectral_overlap`
+
+Rule:
+- In user-facing explanation, write full metric names (for example `Trustworthiness and Continuity`) instead of metric IDs.
+- Metric IDs are allowed only in internal technical layer.
+
+Forbidden platform/internal interface references in user layer:
+- `DR KB`
+- `knowledge base`
+- `Context7`
+- `this repo`
+- `workflow step`
+- `contract validator`
+
+Rule:
+- User-facing output must not mention where the guidance came from.
+- Only deliver decision information, rationale, settings, and risks.
+
 If a technical term is unavoidable:
 - use `term (plain meaning: ...)` once, then continue with plain words.
 
@@ -47,6 +68,9 @@ If a technical term is unavoidable:
 - `preprocessing signature` -> `same data preparation rules`
 - `guardrail metric` -> `secondary safety-check score`
 - `initialization stability` -> `whether repeated runs give similar conclusions`
+- `tnc` -> `Trustworthiness and Continuity`
+- `nh` -> `Neighborhood Hit`
+- `nd` -> `Neighbor Dissimilarity`
 
 ## Minimum User Explanation Structure
 1. `What you asked`

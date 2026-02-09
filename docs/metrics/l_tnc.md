@@ -1,83 +1,63 @@
-# l_tnc - Label Trustworthiness & Continuity
+# l_tnc - Label Trustworthiness and Label Continuity
 
 ## Metric Definition
-This metric focuses on label-structure reliability under trustworthiness/continuity principles. It compares how label-related neighborhood behavior changes across spaces.
+`l_tnc` evaluates whether class relationships in a low-dimensional embedding are faithful to class relationships in the original high-dimensional space. The metric family is explicitly designed to avoid the common mistake of rewarding embeddings only for visual class separation.
 
-Operationally, treat this metric as a formal lens on one distortion family rather than a universal quality score. Two embeddings can rank differently depending on whether the task prioritizes local neighborhoods, global geometry, or class structure, so the definition should be interpreted together with explicit task intent.
-
-For reproducible comparisons, keep preprocessing, distance definition, and evaluation protocol fixed while reading this metric. If those upstream choices change between runs, score differences often reflect evaluation drift rather than genuine embedding improvement.
+The core idea is to compare class-label matching in both spaces, then measure how much that matching is distorted by projection. This produces two complementary scores: one focused on false-group distortions (Label-Trustworthiness) and one focused on missing-group distortions (Label-Continuity).
 
 ## What It Quantifies
-It quantifies label-structure consistency across original and projected neighborhoods. It is useful when label-preserving reliability is a first-order requirement.
+This metric quantifies class-pair distortion, not just class compactness in the embedding. A high score means class relationships in the embedding remain close to the class relationships observed in the original data.
 
-In practical analysis, this score is most useful when you pair it with the failure mode you are trying to detect. A score increase is meaningful only if it reduces errors that matter for the declared analytical task, not just because the numeric value is higher.
-
-This is why the metric should be read as task-conditioned evidence. Use it to answer a concrete question about neighborhood stability, class organization, distance behavior, or density behavior, then validate that interpretation with at least one complementary metric.
+It is therefore a reliability metric for class-based interpretation. It should be used when users want to make claims such as "class A is clearly separated from class B" and need that claim to be faithful to the original feature space, not only visually convenient in 2D.
 
 ## Computation Outline
-This outline describes the typical computational flow used in DR evaluation practice. Exact formula details may vary by implementation, but the structure below is stable across references.
-- Require labels and a neighborhood policy.
-- Estimate label-conditioned neighborhood reliability in original space.
-- Estimate corresponding reliability in projected space.
-- Compute trust/continuity discrepancy between the two spaces.
+`l_tnc` is computed in three explicit steps.
 
-The computation should be implemented with a stable protocol: identical sampling policy, consistent distance backend, and fixed tie-breaking behavior. Without these controls, the same embedding can yield materially different results across runs and tools.
+1. Build class-pairwise class-label-matching matrices in both spaces, `M(X)` and `M(Z)`, using a clustering-validation measure (CVM) for every class pair.
+2. Compute a distortion matrix `M* = M(X) - M(Z)`, then split it into:
+   - `MFG` for positive distortion entries (False Groups)
+   - `MMG` for negative distortion magnitudes (Missing Groups)
+3. Aggregate upper-triangular entries into two scores:
+   - Label-Trustworthiness: `1 - avg(MFG)`
+   - Label-Continuity: `1 - avg(MMG)`
 
-When reporting values, record the full evaluation context including neighborhood scale, normalization policy, and whether labels were required. That metadata is part of the metric definition in practice because it determines what the reported number actually means.
-
-Detailed protocol rule: compute under a fixed label policy (including unknown/missing labels) and fixed neighborhood scale. Label preprocessing changes can produce large score shifts that do not reflect embedding changes.
+Higher values indicate fewer class-relationship distortions. Both scores must be interpreted together, because improving one direction can degrade the other.
 
 ## Hyperparameter Impact
-Label-conditioned neighborhood policy is a major control. Label-structure estimation strategy affects calibration and between-run comparability.
+The most important hyperparameter choice is the CVM used inside the class-pair matrix construction. The paper defines explicit requirements for CVM validity in this framework: scale invariance, shift invariance, range invariance, and robustness to hyperparameter changes.
 
-Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
-
-A robust workflow evaluates sensitivity by sweeping key controls and checking rank stability across seeds or folds. Large score variance indicates that the current configuration is not yet reliable enough for high-confidence method selection.
-
-Decision-level tuning rule: label-conditioned settings must be checked with the label-separation gate before tuning-driven decisions. If separability is weak, down-weight this metric and raise uncertainty in the final recommendation.
+If a CVM violates these requirements, `l_tnc` can become unstable across datasets or dimensions. The source specifically positions Distance Consistency (with normalization) and CHbtwn as suitable CVM candidates under these constraints.
 
 ## Practical Reliability Notes
-Label TNC is useful for class-aware local trust analysis, but it should not be interpreted as a replacement for plain TNC. A high L-TNC can coexist with degraded geometry for unlabeled structure, especially when labels capture only one perspective of the data.
+`l_tnc` should not be treated as "more class separation is always better." Its purpose is to evaluate fidelity of class structure relative to the original space. If classes overlap in the original space, forcing clean visual separation can be a reliability error, not a success.
 
-In practice, run L-TNC and TNC together and check divergence between them. Large divergence indicates that class semantics and geometric neighborhoods are pulling in different directions; this should be reported as a model-selection tradeoff, not hidden by averaging.
+In recommendation workflows, report Label-Trustworthiness and Label-Continuity together, and explicitly state which distortion type is being reduced. A single aggregated statement can hide tradeoffs and overstate confidence.
 
 ## Notable Properties
-It explicitly targets label-structure reliability across spaces. It should be interpreted together with label-agnostic metrics to avoid one-sided conclusions.
+This metric family is asymmetry-aware with respect to distortion direction: false-group and missing-group distortions are separated rather than mixed into one value. That makes it useful for explaining why two embeddings that look similarly "clean" can still differ in reliability.
 
-A strong property of this metric is that it provides a compact diagnostic that is easy to compare across methods. The limitation is that compactness hides where errors occur, so it should be supplemented by structure-level inspection when decisions are high impact.
-
-In review workflows, this metric works best as one component in a bundle: local, global, and label-aware signals together. That bundle-based interpretation reduces the chance of selecting a method that is numerically strong but operationally misaligned.
+Another notable property is that it is class-pairwise by construction. This allows granular diagnosis of which class relationships are being preserved or broken, instead of collapsing all classes into one coarse score.
 
 ## Strengths
-This metric is strong for checking whether label-conditioned neighborhood reliability is preserved across spaces. It focuses on class-structure consistency directly, making it useful when label reliability is a first-order requirement.
+`l_tnc` is strong when the analysis objective is class-relation reliability and labels are trusted. It gives a direct answer to whether class patterns shown in the embedding are faithful to class patterns in the original data.
 
-It complements label-agnostic local metrics by highlighting whether local geometric quality also aligns with class semantics.
-
+It is also strong for communicating risk: the two-score structure naturally supports explanations of what type of distortion remains and what downstream interpretation can become unreliable.
 
 ## Task Alignment
-This metric is best aligned to the task set implied by its structural role. The alignment basis is label-structure source note for Label-T&C.[^cat]
-- Best-aligned tasks:
-  - Class separability investigation
-  - Cluster identification
+Best-aligned tasks:
+- Class separability investigation
+- Cluster identification (label-aware setting)
+- Cluster distance investigation (label-aware setting)
 
-Alignment here should be treated as a recommendation priority, not a hard constraint. If a project objective spans multiple task types, combine metrics from each relevant task family and require consistency before finalizing a method choice.
-
-When alignment is uncertain, prefer conservative interpretation and run clarification questions again. The task decision should remain primary, and metric selection should follow that decision rather than drive it.
-
-Operational alignment rule: this metric can prioritize candidates inside an already-selected task axis, but it must not redefine the task itself. If metric preference and user task conflict, keep task intent as the hard constraint.
+For label-agnostic tasks such as pure neighborhood or outlier analysis without class semantics, use this metric as optional supporting evidence rather than primary ranking evidence.
 
 ## Interpretation Notes
-Do not treat this metric as a standalone final decision criterion. Use it together with complementary metrics from other structural levels and keep preprocessing/seed policies fixed during comparison.
+Read `l_tnc` under a fixed preprocessing and distance policy. Changing preprocessing, scaling, or label filtering can change scores without any change in embedding method quality.
 
-Use absolute values cautiously and prioritize relative comparisons under matched conditions. Threshold-style decisions without protocol control often produce false certainty, especially when datasets differ in scale, density, or class balance.
-
-Before communicating a conclusion, cross-check this metric against the selected technique behavior and user-facing goal. A reliable recommendation should explain both why the score is good and why that goodness matters for the intended analytical action.
-
-Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
+When this metric disagrees with label-agnostic local/global metrics, report the disagreement explicitly. Do not average away the conflict; disagreement is itself important reliability information.
 
 ## Source Notes
-The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
-
 - `papers/notes/zadu-ref-11-jeon23tvcg-4.md` -> `CLAIM-METRIC-L_TNC-SOURCE-11`
+- `papers/notes/2026-zadu-readme-warning.md` -> `ZADU-RM-E1`, `ZADU-RM-E2`
 
-[^cat]: Label-structure source note: `papers/notes/zadu-ref-11-jeon23tvcg-4.md` (CLAIM-METRIC-L_TNC-SOURCE-11).
+[^z11]: `papers/notes/zadu-ref-11-jeon23tvcg-4.md` (ZR11-E6, ZR11-E7, ZR11-E8, ZR11-E9, ZR11-E10, ZR11-E11).
