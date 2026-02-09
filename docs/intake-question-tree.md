@@ -1,7 +1,8 @@
 # Intake Question Tree
 
-The first goal is to lock exactly one primary analytical task.
-No technique or metric recommendation is allowed before this lock.
+The first goal is to confirm exactly one primary analytical task.
+No technique or metric recommendation is allowed before this confirmation.
+In user-facing text, call this `confirming the main goal` rather than `locking a task axis`.
 
 Related:
 - Task confirmation protocol: [`docs/workflow/task-confirmation-protocol.md`](./workflow/task-confirmation-protocol.md)

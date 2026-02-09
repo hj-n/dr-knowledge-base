@@ -2,11 +2,16 @@
 
 Use this protocol to convert ambiguous user language into exactly one primary analytical task axis.
 The goal is to prevent premature technique selection and ensure stable downstream configuration.
+In user-facing text, say `main analysis goal` instead of `task axis`.
 
 Related:
 - Intake questions: [`docs/intake-question-tree.md`](../intake-question-tree.md)
 - Task taxonomy: [`docs/task-taxonomy.md`](../task-taxonomy.md)
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](./dr-analysis-workflow.md)
+
+## User-Layer Wording Rule
+- In user-facing answers, say `main analysis goal`.
+- Avoid `task axis` and `task lock` wording in end-user text.
 
 ## Required Inputs
 - `user_goal_text`: user statement in plain language

@@ -14,7 +14,7 @@ Related:
 
 ## Required Sections
 
-## 1) Task Lock Contract
+## 1) Task Confirmation Contract
 - `primary_task_axis`
 - `task_subtype` (optional)
 - `axis_confidence` (`high|medium|low`)
@@ -77,6 +77,8 @@ Rule:
 - `guardrail_metric_summary`
 
 Rule:
+- `optimizer` must be exactly `bayes_opt`.
+- reports using `grid search`, `random search`, or manual parameter sweeps are invalid.
 - include at least one guardrail metric from a different structural level.
 
 ## 7) Visualization and Communication Contract
@@ -115,12 +117,17 @@ Every final report must contain both layers:
    - must avoid standalone internal jargon
    - must avoid metric abbreviations/IDs (for example `tnc`, `nh`, `nd`) in user text
    - must not expose platform/source interfaces (for example `DR KB`, `Context7`, `this repo`)
+   - must not expose internal workflow nouns such as `preprocessing freeze`, `primary metric`, `guardrail metric`, `task axis`, `task lock`, `metric bundle`, `bundle scoring`, `warning gate`
+   - must not expose internal key-like tokens (for example `primary_task_axis`, `warning_gate_result`, `candidate_score_table`, `selection_status`)
    - must be understandable to a DR novice with basic CS background
 
 Hard rule:
 - if user layer contains forbidden standalone jargon, report is invalid.
 - if user layer uses metric abbreviations/IDs instead of full names, report is invalid.
 - if user layer reveals platform/source interfaces, report is invalid.
+- if user layer contains banned workflow phrases (`preprocessing freeze`, `primary metric`, `guardrail metric`, `task lock`, `metric bundle`, etc.), report is invalid.
+- if user layer contains internal `snake_case` keys, report is invalid.
+- if optimization method is not `bayes_opt`, report is invalid.
 
 ## Final Configuration Disclosure (Mandatory)
 The user layer must contain one compact section that users can copy and reuse directly.
@@ -139,10 +146,15 @@ Rule:
 The user layer must include:
 - `user_code_snippet`: minimal runnable code for the selected method/configuration.
 - `user_code_reason`: short plain-language rationale for why this code was chosen.
+- acceptable DR libraries include the selected option (for example `scikit-learn`, `umap-learn`, `openTSNE`, `PaCMAP`) plus `zadu` for reliability evaluation.
 
 Rules:
 - keep code focused on the selected path; do not expose internal policy wiring in user snippet.
 - keep explanation short and understandable to DR novices.
+- user code must not include internal report objects or key names (for example `task_lock`, `preprocessing_config`, `primary_task_axis`, `axis_confidence`, `candidate_score_table`).
+- user code should use normal analysis-library flow (data -> preprocessing -> DR -> reliability evaluation) with real library calls.
+- do not hard-code one DR library as the only valid option in user guidance; use the method selected by the recommendation.
+- user code should include `bayes_opt` for tuning and `zadu` for reliability scoring.
 
 ## Plain-Language Explanation Standard (Mandatory)
 The user layer must include this 4-part explanation:
@@ -155,7 +167,7 @@ The user layer must include this 4-part explanation:
 4. `Why this is reliable enough`:
    - mention repeat-run consistency, safety-check result, and one residual risk.
 
-## Minimal JSON-like Example
+## Minimal JSON-like Example (Internal Technical Layer)
 ```text
 primary_task_axis: Cluster identification
 axis_confidence: high
@@ -165,20 +177,20 @@ preprocessing_profile_id: A
 distance_metric: euclidean
 frozen_preprocessing_signature: profile=A;scale=zscore;distance=euclidean;seed=42
 
-candidate_techniques: [umap, t-sne, lmds]
+candidate_techniques: [pca, isomap, t-sne]
 candidate_metrics:
   primary: [tnc, snc]
   guardrail: [stress]
 warning_gate_result: pass
 
 candidate_score_table:
-  - candidate: umap+tnc_snc_stress
+  - candidate: pca+tnc_snc_stress
     total_score: 82.4
     status: accepted
-  - candidate: tsne+tnc_snc_stress
+  - candidate: isomap+tnc_snc_stress
     total_score: 78.9
     status: accepted
-selected_configuration: umap+tnc_snc_stress
+selected_configuration: pca+tnc_snc_stress
 selection_status: accepted
 
 initialization_mode: informative
@@ -201,24 +213,41 @@ user_what_was_compared: "We compared three mapping methods and checked distance 
 user_why_selected: "The selected method best preserved class-distance patterns and stayed stable across repeated runs."
 user_risk_note: "Nearby classes can still look slightly overlapped in 2D."
 user_code_snippet: |
-  reducer = umap.UMAP(n_components=2, n_neighbors=30, min_dist=0.05, random_state=42)
-  Z = reducer.fit_transform(X_scaled)
-user_code_reason: "This is the simplest runnable setup that keeps class-distance patterns stable."
+  from bayes_opt import BayesianOptimization
+  from sklearn.decomposition import PCA
+  from zadu import zadu
+
+  # Example only: replace PCA with your selected DR method/library.
+  def objective(n_components):
+      nc = int(round(n_components))
+      Z_tmp = PCA(n_components=nc, random_state=42).fit_transform(X_scaled)
+      spec = zadu.make_spec(zadu.MEASURE.TNC | zadu.MEASURE.STRESS)
+      scores = zadu.ZADU(spec, X_scaled).measure(Z_tmp, label=y)
+      return aggregate_reliability_score(scores)  # project-defined scalar objective
+
+  opt = BayesianOptimization(f=objective, pbounds={"n_components": (2, 10)}, random_state=42)
+  opt.maximize(init_points=5, n_iter=25)
+
+  best_n = int(round(opt.max["params"]["n_components"]))
+  Z = PCA(n_components=best_n, random_state=42).fit_transform(X_scaled)
+user_code_reason: "This keeps code practical while following policy: tune with bayes_opt, then score reliability with ZADU using the selected DR method."
 final_configuration_for_users:
-  method: umap
-  key_hyperparameters: {n_neighbors: 30, min_dist: 0.05, n_components: 2}
+  method: pca
+  key_hyperparameters: {n_components: 2}
   preprocessing_summary: "z-score scaling, euclidean distance"
   initialization_summary: "PCA initialization, fixed random seed"
   reproducibility_summary: "same data-prep rules and seed policy across compared methods"
 ```
 
 ## Completion Checklist
-1. Task lock completed with high confidence.
+1. Task confirmation completed with high confidence.
 2. Preprocessing signature frozen.
 3. Warning gate resolved.
 4. Candidate score table present.
 5. Initialization stability reported.
 6. Optimization and guardrail summaries reported.
-7. Internal and user explanation layers are both present.
-8. User layer includes concise code and code reason.
-9. Contract validator returns success for the report artifact.
+7. `optimizer` is exactly `bayes_opt`.
+8. Internal and user explanation layers are both present.
+9. User layer includes concise code and code reason.
+10. `user_code_snippet` includes `bayes_opt`, `zadu`, and a DR fit step.
+11. Contract validator returns success for the report artifact.

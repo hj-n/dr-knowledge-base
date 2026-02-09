@@ -1,7 +1,7 @@
 # DR Knowledge Base
 
 Task-first knowledge base for reliable dimensionality-reduction (DR) configuration.
-The goal is for an agent to: lock user task intent, produce a strong DR configuration, and explain why it was selected.
+The goal is for an agent to: confirm the user's main analysis goal, produce a strong DR configuration, and explain why it was selected.
 
 ## Start Here
 - [`docs/overview.md`](docs/overview.md)
@@ -17,13 +17,18 @@ The goal is for an agent to: lock user task intent, produce a strong DR configur
 - [`docs/metrics-and-libraries.md`](docs/metrics-and-libraries.md)
 
 ## Execution Intent
-1. Confirm one primary task axis from user language.
+1. Confirm one primary analysis goal from user language.
 2. Freeze preprocessing profile and distance policy.
 3. Build task-aligned technique and metric candidates.
 4. Score candidates with deterministic selection policy.
 5. Set task-aligned initialization policy.
-6. Optimize hyperparameters with `bayes_opt`.
+6. Optimize hyperparameters with `bayes_opt` only.
 7. Produce visualization artifacts, concise runnable user code, and dual-layer explanations (technical + user-friendly).
+
+Optimization hard rule:
+- Do not use `grid search`, `random search`, or manual parameter sweep loops for final recommendations.
+- Use `bayes_opt` for tuning and `zadu` for reliability scoring in final analysis code.
+- Final user code should include: selected DR method fit + `bayes_opt` tuning + `zadu` reliability evaluation.
 
 ## Key Directories
 - `docs/`: consumer-facing operational guidance.
@@ -59,6 +64,20 @@ Template: `templates/paper-note-template.md`
 - `python scripts/update_paper_catalog.py`
 - `python scripts/update_reference_coverage.py`
 - `python scripts/update_reference_backlog.py`
+- `python scripts/audit_note_quality.py`
+- `python scripts/verify_note_pdf_grounding.py`
+- `python scripts/validate_user_explanation_text.py <user-text-file>`
+
+## Prevent Internal Jargon Leakage (Mandatory)
+When generating end-user answers:
+1. Draft technical reasoning internally.
+2. Rewrite to novice-friendly wording.
+3. Remove blocked internal terms:
+   - `preprocessing freeze`, `primary metric`, `guardrail metric`, `task axis`, `task lock`, `metric bundle`, `bundle scoring`, `warning gate`
+4. Remove internal key names:
+   - `primary_task_axis`, `warning_gate_result`, `candidate_score_table`, `selection_status`, etc.
+5. Run `scripts/validate_user_explanation_text.py` before finalizing if an answer artifact is produced.
+6. Ensure optimization method is `bayes_opt` only (no `grid search`, `random search`, or sweep loops).
 
 ## Context7 Instruction Snippets (for AGENTS.md / CLAUDE.md)
 Use this single snippet in both `AGENTS.md` and `CLAUDE.md`:
@@ -78,6 +97,10 @@ Use this single snippet in both `AGENTS.md` and `CLAUDE.md`:
   - `docs/workflow/dr-analysis-workflow.md`
   - `docs/workflow/reliability-report-contract.md`
 - Do not rely only on memory when Context7 coverage exists.
+- User-facing wording rule (mandatory):
+  - never expose internal terms such as `task axis`, `task lock`, `metric bundle`, `bundle scoring`, `warning gate`, `preprocessing freeze`, `primary metric`, `guardrail metric`
+  - never expose internal key names (`primary_task_axis`, `warning_gate_result`, `candidate_score_table`, etc.)
+  - always rewrite into plain user language before final answer
 ```
 
 ### Recommended query examples

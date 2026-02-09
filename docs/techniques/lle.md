@@ -46,7 +46,7 @@ Decision-level tuning rule: tune local-scale controls and optimization controls 
 ## Practical Reliability Notes
 LLE preserves local linear reconstruction weights and is sensitive to neighborhood quality and noise. Poorly conditioned neighborhoods can propagate instability through global embedding solving steps.
 
-Use LLE with explicit preprocessing checks and neighborhood-size sweeps. If reconstruction quality drops for small parameter changes, prefer methods with more stable local behavior for production-facing analysis.
+Use LLE with explicit preprocessing checks and Bayesian optimization over neighborhood-size bounds. If reconstruction quality drops for small parameter changes, prefer methods with more stable local behavior for production-facing analysis.
 
 ## Notable Properties
 - Strong local manifold behavior under suitable neighborhood assumptions.

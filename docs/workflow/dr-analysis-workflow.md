@@ -1,12 +1,13 @@
 # DR Analysis Workflow (Primary Axis)
 
 Use this sequence as the mandatory execution order for reliable DR configuration.
+For end-user explanations, translate internal terms into plain wording (for example `main goal`, `reliability checks`) per `docs/workflow/communication-layer-policy.md`.
 
 ## Step-to-Document Map
-1. Task clarification and lock:
+1. Task clarification and confirmation:
    [`docs/intake-question-tree.md`](../intake-question-tree.md),
    [`docs/workflow/task-confirmation-protocol.md`](./task-confirmation-protocol.md)
-2. Data audit + preprocessing freeze:
+2. Data audit + consistent preprocessing policy:
    [`docs/workflow/preprocessing-profiles.md`](./preprocessing-profiles.md)
 3. Task-aligned candidate generation:
    [`docs/metrics-and-libraries.md`](../metrics-and-libraries.md),
@@ -25,7 +26,7 @@ Use this sequence as the mandatory execution order for reliable DR configuration
    [`docs/workflow/reliability-report-contract.md`](./reliability-report-contract.md),
    and `scripts/validate_reliability_report.py`
 
-## 1) Task clarification and lock
+## 1) Task clarification and confirmation
 - Ask plain-language goal question first.
 - Resolve ambiguity one question at a time.
 - Confirm one primary task axis in user wording.
@@ -40,7 +41,7 @@ Required output:
 Gate:
 - Do not continue unless `axis_confidence = high`.
 
-## 2) Data audit + preprocessing freeze
+## 2) Data audit + consistent preprocessing policy
 - Inspect shape, missingness, sparsity, scale, and label status.
 - Select and lock preprocessing profile.
 - Freeze distance metric and preprocessing signature.
@@ -113,6 +114,8 @@ Required output:
 - `guardrail_metric_summary`
 
 Gate:
+- Optimization method must be `bayes_opt` (only).
+- `grid search`, `random search`, or manual sweep loops are invalid for final recommendations.
 - If top configurations are unstable across seeds, downgrade to `provisional`.
 
 ## 7) Visualization + user explanation
@@ -153,3 +156,4 @@ Gate:
 4. Never finalize without score table and seed-stability summary.
 5. If conflict status is `contested`, do not label recommendation as definitive.
 6. Do not close analysis until report-contract validation passes.
+7. Do not finalize recommendations from non-`bayes_opt` optimization runs.

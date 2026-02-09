@@ -72,6 +72,11 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - Apply label-separation warning gate for: `dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`.
 - Final configuration ranking must follow `docs/workflow/configuration-selection-policy.md`; ad-hoc ranking prose is not sufficient.
 
+## Optimization Policy Contract
+- Only allowed optimizer for final recommendations is `bayes_opt`.
+- `grid search`, `random search`, and manual parameter sweep loops are prohibited as final optimization strategies.
+- If `bayes_opt` cannot run, mark recommendation as blocked/provisional and report the limitation; do not silently switch optimizer family.
+
 ## Ingestion Workflow
 1. Confirm source file exists in `papers/raw/`.
 2. Run relevance gate in `builder/evidence/relevance-policy.md`.
@@ -148,11 +153,27 @@ Reject a note as incomplete if any condition fails:
     - internal technical layer (for code/audit)
     - user explanation layer (for non-experts)
   - in user layer, avoid standalone terms such as:
-    - `task axis`, `metric bundle`, `warning gate`, `preprocessing signature`, `guardrail metric`
+    - `task axis`, `task lock`, `lock the task`, `metric bundle`, `bundle scoring`, `warning gate`, `preprocessing signature`, `preprocessing freeze`, `preprocessing lock`, `guardrail metric`, `primary metric`
   - in user layer, avoid metric abbreviations/IDs and write full names instead:
     - examples: use `Trustworthiness and Continuity`, not `tnc`; use `Neighborhood Hit`, not `nh`.
   - in user layer, avoid platform/source interface mentions:
     - `DR KB`, `Context7`, `this repo`, `workflow step`, `contract validator`
+  - in user layer, avoid internal key-like tokens:
+    - `primary_task_axis`, `warning_gate_result`, `candidate_score_table`, `selection_status`, `axis_confidence`, `frozen_preprocessing_signature`
+  - always run a final user-language rewrite pass before completion:
+    - convert internal workflow terms to plain user wording
+    - remove banned phrases and key tokens
+    - keep explanation short and concrete
+  - optimization wording in user layer must stay simple and policy-compliant:
+    - do not propose `grid search`, `random search`, or sweep loops
+    - explain tuning as `Bayesian optimization` in plain language
+  - user-layer phrasing must avoid awkward lock/bundle wording:
+    - say `confirm the main goal`, not `lock the task`
+    - say `reliability checks`, not `metric bundle` or `bundle scoring`
+  - user code pattern must include:
+    - selected DR library call
+    - `bayes_opt` for tuning
+    - `zadu` for reliability scoring
 - Source-note links in `docs/` should map claims to `papers/notes/*`.
 - Detailed quote-level evidence stays in `papers/notes/*`.
 - Workflow-scope filter is mandatory:
@@ -319,6 +340,8 @@ Before ending a doc-update turn, verify:
    - includes `user_why_selected`
    - includes `user_risk_note`
    - avoids unexplained shorthand-only phrasing
+   - avoids banned internal phrases (`preprocessing freeze`, `primary metric`, `guardrail metric`, etc.)
+   - avoids internal key-like tokens (`primary_task_axis`, `warning_gate_result`, etc.)
 10. If a recommendation report artifact is produced, verify final configuration disclosure:
    - includes `final_configuration_for_users`
    - includes method name and key hyperparameter values
@@ -334,6 +357,19 @@ Before ending a doc-update turn, verify:
    - user section uses full metric names
 14. If a recommendation explanation artifact is produced, verify interface concealment:
    - user section does not mention `DR KB`, `Context7`, `this repo`, or validation/workflow internals
+15. If a recommendation explanation artifact is produced, run user-language leak check:
+   - `python scripts/validate_user_explanation_text.py <user-text-file>`
+   - no `BANNED_PHRASE`, `METRIC_ID_LEAK`, `INTERFACE_LEAK`, or `INTERNAL_KEY_LEAK` is allowed.
+16. If a recommendation report artifact is produced, verify optimizer policy:
+   - `optimizer` must be exactly `bayes_opt`
+   - no `grid search`, `random search`, or sweep wording in final recommendation text/artifacts.
+17. If a recommendation explanation artifact is produced, verify plain-language tone:
+   - no `task lock` / `lock the task` phrasing
+   - no `metric bundle` / `bundle scoring` phrasing
+18. If a recommendation report artifact is produced, verify user-code composition:
+   - `user_code_snippet` includes `bayes_opt`
+   - `user_code_snippet` includes `zadu`
+   - `user_code_snippet` includes a DR fit step (for example `fit_transform` / `.fit(`)
 
 ## Definition of Done
 - Individual source note created/updated with quality gate passed.

@@ -33,7 +33,7 @@ The label-separation gate is mandatory before strong interpretation in labeled s
 
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
-A robust workflow evaluates sensitivity by sweeping key controls and checking rank stability across seeds or folds. Large score variance indicates that the current configuration is not yet reliable enough for high-confidence method selection.
+A robust workflow evaluates sensitivity with Bayesian optimization under fixed search bounds and checks rank stability across seeds or folds. Large score variance indicates that the current configuration is not yet reliable enough for high-confidence method selection.
 
 Decision-level tuning rule: label-conditioned settings must be checked with the label-separation gate before tuning-driven decisions. If separability is weak, down-weight this metric and raise uncertainty in the final recommendation.
 

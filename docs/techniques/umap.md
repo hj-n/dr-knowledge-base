@@ -45,7 +45,7 @@ A practical default is Bayesian optimization with guardrails: fixed seed schedul
 Decision-level tuning rule: tune local-scale controls and optimization controls jointly, then verify that gains remain under seed perturbation. If seed sensitivity is high, downgrade confidence and keep fallback candidates.
 
 ## Practical Reliability Notes
-UMAP behavior is strongly controlled by neighborhood size and minimum-distance style controls, which jointly define local packing and cluster spacing. Parameter sweeps should be interpreted as task-conditional model choices, not cosmetic tuning.
+UMAP behavior is strongly controlled by neighborhood size and minimum-distance style controls, which jointly define local packing and cluster spacing. Bayesian optimization trials should be interpreted as task-conditional model choices, not cosmetic tuning.
 
 When UMAP is used for decision support, compare at least one local metric and one global metric under fixed preprocessing and fixed initialization policy. This guards against selecting configurations that look visually clean but are unstable or misaligned to the declared analytical task.
 

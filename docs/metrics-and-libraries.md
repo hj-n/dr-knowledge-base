@@ -13,8 +13,15 @@ Related:
 - Use `zadu` as the default reliability-analysis metric set.
 - Keep metric IDs exactly as documented in this page.
 
+## User-Layer Wording Rule
+- In end-user explanations, do not expose internal terms from this page.
+- Prefer plain wording:
+  - `main goal` (instead of `task axis`)
+  - `reliability checks` (instead of `metric bundle`)
+  - `safety check` (instead of `warning gate`)
+
 ## Task-First Rule
-- Do not pick metrics before task lock (`axis_confidence = high`).
+- Do not pick metrics before task confirmation (`axis_confidence = high`).
 - Use one primary axis; optional subtask only refines within axis-valid candidates.
 
 ## Metric IDs (22)

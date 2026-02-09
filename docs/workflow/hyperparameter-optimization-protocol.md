@@ -1,7 +1,7 @@
 # Hyperparameter Optimization Protocol
 
 Use this protocol to optimize DR method parameters after task, metric bundle, and initialization are fixed.
-Default optimizer is `bayes_opt`.
+Only allowed optimizer is `bayes_opt`.
 
 Related:
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](./dr-analysis-workflow.md)
@@ -14,6 +14,14 @@ Related:
 - initialization policy is fixed
 - metric bundle is fixed (primary + guardrail)
 
+## Optimizer Policy (Hard Rule)
+- `optimizer` must be exactly `bayes_opt`.
+- Use the `bayes_opt` Python library (`BayesianOptimization`) for implementation.
+- Do not use `grid search`.
+- Do not use `random search`.
+- Do not use manual parameter sweep loops as a substitute for Bayesian optimization.
+- If `bayes_opt` cannot be executed in the current environment, stop and report configuration as blocked instead of switching optimizer family.
+
 ## Objective Construction
 Use two-level objective:
 - primary objective: task-aligned metric aggregate
@@ -24,7 +32,7 @@ Composite objective:
 
 If guardrail violates minimum acceptance, reject configuration regardless of objective value.
 
-## Search Budget Defaults
+## Search Budget Defaults (`bayes_opt`)
 - small datasets (`n < 10k`): 40-60 evaluations
 - medium datasets (`10k <= n < 100k`): 25-40 evaluations
 - large datasets (`n >= 100k`): 15-25 evaluations with subsampling protocol

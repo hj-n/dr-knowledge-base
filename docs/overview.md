@@ -2,7 +2,7 @@
 
 ## Goal
 Enable an LLM to do three things reliably:
-1. lock the user's primary DR task from plain-language input,
+1. identify and confirm the user's main DR goal from plain-language input,
 2. generate a high-quality task-aligned configuration,
 3. explain the decision with explicit evidence and residual risk.
 
@@ -64,9 +64,17 @@ See: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 - Final-configuration disclosure: always show users the exact final method and key parameter settings.
 - User-facing language must be simple: assume the user is not a DR expert.
 - User-facing code must be concise: show a minimal runnable path, not orchestration internals.
+- Hyperparameter tuning policy is fixed: use Bayesian optimization (`bayes_opt`) only.
+- Do not use grid search, random search, or manual sweep loops for final recommendations.
 - Do not expose internal policy wiring in user outputs (for example task-routing tables, warning-gate state keys, or internal scoring keys).
 - Do not use metric abbreviations in user explanation (for example `tnc`, `nh`, `nd`); use full names.
 - Do not expose platform/source interfaces in user explanation (for example `DR KB`, `Context7`, `this repo`).
+- Do not use internal workflow phrases in user explanation (for example `preprocessing freeze`, `primary metric`, `guardrail metric`, `task axis`, `metric bundle`).
+- Prefer plain user wording:
+  - say `main goal`, not `task axis`
+  - say `reliability checks`, not `metric bundle`
+  - say `confirm the goal`, not `lock the task`
+  - say `scored for reliability`, not `bundle scoring`
 
 ## User-Facing Output Standard
 Every final user answer should satisfy all three:

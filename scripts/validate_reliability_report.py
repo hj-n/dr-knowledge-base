@@ -27,6 +27,7 @@ REQUIRED_KEYS = [
     "initialization_mode",
     "initialization_method",
     "stability_status",
+    "optimizer",
     "best_params",
     "optimization_trace",
     "seed_sensitivity_summary",
@@ -64,13 +65,30 @@ USER_TEXT_KEYS = [
 
 BANNED_USER_JARGON = [
     "task axis",
+    "task-axis",
+    "task lock",
+    "lock the task",
     "metric bundle",
+    "metric-bundle",
+    "bundle scoring",
+    "score with bundles",
     "warning gate",
     "preprocessing signature",
+    "preprocessing freeze",
+    "preprocessing lock",
     "guardrail metric",
+    "primary metric",
+    "primary metric + guardrail metric",
     "candidate score table",
     "selection_status",
     "axis_confidence",
+    "전처리 동결",
+    "메트릭 번들",
+    "태스크 축",
+    "업무 축",
+    "잠근다",
+    "지표 번들",
+    "번들로 점수화",
 ]
 
 BANNED_USER_METRIC_IDS = [
@@ -105,13 +123,66 @@ BANNED_USER_INTERFACE_TERMS = [
     "contract validator",
 ]
 
-BANNED_USER_CODE_TOKENS = [
-    "TASK_METRIC_BUNDLES",
+BANNED_USER_INTERNAL_KEYS = [
     "primary_task_axis",
     "warning_gate_result",
+    "warning_gate_notes",
+    "candidate_score_table",
+    "selected_configuration",
+    "selection_status",
+    "axis_confidence",
+    "frozen_preprocessing_signature",
+    "guardrail_metric_summary",
+    "metric_bundle",
+]
+
+BANNED_USER_CODE_TOKENS = [
+    "TASK_METRIC_BUNDLES",
+    "task_lock",
+    "preprocessing_config",
+    "recommendation_status",
+    "report_contract_validation",
+    "primary_task_axis",
+    "task_confirmation_quote",
+    "warning_gate_result",
+    "warning_gate_notes",
+    "candidate_metrics",
+    "candidate_techniques",
+    "candidate_score_table",
+    "selected_configuration",
     "metric_bundle",
     "selection_status",
     "axis_confidence",
+    "frozen_preprocessing_signature",
+]
+
+ALLOWED_OPTIMIZER = "bayes_opt"
+
+BANNED_USER_OPTIMIZATION_TERMS = [
+    "grid search",
+    "grid-search",
+    "random search",
+    "random-search",
+    "parameter sweep",
+    "manual sweep",
+    "gridsearchcv",
+    "randomizedsearchcv",
+]
+
+BAYES_OPT_CODE_HINTS = [
+    "from bayes_opt",
+    "import bayes_opt",
+    "bayesianoptimization(",
+]
+
+ZADU_CODE_HINTS = [
+    "zadu",
+    "from zadu",
+]
+
+DR_STEP_CODE_HINTS = [
+    "fit_transform(",
+    ".fit(",
 ]
 
 
@@ -172,6 +243,11 @@ def main() -> int:
         if value not in allowed:
             invalid.append((key, value, sorted(allowed)))
 
+    optimizer_value = read_value(text, "optimizer")
+    optimizer_violation = None
+    if optimizer_value is not None and optimizer_value != ALLOWED_OPTIMIZER:
+        optimizer_violation = (optimizer_value, ALLOWED_OPTIMIZER)
+
     jargon_violations = []
     for key in USER_TEXT_KEYS:
         value = read_value(text, key)
@@ -202,13 +278,45 @@ def main() -> int:
             if term in lv:
                 interface_violations.append((key, term, value))
 
+    internal_key_violations = []
+    for key in USER_TEXT_KEYS:
+        value = read_value(text, key)
+        if not value:
+            continue
+        lv = value.lower()
+        for token in BANNED_USER_INTERNAL_KEYS:
+            if re.search(rf"\b{re.escape(token)}\b", lv):
+                internal_key_violations.append((key, token, value))
+
+    user_optimization_violations = []
+    for key in USER_TEXT_KEYS:
+        value = read_value(text, key)
+        if not value:
+            continue
+        lv = value.lower()
+        for term in BANNED_USER_OPTIMIZATION_TERMS:
+            if term in lv:
+                user_optimization_violations.append((key, term, value))
+
     code_leak_violations = []
+    code_required_component_violations = []
     code_snippet = read_value(text, "user_code_snippet")
     if code_snippet:
         snippet = code_snippet
+        snippet_lower = snippet.lower()
         for token in BANNED_USER_CODE_TOKENS:
             if token in snippet:
                 code_leak_violations.append((token, snippet))
+        for term in BANNED_USER_OPTIMIZATION_TERMS:
+            if term in snippet_lower:
+                code_leak_violations.append((term, snippet))
+
+        if not any(token in snippet_lower for token in BAYES_OPT_CODE_HINTS):
+            code_required_component_violations.append(("bayes_opt", snippet))
+        if not any(token in snippet_lower for token in ZADU_CODE_HINTS):
+            code_required_component_violations.append(("zadu", snippet))
+        if not any(token in snippet_lower for token in DR_STEP_CODE_HINTS):
+            code_required_component_violations.append(("dr_fit_step", snippet))
 
     if missing:
         print("MISSING_KEYS")
@@ -219,6 +327,10 @@ def main() -> int:
         print("INVALID_VALUES")
         for key, value, allowed in invalid:
             print(f"- {key}: '{value}' not in {allowed}")
+
+    if optimizer_violation:
+        print("OPTIMIZER_POLICY_VIOLATION")
+        print(f"- optimizer: '{optimizer_violation[0]}' (allowed: '{optimizer_violation[1]}')")
 
     if jargon_violations:
         print("USER_JARGON_VIOLATIONS")
@@ -235,18 +347,37 @@ def main() -> int:
         for key, term, value in interface_violations:
             print(f"- {key}: contains forbidden interface term '{term}' in '{value}'")
 
+    if internal_key_violations:
+        print("USER_INTERNAL_KEY_LEAK_VIOLATIONS")
+        for key, token, value in internal_key_violations:
+            print(f"- {key}: contains internal key '{token}' in '{value}'")
+
+    if user_optimization_violations:
+        print("USER_OPTIMIZATION_POLICY_VIOLATIONS")
+        for key, term, value in user_optimization_violations:
+            print(f"- {key}: contains forbidden optimization term '{term}' in '{value}'")
+
     if code_leak_violations:
         print("USER_CODE_POLICY_LEAK")
         for token, snippet in code_leak_violations:
             print(f"- user_code_snippet: contains internal token '{token}' in '{snippet}'")
 
+    if code_required_component_violations:
+        print("USER_CODE_REQUIRED_COMPONENTS_VIOLATIONS")
+        for token, snippet in code_required_component_violations:
+            print(f"- user_code_snippet: missing required component '{token}' in '{snippet}'")
+
     if (
         missing
         or invalid
+        or optimizer_violation
         or jargon_violations
         or metric_id_violations
         or interface_violations
+        or internal_key_violations
+        or user_optimization_violations
         or code_leak_violations
+        or code_required_component_violations
     ):
         return 1
 
