@@ -85,13 +85,6 @@ BANNED_USER_JARGON = [
     "candidate score table",
     "selection_status",
     "axis_confidence",
-    "전처리 동결",
-    "메트릭 번들",
-    "태스크 축",
-    "업무 축",
-    "잠근다",
-    "지표 번들",
-    "번들로 점수화",
 ]
 
 BANNED_USER_METRIC_IDS = [
@@ -106,11 +99,9 @@ BANNED_USER_METRIC_IDS = [
     "ivm",
     "c_evm",
     "snc",
-    "stress",
     "kl_div",
     "dtm",
     "topo",
-    "pr",
     "srho",
     "proc",
     "qnx",
@@ -119,11 +110,42 @@ BANNED_USER_METRIC_IDS = [
 
 BANNED_USER_INTERFACE_TERMS = [
     "dr kb",
-    "knowledge base",
+    "dr knowledge base",
     "context7",
     "this repo",
     "workflow step",
     "contract validator",
+]
+
+BANNED_USER_REFERENCE_TOKENS = [
+    "papers/notes/",
+    "docs/",
+    "llms.txt",
+    "github.com/hj-n/dr-knowledge-base",
+    "dr-knowledge-base/blob/",
+]
+
+BANNED_USER_REFERENCE_REGEX = [
+    r"https?://[^\s)]+\.md\b",
+    r"\[[^\]]+\]\([^)]+/papers/notes/[^)]+\)",
+    r"\[[^\]]+\]\([^)]+/docs/[^)]+\)",
+]
+
+BANNED_USER_MAPPING_STYLE_PHRASES = [
+    "task->metric",
+    "task→metric",
+    "task-to-metric",
+    "task to metric mapping",
+    "primary = [",
+    "primary:[",
+    "safety check = [",
+    "safety check:[",
+]
+
+BANNED_USER_MAPPING_STYLE_REGEX = [
+    r"\b(primary|safety check)\s*(=|:)\s*\[[^\]]+\]",
+    r"\b(task\s*(->|→)\s*metric|task-?to-?metric)\b",
+    r"\[\s*\"[a-z0-9_]+\"(\s*,\s*\"[a-z0-9_]+\")+\s*\]",
 ]
 
 BANNED_USER_INTERNAL_KEYS = [
@@ -293,6 +315,32 @@ def main() -> int:
             if term in lv:
                 interface_violations.append((key, term, value))
 
+    reference_leak_violations = []
+    for key in USER_TEXT_KEYS:
+        value = read_value(text, key)
+        if not value:
+            continue
+        lv = value.lower()
+        for term in BANNED_USER_REFERENCE_TOKENS:
+            if term in lv:
+                reference_leak_violations.append((key, term, value))
+        for pattern in BANNED_USER_REFERENCE_REGEX:
+            if re.search(pattern, lv):
+                reference_leak_violations.append((key, pattern, value))
+
+    mapping_style_violations = []
+    for key in USER_TEXT_KEYS:
+        value = read_value(text, key)
+        if not value:
+            continue
+        lv = value.lower()
+        for term in BANNED_USER_MAPPING_STYLE_PHRASES:
+            if term in lv:
+                mapping_style_violations.append((key, term, value))
+        for pattern in BANNED_USER_MAPPING_STYLE_REGEX:
+            if re.search(pattern, lv):
+                mapping_style_violations.append((key, pattern, value))
+
     internal_key_violations = []
     for key in USER_TEXT_KEYS:
         value = read_value(text, key)
@@ -373,6 +421,16 @@ def main() -> int:
         for key, term, value in interface_violations:
             print(f"- {key}: contains forbidden interface term '{term}' in '{value}'")
 
+    if reference_leak_violations:
+        print("USER_REFERENCE_LEAK_VIOLATIONS")
+        for key, term, value in reference_leak_violations:
+            print(f"- {key}: contains forbidden KB/file reference '{term}' in '{value}'")
+
+    if mapping_style_violations:
+        print("USER_MAPPING_STYLE_LEAK_VIOLATIONS")
+        for key, term, value in mapping_style_violations:
+            print(f"- {key}: contains forbidden mapping-style phrasing '{term}' in '{value}'")
+
     if internal_key_violations:
         print("USER_INTERNAL_KEY_LEAK_VIOLATIONS")
         for key, token, value in internal_key_violations:
@@ -405,6 +463,8 @@ def main() -> int:
         or jargon_violations
         or metric_id_violations
         or interface_violations
+        or reference_leak_violations
+        or mapping_style_violations
         or internal_key_violations
         or user_optimization_violations
         or code_leak_violations

@@ -78,9 +78,9 @@ Before communicating a conclusion, cross-check this metric against the selected 
 Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
 
 ## Source Notes
-The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+The references below list paper sources used for this metric guidance.
 
-- `papers/notes/zadu-ref-04-2510-08660v1.md` -> `CLAIM-METRIC-NH-SOURCE-04`
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
 
-[^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E3).
-[^warn-label]: Warning source note: `papers/notes/2026-zadu-readme-warning.md` (ZADU-RM-E1, ZADU-RM-E2).
+[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
+[^warn-label]: ZADU README Operational Warning for Label-Separation-Sensitive Metrics (hj-n/zadu maintainers, GitHub README, 2026)

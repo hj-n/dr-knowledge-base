@@ -78,10 +78,10 @@ Before communicating a conclusion, cross-check this metric against the selected 
 Failure-signaling rule: when class-aware metrics improve but label-agnostic local/global metrics worsen, report a class-specific gain with structural tradeoff instead of claiming unconditional quality improvement.
 
 ## Source Notes
-The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+The references below list paper sources used for this metric guidance.
 
-- `papers/notes/zadu-ref-19-ref42-a-comparison-for-dimensionality-reduction-methods-of-single-cell-rna-seq-d.md` -> `CLAIM-METRIC-C_EVM-SOURCE-19`
-- `papers/notes/zadu-ref-11-jeon23tvcg-4.md` -> `CLAIM-METRIC-C_EVM-SOURCE-11`
+- A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data (Ruizhi Xiang et al., Frontiers in Genetics, 2021)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
 
-[^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E4).
-[^warn-label]: Warning source note: `papers/notes/2026-zadu-readme-warning.md` (ZADU-RM-E1, ZADU-RM-E2).
+[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
+[^warn-label]: ZADU README Operational Warning for Label-Separation-Sensitive Metrics (hj-n/zadu maintainers, GitHub README, 2026)

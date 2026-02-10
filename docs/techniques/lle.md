@@ -3,7 +3,7 @@
 ## Technique Summary
 Manifold-learning projection preserving local linear reconstruction structure.
 
-In this repository, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
+In practice, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
 
 The summary should be read together with task alignment and tradeoff sections before implementation. When the same dataset supports multiple objectives, this technique may be suitable for one objective and unsuitable for another.
 
@@ -79,19 +79,19 @@ Operational alignment rule: method alignment should constrain candidate ranking,
 
 Tradeoffs are expected and should be made explicit to users before final selection. A method that improves neighborhood fidelity may worsen global distance faithfulness, and vice versa, so optimization must reflect the task hierarchy.
 
-In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
+In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this guide.
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
 ## Source Notes
-- `papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md` (ZR07-E4)
-- `papers/notes/zadu-ref-16-ref12-local-procrustes-for-manifold-embedding-a-measure-of-embedding-quality-and.md` (ZR16-E1)
+- Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen et al., Journal of the American Statistical Association, 2009)
+- Mach Learn (2009) 77: 1–25 (Yair Goldberg et al., Machine Learning, 2009)
 
-- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md` (pending-reference evidence)
-- `papers/notes/pending-ref-008-nonlinear-dimensionality-reduction-by-locally-linear-embed.md` (pending-reference evidence)
-- `papers/notes/pending-ref-013-a-survey-of-dimension-reduction-methods-for-high-dimension.md` (pending-reference evidence)
-- `papers/notes/pending-ref-014-charting-a-manifold.md` (pending-reference evidence)
-- `papers/notes/pending-ref-019-local-multidimensional-scaling.md` (pending-reference evidence)
-- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md` (pending-reference evidence)
-- `papers/notes/pending-ref-043-local-procrustes-for-manifold-embedding-a-measure-of-embed.md` (pending-reference evidence)
-- `papers/notes/pending-ref-049-dimreader-axis-lines-that-explain-non-linear-projections.md` (pending-reference evidence)
+- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., UNKNOWN, 2010)
+- Nonlinear Dimensionality Reduction by Locally Linear Embedding (Sam T. Roweis and Lawrence K. Saul, Science, 2000)
+- High Performance Dimension Reduction and Visualization for Large High-Dimensional Data Analysis (D. Engel et al., 2010 10th IEEE/ACM International Conference on Cluster, Cloud and Grid Computing, 2012)
+- Charting a manifold (M. Brand, UNKNOWN, 2002)
+- Local multidimensional scaling (Jarkko Venna and Samuel Kaski, Journal of the American Statistical Association, 2006)
+- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., UNKNOWN, 2013)
+- Local procrustes for manifold embedding: A measure of embedding quality and embedding algorithms (Y. Goldberg and Y. Ritov, Machine Learning, 2009)
+- DimReader: Axis lines that explain non-linear projections (R. Faust et al., IEEE Transactions on Visualization and Computer Graphics, 2019)

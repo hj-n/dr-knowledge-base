@@ -3,7 +3,7 @@
 ## Technique Summary
 Topology-preserving map projection emphasizing neighborhood-order structure.
 
-In this repository, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
+In practice, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
 
 The summary should be read together with task alignment and tradeoff sections before implementation. When the same dataset supports multiple objectives, this technique may be suitable for one objective and unsuitable for another.
 
@@ -79,16 +79,16 @@ Operational alignment rule: method alignment should constrain candidate ranking,
 
 Tradeoffs are expected and should be made explicit to users before final selection. A method that improves neighborhood fidelity may worsen global distance faithfulness, and vice versa, so optimization must reflect the task hierarchy.
 
-In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
+In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this guide.
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
 ## Source Notes
-- `papers/notes/zadu-ref-10-download-2.md` (ZR10-E2, ZR10-E3, ZR10-E4, ZR10-E5)
-- `papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md` (ZR02-E4)
+- Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps (of Self/-Organizing F eature Maps, IEEE Transactions on Neural Networks, 1992)
+- Quality assessment of dimensionality reduction: Rank-based criteria (John A. Lee et al., Neurocomputing, 2009)
 
-- `papers/notes/pending-ref-044-classimap-a-new-dimension-reduction-technique-for-explorat.md` (pending-reference evidence)
-- `papers/notes/pending-ref-073-trustworthiness-and-metrics-in-visualizing-similarity-of-g.md` (pending-reference evidence)
-- `papers/notes/pending-ref-125-a-methodology-to-compare-dimensionality-reduction-algorith.md` (pending-reference evidence)
-- `papers/notes/pending-ref-136-survey-and-comparison-of-quality-measures-for-selforganizi.md` (pending-reference evidence)
-- `papers/notes/pending-ref-154-recent-advances-in-nonlinear-dimensionality-reduction-mani.md` (pending-reference evidence)
+- ClassiMap: A new dimension reduction technique for exploratory data analysis of labeled data (S. Lespinats et al., International Journal of Pattern Recognition and Artificial Intelligence, 2015)
+- Trustworthiness and metrics in visualizing similarity of gene expression (S. Kaski et al., BMC Bioinformatics, 2003)
+- A methodology to compare Dimensionality Reduction algorithms in terms of loss of quality (A. Gracia et al., Information Sciences, 2014)
+- Survey and comparison of quality measures for selforganizing maps (G. P €olzlbauer, Annals of Data Science, 2004)
+- Nonlinear Dimensionality Reduction and Manifold Learning (A. Wism €uller et al., Springer Texts in Statistics, 2010)

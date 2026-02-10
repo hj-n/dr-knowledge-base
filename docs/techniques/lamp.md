@@ -3,7 +3,7 @@
 ## Technique Summary
 Local Affine Multidimensional Projection using control points and local affine mappings.
 
-In this repository, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
+In practice, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
 
 The summary should be read together with task alignment and tradeoff sections before implementation. When the same dataset supports multiple objectives, this technique may be suitable for one objective and unsuitable for another.
 
@@ -79,11 +79,11 @@ Operational alignment rule: method alignment should constrain candidate ranking,
 
 Tradeoffs are expected and should be made explicit to users before final selection. A method that improves neighborhood fidelity may worsen global distance faithfulness, and vice versa, so optimization must reflect the task hierarchy.
 
-In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
+In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this guide.
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
 ## Source Notes
-- `papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md` (ZR08-E6, ZR08-E7, ZR08-E8)
+- Local Affine Multidimensional Projection (theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy et al., IEEE Transactions on Visualization and Computer Graphics, 2011)
 
-- `papers/notes/pending-ref-145-deep-learning-multidimensional-projections.md` (pending-reference evidence)
+- Deep learning multidimensional projections (M. Espadoto et al., Information Visualization, 2020)

@@ -3,7 +3,7 @@
 ## Technique Summary
 Kernelized PCA projection for nonlinear structure capture via implicit feature space.
 
-In this repository, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
+In practice, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
 
 The summary should be read together with task alignment and tradeoff sections before implementation. When the same dataset supports multiple objectives, this technique may be suitable for one objective and unsuitable for another.
 
@@ -79,15 +79,15 @@ Operational alignment rule: method alignment should constrain candidate ranking,
 
 Tradeoffs are expected and should be made explicit to users before final selection. A method that improves neighborhood fidelity may worsen global distance faithfulness, and vice versa, so optimization must reflect the task hierarchy.
 
-In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
+In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this guide.
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
 ## Source Notes
-- `papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md` (ZR07-E4)
+- Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen et al., Journal of the American Statistical Association, 2009)
 
-- `papers/notes/pending-ref-031-interactive-visual-cluster-analysis-by-contrastive-dimensi.md` (pending-reference evidence)
-- `papers/notes/pending-ref-048-linear-dimensionality-reduction-survey-insights-and-genera.md` (pending-reference evidence)
-- `papers/notes/pending-ref-089-a-new-method-of-generalizing-sammon-mapping-with-applicati.md` (pending-reference evidence)
-- `papers/notes/pending-ref-108-dimred-and-coranking-unifying-dimensionality-reduction-in.md` (pending-reference evidence)
-- `papers/notes/pending-extra-weinberger05a-weinberger05a.md` (pending-reference evidence)
+- Interactive Visual Cluster Analysis by Contrastive Dimensionality Reduction (Jiazhi Xia et al., IEEE Transactions on Visualization and Computer Graphics, 2022)
+- Linear dimensionality reduction: Survey, insights, and generalizations (John P Cunningham and Zoubin Ghahramani, UNKNOWN, 2015)
+- A new method of generalizing Sammon mapping with application to algorithm speed-up (E. Pekalska et al., IEEE Transactions on Pattern Analysis and Machine Intelligence, 1999)
+- dimRed and coRanking—Unifying Dimensionality Reduction in R (G. Kraemer et al., The R Journal, 2018)
+- Nonlinear Dimensionality Reduction by Semideﬁnite Programming and Kernel Matrix Factorization (Programming and Kernel Matrix Factorization, UNKNOWN, 2000)

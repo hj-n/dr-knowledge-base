@@ -82,357 +82,357 @@ Support tier by distinct PDF count: `very_high` >= 6, `high` 4-5, `medium` 2-3, 
 Each item below shows where the metric is mentioned.
 
 ### `stress` (`14` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-06-least-square-projection-a-fast-high-precision-multidimensional-projection-techni.md`
-- `papers/notes/zadu-ref-03-2408-07724v2.md`
-- `papers/notes/zadu-ref-13-ref03-geometric-inference-for-probability-measures.md`
-- `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md`
-- `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md`
-- `papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md`
-- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md`
-- `papers/notes/pending-ref-013-a-survey-of-dimension-reduction-methods-for-high-dimension.md`
-- `papers/notes/pending-ref-019-local-multidimensional-scaling.md`
-- `papers/notes/pending-ref-024-viscoder-a-tool-for-visually-comparing-dimensionality-redu.md`
-- `papers/notes/pending-ref-035-stress-maps-analysing-local-phenomena-in-dimensionality-re.md`
-- `papers/notes/pending-ref-037-attribute-based-visual-explanation-of-multidimensional-pro.md`
-- `papers/notes/2023-zadu-library.md`
-- `papers/notes/zadu-ref-04-2510-08660v1.md`
+- Least Square Projection: A Fast High-Precision Multidimensional Projection Technique and Its Application to Document Mapping (F.V. Paulovich et al., 2008)
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2025)
+- Geometric Inference for Measures based on Distance Functions (Frédéric Chazal et al., 2010)
+- Stochastic Neighbor Embedding (Geoffrey E. Hinton et al., 2002)
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., 2021)
+- Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen et al., 2009)
+- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., 2010)
+- High Performance Dimension Reduction and Visualization for Large High-Dimensional Data Analysis (D. Engel et al., 2012)
+- Local multidimensional scaling (Jarkko Venna and Samuel Kaski, 2006)
+- VisCoDeR: A tool for visually comparing dimensionality reduction algorithms (René Cutura et al., 2018)
+- Stress Maps: Analysing Local Phenomena in Dimensionality Reduction Based Visualisations (Christin Seifert et al., 2010)
+- Attribute-based Visual Explanation of Multidimensional Projections (Renato R. O. da Silva et al., 2015)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., 2024)
 
 ### `tnc` (`13` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-03-2408-07724v2.md`
-- `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md`
-- `papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md`
-- `papers/notes/zadu-ref-01-1-s2-0-s0893608006000724-main.md`
-- `papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md`
-- `papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md`
-- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md`
-- `papers/notes/pending-ref-009-uniform-manifold-approximation-with-two-phase-optimization.md`
-- `papers/notes/pending-ref-016-visual-interaction-with-dimensionality-reduction-a-structu.md`
-- `papers/notes/pending-ref-019-local-multidimensional-scaling.md`
-- `papers/notes/pending-ref-028-visualizing-the-quality-of-dimensionality-reduction.md`
-- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md`
-- `papers/notes/2023-zadu-library.md`
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2025)
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., 2021)
+- Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen et al., 2009)
+- Local multidimensional scaling (Jarkko Venna et al., 2006)
+- Quality assessment of dimensionality reduction: Rank-based criteria (John A. Lee et al., 2009)
+- Local Affine Multidimensional Projection (theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy et al., 2011)
+- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., 2010)
+- Uniform manifold approximation with two-phase optimization (H. Jeon et al., 2022)
+- Visual Interaction with Dimensionality Reduction: A Structured Literature Analysis (D. Sacha et al, 2017)
+- Local multidimensional scaling (Jarkko Venna and Samuel Kaski, 2006)
+- Visualizing the quality of dimensionality reduction (Bassam Mokbel et al., 2013)
+- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., 2013)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `kl_div` (`12` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-03-2408-07724v2.md`
-- `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md`
-- `papers/notes/zadu-ref-11-jeon23tvcg-4.md`
-- `papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md`
-- `papers/notes/zadu-ref-04-2510-08660v1.md`
-- `papers/notes/pending-ref-009-uniform-manifold-approximation-with-two-phase-optimization.md`
-- `papers/notes/pending-ref-040-tvisne-interactive-assessment-and-interpretation-of-t-sne.md`
-- `papers/notes/pending-ref-041-quantitative-evaluation-of-time-dependent-multidimensional.md`
-- `papers/notes/pending-ref-061-visne-enables-visualization-of-high-dimensional-single-cel.md`
-- `papers/notes/pending-ref-073-trustworthiness-and-metrics-in-visualizing-similarity-of-g.md`
-- `papers/notes/pending-ref-104-implicit-multidimensional-projection-of-local-subspaces.md`
-- `papers/notes/2023-zadu-library.md`
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2025)
+- Stochastic Neighbor Embedding (Geoffrey E. Hinton et al., 2002)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., 2024)
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoit Colange et al., 2020)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., 2024)
+- Uniform manifold approximation with two-phase optimization (H. Jeon et al., 2022)
+- t-viSNE: Interactive Assessment and Interpretation of t-SNE Projections (Angelos Chatzimparmpas et al., 2020)
+- Quantitative evaluation of time-dependent multidimensional projection techniques (E. F. V ernier et al., 2020)
+- viSNE enables visualization of high dimensional single-cell data and reveals phenotypic heterogeneity of leukemia (E.-A. D. Amir et al, 2013)
+- Trustworthiness and metrics in visualizing similarity of gene expression (S. Kaski et al., 2003)
+- Implicit Multidimensional Projection of Local Subspaces (Rongzheng Bian et al., 2021)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `pr` (`10` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md`
-- `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md`
-- `papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md`
-- `papers/notes/zadu-ref-04-2510-08660v1.md`
-- `papers/notes/pending-ref-057-quality-metrics-for-information-visualization.md`
-- `papers/notes/pending-ref-068-nonlinear-dimensionality-reduction-and-data-visualization.md`
-- `papers/notes/pending-ref-077-assessing-single-cell-transcriptomic-variability-through-d.md`
-- `papers/notes/pending-ref-101-trimap-large-scale-dimensionality-reduction-using-triplets.md`
-- `papers/notes/pending-ref-148-with-respect-to-what-simultaneous-interaction-with-dimensi.md`
-- `papers/notes/2023-zadu-library.md`
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023)
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., 2021)
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoit Colange et al., 2020)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., 2024)
+- Quality Metrics for Information Visualization (M. Behrisch et al., 2018)
+- Nonlinear dimensionality reduction and data visualization: a review (Hujun Yin, 2007)
+- Assessing single-cell transcriptomic variability through density-preserving data visualization (A. Narayan et al., 2020)
+- TriMap: Large-scale Dimensionality Reduction Using Triplets (Ehsan Amid and Manfred K. Warmuth, 2022)
+- With Respect to What? Simultaneous Interaction with Dimension Reduction and Clustering Projections (John Wenskovitch et al., 2020)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `proc` (`10` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md`
-- `papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md`
-- `papers/notes/zadu-ref-16-ref12-local-procrustes-for-manifold-embedding-a-measure-of-embedding-quality-and.md`
-- `papers/notes/pending-ref-015-feature-learning-for-nonlinear-dimensionality-reduction-to.md`
-- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md`
-- `papers/notes/pending-ref-030-interactive-dimensionality-reduction-for-comparative-analy.md`
-- `papers/notes/pending-ref-040-tvisne-interactive-assessment-and-interpretation-of-t-sne.md`
-- `papers/notes/pending-ref-043-local-procrustes-for-manifold-embedding-a-measure-of-embed.md`
-- `papers/notes/pending-ref-044-classimap-a-new-dimension-reduction-technique-for-explorat.md`
-- `papers/notes/2023-zadu-library.md`
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023)
+- Local Affine Multidimensional Projection (theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy et al., 2011)
+- Mach Learn (2009) 77: 1–25 (Yair Goldberg et al., 2009)
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023)
+- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., 2013)
+- Interactive Dimensionality Reduction for Comparative Analysis (Takanori Fujiwara et al., 2022)
+- t-viSNE: Interactive Assessment and Interpretation of t-SNE Projections (Angelos Chatzimparmpas et al., 2020)
+- Local procrustes for manifold embedding: A measure of embedding quality and embedding algorithms (Y. Goldberg and Y. Ritov, 2009)
+- ClassiMap: A new dimension reduction technique for exploratory data analysis of labeled data (S. Lespinats et al., 2015)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `nd` (`9` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md`
-- `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md`
-- `papers/notes/pending-ref-013-a-survey-of-dimension-reduction-methods-for-high-dimension.md`
-- `papers/notes/pending-ref-028-visualizing-the-quality-of-dimensionality-reduction.md`
-- `papers/notes/pending-ref-046-neighborhood-preserving-embedding.md`
-- `papers/notes/pending-ref-087-explaining-three-dimensional-dimensionality-reduction-plot.md`
-- `papers/notes/pending-ref-111-the-art-of-seeing-the-elephant-in-the-room-2d-embeddings-o.md`
-- `papers/notes/pending-ref-123-hierarchical-stochastic-neighbor-embedding.md`
-- `papers/notes/2023-zadu-library.md`
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023)
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., 2021)
+- High Performance Dimension Reduction and Visualization for Large High-Dimensional Data Analysis (D. Engel et al., 2012)
+- Visualizing the quality of dimensionality reduction (Bassam Mokbel et al., 2013)
+- Neighborhood preserving embedding (X. He et al., 2005)
+- Explaining three-dimensional dimensionality reduction plots (Danilo B. Coimbra et al., 2016)
+- The art of seeing the elephant in the room: 2D embeddings of single-cell data do make sense (Jan Lause et al., 2024)
+- Hierarchical stochastic neighbor embedding (N. Pezzotti et al., 2016)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `topo` (`8` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-10-download-2.md`
-- `papers/notes/pending-ref-014-charting-a-manifold.md`
-- `papers/notes/pending-ref-026-umap-uniform-manifold-approximation-and-projection-for-dim.md`
-- `papers/notes/pending-ref-063-high-dimensional-labeled-data-analysis-with-topology-repre.md`
-- `papers/notes/pending-ref-068-nonlinear-dimensionality-reduction-and-data-visualization.md`
-- `papers/notes/pending-ref-109-evaluating-multi-dimensional-visualizations-for-understand.md`
-- `papers/notes/pending-ref-125-a-methodology-to-compare-dimensionality-reduction-algorith.md`
-- `papers/notes/2023-zadu-library.md`
+- Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps (of Self/-Organizing F eature Maps, 1992)
+- Charting a manifold (M. Brand, 2002)
+- UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction (Leland McInnes et al., 2020)
+- High-dimensional labeled data analysis with topology representing graphs (Michaël Aupetit and Thibaud Catz, 2005)
+- Nonlinear dimensionality reduction and data visualization: a review (Hujun Yin, 2007)
+- Evaluating multi-dimensional visualizations for understanding fuzzy clusters (Y . Zhao et al., 2018)
+- A methodology to compare Dimensionality Reduction algorithms in terms of loss of quality (A. Gracia et al., 2014)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `mrre` (`7` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-03-2408-07724v2.md`
-- `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md`
-- `papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md`
-- `papers/notes/zadu-ref-11-jeon23tvcg-4.md`
-- `papers/notes/zadu-ref-04-2510-08660v1.md`
-- `papers/notes/pending-ref-009-uniform-manifold-approximation-with-two-phase-optimization.md`
-- `papers/notes/2023-zadu-library.md`
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2025)
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., 2021)
+- Quality assessment of dimensionality reduction: Rank-based criteria (John A. Lee et al., 2009)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., 2024)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., 2024)
+- Uniform manifold approximation with two-phase optimization (H. Jeon et al., 2022)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `dtm` (`6` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-13-ref03-geometric-inference-for-probability-measures.md`
-- `papers/notes/zadu-ref-11-jeon23tvcg-4.md`
-- `papers/notes/pending-ref-009-uniform-manifold-approximation-with-two-phase-optimization.md`
-- `papers/notes/pending-ref-024-viscoder-a-tool-for-visually-comparing-dimensionality-redu.md`
-- `papers/notes/pending-ref-054-a-large-scale-sensitivity-analysis-on-latent-embeddings-an.md`
-- `papers/notes/2023-zadu-library.md`
+- Geometric Inference for Measures based on Distance Functions (Frédéric Chazal et al., 2010)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., 2024)
+- Uniform manifold approximation with two-phase optimization (H. Jeon et al., 2022)
+- VisCoDeR: A tool for visually comparing dimensionality reduction algorithms (René Cutura et al., 2018)
+- A Large-Scale Sensitivity Analysis on Latent Embeddings and Dimensionality Reductions for Text Spatializations (D. Atzberger et al., 2025)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `snc` (`6` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-03-2408-07724v2.md`
-- `papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md`
-- `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md`
-- `papers/notes/zadu-ref-11-jeon23tvcg-4.md`
-- `papers/notes/zadu-ref-04-2510-08660v1.md`
-- `papers/notes/2023-zadu-library.md`
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2025)
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023)
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., 2021)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., 2024)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., 2024)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `dsc` (`5` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-03-2408-07724v2.md`
-- `papers/notes/zadu-ref-05-computer-graphics-forum-2009-sips-selecting-good-views-of-high-e2-80-90dimension.md`
-- `papers/notes/zadu-ref-11-jeon23tvcg-4.md`
-- `papers/notes/zadu-ref-04-2510-08660v1.md`
-- `papers/notes/2023-zadu-library.md`
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2025)
+- Selecting good views of high‐dimensional data using class consistency (Mike Sips et al., 2009)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., 2024)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., 2024)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `ivm` (`5` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md`
-- `papers/notes/zadu-ref-19-ref42-a-comparison-for-dimensionality-reduction-methods-of-single-cell-rna-seq-d.md`
-- `papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md`
-- `papers/notes/zadu-ref-11-jeon23tvcg-4.md`
-- `papers/notes/2023-zadu-library.md`
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., 2021)
+- A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data (Ruizhi Xiang et al., 2021)
+- Local Affine Multidimensional Projection (theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy et al., 2011)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., 2024)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `srho` (`4` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-03-2408-07724v2.md`
-- `papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md`
-- `papers/notes/zadu-ref-04-2510-08660v1.md`
-- `papers/notes/2023-zadu-library.md`
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2025)
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., 2024)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `c_evm` (`3` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-19-ref42-a-comparison-for-dimensionality-reduction-methods-of-single-cell-rna-seq-d.md`
-- `papers/notes/zadu-ref-11-jeon23tvcg-4.md`
-- `papers/notes/2023-zadu-library.md`
+- A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data (Ruizhi Xiang et al., 2021)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., 2024)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `lcmc` (`3` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md`
-- `papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md`
-- `papers/notes/2023-zadu-library.md`
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., 2021)
+- Quality assessment of dimensionality reduction: Rank-based criteria (John A. Lee et al., 2009)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `nm_stress` (`3` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-04-2510-08660v1.md`
-- `papers/notes/2023-zadu-library.md`
-- `papers/notes/zadu-ref-03-2408-07724v2.md`
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., 2024)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2025)
 
 ### `qnx` (`3` PDFs, conflict: `unknown`)
-- `papers/notes/2019-spectral-overlap-quality-metrics.md`
-- `papers/notes/2021-quantitative-survey-dr-techniques.md`
-- `papers/notes/pending-ref-028-visualizing-the-quality-of-dimensionality-reduction.md`
+- Spectral Overlap and a Comparison of Parameter-Free, Dimensionality Reduction Quality Metrics (Jonathan Johannemann; Robert Tibshirani, 2019)
+- Toward a Quantitative Survey of Dimension Reduction Techniques (Mateus Espadoto; Rafael M. Martins; Auri S. Hirata; Alexandru C. Telea, 2021)
+- Visualizing the quality of dimensionality reduction (Bassam Mokbel et al., 2013)
 
 ### `sn_stress` (`3` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-03-2408-07724v2.md`
-- `papers/notes/zadu-ref-04-2510-08660v1.md`
-- `papers/notes/2023-zadu-library.md`
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2025)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., 2024)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `ca_tnc` (`2` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-11-jeon23tvcg-4.md`
-- `papers/notes/2023-zadu-library.md`
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., 2024)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `nh` (`2` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-04-2510-08660v1.md`
-- `papers/notes/2023-zadu-library.md`
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., 2024)
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
 
 ### `spectral_overlap` (`2` PDFs, conflict: `unknown`)
-- `papers/notes/2019-spectral-overlap-quality-metrics.md`
-- `papers/notes/2021-quantitative-survey-dr-techniques.md`
+- Spectral Overlap and a Comparison of Parameter-Free, Dimensionality Reduction Quality Metrics (Jonathan Johannemann; Robert Tibshirani, 2019)
+- Toward a Quantitative Survey of Dimension Reduction Techniques (Mateus Espadoto; Rafael M. Martins; Auri S. Hirata; Alexandru C. Telea, 2021)
 
 ### `l_tnc` (`1` PDFs, conflict: `accepted`)
-- `papers/notes/zadu-ref-11-jeon23tvcg-4.md`
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., 2024)
 
 ## Technique Source Map
 
 Each item below shows where the technique is mentioned.
 
 ### `mds` (`13` PDFs, conflict: `accepted`)
-- `papers/notes/2506.08725v2-stop-misusing-tsne-umap.md`
-- `papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md`
-- `papers/notes/zadu-ref-03-2408-07724v2.md`
-- `papers/notes/2019-mdp-visual-analytics-survey.md`
-- `papers/notes/2015-gisbrecht-nonlinear-dr-visualization.md`
-- `papers/notes/pending-ref-002-empirical-guidance-on-scatterplot-and-dimension-reduction.md`
-- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md`
-- `papers/notes/pending-ref-013-a-survey-of-dimension-reduction-methods-for-high-dimension.md`
-- `papers/notes/pending-ref-014-charting-a-manifold.md`
-- `papers/notes/pending-ref-016-visual-interaction-with-dimensionality-reduction-a-structu.md`
-- `papers/notes/pending-ref-019-local-multidimensional-scaling.md`
-- `papers/notes/pending-ref-024-viscoder-a-tool-for-visually-comparing-dimensionality-redu.md`
-- `papers/notes/pending-ref-026-umap-uniform-manifold-approximation-and-projection-for-dim.md`
+- Stop Misusing t-SNE and UMAP for Visual Analytics (Hyeon Jeon, 2025)
+- Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen et al., 2009)
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2025)
+- Multidimensional Projection for Visual Analytics: Linking Techniques with Distortions, Tasks, and Layout Enrichment (Luis Gustavo Nonato; Michael Aupetit, 2019)
+- Data Visualization by Nonlinear Dimensionality Reduction (Andrej Gisbrecht; Barbara Hammer, 2015)
+- Empirical Guidance on Scatterplot and Dimension Reduction Technique Choices (M. Sedlmair et al., 2013)
+- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., 2010)
+- High Performance Dimension Reduction and Visualization for Large High-Dimensional Data Analysis (D. Engel et al., 2012)
+- Charting a manifold (M. Brand, 2002)
+- Visual Interaction with Dimensionality Reduction: A Structured Literature Analysis (D. Sacha et al, 2017)
+- Local multidimensional scaling (Jarkko Venna and Samuel Kaski, 2006)
+- VisCoDeR: A tool for visually comparing dimensionality reduction algorithms (René Cutura et al., 2018)
+- UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction (Leland McInnes et al., 2020)
 
 ### `t-sne` (`13` PDFs, conflict: `accepted`)
-- `papers/notes/2506.08725v2-stop-misusing-tsne-umap.md`
-- `papers/notes/zadu-ref-04-2510-08660v1.md`
-- `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md`
-- `papers/notes/2020-kobak-initialization-tsne-umap.md`
-- `papers/notes/2022-revisiting-dr-visual-cluster-analysis.md`
-- `papers/notes/pending-ref-002-empirical-guidance-on-scatterplot-and-dimension-reduction.md`
-- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md`
-- `papers/notes/pending-ref-009-uniform-manifold-approximation-with-two-phase-optimization.md`
-- `papers/notes/pending-ref-015-feature-learning-for-nonlinear-dimensionality-reduction-to.md`
-- `papers/notes/pending-ref-024-viscoder-a-tool-for-visually-comparing-dimensionality-redu.md`
-- `papers/notes/pending-ref-026-umap-uniform-manifold-approximation-and-projection-for-dim.md`
-- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md`
-- `papers/notes/pending-ref-039-assessing-singlecell-transcriptomic-variability-through-de.md`
+- Stop Misusing t-SNE and UMAP for Visual Analytics (Hyeon Jeon, 2025)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., 2024)
+- Stochastic Neighbor Embedding (Geoffrey E. Hinton et al., 2002)
+- Initialization Is Critical for Preserving Global Data Structure in Both t-SNE and UMAP (Dmitry Kobak; George C. Linderman, 2020)
+- Revisiting Dimensionality Reduction Techniques for Visual Cluster Analysis: An Empirical Study (Jiazhi Xia; Yuchen Zhang; Jie Song; Yang Chen; Yunhai Wang; Shixia Liu, 2022)
+- Empirical Guidance on Scatterplot and Dimension Reduction Technique Choices (M. Sedlmair et al., 2013)
+- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., 2010)
+- Uniform manifold approximation with two-phase optimization (H. Jeon et al., 2022)
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023)
+- VisCoDeR: A tool for visually comparing dimensionality reduction algorithms (René Cutura et al., 2018)
+- UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction (Leland McInnes et al., 2020)
+- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., 2013)
+- Assessing singlecell transcriptomic variability through density-preserving data visualization (Ashwin Narayan et al., 2021)
 
 ### `laplacian_eigenmaps` (`11` PDFs, conflict: `unknown`)
-- `papers/notes/2009-comparative-review-dr-techniques.md`
-- `papers/notes/2020-kobak-initialization-tsne-umap.md`
-- `papers/notes/2011-hamann-survey-dimension-reduction.md`
-- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md`
-- `papers/notes/pending-ref-008-nonlinear-dimensionality-reduction-by-locally-linear-embed.md`
-- `papers/notes/pending-ref-022-human-cluster-evaluation-and-formal-quality-measures-a-com.md`
-- `papers/notes/pending-ref-043-local-procrustes-for-manifold-embedding-a-measure-of-embed.md`
-- `papers/notes/pending-ref-068-nonlinear-dimensionality-reduction-and-data-visualization.md`
-- `papers/notes/pending-ref-083-locality-preserving-projections.md`
-- `papers/notes/pending-ref-088-global-versus-local-methods-in-nonlinear-dimensionality-re.md`
-- `papers/notes/pending-ref-092-dd-hds-a-method-for-visualization-and-exploration-of-high.md`
+- Dimensionality Reduction: A Comparative Review (Laurens van der Maaten; Eric O. Postma; Jaap van den Herik, 2009)
+- Initialization Is Critical for Preserving Global Data Structure in Both t-SNE and UMAP (Dmitry Kobak; George C. Linderman, 2020)
+- On the Exploration of Dimension Reduction Techniques for Visual Data Mining (Bernd Hamann (survey context), 2011)
+- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., 2010)
+- Nonlinear Dimensionality Reduction by Locally Linear Embedding (Sam T. Roweis and Lawrence K. Saul, 2000)
+- Human cluster evaluation and formal quality measures: A comparative study (Joshua Lewis et al., 2012)
+- Local procrustes for manifold embedding: A measure of embedding quality and embedding algorithms (Y. Goldberg and Y. Ritov, 2009)
+- Nonlinear dimensionality reduction and data visualization: a review (Hujun Yin, 2007)
+- Uncorrelated Locality Preserving Projections (X. He and P. Niyogi, 2004)
+- Global Versus Local Methods in Nonlinear Dimensionality Reduction (Vin Silva and Joshua Tenenbaum, 2002)
+- DD-HDS: A Method for Visualization and Exploration of High-Dimensional Data (Sylvain Lespinats et al., 2007)
 
 ### `pca` (`11` PDFs, conflict: `accepted`)
-- `papers/notes/2506.08725v2-stop-misusing-tsne-umap.md`
-- `papers/notes/2009-comparative-review-dr-techniques.md`
-- `papers/notes/2014-sorzano-survey-dr-techniques.md`
-- `papers/notes/pending-ref-008-nonlinear-dimensionality-reduction-by-locally-linear-embed.md`
-- `papers/notes/pending-ref-015-feature-learning-for-nonlinear-dimensionality-reduction-to.md`
-- `papers/notes/pending-ref-019-local-multidimensional-scaling.md`
-- `papers/notes/pending-ref-024-viscoder-a-tool-for-visually-comparing-dimensionality-redu.md`
-- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md`
-- `papers/notes/pending-ref-030-interactive-dimensionality-reduction-for-comparative-analy.md`
-- `papers/notes/pending-ref-031-interactive-visual-cluster-analysis-by-contrastive-dimensi.md`
-- `papers/notes/pending-ref-032-dimensionality-reduction-for-visualizing-single-cell-data.md`
+- Stop Misusing t-SNE and UMAP for Visual Analytics (Hyeon Jeon, 2025)
+- Dimensionality Reduction: A Comparative Review (Laurens van der Maaten; Eric O. Postma; Jaap van den Herik, 2009)
+- A Survey of Dimensionality Reduction Techniques (C.O.S. Sorzano; J. Vargas; A. Pascual-Montano, 2014)
+- Nonlinear Dimensionality Reduction by Locally Linear Embedding (Sam T. Roweis and Lawrence K. Saul, 2000)
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023)
+- Local multidimensional scaling (Jarkko Venna and Samuel Kaski, 2006)
+- VisCoDeR: A tool for visually comparing dimensionality reduction algorithms (René Cutura et al., 2018)
+- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., 2013)
+- Interactive Dimensionality Reduction for Comparative Analysis (Takanori Fujiwara et al., 2022)
+- Interactive Visual Cluster Analysis by Contrastive Dimensionality Reduction (Jiazhi Xia et al., 2022)
+- Dimensionality reduction for visualizing single-cell data using UMAP (E. Becht et al, 2019)
 
 ### `umap` (`11` PDFs, conflict: `accepted`)
-- `papers/notes/2506.08725v2-stop-misusing-tsne-umap.md`
-- `papers/notes/2020-kobak-initialization-tsne-umap.md`
-- `papers/notes/2022-revisiting-dr-visual-cluster-analysis.md`
-- `papers/notes/pending-ref-009-uniform-manifold-approximation-with-two-phase-optimization.md`
-- `papers/notes/pending-ref-015-feature-learning-for-nonlinear-dimensionality-reduction-to.md`
-- `papers/notes/pending-ref-026-umap-uniform-manifold-approximation-and-projection-for-dim.md`
-- `papers/notes/pending-ref-032-dimensionality-reduction-for-visualizing-single-cell-data.md`
-- `papers/notes/pending-ref-039-assessing-singlecell-transcriptomic-variability-through-de.md`
-- `papers/notes/pending-ref-041-quantitative-evaluation-of-time-dependent-multidimensional.md`
-- `papers/notes/pending-ref-055-hypernp-interactive-visual-exploration-of-multidimensional.md`
-- `papers/notes/pending-ref-077-assessing-single-cell-transcriptomic-variability-through-d.md`
+- Stop Misusing t-SNE and UMAP for Visual Analytics (Hyeon Jeon, 2025)
+- Initialization Is Critical for Preserving Global Data Structure in Both t-SNE and UMAP (Dmitry Kobak; George C. Linderman, 2020)
+- Revisiting Dimensionality Reduction Techniques for Visual Cluster Analysis: An Empirical Study (Jiazhi Xia; Yuchen Zhang; Jie Song; Yang Chen; Yunhai Wang; Shixia Liu, 2022)
+- Uniform manifold approximation with two-phase optimization (H. Jeon et al., 2022)
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023)
+- UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction (Leland McInnes et al., 2020)
+- Dimensionality reduction for visualizing single-cell data using UMAP (E. Becht et al, 2019)
+- Assessing singlecell transcriptomic variability through density-preserving data visualization (Ashwin Narayan et al., 2021)
+- Quantitative evaluation of time-dependent multidimensional projection techniques (E. F. V ernier et al., 2020)
+- HyperNP: Interactive Visual Exploration of Multidimensional Projection Hyperparameters (G. Appleby et al., 2022)
+- Assessing single-cell transcriptomic variability through density-preserving data visualization (A. Narayan et al., 2020)
 
 ### `isomap` (`10` PDFs, conflict: `unknown`)
-- `papers/notes/zadu-ref-01-1-s2-0-s0893608006000724-main.md`
-- `papers/notes/zadu-ref-09-supervised-nonlinear-dimensionality-reduction-for-visualization-and-classificati.md`
-- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md`
-- `papers/notes/pending-ref-016-visual-interaction-with-dimensionality-reduction-a-structu.md`
-- `papers/notes/pending-ref-019-local-multidimensional-scaling.md`
-- `papers/notes/pending-ref-024-viscoder-a-tool-for-visually-comparing-dimensionality-redu.md`
-- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md`
-- `papers/notes/pending-ref-043-local-procrustes-for-manifold-embedding-a-measure-of-embed.md`
-- `papers/notes/pending-ref-045-a-behavioral-investigation-of-dimensionality-reduction.md`
-- `papers/notes/pending-ref-048-linear-dimensionality-reduction-survey-insights-and-genera.md`
+- Local multidimensional scaling (Jarkko Venna et al., 2006)
+- Supervised Nonlinear Dimensionality Reduction for Visualization and Classification (X. Geng et al., 2005)
+- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., 2010)
+- Visual Interaction with Dimensionality Reduction: A Structured Literature Analysis (D. Sacha et al, 2017)
+- Local multidimensional scaling (Jarkko Venna and Samuel Kaski, 2006)
+- VisCoDeR: A tool for visually comparing dimensionality reduction algorithms (René Cutura et al., 2018)
+- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., 2013)
+- Local procrustes for manifold embedding: A measure of embedding quality and embedding algorithms (Y. Goldberg and Y. Ritov, 2009)
+- A behavioral investigation of dimensionality reduction (J. Lewis et al., 2012)
+- Linear dimensionality reduction: Survey, insights, and generalizations (John P Cunningham and Zoubin Ghahramani, 2015)
 
 ### `lle` (`10` PDFs, conflict: `unknown`)
-- `papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md`
-- `papers/notes/zadu-ref-16-ref12-local-procrustes-for-manifold-embedding-a-measure-of-embedding-quality-and.md`
-- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md`
-- `papers/notes/pending-ref-008-nonlinear-dimensionality-reduction-by-locally-linear-embed.md`
-- `papers/notes/pending-ref-013-a-survey-of-dimension-reduction-methods-for-high-dimension.md`
-- `papers/notes/pending-ref-014-charting-a-manifold.md`
-- `papers/notes/pending-ref-019-local-multidimensional-scaling.md`
-- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md`
-- `papers/notes/pending-ref-043-local-procrustes-for-manifold-embedding-a-measure-of-embed.md`
-- `papers/notes/pending-ref-049-dimreader-axis-lines-that-explain-non-linear-projections.md`
+- Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen et al., 2009)
+- Mach Learn (2009) 77: 1–25 (Yair Goldberg et al., 2009)
+- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., 2010)
+- Nonlinear Dimensionality Reduction by Locally Linear Embedding (Sam T. Roweis and Lawrence K. Saul, 2000)
+- High Performance Dimension Reduction and Visualization for Large High-Dimensional Data Analysis (D. Engel et al., 2012)
+- Charting a manifold (M. Brand, 2002)
+- Local multidimensional scaling (Jarkko Venna and Samuel Kaski, 2006)
+- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., 2013)
+- Local procrustes for manifold embedding: A measure of embedding quality and embedding algorithms (Y. Goldberg and Y. Ritov, 2009)
+- DimReader: Axis lines that explain non-linear projections (R. Faust et al., 2019)
 
 ### `random_projection` (`10` PDFs, conflict: `unknown`)
-- `papers/notes/2017-random-projection-survey.md`
-- `papers/notes/2021-quantitative-survey-dr-techniques.md`
-- `papers/notes/pending-ref-045-a-behavioral-investigation-of-dimensionality-reduction.md`
-- `papers/notes/pending-ref-064-experiments-with-random-projection.md`
-- `papers/notes/pending-ref-117-random-projection-for-high-dimensional-data-clustering-a-c.md`
-- `papers/notes/pending-ref-133-semi-random-projection-for-dimensionality-reduction-and-ex.md`
-- `papers/notes/pending-ref-158-loch-a-neighborhood-based-multidimensional-projection-tech.md`
-- `papers/notes/pending-ref-173-random-projection-based-dimensionality-reduction-method-fo.md`
-- `papers/notes/pending-extra-10-5923-j-ajsp-20130-10-5923-j-ajsp-20130303-01.md`
-- `papers/notes/pending-extra-1403-0700v1-1403-0700v1.md`
+- A Survey of Dimensionality Reduction Techniques Based on Random Projection (Haozhe Xie; Jie Li; Hanqing Xue, 2017)
+- Toward a Quantitative Survey of Dimension Reduction Techniques (Mateus Espadoto; Rafael M. Martins; Auri S. Hirata; Alexandru C. Telea, 2021)
+- A behavioral investigation of dimensionality reduction (J. Lewis et al., 2012)
+- Experiments with random projection (S. Dasgupta, 2000)
+- Random projection for high dimensional data clustering: A cluster ensemble approach (X. Z. Fern and C. E. Brodley, 2003)
+- Semi-random projection for dimensionality reduction and extreme learning machine in high-dimensional space (R. Zhao and K. Mao, 2015)
+- LoCH: A neighborhood-based multidimensional projection technique for highdimensional sparse spaces (S. Fadel et al., 2015)
+- Random projection-based dimensionality reduction method for hyperspectral target detection (W. Feng et al., 2015)
+- Evaluation of Random-Projection-Based Feature Combination on Dysarthric Speech Recognition (Tetsuya Takiguchi et al., 2013)
+- Random projections on manifolds of Symmetric Positive Definite matrices for image classification (Azadeh Alavi et al., 2014)
 
 ### `sne` (`9` PDFs, conflict: `unknown`)
-- `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md`
-- `papers/notes/pending-ref-002-empirical-guidance-on-scatterplot-and-dimension-reduction.md`
-- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md`
-- `papers/notes/pending-ref-009-uniform-manifold-approximation-with-two-phase-optimization.md`
-- `papers/notes/pending-ref-015-feature-learning-for-nonlinear-dimensionality-reduction-to.md`
-- `papers/notes/pending-ref-024-viscoder-a-tool-for-visually-comparing-dimensionality-redu.md`
-- `papers/notes/pending-ref-026-umap-uniform-manifold-approximation-and-projection-for-dim.md`
-- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md`
-- `papers/notes/pending-ref-032-dimensionality-reduction-for-visualizing-single-cell-data.md`
+- Stochastic Neighbor Embedding (Geoffrey E. Hinton et al., 2002)
+- Empirical Guidance on Scatterplot and Dimension Reduction Technique Choices (M. Sedlmair et al., 2013)
+- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., 2010)
+- Uniform manifold approximation with two-phase optimization (H. Jeon et al., 2022)
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023)
+- VisCoDeR: A tool for visually comparing dimensionality reduction algorithms (René Cutura et al., 2018)
+- UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction (Leland McInnes et al., 2020)
+- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., 2013)
+- Dimensionality reduction for visualizing single-cell data using UMAP (E. Becht et al, 2019)
 
 ### `som` (`7` PDFs, conflict: `unknown`)
-- `papers/notes/zadu-ref-10-download-2.md`
-- `papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md`
-- `papers/notes/pending-ref-044-classimap-a-new-dimension-reduction-technique-for-explorat.md`
-- `papers/notes/pending-ref-073-trustworthiness-and-metrics-in-visualizing-similarity-of-g.md`
-- `papers/notes/pending-ref-125-a-methodology-to-compare-dimensionality-reduction-algorith.md`
-- `papers/notes/pending-ref-136-survey-and-comparison-of-quality-measures-for-selforganizi.md`
-- `papers/notes/pending-ref-154-recent-advances-in-nonlinear-dimensionality-reduction-mani.md`
+- Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps (of Self/-Organizing F eature Maps, 1992)
+- Quality assessment of dimensionality reduction: Rank-based criteria (John A. Lee et al., 2009)
+- ClassiMap: A new dimension reduction technique for exploratory data analysis of labeled data (S. Lespinats et al., 2015)
+- Trustworthiness and metrics in visualizing similarity of gene expression (S. Kaski et al., 2003)
+- A methodology to compare Dimensionality Reduction algorithms in terms of loss of quality (A. Gracia et al., 2014)
+- Survey and comparison of quality measures for selforganizing maps (G. P €olzlbauer, 2004)
+- Nonlinear Dimensionality Reduction and Manifold Learning (A. Wism €uller et al., 2010)
 
 ### `kpca` (`6` PDFs, conflict: `unknown`)
-- `papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md`
-- `papers/notes/pending-ref-031-interactive-visual-cluster-analysis-by-contrastive-dimensi.md`
-- `papers/notes/pending-ref-048-linear-dimensionality-reduction-survey-insights-and-genera.md`
-- `papers/notes/pending-ref-089-a-new-method-of-generalizing-sammon-mapping-with-applicati.md`
-- `papers/notes/pending-ref-108-dimred-and-coranking-unifying-dimensionality-reduction-in.md`
-- `papers/notes/pending-extra-weinberger05a-weinberger05a.md`
+- Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen et al., 2009)
+- Interactive Visual Cluster Analysis by Contrastive Dimensionality Reduction (Jiazhi Xia et al., 2022)
+- Linear dimensionality reduction: Survey, insights, and generalizations (John P Cunningham and Zoubin Ghahramani, 2015)
+- A new method of generalizing Sammon mapping with application to algorithm speed-up (E. Pekalska et al., 1999)
+- dimRed and coRanking—Unifying Dimensionality Reduction in R (G. Kraemer et al., 2018)
+- Nonlinear Dimensionality Reduction by Semideﬁnite Programming and Kernel Matrix Factorization (Programming and Kernel Matrix Factorization, 2000)
 
 ### `cca` (`4` PDFs, conflict: `unknown`)
-- `papers/notes/zadu-ref-01-1-s2-0-s0893608006000724-main.md`
-- `papers/notes/pending-ref-048-linear-dimensionality-reduction-survey-insights-and-genera.md`
-- `papers/notes/pending-ref-125-a-methodology-to-compare-dimensionality-reduction-algorith.md`
-- `papers/notes/pending-extra-2669557-2669578-2669557-2669578.md`
+- Local multidimensional scaling (Jarkko Venna et al., 2006)
+- Linear dimensionality reduction: Survey, insights, and generalizations (John P Cunningham and Zoubin Ghahramani, 2015)
+- A methodology to compare Dimensionality Reduction algorithms in terms of loss of quality (A. Gracia et al., 2014)
+- Sanity check for class-coloring-based evaluation of dimension reduction techniques (Michaël Aupetit, 2014)
 
 ### `plmp` (`4` PDFs, conflict: `unknown`)
-- `papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md`
-- `papers/notes/pending-ref-013-a-survey-of-dimension-reduction-methods-for-high-dimension.md`
-- `papers/notes/pending-ref-072-piecewise-laplacian-based-projection-for-interactive-data.md`
-- `papers/notes/pending-ref-087-explaining-three-dimensional-dimensionality-reduction-plot.md`
+- Local Affine Multidimensional Projection (theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy et al., 2011)
+- High Performance Dimension Reduction and Visualization for Large High-Dimensional Data Analysis (D. Engel et al., 2012)
+- Piecewise laplacian-based projection for interactive data exploration and organization (F. V. Paulovich et al., 2011)
+- Explaining three-dimensional dimensionality reduction plots (Danilo B. Coimbra et al., 2016)
 
 ### `classimap` (`3` PDFs, conflict: `unknown`)
-- `papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md`
-- `papers/notes/pending-ref-044-classimap-a-new-dimension-reduction-technique-for-explorat.md`
-- `papers/notes/pending-ref-161-steering-distortions-to-preserve-classes-and-neighbors-in.md`
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoit Colange et al., 2020)
+- ClassiMap: A new dimension reduction technique for exploratory data analysis of labeled data (S. Lespinats et al., 2015)
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoît Colange et al., 2020)
 
 ### `lmds` (`3` PDFs, conflict: `unknown`)
-- `papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md`
-- `papers/notes/pending-ref-019-local-multidimensional-scaling.md`
-- `papers/notes/pending-ref-161-steering-distortions-to-preserve-classes-and-neighbors-in.md`
+- Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen et al., 2009)
+- Local multidimensional scaling (Jarkko Venna and Samuel Kaski, 2006)
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoît Colange et al., 2020)
 
 ### `nerv` (`3` PDFs, conflict: `unknown`)
-- `papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md`
-- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md`
-- `papers/notes/pending-ref-161-steering-distortions-to-preserve-classes-and-neighbors-in.md`
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoit Colange et al., 2020)
+- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., 2010)
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoît Colange et al., 2020)
 
 ### `classnerv` (`2` PDFs, conflict: `unknown`)
-- `papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md`
-- `papers/notes/pending-ref-161-steering-distortions-to-preserve-classes-and-neighbors-in.md`
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoit Colange et al., 2020)
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoît Colange et al., 2020)
 
 ### `lamp` (`2` PDFs, conflict: `unknown`)
-- `papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md`
-- `papers/notes/pending-ref-145-deep-learning-multidimensional-projections.md`
+- Local Affine Multidimensional Projection (theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy et al., 2011)
+- Deep learning multidimensional projections (M. Espadoto et al., 2020)
 
 ### `catsne` (`1` PDFs, conflict: `unknown`)
-- `papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md`
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoit Colange et al., 2020)
 
 ### `lsp` (`1` PDFs, conflict: `unknown`)
-- `papers/notes/zadu-ref-06-least-square-projection-a-fast-high-precision-multidimensional-projection-techni.md`
+- Least Square Projection: A Fast High-Precision Multidimensional Projection Technique and Its Application to Document Mapping (F.V. Paulovich et al., 2008)
 
 ### `s-isomap` (`1` PDFs, conflict: `unknown`)
-- `papers/notes/zadu-ref-09-supervised-nonlinear-dimensionality-reduction-for-visualization-and-classificati.md`
+- Supervised Nonlinear Dimensionality Reduction for Visualization and Classification (X. Geng et al., 2005)

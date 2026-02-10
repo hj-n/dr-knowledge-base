@@ -1,45 +1,38 @@
 # Hyperparameter Optimization Protocol
 
-Use this protocol to optimize DR method parameters after task, reliability check set, and initialization are fixed.
-Only allowed optimizer is `bayes_opt`.
+Use this protocol to tune DR parameters after goal confirmation, candidate selection, and initialization choice.
 
 Related:
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](./dr-analysis-workflow.md)
 - Initialization policy: [`docs/workflow/task-aligned-initialization.md`](./task-aligned-initialization.md)
 - Selection policy: [`docs/workflow/configuration-selection-policy.md`](./configuration-selection-policy.md)
 
+## Hard Rule
+Use `bayes_opt` only.
+Do not replace it with grid search, random search, or manual sweep loops.
+
 ## Preconditions
-- `primary_task_axis` is locked with `axis_confidence = high`
-- preprocessing signature is frozen
-- initialization policy is fixed
-- reliability check set is fixed (primary + safety check)
+- the main goal is confirmed with high confidence
+- preprocessing is fixed
+- initialization strategy is fixed
+- aligned reliability checks are fixed
 
-## Optimizer Policy (Hard Rule)
-- `optimizer` must be exactly `bayes_opt`.
-- Use the `bayes_opt` Python library (`BayesianOptimization`) for implementation.
-- Do not use `grid search`.
-- Do not use `random search`.
-- Do not use manual parameter sweep loops as a substitute for Bayesian optimization.
-- If `bayes_opt` cannot be executed in the current environment, stop and report configuration as blocked instead of switching optimizer family.
-
-## Objective Construction
-Use two-level objective:
-- primary objective: task-aligned metric aggregate
-- safety check objective: one metric from a different structural level
+## Objective Design
+Use two signals together:
+- main goal signal
+- cross-level safety signal
 
 Composite objective:
-`objective = 0.8 * primary_metric_score + 0.2 * safety_check_metric_score`
+`objective = 0.8 * main_goal_score + 0.2 * safety_score`
 
-If safety check violates minimum acceptance, reject configuration regardless of objective value.
+If safety score repeatedly fails minimum acceptance, reject that configuration.
 
-## Search Budget Defaults (`bayes_opt`)
+## Suggested Budget
 - small datasets (`n < 10k`): 40-60 evaluations
 - medium datasets (`10k <= n < 100k`): 25-40 evaluations
-- large datasets (`n >= 100k`): 15-25 evaluations with subsampling protocol
+- large datasets (`n >= 100k`): 15-25 evaluations with controlled subsampling
 
-## Method Parameter Templates
-Use bounded search spaces and document every bound.
-
+## Typical Search Bounds
 ### UMAP
 - `n_neighbors`: [5, 200]
 - `min_dist`: [0.0, 0.8]
@@ -53,27 +46,20 @@ Use bounded search spaces and document every bound.
 - `n_iter`: [750, 3000]
 
 ### MDS / Isomap family
-- neighborhood/graph controls: task-appropriate bounded range
-- iteration controls: bounded for convergence vs runtime balance
+- neighborhood and graph parameters: bounded, task-specific ranges
+- iteration controls: bounded ranges for convergence/runtime balance
 
-## Stability Protocol
-- evaluate top 3 configurations under at least 3 seeds each
-- compute rank stability of candidates across seeds
-- downgrade status to `provisional` if rank instability is material
+## Stability Check
+- re-run top configurations across at least three seeds
+- compare rank stability across repeats
+- downgrade to provisional when instability is material
 
-## Early Stop Rules
-Stop optimization when one of the following holds:
-- no composite objective improvement for 10 consecutive evaluations
+## Early Stop
+Stop when one condition holds:
+- no objective improvement over 10 consecutive evaluations
 - runtime budget exhausted
-- safety check metric degrades below acceptance floor repeatedly
+- repeated safety-score failures
 
-## Output Contract
-Step 5 must output:
-- `optimizer`
-- `search_space`
-- `evaluation_budget`
-- `objective_definition`
-- `top_configurations`
-- `best_params`
-- `seed_sensitivity_summary`
-- `safety_check_summary`
+## Internal Record Schema
+Technical field names are maintained in:
+- [`builder/evidence/internal-report-schema.md`](../../builder/evidence/internal-report-schema.md)

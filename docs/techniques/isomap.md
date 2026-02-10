@@ -3,7 +3,7 @@
 ## Technique Summary
 Graph-geodesic manifold projection using neighborhood graph shortest-path distances.
 
-In this repository, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
+In practice, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
 
 The summary should be read together with task alignment and tradeoff sections before implementation. When the same dataset supports multiple objectives, this technique may be suitable for one objective and unsuitable for another.
 
@@ -79,19 +79,19 @@ Operational alignment rule: method alignment should constrain candidate ranking,
 
 Tradeoffs are expected and should be made explicit to users before final selection. A method that improves neighborhood fidelity may worsen global distance faithfulness, and vice versa, so optimization must reflect the task hierarchy.
 
-In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
+In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this guide.
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
 ## Source Notes
-- `papers/notes/zadu-ref-01-1-s2-0-s0893608006000724-main.md` (ZR01-E7, ZR01-E8)
-- `papers/notes/zadu-ref-09-supervised-nonlinear-dimensionality-reduction-for-visualization-and-classificati.md` (ZR09-E1, ZR09-E3, ZR09-E4)
+- Local multidimensional scaling (Jarkko Venna et al., Neural Networks, 2006)
+- Supervised Nonlinear Dimensionality Reduction for Visualization and Classification (X. Geng et al., IEEE Transactions on Systems, Man and Cybernetics, Part B (Cybernetics), 2005)
 
-- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md` (pending-reference evidence)
-- `papers/notes/pending-ref-016-visual-interaction-with-dimensionality-reduction-a-structu.md` (pending-reference evidence)
-- `papers/notes/pending-ref-019-local-multidimensional-scaling.md` (pending-reference evidence)
-- `papers/notes/pending-ref-024-viscoder-a-tool-for-visually-comparing-dimensionality-redu.md` (pending-reference evidence)
-- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md` (pending-reference evidence)
-- `papers/notes/pending-ref-043-local-procrustes-for-manifold-embedding-a-measure-of-embed.md` (pending-reference evidence)
-- `papers/notes/pending-ref-045-a-behavioral-investigation-of-dimensionality-reduction.md` (pending-reference evidence)
-- `papers/notes/pending-ref-048-linear-dimensionality-reduction-survey-insights-and-genera.md` (pending-reference evidence)
+- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., UNKNOWN, 2010)
+- Visual Interaction with Dimensionality Reduction: A Structured Literature Analysis (D. Sacha et al, IEEE Transactions on Visualization and Computer Graphics, 2017)
+- Local multidimensional scaling (Jarkko Venna and Samuel Kaski, Journal of the American Statistical Association, 2006)
+- VisCoDeR: A tool for visually comparing dimensionality reduction algorithms (René Cutura et al., UNKNOWN, 2018)
+- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., UNKNOWN, 2013)
+- Local procrustes for manifold embedding: A measure of embedding quality and embedding algorithms (Y. Goldberg and Y. Ritov, Machine Learning, 2009)
+- A behavioral investigation of dimensionality reduction (J. Lewis et al., UNKNOWN, 2012)
+- Linear dimensionality reduction: Survey, insights, and generalizations (John P Cunningham and Zoubin Ghahramani, UNKNOWN, 2015)

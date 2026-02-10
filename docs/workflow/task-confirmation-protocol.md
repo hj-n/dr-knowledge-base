@@ -1,76 +1,45 @@
 # Task Confirmation Protocol
 
-Use this protocol to convert ambiguous user language into exactly one primary analysis goal.
-The goal is to prevent premature technique selection and ensure stable downstream configuration.
-In user-facing text, say `main analysis goal`.
+Use this protocol to turn ambiguous requests into one confirmed analysis goal.
 
 Related:
 - Intake questions: [`docs/intake-question-tree.md`](../intake-question-tree.md)
 - Task taxonomy: [`docs/task-taxonomy.md`](../task-taxonomy.md)
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](./dr-analysis-workflow.md)
 
-## User-Layer Wording Rule
-- In user-facing answers, say `main analysis goal`.
-- Avoid internal workflow labels in end-user text.
+## Plain-Language Rule
+In user-facing answers, use `main analysis goal`.
+Avoid internal labels and status keys.
 
-## Required Inputs
-- `user_goal_text`: user statement in plain language
-- `analysis_context`: optional constraints (labels, runtime, interpretability)
+## Procedure
+1. Ask one open question first.
+   - Example: "What do you want to learn from this 2D view?"
+2. Extract intent phrases from the answer.
+3. Map intent to one or more goals in the 7-goal taxonomy.
+4. If more than one goal remains plausible, ask one clarification question.
+5. Confirm the selected goal in plain language.
 
-## Decision Procedure
-1. Ask one open plain-language question first.
-   - Example: "What do you want to learn from this embedding?"
-2. Extract candidate intent phrases from the response.
-3. Map each phrase to one or more of the 7 analysis goals.
-4. If more than one goal remains plausible, ask one clarification question at a time.
-5. Confirm the selected goal in plain language before moving on.
-
-## Confidence Rubric
-Assign `axis_confidence` from evidence in the user response.
-
-- `high`:
-  - one axis clearly dominates,
-  - user confirmation is explicit,
-  - no unresolved competing axis.
-- `medium`:
-  - top axis is plausible,
-  - one competing axis remains,
-  - user confirmation is indirect or partial.
-- `low`:
-  - multiple axes remain equally plausible,
-  - user confirmation is missing or contradictory.
+## Confidence Rule
+Use three levels:
+- high: one goal is clearly confirmed by the user
+- medium: one goal is likely, but one competitor remains
+- low: multiple goals remain plausible or the user statement is contradictory
 
 Hard gate:
-- Do not proceed to technique/metric recommendation unless `axis_confidence = high`.
+- do not recommend methods until confidence is high
 
-## Clarification Question Rules
-- Do not expose all 7 task names at the first prompt.
-- Use plain language that a DR novice can understand.
-- Ask exactly one discriminating question per turn.
-- Prefer contrastive question format:
-  - "Are you trying to find similar points around each point, or compare distances between whole clusters?"
-- Avoid jargon in questions (`manifold`, `embedding topology`, `local-global tradeoff`) unless the user already used those terms.
+## Clarification Question Rule
+- Do not show all seven goal names in the first prompt.
+- Use novice-friendly wording.
+- Ask one discriminating question at a time.
+- Avoid advanced jargon unless the user already uses it.
 
-## Required Output Contract
-Step 1 must produce:
-- `primary_task_axis`
-- `task_subtype` (optional)
-- `axis_confidence`
-- `task_confirmation_quote` (user wording that confirms intent)
-- `task_mapping_rationale` (1-3 lines)
+## If Confidence Stays Low
+After three clarification turns:
+- provide two plausible goals with uncertainty notes
+- stop at exploratory guidance
+- do not provide a definitive final ranking
 
-## Failure Handling
-If confidence remains below `high` after 3 clarification turns:
-- set `recommendation_status = exploratory`
-- output two candidate axes with uncertainty note
-- defer hard method ranking
-
-## Example
-```text
-user_goal_text: "I need to know whether nearby customers in feature space stay nearby after projection."
-primary_task_axis: Neighborhood identification
-task_subtype: local-neighbor consistency check
-axis_confidence: high
-task_confirmation_quote: "nearby customers stay nearby"
-task_mapping_rationale: user intent is local-neighborhood preservation, not global distance ordering.
-```
+## Internal Record Schema
+Technical field names are maintained in:
+- [`builder/evidence/internal-report-schema.md`](../../builder/evidence/internal-report-schema.md)

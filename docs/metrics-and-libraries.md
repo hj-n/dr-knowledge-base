@@ -2,137 +2,98 @@
 
 Related:
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md)
-- Task confirmation prerequisite: [`docs/workflow/task-confirmation-protocol.md`](./workflow/task-confirmation-protocol.md)
-- Selection scoring policy: [`docs/workflow/configuration-selection-policy.md`](./workflow/configuration-selection-policy.md)
-- Task taxonomy: [`docs/task-taxonomy.md`](./task-taxonomy.md)
+- Task confirmation: [`docs/workflow/task-confirmation-protocol.md`](./workflow/task-confirmation-protocol.md)
+- Selection policy: [`docs/workflow/configuration-selection-policy.md`](./workflow/configuration-selection-policy.md)
 - Metric catalog: [`docs/metrics/README.md`](./metrics/README.md)
 - Technique catalog: [`docs/techniques/README.md`](./techniques/README.md)
 - Coverage ranking: [`docs/reference-coverage.md`](./reference-coverage.md)
 
-## Default Library
-- Use `zadu` as the default reliability-analysis metric set.
-- Keep metric IDs exactly as documented in this page.
+## Purpose
+Use this page to choose reliability checks and DR techniques that match the user's analysis goal.
+Write recommendations in plain language. Do not expose internal mapping tables or key/value syntax in user answers.
+
+## Default Evaluation Library
+Use `zadu` as the default reliability-check library.
+If a needed behavior is not covered, add an extra metric only when paper evidence is explicit.
 
 ## User-Layer Wording Rule
-- In end-user explanations, do not expose internal terms from this page.
-- Prefer plain wording:
-  - `main goal`
-  - `reliability checks`
-  - `safety check`
-
-## Task-First Rule
-- Do not pick metrics before task confirmation (`axis_confidence = high`).
-- Use one primary axis; optional subtask only refines within axis-valid candidates.
-
-## Optimal Selection Mode (Mandatory for "best/optimal" requests)
-When the user asks for the best/optimal DR configuration:
-- compare all techniques listed under the selected task in this document
-- compare all task-aligned metrics listed for that task (primary + safety check metrics)
-- do not skip aligned candidates unless a hard-gate failure is recorded
-- record excluded candidates with explicit reasons
-
-## Metric IDs (22)
-1. `tnc`
-2. `mrre`
-3. `lcmc`
-4. `nh`
-5. `ca_tnc`
-6. `l_tnc`
-7. `nd`
-8. `dtm`
-9. `kl_div`
-10. `dsc`
-11. `pr`
-12. `srho`
-13. `ivm`
-14. `c_evm`
-15. `snc`
-16. `topo`
-17. `proc`
-18. `stress`
-19. `sn_stress`
-20. `nm_stress`
-21. `qnx`
-22. `spectral_overlap`
-
-## Structural Grouping
-- Local: `tnc`, `mrre`, `lcmc`, `nh`, `nd`, `ca_tnc`, `proc`
-- Cluster-level: `snc`, `dsc`, `ivm`, `c_evm`
-- Global: `stress`, `kl_div`, `dtm`, `topo`, `pr`, `srho`
-- Additional: `l_tnc`, `sn_stress`, `nm_stress`, `qnx`, `spectral_overlap`
+In end-user answers:
+- use plain terms such as `main goal`, `reliability checks`, and `safety check`
+- do not use internal mapping-table syntax in user prose
+- when references are requested, cite papers (title, authors, venue, year, URL)
 
 ## Mandatory Label-Separation Check
-Before relying on class-aware metrics (`dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`), validate class separability in the original space.
+Before using class-aware checks, verify that labels are reasonably separated in the original high-dimensional space.
+If this assumption is weak or unknown, do not base the final recommendation on class-aware checks alone.
 
-If the check is `fail` or `unknown`:
-- class-aware metrics cannot be main scoring metrics
-- keep at least one local and one global label-agnostic metric in the comparison set
+Class-aware checks include:
+- Distance Consistency
+- Internal Validation Measure
+- Clustering-plus-External Validation Measure
+- Neighborhood Hit
+- Class-Aware Trustworthiness and Continuity
 
-## Task-Aligned Metric Set Contract
-Each comparison set must include:
-- one main metric aligned to the main goal
-- one safety check metric from a different structural level
-- optional third metric for tie-break
+## Best/Optimal Selection Mode
+When the user asks for the best or optimal DR configuration:
+- compare all techniques aligned to the confirmed goal before pruning
+- compare all aligned reliability checks before pruning
+- allow exclusions only for hard failures, and record clear reasons
 
-## Task-to-Metric Starter Bundles
+## Goal-Aligned Reliability Checks (Plain-Language Guide)
 1. Neighborhood identification:
-   - primary: `tnc`, `nh`, `nd`
-   - safety check: `stress`
-2. Outlier identification:
-   - primary: `tnc`, `nd`, `lcmc`
-   - safety check: `stress`
-3. Cluster identification:
-   - primary: `tnc`, `snc`, `nh`
-   - safety check: `topo` or `stress`
-4. Point distance investigation:
-   - primary: `stress`, `kl_div`, `pr`
-   - safety check: `tnc` or `proc`
-5. Class separability investigation:
-   - primary: `dsc`, `ivm`, `c_evm`
-   - safety check: `tnc` or `proc`
-6. Cluster distance investigation:
-   - primary: `snc`, `stress`, `pr`
-   - safety check: `topo`
-7. Cluster density investigation:
-   - primary: `stress`, `kl_div`, `topo`
-   - safety check: `tnc` or `proc`
+- prioritize local-neighborhood faithfulness checks
+- cross-check with a global distortion check
 
-## Task-to-Technique Starter Candidates
+2. Outlier identification:
+- prioritize local-neighborhood checks that are sensitive to isolated points
+- cross-check with a global distortion check
+
+3. Cluster identification:
+- combine local and cluster-level checks
+- add one global check to avoid overfitting to local structure
+
+4. Point-distance investigation:
+- prioritize global distance-preservation checks
+- add one local check to detect local collapse
+
+5. Class-separability investigation:
+- prioritize class-aware checks only after label-separation validation
+- add label-agnostic local/global checks as safeguards
+
+6. Cluster-distance investigation:
+- prioritize checks that capture inter-cluster spacing and global ordering
+- add one topology-oriented check
+
+7. Cluster-density investigation:
+- prioritize checks that reflect density and distance distortion
+- add one local check so density conclusions do not hide neighborhood artifacts
+
+## Goal-Aligned Technique Families (Plain-Language Guide)
 1. Neighborhood identification:
-   - primary: `t-sne`, `umap`, `lle`, `laplacian_eigenmaps`
+- methods that preserve local neighborhoods (for example UMAP, t-SNE, LLE, Laplacian Eigenmaps)
+
 2. Outlier identification:
-   - primary: `umap`, `t-sne`, `lle`
+- local-structure methods that keep neighborhood detail visible (for example UMAP, t-SNE, LLE)
+
 3. Cluster identification:
-   - primary: `umap`, `t-sne`, `som`, `classimap`
-4. Point distance investigation:
-   - primary: `pca`, `mds`, `isomap`
-5. Class separability investigation:
-   - primary: `classnerv`, `classimap`, `catsne`
-6. Cluster distance investigation:
-   - primary: `pca`, `mds`, `isomap`
-7. Cluster density investigation:
-   - primary: `pca`, `mds`, `isomap`
+- methods that make local grouping behavior visible (for example UMAP, t-SNE, SOM, Classimap)
 
-## Deterministic Selection Rule
-Candidate selection must follow `docs/workflow/configuration-selection-policy.md`.
-No ad-hoc final ranking is allowed.
+4. Point-distance investigation:
+- methods that better preserve global distance relationships (for example PCA, MDS, Isomap)
 
-Minimum acceptance for production recommendation:
-- `selection_status = accepted`
-- label-separation check resolved
-- initialization stability reported
-- safety check consistency reported
+5. Class-separability investigation:
+- supervised or label-aware methods (for example ClassNeRV, Classimap, catSNE), with label-quality checks
 
-## Coverage Priority Rule
-When candidates remain valid after hard gates:
-1. rank by deterministic total score
-2. if tied, prefer higher PDF support frequency
-3. down-rank `unknown` conflict status by one tier
-4. down-rank `contested` by one additional tier
+6. Cluster-distance investigation:
+- methods with stronger global spacing behavior (for example PCA, MDS, Isomap)
 
-## Non-ZADU Metric Extension Policy
-Non-ZADU metrics are allowed only when:
-- task requires behavior not covered by current ZADU set
-- definition/use/caveat claims have explicit `papers/notes/*` provenance
-- metric ID is unique `snake_case`
-- confidence is marked conservatively when evidence is thin
+7. Cluster-density investigation:
+- methods that are usually more stable for density comparison under global geometry constraints (for example PCA, MDS, Isomap)
+
+## Ranking Policy
+Final ranking must follow [`docs/workflow/configuration-selection-policy.md`](./workflow/configuration-selection-policy.md).
+Do not use ad-hoc preference rules.
+
+## Paper References (User-Facing)
+- Hyeon Jeon et al. (2025). *Stop Misusing t-SNE and UMAP: Analyzing, Visualizing, and Reconciling Distortion in DR*. arXiv:2506.08725.
+- Hyeon Jeon et al. (2023). *ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings*. IEEE VIS 2023.

@@ -3,7 +3,7 @@
 ## Technique Summary
 Linear projection using principal axes of maximum variance.
 
-In this repository, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
+In practice, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
 
 The summary should be read together with task alignment and tradeoff sections before implementation. When the same dataset supports multiple objectives, this technique may be suitable for one objective and unsuitable for another.
 
@@ -80,20 +80,20 @@ Operational alignment rule: prioritize for distance and density tasks; for neigh
 
 Tradeoffs are expected and should be made explicit to users before final selection. A method that improves neighborhood fidelity may worsen global distance faithfulness, and vice versa, so optimization must reflect the task hierarchy.
 
-In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
+In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this guide.
 
 Communication rule: explain what local structure may be sacrificed to preserve global trends, and confirm this with local metrics before finalization.
 
 ## Source Notes
-- `papers/notes/2506.08725v2-stop-misusing-tsne-umap.md` (JEON25-E3, JEON25-E4, JEON25-E5, JEON25-E6)
-- `papers/notes/2009-comparative-review-dr-techniques.md` (CLAIM-COMP09-C1, CLAIM-COMP09-C3)
-- `papers/notes/2014-sorzano-survey-dr-techniques.md` (CLAIM-SORZANO14-C2)
+- Stop Misusing t-SNE and UMAP for Visual Analytics (Hyeon Jeon, arXiv, 2025)
+- Dimensionality Reduction: A Comparative Review (Laurens van der Maaten; Eric O. Postma; Jaap van den Herik, Technical Report, 2009)
+- A Survey of Dimensionality Reduction Techniques (C.O.S. Sorzano; J. Vargas; A. Pascual-Montano, Information Sciences, 2014)
 
-- `papers/notes/pending-ref-008-nonlinear-dimensionality-reduction-by-locally-linear-embed.md` (pending-reference evidence)
-- `papers/notes/pending-ref-015-feature-learning-for-nonlinear-dimensionality-reduction-to.md` (pending-reference evidence)
-- `papers/notes/pending-ref-019-local-multidimensional-scaling.md` (pending-reference evidence)
-- `papers/notes/pending-ref-024-viscoder-a-tool-for-visually-comparing-dimensionality-redu.md` (pending-reference evidence)
-- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md` (pending-reference evidence)
-- `papers/notes/pending-ref-030-interactive-dimensionality-reduction-for-comparative-analy.md` (pending-reference evidence)
-- `papers/notes/pending-ref-031-interactive-visual-cluster-analysis-by-contrastive-dimensi.md` (pending-reference evidence)
-- `papers/notes/pending-ref-032-dimensionality-reduction-for-visualizing-single-cell-data.md` (pending-reference evidence)
+- Nonlinear Dimensionality Reduction by Locally Linear Embedding (Sam T. Roweis and Lawrence K. Saul, Science, 2000)
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023 IEEE 16th Pacific Visualization Symposium (PacificVis), 2023)
+- Local multidimensional scaling (Jarkko Venna and Samuel Kaski, Journal of the American Statistical Association, 2006)
+- VisCoDeR: A tool for visually comparing dimensionality reduction algorithms (René Cutura et al., UNKNOWN, 2018)
+- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., UNKNOWN, 2013)
+- Interactive Dimensionality Reduction for Comparative Analysis (Takanori Fujiwara et al., IEEE Transactions on Visualization and Computer Graphics, 2022)
+- Interactive Visual Cluster Analysis by Contrastive Dimensionality Reduction (Jiazhi Xia et al., IEEE Transactions on Visualization and Computer Graphics, 2022)
+- Dimensionality reduction for visualizing single-cell data using UMAP (E. Becht et al, Nature Biotechnology, 2019)

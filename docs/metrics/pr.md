@@ -78,17 +78,17 @@ Before communicating a conclusion, cross-check this metric against the selected 
 Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
 
 ## Source Notes
-The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+The references below list paper sources used for this metric guidance.
 
-- `papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md` -> `CLAIM-METRIC-PR-SOURCE-15`
-- `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md` -> `CLAIM-METRIC-PR-SOURCE-18`
-- `papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md` -> `CLAIM-METRIC-PR-SOURCE-14`
-- `papers/notes/zadu-ref-04-2510-08660v1.md` -> `CLAIM-METRIC-PR-SOURCE-04`
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023 IEEE 16th Pacific Visualization Symposium (PacificVis), 2023)
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2021)
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoit Colange et al., Advances in Neural Information Processing Systems (NeurIPS), 2020)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
 
-- `papers/notes/pending-ref-057-quality-metrics-for-information-visualization.md` (pending-reference evidence)
-- `papers/notes/pending-ref-068-nonlinear-dimensionality-reduction-and-data-visualization.md` (pending-reference evidence)
-- `papers/notes/pending-ref-077-assessing-single-cell-transcriptomic-variability-through-d.md` (pending-reference evidence)
-- `papers/notes/pending-ref-101-trimap-large-scale-dimensionality-reduction-using-triplets.md` (pending-reference evidence)
-- `papers/notes/pending-ref-148-with-respect-to-what-simultaneous-interaction-with-dimensi.md` (pending-reference evidence)
+- Quality Metrics for Information Visualization (M. Behrisch et al., Computer Graphics Forum, 2018)
+- Nonlinear dimensionality reduction and data visualization: a review (Hujun Yin, International Journal of Automation and Computing, 2007)
+- Assessing single-cell transcriptomic variability through density-preserving data visualization (A. Narayan et al., Nature Biotechnology, 2020)
+- TriMap: Large-scale Dimensionality Reduction Using Triplets (Ehsan Amid and Manfred K. Warmuth, UNKNOWN, 2022)
+- With Respect to What? Simultaneous Interaction with Dimension Reduction and Clustering Projections (John Wenskovitch et al., The Annals of Statistics, 2020)
 
-[^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E5).
+[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)

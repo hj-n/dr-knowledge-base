@@ -30,22 +30,46 @@ BANNED_PHRASES = [
     "candidate score table",
     "selection_status",
     "axis_confidence",
-    "전처리 동결",
-    "메트릭 번들",
-    "태스크 축",
-    "업무 축",
-    "잠근다",
-    "지표 번들",
-    "번들로 점수화",
 ]
 
 BANNED_INTERFACE = [
     "dr kb",
-    "knowledge base",
+    "dr knowledge base",
     "context7",
     "this repo",
     "workflow step",
     "contract validator",
+]
+
+BANNED_REFERENCE_TOKENS = [
+    "papers/notes/",
+    "docs/",
+    "llms.txt",
+    "github.com/hj-n/dr-knowledge-base",
+    "dr-knowledge-base/blob/",
+]
+
+BANNED_REFERENCE_REGEX = [
+    r"https?://[^\s)]+\.md\b",
+    r"\[[^\]]+\]\([^)]+/papers/notes/[^)]+\)",
+    r"\[[^\]]+\]\([^)]+/docs/[^)]+\)",
+]
+
+BANNED_MAPPING_STYLE_PHRASES = [
+    "task->metric",
+    "task→metric",
+    "task-to-metric",
+    "task to metric mapping",
+    "primary = [",
+    "primary:[",
+    "safety check = [",
+    "safety check:[",
+]
+
+BANNED_MAPPING_STYLE_REGEX = [
+    r"\b(primary|safety check)\s*(=|:)\s*\[[^\]]+\]",
+    r"\b(task\s*(->|→)\s*metric|task-?to-?metric)\b",
+    r"\[\s*\"[a-z0-9_]+\"(\s*,\s*\"[a-z0-9_]+\")+\s*\]",
 ]
 
 BANNED_METRIC_IDS = [
@@ -60,11 +84,9 @@ BANNED_METRIC_IDS = [
     "ivm",
     "c_evm",
     "snc",
-    "stress",
     "kl_div",
     "dtm",
     "topo",
-    "pr",
     "srho",
     "proc",
     "qnx",
@@ -130,6 +152,22 @@ def main() -> int:
     for phrase in BANNED_INTERFACE:
         if phrase in low:
             violations.append(("INTERFACE_LEAK", phrase))
+
+    for token in BANNED_REFERENCE_TOKENS:
+        if token in low:
+            violations.append(("REFERENCE_LEAK", token))
+
+    for pattern in BANNED_REFERENCE_REGEX:
+        if re.search(pattern, low):
+            violations.append(("REFERENCE_LEAK", pattern))
+
+    for phrase in BANNED_MAPPING_STYLE_PHRASES:
+        if phrase in low:
+            violations.append(("MAPPING_STYLE_LEAK", phrase))
+
+    for pattern in BANNED_MAPPING_STYLE_REGEX:
+        if re.search(pattern, low):
+            violations.append(("MAPPING_STYLE_LEAK", pattern))
 
     for token in BANNED_METRIC_IDS:
         if re.search(rf"\b{re.escape(token)}\b", low):

@@ -63,14 +63,14 @@ The speed-quality tradeoff is favorable only when task metrics confirm adequacy.
 Communication rule: present this method as a speed/reference baseline unless task metrics clearly validate its adequacy. Runtime gains do not substitute for reliability evidence.
 
 ## Source Notes
-- `papers/notes/2017-random-projection-survey.md` (CLAIM-RP17-C1, CLAIM-RP17-C2, CLAIM-RP17-C3)
-- `papers/notes/2021-quantitative-survey-dr-techniques.md` (CLAIM-QSUR21-C1)
+- A Survey of Dimensionality Reduction Techniques Based on Random Projection (Haozhe Xie; Jie Li; Hanqing Xue, arXiv, 2017)
+- Toward a Quantitative Survey of Dimension Reduction Techniques (Mateus Espadoto; Rafael M. Martins; Auri S. Hirata; Alexandru C. Telea, IEEE Transactions on Visualization and Computer Graphics, 2021)
 
-- `papers/notes/pending-ref-045-a-behavioral-investigation-of-dimensionality-reduction.md` (pending-reference evidence)
-- `papers/notes/pending-ref-064-experiments-with-random-projection.md` (pending-reference evidence)
-- `papers/notes/pending-ref-117-random-projection-for-high-dimensional-data-clustering-a-c.md` (pending-reference evidence)
-- `papers/notes/pending-ref-133-semi-random-projection-for-dimensionality-reduction-and-ex.md` (pending-reference evidence)
-- `papers/notes/pending-ref-158-loch-a-neighborhood-based-multidimensional-projection-tech.md` (pending-reference evidence)
-- `papers/notes/pending-ref-173-random-projection-based-dimensionality-reduction-method-fo.md` (pending-reference evidence)
-- `papers/notes/pending-extra-10-5923-j-ajsp-20130-10-5923-j-ajsp-20130303-01.md` (pending-reference evidence)
-- `papers/notes/pending-extra-1403-0700v1-1403-0700v1.md` (pending-reference evidence)
+- A behavioral investigation of dimensionality reduction (J. Lewis et al., UNKNOWN, 2012)
+- Experiments with random projection (S. Dasgupta, UNKNOWN, 2000)
+- Random projection for high dimensional data clustering: A cluster ensemble approach (X. Z. Fern and C. E. Brodley, International Journal of Database Theory and Application, 2003)
+- Semi-random projection for dimensionality reduction and extreme learning machine in high-dimensional space (R. Zhao and K. Mao, Journal of Big Data, 2015)
+- LoCH: A neighborhood-based multidimensional projection technique for highdimensional sparse spaces (S. Fadel et al., IEEE Transactions on Visualization and Computer Graphics, 2015)
+- Random projection-based dimensionality reduction method for hyperspectral target detection (W. Feng et al., Journal of Big Data, 2015)
+- Evaluation of Random-Projection-Based Feature Combination on Dysarthric Speech Recognition (Tetsuya Takiguchi et al., American Journal of Signal Processing, 2013)
+- Random projections on manifolds of Symmetric Positive Definite matrices for image classification (Azadeh Alavi et al., IEEE Winter Conference on Applications of Computer Vision, 2014)

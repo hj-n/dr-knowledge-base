@@ -3,7 +3,7 @@
 ## Metric Definition
 `spectral_overlap` is a neighborhood-overlap-style DR quality metric designed to evaluate embedding faithfulness with minimal additional metric tuning burden. It is positioned as a robust objective for DR quality optimization.
 
-In this repository, use it as a local-structure reliability metric that can serve as an optimization objective when tuning DR hyperparameters.
+In practice, use it as a local-structure reliability metric that can serve as an optimization objective when tuning DR hyperparameters.
 
 ## What It Quantifies
 The metric quantifies overlap quality of neighborhood/spectral structure between original and embedded representations. Higher values generally indicate stronger preservation of local manifold organization.
@@ -57,5 +57,5 @@ When reporting results, state clearly that `spectral_overlap` supports neighborh
 Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
 
 ## Source Notes
-- `papers/notes/2019-spectral-overlap-quality-metrics.md` -> `CLAIM-JT19-C3`
-- `papers/notes/2021-quantitative-survey-dr-techniques.md` -> `CLAIM-QSUR21-C1`
+- Spectral Overlap and a Comparison of Parameter-Free, Dimensionality Reduction Quality Metrics (Jonathan Johannemann; Robert Tibshirani, arXiv, 2019)
+- Toward a Quantitative Survey of Dimension Reduction Techniques (Mateus Espadoto; Rafael M. Martins; Auri S. Hirata; Alexandru C. Telea, IEEE Transactions on Visualization and Computer Graphics, 2021)

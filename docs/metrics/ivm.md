@@ -78,12 +78,12 @@ Before communicating a conclusion, cross-check this metric against the selected 
 Failure-signaling rule: when class-aware metrics improve but label-agnostic local/global metrics worsen, report a class-specific gain with structural tradeoff instead of claiming unconditional quality improvement.
 
 ## Source Notes
-The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+The references below list paper sources used for this metric guidance.
 
-- `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md` -> `CLAIM-METRIC-IVM-SOURCE-18`
-- `papers/notes/zadu-ref-19-ref42-a-comparison-for-dimensionality-reduction-methods-of-single-cell-rna-seq-d.md` -> `CLAIM-METRIC-IVM-SOURCE-19`
-- `papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md` -> `CLAIM-METRIC-IVM-SOURCE-08`
-- `papers/notes/zadu-ref-11-jeon23tvcg-4.md` -> `CLAIM-METRIC-IVM-SOURCE-11`
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2021)
+- A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data (Ruizhi Xiang et al., Frontiers in Genetics, 2021)
+- Local Affine Multidimensional Projection (theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy et al., IEEE Transactions on Visualization and Computer Graphics, 2011)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
 
-[^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E4).
-[^warn-label]: Warning source note: `papers/notes/2026-zadu-readme-warning.md` (ZADU-RM-E1, ZADU-RM-E2).
+[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
+[^warn-label]: ZADU README Operational Warning for Label-Separation-Sensitive Metrics (hj-n/zadu maintainers, GitHub README, 2026)

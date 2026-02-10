@@ -57,7 +57,7 @@ Read `l_tnc` under a fixed preprocessing and distance policy. Changing preproces
 When this metric disagrees with label-agnostic local/global metrics, report the disagreement explicitly. Do not average away the conflict; disagreement is itself important reliability information.
 
 ## Source Notes
-- `papers/notes/zadu-ref-11-jeon23tvcg-4.md` -> `CLAIM-METRIC-L_TNC-SOURCE-11`
-- `papers/notes/2026-zadu-readme-warning.md` -> `ZADU-RM-E1`, `ZADU-RM-E2`
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
+- ZADU README Operational Warning for Label-Separation-Sensitive Metrics (hj-n/zadu maintainers, GitHub README, 2026)
 
-[^z11]: `papers/notes/zadu-ref-11-jeon23tvcg-4.md` (ZR11-E6, ZR11-E7, ZR11-E8, ZR11-E9, ZR11-E10, ZR11-E11).
+[^z11]: Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2024)

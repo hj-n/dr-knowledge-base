@@ -77,9 +77,9 @@ Before communicating a conclusion, cross-check this metric against the selected 
 Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
 
 ## Source Notes
-The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+The references below list paper sources used for this metric guidance.
 
-- `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md` -> `CLAIM-METRIC-LCMC-SOURCE-18`
-- `papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md` -> `CLAIM-METRIC-LCMC-SOURCE-02`
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2021)
+- Quality assessment of dimensionality reduction: Rank-based criteria (John A. Lee et al., Neurocomputing, 2009)
 
-[^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E3).
+[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)

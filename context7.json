@@ -1,4 +1,16 @@
 {
-	"url": "https://context7.com/hj-n/dr-knowledge-base",
-	"public_key": "pk_lRnfPRoUGB8BFds9D65Z9"
+  "url": "https://context7.com/hj-n/dr-knowledge-base",
+  "public_key": "pk_lRnfPRoUGB8BFds9D65Z9",
+  "include": [
+    "llms.txt",
+    "docs/**"
+  ],
+  "exclude": [
+    "papers/raw/**",
+    "papers/notes/**",
+    "builder/**",
+    "scripts/**",
+    "docs/reference-coverage.md",
+    "docs/paper-catalog.csv"
+  ]
 }

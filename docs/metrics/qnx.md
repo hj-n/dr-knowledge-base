@@ -3,7 +3,7 @@
 ## Metric Definition
 `qnx` measures neighborhood-overlap fidelity between original and embedded spaces without requiring many extra tuning choices. It is designed to capture whether nearest-neighbor relationships are preserved after dimensionality reduction.
 
-In this repository, treat `qnx` as a local-structure reliability metric that is especially useful when the analytical objective depends on neighborhood integrity. It should not be interpreted as a full replacement for global-structure metrics.
+In practice, treat `qnx` as a local-structure reliability metric that is especially useful when the analytical objective depends on neighborhood integrity. It should not be interpreted as a full replacement for global-structure metrics.
 
 ## What It Quantifies
 This metric quantifies how strongly the embedding retains nearest-neighbor membership from high-dimensional space. Higher values indicate that local neighborhoods in the embedding better match neighborhoods in the source space.
@@ -57,7 +57,7 @@ For production recommendations, combine `qnx` with at least one global metric an
 Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
 
 ## Source Notes
-- `papers/notes/2019-spectral-overlap-quality-metrics.md` -> `CLAIM-JT19-C3`
-- `papers/notes/2021-quantitative-survey-dr-techniques.md` -> `CLAIM-QSUR21-C2`
+- Spectral Overlap and a Comparison of Parameter-Free, Dimensionality Reduction Quality Metrics (Jonathan Johannemann; Robert Tibshirani, arXiv, 2019)
+- Toward a Quantitative Survey of Dimension Reduction Techniques (Mateus Espadoto; Rafael M. Martins; Auri S. Hirata; Alexandru C. Telea, IEEE Transactions on Visualization and Computer Graphics, 2021)
 
-- `papers/notes/pending-ref-028-visualizing-the-quality-of-dimensionality-reduction.md` (pending-reference evidence)
+- Visualizing the quality of dimensionality reduction (Bassam Mokbel et al., Neurocomputing, 2013)

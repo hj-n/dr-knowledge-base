@@ -77,21 +77,21 @@ Before communicating a conclusion, cross-check this metric against the selected 
 Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
 
 ## Source Notes
-The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+The references below list paper sources used for this metric guidance.
 
-- `papers/notes/zadu-ref-03-2408-07724v2.md` -> `CLAIM-METRIC-TNC-SOURCE-03`
-- `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md` -> `CLAIM-METRIC-TNC-SOURCE-18`
-- `papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md` -> `CLAIM-METRIC-TNC-SOURCE-07`
-- `papers/notes/zadu-ref-01-1-s2-0-s0893608006000724-main.md` -> `CLAIM-METRIC-TNC-SOURCE-01`
-- `papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md` -> `CLAIM-METRIC-TNC-SOURCE-02`
-- `papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md` -> `CLAIM-METRIC-TNC-SOURCE-08`
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025)
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2021)
+- Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen et al., Journal of the American Statistical Association, 2009)
+- Local multidimensional scaling (Jarkko Venna et al., Neural Networks, 2006)
+- Quality assessment of dimensionality reduction: Rank-based criteria (John A. Lee et al., Neurocomputing, 2009)
+- Local Affine Multidimensional Projection (theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy et al., IEEE Transactions on Visualization and Computer Graphics, 2011)
 - Additional supporting notes: 4 more
 
-- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md` (pending-reference evidence)
-- `papers/notes/pending-ref-009-uniform-manifold-approximation-with-two-phase-optimization.md` (pending-reference evidence)
-- `papers/notes/pending-ref-016-visual-interaction-with-dimensionality-reduction-a-structu.md` (pending-reference evidence)
-- `papers/notes/pending-ref-019-local-multidimensional-scaling.md` (pending-reference evidence)
-- `papers/notes/pending-ref-028-visualizing-the-quality-of-dimensionality-reduction.md` (pending-reference evidence)
-- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md` (pending-reference evidence)
+- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., UNKNOWN, 2010)
+- Uniform manifold approximation with two-phase optimization (H. Jeon et al., 2022 IEEE Visualization and Visual Analytics (VIS), 2022)
+- Visual Interaction with Dimensionality Reduction: A Structured Literature Analysis (D. Sacha et al, IEEE Transactions on Visualization and Computer Graphics, 2017)
+- Local multidimensional scaling (Jarkko Venna and Samuel Kaski, Journal of the American Statistical Association, 2006)
+- Visualizing the quality of dimensionality reduction (Bassam Mokbel et al., Neurocomputing, 2013)
+- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., UNKNOWN, 2013)
 
-[^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E3).
+[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)

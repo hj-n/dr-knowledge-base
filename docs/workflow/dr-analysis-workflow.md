@@ -1,164 +1,94 @@
-# DR Analysis Workflow (Primary Axis)
+# DR Analysis Workflow
 
-Use this sequence as the mandatory execution order for reliable DR configuration.
-For end-user explanations, translate internal terms into plain wording (for example `main goal`, `reliability checks`) per `docs/workflow/communication-layer-policy.md`.
+Use this sequence as the default execution order for reliable DR configuration.
 
-## Step-to-Document Map
-1. Task clarification and confirmation:
+## Step Map
+1. Confirm the main analysis goal:
    [`docs/intake-question-tree.md`](../intake-question-tree.md),
    [`docs/workflow/task-confirmation-protocol.md`](./task-confirmation-protocol.md)
-2. Data audit + consistent preprocessing policy:
+2. Audit data and keep one preprocessing policy:
    [`docs/workflow/preprocessing-profiles.md`](./preprocessing-profiles.md)
-3. Task-aligned candidate generation:
+3. Build goal-aligned method and reliability-check candidates:
    [`docs/metrics-and-libraries.md`](../metrics-and-libraries.md),
    [`docs/metrics/README.md`](../metrics/README.md),
    [`docs/techniques/README.md`](../techniques/README.md)
-4. Deterministic configuration scoring and selection:
+4. Rank candidates with one deterministic policy:
    [`docs/workflow/configuration-selection-policy.md`](./configuration-selection-policy.md),
    [`docs/reference-coverage.md`](../reference-coverage.md)
-5. Task-aligned initialization decision:
+5. Decide initialization strategy:
    [`docs/workflow/task-aligned-initialization.md`](./task-aligned-initialization.md)
-6. Bayesian hyperparameter optimization:
+6. Tune with Bayesian optimization:
    [`docs/workflow/hyperparameter-optimization-protocol.md`](./hyperparameter-optimization-protocol.md)
-7. Visualization + user explanation:
+7. Visualize and explain results:
    [`docs/workflow/visualization-policy.md`](./visualization-policy.md),
    [`docs/workflow/communication-layer-policy.md`](./communication-layer-policy.md),
-   [`docs/workflow/reliability-report-contract.md`](./reliability-report-contract.md),
-   and `scripts/validate_reliability_report.py`
+   [`docs/workflow/reliability-report-contract.md`](./reliability-report-contract.md)
 
-## 1) Task clarification and confirmation
-- Ask plain-language goal question first.
-- Resolve ambiguity one question at a time.
-- Confirm one main goal in user wording.
-
-Internal report fields (do not appear in user code):
-- `primary_task_axis`
-- `task_subtype` (optional)
-- `axis_confidence`
-- `task_confirmation_quote`
-- `success_criteria`
+## 1) Confirm the main goal
+- Start with one plain-language question.
+- If ambiguous, ask one clarification question at a time.
+- Confirm one goal before discussing methods.
 
 Gate:
-- Do not continue unless `axis_confidence = high`.
+- Do not continue until goal confidence is high.
 
-## 2) Data audit + consistent preprocessing policy
-- Inspect shape, missingness, sparsity, scale, and label status.
-- Select one preprocessing profile and keep it consistent.
-- Keep one distance metric and one preprocessing signature consistent across comparisons.
-
-Internal report fields (do not appear in user code):
-- `preprocessing_profile_id`
-- `distance_metric`
-- `preprocessing_plan`
-- `data_constraints`
-- `frozen_preprocessing_signature`
+## 2) Data audit and preprocessing
+- Check shape, missing values, sparsity, scale, and label quality.
+- Choose one preprocessing setup and keep it fixed during comparison.
+- Keep one distance definition fixed during comparison.
 
 Gate:
-- Do not compare methods under mixed preprocessing signatures.
+- Do not compare methods under mixed preprocessing setups.
 
-## 3) Task-aligned candidate generation
-- Build candidate technique list from task-aligned starters.
-- Build task-aligned metric set for comparison.
-- Run label-separation check for class-aware metrics:
-  - `dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`
+## 3) Candidate generation
+- Build candidates aligned to the confirmed goal.
+- Include both method candidates and reliability-check candidates.
+- If labels are used, run a label-separation check first.
 
-For `best/optimal DR selection` requests:
-- compare all task-aligned techniques (do not pre-prune before scoring)
-- compare all task-aligned metrics defined for that task in `docs/metrics-and-libraries.md`
-- allow pruning only after hard-gate failures are recorded with reasons
-
-Internal report fields (do not appear in user code):
-- `candidate_techniques`
-- `candidate_metrics`
-- `warning_gate_result`
-- `warning_gate_notes`
+Best/optimal mode:
+- compare all aligned candidates before pruning
+- prune only when hard failures are explicit and recorded
 
 Gate:
-- If label-separation check is `fail` or `unknown`, do not use class-aware metrics as main scoring metrics.
+- If label separation is weak or unknown, do not rely only on label-aware checks.
 
-## 4) Deterministic configuration scoring and selection
-- Apply hard gates from selection policy.
-- Score each technique+metric combination with the fixed weighted formula.
-- Select top candidate by threshold and tie-break rules.
-
-Internal report fields (do not appear in user code):
-- `candidate_score_table`
-- `selected_configuration`
-- `selection_status` (`accepted|provisional|exploratory`)
-- `selection_reasoning_summary`
+## 4) Deterministic selection
+- Apply hard filters first.
+- Score remaining candidates with the fixed policy.
+- Keep tie handling explicit.
 
 Gate:
-- Production recommendation requires `selection_status = accepted`.
+- If no candidate passes acceptance rules, mark recommendation as provisional or exploratory.
 
-## 5) Task-aligned initialization decision
-- Set initialization policy after selected configuration is fixed.
-- For initialization-sensitive methods, informative initialization is default unless justified.
-- Record seed plan and comparison protocol.
-
-Internal report fields (do not appear in user code):
-- `initialization_mode`
-- `initialization_method`
-- `initialization_rationale`
-- `initialization_comparison_protocol`
-- `initialization_stability_summary`
+## 5) Initialization decision
+- Decide initialization after candidate selection.
+- For initialization-sensitive methods, compare at least one informative and one neutral option.
+- Record stability implications.
 
 Gate:
-- Do not run optimization with unresolved initialization mode.
+- Do not start tuning before initialization strategy is fixed.
 
-## 6) Bayesian hyperparameter optimization (`bayes_opt`)
-- Optimize under fixed preprocessing and initialization.
-- Use main objective + safety check objective.
-- Evaluate stability across seeds for top configurations.
-
-Internal report fields (do not appear in user code):
-- `search_space`
-- `objective_definition`
-- `best_params`
-- `optimization_trace`
-- `seed_sensitivity_summary`
-- `safety_check_summary` (internal key; user-facing wording should say `safety check summary`)
+## 6) Bayesian hyperparameter optimization
+- Use `bayes_opt` only.
+- Tune under fixed preprocessing and initialization.
+- Check stability across repeated seeds for top candidates.
 
 Gate:
-- Optimization method must be `bayes_opt` (only).
-- `grid search`, `random search`, or manual sweep loops are invalid for final recommendations.
-- If top configurations are unstable across seeds, downgrade to `provisional`.
+- Do not replace Bayesian optimization with grid search, random search, or manual sweeps.
 
-## 7) Visualization + user explanation
-- Produce required visual artifacts and consistency check.
-- Produce two explanation layers:
-  - internal technical explanation for implementation/audit
-  - user explanation in novice-friendly language
-- Report residual risks and contested/unknown evidence status.
-- Explicitly disclose final settings in a copyable user section.
-
-Internal report fields (do not appear in user code):
-- `visual_artifacts`
-- `visual_consistency_check`
-- `technical_explanation`
-- `user_explanation`
-- `user_goal_restatement`
-- `user_what_was_compared`
-- `user_why_selected`
-- `user_risk_note`
-- `user_code_snippet`
-- `user_code_reason`
-- `final_configuration_for_users`
-- `source_note_links`
-- `residual_risk_statement`
-- `recommendation_status`
-- `report_contract_validation` (`pass|fail`)
+## 7) Visualization and explanation
+- Produce visual artifacts that match the selected goal.
+- Provide two layers of explanation:
+  - technical record for audit
+  - plain-language explanation for end users
+- Always disclose final method and key settings.
+- If references are requested, cite papers, not internal files.
 
 Gate:
-- If visual and metric evidence materially conflict, set `recommendation_status = exploratory`.
-- If user explanation contains standalone internal jargon, set `report_contract_validation = fail` and revise wording.
-- If final configuration is not explicitly disclosed to users, set `report_contract_validation = fail`.
-- If concise user code and code reason are missing, set `report_contract_validation = fail`.
+- If evidence conflicts materially, downgrade confidence and state residual risk.
 
-## Execution Contract
-1. Never skip Step 1.
-2. Never run Step 6 before Step 5 is fixed.
-3. Never finalize without label-separation check outcome.
-4. Never finalize without score table and seed-stability summary.
-5. If conflict status is `contested`, do not label recommendation as definitive.
-6. Do not close analysis until report-contract validation passes.
-7. Do not finalize recommendations from non-`bayes_opt` optimization runs.
+## Internal Record Schema
+Technical field names are maintained in:
+- [`builder/evidence/internal-report-schema.md`](../../builder/evidence/internal-report-schema.md)
+
+User-facing answers must not expose internal field names.

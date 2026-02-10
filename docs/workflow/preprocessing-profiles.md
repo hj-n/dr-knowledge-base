@@ -1,74 +1,71 @@
 # Preprocessing Profiles
 
-Use this page to standardize preprocessing before technique and metric comparison.
-The objective is to reduce protocol drift and make DR recommendations reproducible.
+Use this page to standardize preprocessing before method comparison.
+The goal is to reduce protocol drift and improve reproducibility.
 
 Related:
-- Workflow step: [`docs/workflow/dr-analysis-workflow.md`](./dr-analysis-workflow.md)
+- Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](./dr-analysis-workflow.md)
 - Reliability cautions: [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
 
-## Universal Controls (All Data Types)
-- Remove exact duplicate rows unless duplicates encode count semantics.
-- Define one distance metric and keep it fixed during method comparison.
-- Record missing-value policy explicitly.
-- Freeze preprocessing policy before hyperparameter optimization.
+## Universal Rules
+- remove exact duplicates unless duplicates represent true count semantics
+- choose one distance definition and keep it fixed during comparison
+- record missing-value handling explicitly
+- keep one preprocessing setup fixed before tuning starts
 
 ## Profile A: Dense Numeric Features
-Use when features are continuous numeric values.
+Use for continuous numeric features.
 
-Required defaults:
-- imputation: median (or feature-wise robust strategy)
+Defaults:
+- imputation: median or robust feature-wise strategy
 - scaling: z-score or robust scaler
-- outlier handling: clip to robust percentile bounds only if required
 - distance default: Euclidean
 
-Reliability notes:
-- If feature scales differ and no scaling is applied, distance-based DR behavior becomes unstable.
-- If clipping is used, record bounds because neighborhood structure can change materially.
+Notes:
+- without scaling, distance behavior can become unstable
+- if clipping is used, record bounds because neighborhoods may change
 
-## Profile B: Sparse / Count-like Features
-Use for bag-of-words, count matrices, or highly sparse vectors.
+## Profile B: Sparse or Count-Like Features
+Use for bag-of-words, count vectors, or high sparsity.
 
-Required defaults:
-- transform: log1p or TF-IDF style normalization (task dependent)
+Defaults:
+- transform: log1p or TF-IDF style normalization
 - scaling: avoid dense standardization that destroys sparsity
-- distance default: cosine (or correlation) unless domain-specific requirement exists
-- optional reduction: truncated SVD before nonlinear DR for efficiency
+- distance default: cosine (or correlation when justified)
+- optional: truncated SVD before nonlinear DR for efficiency
 
-Reliability notes:
-- Euclidean distance on raw sparse counts can produce misleading neighborhoods.
-- Document whether zero entries represent missingness or true absence.
+Notes:
+- Euclidean distance on raw sparse counts is often misleading
+- document whether zeros mean absence or missingness
 
 ## Profile C: Pretrained Embeddings
-Use when input is already an embedding from another model.
+Use when input is already an embedding.
 
-Required defaults:
-- normalization: L2-normalize vectors unless model contract forbids it
+Defaults:
+- normalization: L2 normalize unless model contract forbids it
 - distance default: cosine
-- deduplication: remove exact duplicates to avoid artificial density spikes
+- deduplication: remove exact duplicates
 
-Reliability notes:
-- Mixing normalized and unnormalized embeddings in one run invalidates comparisons.
-- Record embedding model/version because representation drift can dominate DR effects.
+Notes:
+- mixing normalized and unnormalized vectors invalidates comparisons
+- record embedding model/version to control representation drift
 
-## Profile D: Labeled Data with Class-Aware Metrics
-Use when class-aware metrics may be evaluated.
+## Profile D: Labeled Data with Class-Aware Evaluation
+Use when class-aware checks are part of evaluation.
 
-Additional required checks:
-- evaluate baseline label separability in original space
-- if separability is weak/unknown, mark label-separation check as `fail` or `unknown`
-- keep at least one label-agnostic metric in final bundle
+Additional requirements:
+- evaluate baseline label separation in original space
+- if separability is weak or unknown, lower confidence for class-aware conclusions
+- keep at least one label-agnostic check in final comparison
 
-## Output Contract
-Step 2 must output:
-- `preprocessing_profile_id` (`A|B|C|D` with combinations if needed)
-- `distance_metric`
-- `missing_value_policy`
-- `scaling_policy`
-- `duplicate_policy`
-- `frozen_preprocessing_signature` (short reproducibility string)
+## Record Keeping
+Keep a short reproducibility record for:
+- selected preprocessing profile
+- distance definition
+- missing-value policy
+- scaling policy
+- duplicate policy
+- compact preprocessing signature string
 
-## Minimal Signature Example
-```text
-frozen_preprocessing_signature: profile=B;transform=log1p+tfidf;distance=cosine;dedup=exact;seed=42
-```
+Example signature:
+`profile=B;transform=log1p+tfidf;distance=cosine;dedup=exact;seed=42`

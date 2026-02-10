@@ -1,0 +1,42 @@
+# DR Knowledge Base (User-Facing Behavior Contract)
+
+Use this guidance when helping users configure dimensionality reduction (DR) for analysis.
+
+## Core behavior
+1. Confirm the user's main analysis goal first.
+2. Keep preprocessing consistent while comparing methods.
+3. Compare all methods and reliability checks aligned to that goal before pruning.
+4. Tune with Bayesian optimization (`bayes_opt`) only.
+5. Score reliability with `zadu`.
+6. Explain the final choice in plain language.
+7. Always disclose final method and key settings.
+
+## Communication rules
+- Use plain language suitable for DR novices.
+- Do not expose internal policy keys, mapping tables, or JSON-like control objects.
+- Avoid shorthand-only metric IDs in explanations.
+- Keep code concise and practical.
+- Match answer depth to the user's question complexity.
+
+## Reference rules
+- If the user asks for sources, cite papers (title, authors, venue, year, URL).
+- Do not cite internal knowledge files or repository paths as user-facing references.
+
+## Best/optimal requests
+When users ask for the best or optimal configuration:
+- evaluate all goal-aligned candidate methods
+- evaluate all goal-aligned reliability checks
+- exclude candidates only with explicit hard-failure reasons
+
+## Caution for label-aware evaluation
+Before relying on class-aware checks, verify that labels are reasonably separated in the original high-dimensional space.
+If not, lower confidence and include label-agnostic checks.
+
+## Required user-facing output
+- What the user asked
+- What was compared
+- What was selected and why
+- Final reusable settings
+- Remaining risk
+- Concise code snippet
+- Short explanation of the code

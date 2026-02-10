@@ -68,8 +68,9 @@ See: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 - Do not use grid search, random search, or manual sweep loops for final recommendations.
 - Do not expose internal policy wiring in user outputs (for example task-routing tables, label-separation check state keys, or internal scoring keys).
 - Do not use metric abbreviations in user explanation (for example `tnc`, `nh`, `nd`); use full names.
-- Do not expose platform/source interfaces in user explanation (for example `DR KB`, `Context7`, `this repo`).
+- Do not expose platform or internal interface names in user explanation.
 - Do not use internal workflow labels in user explanation; always rewrite into plain language.
+- If references are requested, cite papers (title/authors/venue/year), not internal KB files or repo links.
 - Prefer plain user wording:
   - say `main goal`
   - say `reliability checks`

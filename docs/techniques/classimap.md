@@ -3,7 +3,7 @@
 ## Technique Summary
 Class-aware projection method with stress optimization that penalizes false/missed neighbors using labels.
 
-In this repository, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
+In practice, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
 
 The summary should be read together with task alignment and tradeoff sections before implementation. When the same dataset supports multiple objectives, this technique may be suitable for one objective and unsuitable for another.
 
@@ -78,12 +78,12 @@ Operational alignment rule: use as primary candidates only for class-separabilit
 
 Tradeoffs are expected and should be made explicit to users before final selection. A method that improves neighborhood fidelity may worsen global distance faithfulness, and vice versa, so optimization must reflect the task hierarchy.
 
-In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
+In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this guide.
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
 ## Source Notes
-- `papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md` (ZR14-E7, ZR14-E8)
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoit Colange et al., Advances in Neural Information Processing Systems (NeurIPS), 2020)
 
-- `papers/notes/pending-ref-044-classimap-a-new-dimension-reduction-technique-for-explorat.md` (pending-reference evidence)
-- `papers/notes/pending-ref-161-steering-distortions-to-preserve-classes-and-neighbors-in.md` (pending-reference evidence)
+- ClassiMap: A new dimension reduction technique for exploratory data analysis of labeled data (S. Lespinats et al., International Journal of Pattern Recognition and Artificial Intelligence, 2015)
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoît Colange et al., UNKNOWN, 2020)

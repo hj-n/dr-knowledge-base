@@ -3,7 +3,7 @@
 ## Technique Summary
 Nonlinear projection with explicit trustworthiness-continuity compromise control.
 
-In this repository, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
+In practice, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
 
 The summary should be read together with task alignment and tradeoff sections before implementation. When the same dataset supports multiple objectives, this technique may be suitable for one objective and unsuitable for another.
 
@@ -79,13 +79,13 @@ Operational alignment rule: method alignment should constrain candidate ranking,
 
 Tradeoffs are expected and should be made explicit to users before final selection. A method that improves neighborhood fidelity may worsen global distance faithfulness, and vice versa, so optimization must reflect the task hierarchy.
 
-In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
+In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this guide.
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
 ## Source Notes
-- `papers/notes/zadu-ref-01-1-s2-0-s0893608006000724-main.md` (ZR01-E2, ZR01-E3, ZR01-E6)
+- Local multidimensional scaling (Jarkko Venna et al., Neural Networks, 2006)
 
-- `papers/notes/pending-ref-048-linear-dimensionality-reduction-survey-insights-and-genera.md` (pending-reference evidence)
-- `papers/notes/pending-ref-125-a-methodology-to-compare-dimensionality-reduction-algorith.md` (pending-reference evidence)
-- `papers/notes/pending-extra-2669557-2669578-2669557-2669578.md` (pending-reference evidence)
+- Linear dimensionality reduction: Survey, insights, and generalizations (John P Cunningham and Zoubin Ghahramani, UNKNOWN, 2015)
+- A methodology to compare Dimensionality Reduction algorithms in terms of loss of quality (A. Gracia et al., Information Sciences, 2014)
+- Sanity check for class-coloring-based evaluation of dimension reduction techniques (Michaël Aupetit, Proceedings of the Fifth Workshop on Beyond Time and Errors: Novel Evaluation Methods for Visualization, 2014)

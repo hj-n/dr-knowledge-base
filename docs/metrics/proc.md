@@ -77,17 +77,17 @@ Before communicating a conclusion, cross-check this metric against the selected 
 Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
 
 ## Source Notes
-The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+The references below list paper sources used for this metric guidance.
 
-- `papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md` -> `CLAIM-METRIC-PROC-SOURCE-15`
-- `papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md` -> `CLAIM-METRIC-PROC-SOURCE-08`
-- `papers/notes/zadu-ref-16-ref12-local-procrustes-for-manifold-embedding-a-measure-of-embedding-quality-and.md` -> `CLAIM-METRIC-PROC-SOURCE-16`
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023 IEEE 16th Pacific Visualization Symposium (PacificVis), 2023)
+- Local Affine Multidimensional Projection (theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy et al., IEEE Transactions on Visualization and Computer Graphics, 2011)
+- Mach Learn (2009) 77: 1–25 (Yair Goldberg et al., Machine Learning, 2009)
 
-- `papers/notes/pending-ref-015-feature-learning-for-nonlinear-dimensionality-reduction-to.md` (pending-reference evidence)
-- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md` (pending-reference evidence)
-- `papers/notes/pending-ref-030-interactive-dimensionality-reduction-for-comparative-analy.md` (pending-reference evidence)
-- `papers/notes/pending-ref-040-tvisne-interactive-assessment-and-interpretation-of-t-sne.md` (pending-reference evidence)
-- `papers/notes/pending-ref-043-local-procrustes-for-manifold-embedding-a-measure-of-embed.md` (pending-reference evidence)
-- `papers/notes/pending-ref-044-classimap-a-new-dimension-reduction-technique-for-explorat.md` (pending-reference evidence)
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023 IEEE 16th Pacific Visualization Symposium (PacificVis), 2023)
+- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., UNKNOWN, 2013)
+- Interactive Dimensionality Reduction for Comparative Analysis (Takanori Fujiwara et al., IEEE Transactions on Visualization and Computer Graphics, 2022)
+- t-viSNE: Interactive Assessment and Interpretation of t-SNE Projections (Angelos Chatzimparmpas et al., IEEE Transactions on Visualization and Computer Graphics, 2020)
+- Local procrustes for manifold embedding: A measure of embedding quality and embedding algorithms (Y. Goldberg and Y. Ritov, Machine Learning, 2009)
+- ClassiMap: A new dimension reduction technique for exploratory data analysis of labeled data (S. Lespinats et al., International Journal of Pattern Recognition and Artificial Intelligence, 2015)
 
-[^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E3).
+[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)

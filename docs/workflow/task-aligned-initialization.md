@@ -1,83 +1,79 @@
 # Task-Aligned Initialization Rules
 
-This document defines initialization decisions after candidate selection and before hyperparameter optimization.
+Use this page to choose initialization strategy after candidate selection and before Bayesian tuning.
 
 Related:
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](./dr-analysis-workflow.md)
 - Selection policy: [`docs/workflow/configuration-selection-policy.md`](./configuration-selection-policy.md)
 - Technique details: [`docs/techniques/README.md`](../techniques/README.md)
 
-## Inputs Required
-- `primary_task_axis`
-- `selected_configuration`
-- `selected_metrics`
-- `data_constraints`
-- `frozen_preprocessing_signature`
+## Required Inputs
+- confirmed main goal
+- selected method candidate
+- selected reliability checks
+- data constraints
+- fixed preprocessing setup
 
 ## Method Groups
-### Group A: Initialization-sensitive stochastic methods
+### Group A: Stochastic methods sensitive to initialization
 Examples:
-- `t-sne`, `umap`, `sne`, `catsne`, `classnerv`, `classimap`
+- t-SNE, UMAP, SNE, catSNE, ClassNeRV, Classimap
 
 Default policy:
-- use `initialization_mode = informative`
-- random initialization is evaluation-only, not production default
+- use informative initialization as default
+- use random initialization for comparison, not as production default
 
-### Group B: Graph/manifold methods with optional embedding initialization
+### Group B: Graph/manifold methods with optional initialization choices
 Examples:
-- `isomap`, `s-isomap`, `lle`, `laplacian_eigenmaps`, `lmds`, `lamp`, `plmp`, `lsp`
+- Isomap, S-Isomap, LLE, Laplacian Eigenmaps, LMDS, LAMP, PLMP, LSP
 
 Default policy:
-- use deterministic or informative graph-consistent initialization when available
-- keep graph construction settings fixed during init comparisons
+- use deterministic or graph-consistent informative initialization when available
+- keep graph construction settings fixed while comparing initialization choices
 
 ### Group C: Deterministic or initialization-light methods
 Examples:
-- `pca`, most direct linear transforms
+- PCA and most direct linear transforms
 
 Default policy:
-- set `initialization_mode = deterministic_na`
-- record that initialization is not a decision variable
+- initialization is usually not a decision variable
+- document that initialization had no meaningful effect
 
-## Task-Axis Policy
-### Global-structure tasks
-- Point distance investigation
-- Class separability investigation
-- Cluster distance investigation
-- Cluster density investigation
+## Goal-Sensitive Guidance
+### Global-structure goals
+- point distance investigation
+- class separability investigation
+- cluster distance investigation
+- cluster density investigation
 
-Rules:
-- informative initialization is mandatory for Group A unless explicitly blocked
-- random-only runs cannot be final production basis
+Guidance:
+- informative initialization is strongly preferred for stochastic methods
+- random-only evidence is insufficient for final production recommendation
 
-### Local-structure tasks
-- Neighborhood identification
-- Outlier identification
-- Cluster identification
+### Local-structure goals
+- neighborhood identification
+- outlier identification
+- cluster identification
 
-Rules:
+Guidance:
 - informative initialization remains default for reproducibility
-- random restarts may be used as variability probes
+- random restarts are useful as variability probes
 
 ## Mandatory Comparison Protocol
-When initialization affects results:
-1. Keep all non-init settings fixed.
-2. Compare at least two initialization modes where supported.
-3. Evaluate each mode across at least 3 seeds.
-4. Report metric-rank consistency and qualitative consistency.
+When initialization can change outcomes:
+1. keep all non-initialization settings fixed
+2. compare at least two initialization choices when supported
+3. evaluate each choice with at least three seeds
+4. report both score consistency and visual consistency
 
-## Stability Decision Threshold
-- `stable`: top candidate unchanged in at least 80% of seed runs
-- `unstable`: top candidate flips in more than 20% of seed runs
+## Stability Threshold
+- stable: top candidate remains unchanged in at least 80% of seed runs
+- unstable: top candidate flips in more than 20% of seed runs
 
 If unstable:
-- downgrade recommendation status by one level
-- retain at least one fallback configuration
+- downgrade confidence level
+- keep at least one fallback configuration
 
-## Output Contract
-- `initialization_mode` (`informative|random|deterministic_na`)
-- `initialization_method`
-- `initialization_rationale`
-- `initialization_comparison_protocol`
-- `initialization_stability_summary`
-- `stability_status` (`stable|unstable`)
+## Internal Record Schema
+Technical field names are maintained in:
+- [`builder/evidence/internal-report-schema.md`](../../builder/evidence/internal-report-schema.md)

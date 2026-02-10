@@ -77,16 +77,16 @@ Before communicating a conclusion, cross-check this metric against the selected 
 Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
 
 ## Source Notes
-The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+The references below list paper sources used for this metric guidance.
 
-- `papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md` -> `CLAIM-METRIC-ND-SOURCE-15`
-- `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md` -> `CLAIM-METRIC-ND-SOURCE-18`
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023 IEEE 16th Pacific Visualization Symposium (PacificVis), 2023)
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2021)
 
-- `papers/notes/pending-ref-013-a-survey-of-dimension-reduction-methods-for-high-dimension.md` (pending-reference evidence)
-- `papers/notes/pending-ref-028-visualizing-the-quality-of-dimensionality-reduction.md` (pending-reference evidence)
-- `papers/notes/pending-ref-046-neighborhood-preserving-embedding.md` (pending-reference evidence)
-- `papers/notes/pending-ref-087-explaining-three-dimensional-dimensionality-reduction-plot.md` (pending-reference evidence)
-- `papers/notes/pending-ref-111-the-art-of-seeing-the-elephant-in-the-room-2d-embeddings-o.md` (pending-reference evidence)
-- `papers/notes/pending-ref-123-hierarchical-stochastic-neighbor-embedding.md` (pending-reference evidence)
+- High Performance Dimension Reduction and Visualization for Large High-Dimensional Data Analysis (D. Engel et al., 2010 10th IEEE/ACM International Conference on Cluster, Cloud and Grid Computing, 2012)
+- Visualizing the quality of dimensionality reduction (Bassam Mokbel et al., Neurocomputing, 2013)
+- Neighborhood preserving embedding (X. He et al., Tenth IEEE International Conference on Computer Vision (ICCV'05) Volume 1, 2005)
+- Explaining three-dimensional dimensionality reduction plots (Danilo B. Coimbra et al., Information Visualization, 2016)
+- The art of seeing the elephant in the room: 2D embeddings of single-cell data do make sense (Jan Lause et al., UNKNOWN, 2024)
+- Hierarchical stochastic neighbor embedding (N. Pezzotti et al., Journal of Proteome Research, 2016)
 
-[^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E3).
+[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)

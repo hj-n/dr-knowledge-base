@@ -1,12 +1,12 @@
 # Paper Catalog
 
-Use this catalog to see which papers have been processed and how each source note is linked.
+Use this catalog to see which papers have been processed and how each entry is linked.
 
 - CSV file: [`docs/paper-catalog.csv`](./paper-catalog.csv)
 
 ## Column Definitions
-- `source_note`: note file path in `papers/notes/`.
-- `paper_title`: paper title used by this repository.
+- `source_note`: internal note identifier for traceability.
+- `paper_title`: normalized paper title used in this guide.
 - `authors`: author list from note frontmatter.
 - `venue`: publication venue from note frontmatter.
 - `year`: publication year.
@@ -14,7 +14,7 @@ Use this catalog to see which papers have been processed and how each source not
 - `is_seed_paper`: `true` if source path is directly under `papers/raw/`; `false` if source path is under a subdirectory.
 - `reference_group`: subdirectory name under `papers/raw/` for reference papers (for example `zadu-table1-references`).
 - `parent_seed_note_id`: seed note ID connected to the reference group.
-- `parent_seed_source_note`: resolved seed source note path.
+- `parent_seed_source_note`: resolved parent seed identifier.
 - `evidence_level`: note evidence level.
 - `updated_at`: note update date.
 

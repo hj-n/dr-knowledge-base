@@ -16,6 +16,10 @@ Related:
 - Match response length to question complexity.
   - For simple questions: answer briefly first, then add only essential details.
   - For complex requests: provide structured detail, but avoid unnecessary expansion.
+- When the user asks for references/evidence:
+  - cite papers (title, authors, venue, year) as the reference unit.
+  - include DOI/arXiv/open-access URL when available.
+  - do not cite internal knowledge files or repository paths.
 
 ## User-Facing Answer: Word Choice
 Use these preferred words:
@@ -27,6 +31,17 @@ Use these preferred words:
 Avoid internal wording in user output. Examples:
 - Bad: `goal category label`, `reliability check set`, `label-separation check state`, `safety check objective`
 - Good: `main goal`, `reliability checks`, `safety check`
+
+## Narrative Rewrite Rule (User Layer)
+- Do not describe recommendations as internal mapping entries.
+- Avoid key/value-style phrasing such as:
+  - internal mapping-table wording
+  - assignment-like table wording
+  - JSON-like arrays in prose
+- Rewrite into natural language:
+  - good style example:
+    - `For cluster-density analysis, methods and reliability checks that preserve distance and density structure are usually a better fit, such as Stress and Kullback-Leibler Divergence.`
+  - then list paper references as bibliography entries.
 
 ## User-Facing Code Rule
 User code must be practical analysis code, not policy scaffolding.
@@ -49,6 +64,11 @@ Code quality constraints:
 5. `Risk note`
 6. `Concise code`
 7. `Why this code`
+
+## Reference Citation Rule (User Layer)
+- If the user asks "what is the source?" or "give references", return paper citations only.
+- Do not present internal source locations as user references.
+- Internal traceability can remain in technical records, but user-facing references must be paper-level bibliographic citations.
 
 ## Enforcement
 - Use `scripts/validate_user_explanation_text.py` for user-language leakage checks.

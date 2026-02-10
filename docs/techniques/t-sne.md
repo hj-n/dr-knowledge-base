@@ -3,7 +3,7 @@
 ## Technique Summary
 Stochastic neighborhood-preserving projection widely used for local structure exploration.
 
-In this repository, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
+In practice, the technique description is intentionally task-centered: the method is not automatically good, and is only appropriate when its distortion profile matches the analytical objective. That framing keeps method choice aligned with user intent instead of popularity.
 
 The summary should be read together with task alignment and tradeoff sections before implementation. When the same dataset supports multiple objectives, this technique may be suitable for one objective and unsuitable for another.
 
@@ -81,22 +81,22 @@ Operational alignment rule: method alignment should constrain candidate ranking,
 
 Tradeoffs are expected and should be made explicit to users before final selection. A method that improves neighborhood fidelity may worsen global distance faithfulness, and vice versa, so optimization must reflect the task hierarchy.
 
-In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this repository.
+In reporting, document which tradeoffs were accepted and why they were acceptable for the chosen task. This explanation step is part of the contract for trustworthy DR recommendations in this guide.
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
 ## Source Notes
-- `papers/notes/2506.08725v2-stop-misusing-tsne-umap.md` (JEON25-E2)
-- `papers/notes/zadu-ref-04-2510-08660v1.md` (ZR04-E9, ZR04-E10)
-- `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md` (ZR17-E7, ZR17-E8, ZR17-E9)
-- `papers/notes/2020-kobak-initialization-tsne-umap.md` (CLAIM-KOBAK20-C1, CLAIM-KOBAK20-C2, CLAIM-KOBAK20-C3)
-- `papers/notes/2022-revisiting-dr-visual-cluster-analysis.md` (CLAIM-REV22-C2)
+- Stop Misusing t-SNE and UMAP for Visual Analytics (Hyeon Jeon, arXiv, 2025)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
+- Stochastic Neighbor Embedding (Geoffrey E. Hinton et al., Advances in Neural Information Processing Systems (NIPS 15), 2002)
+- Initialization Is Critical for Preserving Global Data Structure in Both t-SNE and UMAP (Dmitry Kobak; George C. Linderman, Nature Biotechnology, 2020)
+- Revisiting Dimensionality Reduction Techniques for Visual Cluster Analysis: An Empirical Study (Jiazhi Xia; Yuchen Zhang; Jie Song; Yang Chen; Yunhai Wang; Shixia Liu, IEEE Transactions on Visualization and Computer Graphics, 2022)
 
-- `papers/notes/pending-ref-002-empirical-guidance-on-scatterplot-and-dimension-reduction.md` (pending-reference evidence)
-- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md` (pending-reference evidence)
-- `papers/notes/pending-ref-009-uniform-manifold-approximation-with-two-phase-optimization.md` (pending-reference evidence)
-- `papers/notes/pending-ref-015-feature-learning-for-nonlinear-dimensionality-reduction-to.md` (pending-reference evidence)
-- `papers/notes/pending-ref-024-viscoder-a-tool-for-visually-comparing-dimensionality-redu.md` (pending-reference evidence)
-- `papers/notes/pending-ref-026-umap-uniform-manifold-approximation-and-projection-for-dim.md` (pending-reference evidence)
-- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md` (pending-reference evidence)
-- `papers/notes/pending-ref-039-assessing-singlecell-transcriptomic-variability-through-de.md` (pending-reference evidence)
+- Empirical Guidance on Scatterplot and Dimension Reduction Technique Choices (M. Sedlmair et al., IEEE Transactions on Visualization and Computer Graphics, 2013)
+- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., UNKNOWN, 2010)
+- Uniform manifold approximation with two-phase optimization (H. Jeon et al., 2022 IEEE Visualization and Visual Analytics (VIS), 2022)
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023 IEEE 16th Pacific Visualization Symposium (PacificVis), 2023)
+- VisCoDeR: A tool for visually comparing dimensionality reduction algorithms (René Cutura et al., UNKNOWN, 2018)
+- UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction (Leland McInnes et al., Journal of Open Source Software, 2020)
+- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., UNKNOWN, 2013)
+- Assessing singlecell transcriptomic variability through density-preserving data visualization (Ashwin Narayan et al., Molecular Systems Biology, 2021)

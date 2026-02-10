@@ -79,22 +79,22 @@ Before communicating a conclusion, cross-check this metric against the selected 
 Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
 
 ## Source Notes
-The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+The references below list paper sources used for this metric guidance.
 
-- `papers/notes/zadu-ref-06-least-square-projection-a-fast-high-precision-multidimensional-projection-techni.md` -> `CLAIM-METRIC-STRESS-SOURCE-06`
-- `papers/notes/zadu-ref-03-2408-07724v2.md` -> `CLAIM-METRIC-STRESS-SOURCE-03`
-- `papers/notes/zadu-ref-13-ref03-geometric-inference-for-probability-measures.md` -> `CLAIM-METRIC-STRESS-SOURCE-13`
-- `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md` -> `CLAIM-METRIC-STRESS-SOURCE-17`
-- `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md` -> `CLAIM-METRIC-STRESS-SOURCE-18`
-- `papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md` -> `CLAIM-METRIC-STRESS-SOURCE-07`
+- Least Square Projection: A Fast High-Precision Multidimensional Projection Technique and Its Application to Document Mapping (F.V. Paulovich et al., IEEE Transactions on Visualization and Computer Graphics, 2008)
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025)
+- Geometric Inference for Measures based on Distance Functions (Frédéric Chazal et al., Foundations of Computational Mathematics, 2010)
+- Stochastic Neighbor Embedding (Geoffrey E. Hinton et al., Advances in Neural Information Processing Systems (NIPS 15), 2002)
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2021)
+- Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen et al., Journal of the American Statistical Association, 2009)
 - Additional supporting notes: 5 more
 
-- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md` (pending-reference evidence)
-- `papers/notes/pending-ref-013-a-survey-of-dimension-reduction-methods-for-high-dimension.md` (pending-reference evidence)
-- `papers/notes/pending-ref-019-local-multidimensional-scaling.md` (pending-reference evidence)
-- `papers/notes/pending-ref-024-viscoder-a-tool-for-visually-comparing-dimensionality-redu.md` (pending-reference evidence)
-- `papers/notes/pending-ref-035-stress-maps-analysing-local-phenomena-in-dimensionality-re.md` (pending-reference evidence)
-- `papers/notes/pending-ref-037-attribute-based-visual-explanation-of-multidimensional-pro.md` (pending-reference evidence)
+- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., UNKNOWN, 2010)
+- High Performance Dimension Reduction and Visualization for Large High-Dimensional Data Analysis (D. Engel et al., 2010 10th IEEE/ACM International Conference on Cluster, Cloud and Grid Computing, 2012)
+- Local multidimensional scaling (Jarkko Venna and Samuel Kaski, Journal of the American Statistical Association, 2006)
+- VisCoDeR: A tool for visually comparing dimensionality reduction algorithms (René Cutura et al., UNKNOWN, 2018)
+- Stress Maps: Analysing Local Phenomena in Dimensionality Reduction Based Visualisations (Christin Seifert et al., UNKNOWN, 2010)
+- Attribute-based Visual Explanation of Multidimensional Projections (Renato R. O. da Silva et al., UNKNOWN, 2015)
 
-[^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E5).
-[^warn-scale]: Scale-sensitivity notes: `papers/notes/zadu-ref-03-2408-07724v2.md` (CLAIM-SOURCE-03-CORE), `papers/notes/zadu-ref-04-2510-08660v1.md` (CLAIM-SOURCE-04-CORE).
+[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
+[^warn-scale]: “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025); How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., IEEE Transactions on Visualization and Computer Graphics, 2024)

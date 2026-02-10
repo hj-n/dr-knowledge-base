@@ -1,28 +1,27 @@
 # Intake Question Tree
 
-The first goal is to confirm exactly one primary analytical task.
-No technique or metric recommendation is allowed before this confirmation.
-In user-facing text, call this `confirming the main goal` and avoid internal workflow labels.
+The first objective is to confirm one main analysis goal.
+Do not recommend techniques before this confirmation.
 
 Related:
 - Task confirmation protocol: [`docs/workflow/task-confirmation-protocol.md`](./workflow/task-confirmation-protocol.md)
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md)
-- Axis/subtask policy: [`docs/task-taxonomy.md`](./task-taxonomy.md)
+- Goal taxonomy: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 
-## Step 1: Open Goal Prompt (Required)
-Ask in plain language first:
-- "What are you trying to learn from this projection?"
+## Step 1: Open Prompt
+Ask one plain-language question:
+- "What do you want to learn from this projection?"
 
-Do not list all task labels in the first question.
+Do not list all goal labels in the first turn.
 
-## Step 2: One-Question Clarification (Only If Needed)
-If intent is ambiguous, ask one discriminating question at a time.
+## Step 2: One Clarification Question (If Needed)
+If intent is ambiguous, ask one discriminating question.
 Examples:
-- "Do you care more about finding similar points or comparing distances between groups?"
-- "Is your goal to find unusual points, or to verify class separation?"
+- "Do you care more about finding similar points, or comparing distances between groups?"
+- "Is your goal to find unusual points, or to check class separation?"
 
-## Step 3: Internal Mapping to 7 Tasks
-Map confirmed intent to exactly one axis:
+## Step 3: Map to One Goal
+Map the confirmed intent to one of the seven goals:
 1. Neighborhood identification
 2. Outlier identification
 3. Cluster identification
@@ -31,26 +30,17 @@ Map confirmed intent to exactly one axis:
 6. Cluster distance investigation
 7. Cluster density investigation
 
-## Step 4: Plain-Language Confirmation (Required)
-Before moving forward, confirm in user wording:
-- "To confirm: your main goal is `<plain-language restatement>`. Is that right?"
+## Step 4: Confirm in Plain Language
+Before moving on, confirm with the user:
+- "To confirm: your main goal is <plain restatement>. Is that correct?"
 
-## Step 5: Optional Subtask Refinement
-If useful, add one subtask under the selected axis.
-
-Rules:
-- Keep one primary axis only.
-- Subtask is optional and cannot replace primary axis.
+## Step 5: Optional Subgoal
+If helpful, add one subgoal under the selected main goal.
+Subgoal cannot replace the main goal.
 
 ## Hard Gate
-Do not proceed to Step 2+ of workflow unless:
-- `primary_task_axis` is set
-- `axis_confidence = high`
-- user confirmation quote is captured
+Do not proceed to method recommendation until the goal is confirmed with high confidence.
 
-## Required Output
-- `primary_task_axis`
-- `task_subtype` (optional)
-- `axis_confidence`
-- `task_confirmation_quote`
-- `success_criteria`
+## Internal Record Schema
+Technical field names are maintained in:
+- [`builder/evidence/internal-report-schema.md`](../builder/evidence/internal-report-schema.md)

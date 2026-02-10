@@ -46,6 +46,8 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `builder/evidence/pending-reference-papers.md`
 - `builder/evidence/reference-group-map.json`
 - `builder/evidence/paper-catalog.json`
+- `builder/evidence/internal-report-schema.md`
+- `builder/evidence/metric-id-map.md`
 - `papers/raw/`
 - `papers/notes/`
 - `templates/paper-note-template.md`
@@ -53,6 +55,8 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `scripts/update_paper_catalog.py`
 - `scripts/update_reference_backlog.py`
 - `scripts/validate_reliability_report.py`
+- `scripts/lint_user_layer_docs.py`
+- `.github/workflows/user-layer-policy.yml`
 
 ## Task Axis Contract
 - Workflow anchor: `docs/workflow/dr-analysis-workflow.md`.
@@ -164,8 +168,14 @@ Reject a note as incomplete if any condition fails:
     - examples: use `Trustworthiness and Continuity`, not `tnc`; use `Neighborhood Hit`, not `nh`.
   - in user layer, avoid platform/source interface mentions:
     - `DR KB`, `Context7`, `this repo`, `workflow step`, `contract validator`
+  - when user asks for references/evidence:
+    - provide paper-level bibliographic citations (title, authors, venue, year, URL if available)
+    - do not use `docs/*.md`, `papers/notes/*.md`, `llms.txt`, or repo file links as user-facing references
   - in user layer, avoid internal key-like tokens:
     - `primary_task_axis`, `warning_gate_result`, `candidate_score_table`, `selection_status`, `axis_confidence`, `frozen_preprocessing_signature`
+  - in user layer, avoid mapping-key prose style:
+    - do not write `task->metric mapping`, `primary=[...]`, `safety check=[...]`, or JSON-style arrays in narrative text
+    - rewrite as natural language recommendation plus paper bibliography citations
   - always run a final user-language rewrite pass before completion:
     - convert internal workflow terms to plain user wording
     - remove banned phrases and key tokens
@@ -185,7 +195,8 @@ Reject a note as incomplete if any condition fails:
     - `zadu` for reliability scoring
     - minimal runnable form (target: <= 25 non-empty lines)
     - no internal jargon in code/comments (`guardrail`, `metric bundle`, `task axis`, `warning gate`)
-- Source-note links in `docs/` should map claims to `papers/notes/*`.
+- Paper citations in `docs/` should map claims to published sources.
+- Internal note-path traceability stays in `builder/evidence/*` and `papers/notes/*`.
 - Detailed quote-level evidence stays in `papers/notes/*`.
 - Workflow-scope filter is mandatory:
   - Do not promote workflow-unrelated topics to guidance rules or policy defaults.
@@ -205,7 +216,7 @@ Reject a note as incomplete if any condition fails:
 - For `docs/metrics/*` and `docs/techniques/*`, each required section must contain substantial prose:
   - target depth: at least one full paragraph, preferably two paragraphs for core sections
   - avoid one-line placeholders or bullet-only sections for core explanations
-  - adding source-note links alone is not considered a valid content update
+  - adding citation links alone is not considered a valid content update
   - updating only `Practical Reliability Notes` is not considered a valid content update
   - when new evidence changes guidance, update at least one of: computation details, hyperparameter impact, task alignment rationale, or known tradeoffs
 
@@ -228,7 +239,8 @@ Reject a note as incomplete if any condition fails:
 - If a source note contains explicit equations for the metric, include those equation-level details (or faithful textual equivalents) in `Computation Outline`.
 - Label-separation-sensitive metrics (`dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`) must keep the warning gate text.
 - Non-ZADU metrics may be added, but must satisfy provenance clarity:
-  - `Source Notes` must include explicit `papers/notes/*` links for definition/use/caveat claims
+  - `Source Notes` must provide paper-level bibliographic citations for definition/use/caveat claims
+  - internal note links may be kept only in `builder/evidence/*`
   - metric ID must be unique `snake_case` and not collide with existing IDs
   - if evidence is thin, mark recommendation confidence conservatively in docs
 - Before creating a new metric file, run canonicalization check to avoid alias duplicates.
@@ -266,8 +278,8 @@ Reject a note as incomplete if any condition fails:
   - `Direct evidence` when the source explicitly maps technique to tasks.
   - `Inferred alignment` when mapped by structure/behavior and not stated directly.
 - If subtask refinement is used, keep axis-level task alignment as the primary label and document subtask-level refinement as secondary rationale.
-- Hyperparameter claims must be traceable to source-note evidence IDs.
-- Computation claims must be traceable to source-note evidence IDs.
+- Hyperparameter claims must be traceable to source evidence.
+- Computation claims must be traceable to source evidence.
 - If no parameter evidence exists for a technique in current sources, state that explicitly instead of inventing defaults.
 - Before creating a new technique file, run canonicalization check to avoid alias duplicates.
 - Minimum prose depth for each technique section:
@@ -298,13 +310,19 @@ Reject a note as incomplete if any condition fails:
 - Each caution group must include:
   - what can go wrong
   - what to do to mitigate it
-  - source-note links
+  - paper citations
 
 ## Context7 Maintenance
 - Keep `context7.json` indexing scope limited to:
+  - `llms.txt`
   - `docs`
+- Exclude from indexing:
+  - `papers/raw`
   - `papers/notes`
-- Exclude `papers/raw` from indexing.
+  - `builder`
+  - `scripts`
+  - `docs/reference-coverage.md`
+  - `docs/paper-catalog.csv`
 - Refresh Context7 after meaningful doc updates.
 
 ## Workflow-Step Sync Rule
@@ -371,14 +389,19 @@ Before ending a doc-update turn, verify:
 15. If a recommendation explanation artifact is produced, run user-language leak check:
    - `python scripts/validate_user_explanation_text.py <user-text-file>`
    - no `BANNED_PHRASE`, `METRIC_ID_LEAK`, `INTERFACE_LEAK`, or `INTERNAL_KEY_LEAK` is allowed.
-16. If a recommendation report artifact is produced, verify optimizer policy:
+   - no KB file reference leaks are allowed in user-facing references (`docs/*.md`, `papers/notes/*.md`, `llms.txt`, repo markdown links).
+16. Run doc-level leakage lint:
+   - `python scripts/lint_user_layer_docs.py`
+   - no internal key tokens in `docs/workflow/*`, `docs/intake-question-tree.md`, `docs/task-taxonomy.md`
+   - no `papers/notes/*` path leaks in `docs/metrics/*` or `docs/techniques/*`
+17. If a recommendation report artifact is produced, verify optimizer policy:
    - `optimizer` must be exactly `bayes_opt`
    - no `grid search`, `random search`, or sweep wording in final recommendation text/artifacts.
-17. If a recommendation explanation artifact is produced, verify plain-language tone:
+18. If a recommendation explanation artifact is produced, verify plain-language tone:
    - no `task lock` / `lock the task` phrasing
    - no `metric bundle` / `bundle scoring` phrasing
    - no over-verbose response for simple question-like prompts
-18. If a recommendation report artifact is produced, verify user-code composition:
+19. If a recommendation report artifact is produced, verify user-code composition:
    - `user_code_snippet` includes `bayes_opt`
    - `user_code_snippet` includes `zadu`
    - `user_code_snippet` includes a DR fit step (for example `fit_transform` / `.fit(`)

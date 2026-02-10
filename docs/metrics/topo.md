@@ -78,15 +78,15 @@ Before communicating a conclusion, cross-check this metric against the selected 
 Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
 
 ## Source Notes
-The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+The references below list paper sources used for this metric guidance.
 
-- `papers/notes/zadu-ref-10-download-2.md` -> `CLAIM-METRIC-TOPO-SOURCE-10`
+- Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps (of Self/-Organizing F eature Maps, IEEE Transactions on Neural Networks, 1992)
 
-- `papers/notes/pending-ref-014-charting-a-manifold.md` (pending-reference evidence)
-- `papers/notes/pending-ref-026-umap-uniform-manifold-approximation-and-projection-for-dim.md` (pending-reference evidence)
-- `papers/notes/pending-ref-063-high-dimensional-labeled-data-analysis-with-topology-repre.md` (pending-reference evidence)
-- `papers/notes/pending-ref-068-nonlinear-dimensionality-reduction-and-data-visualization.md` (pending-reference evidence)
-- `papers/notes/pending-ref-109-evaluating-multi-dimensional-visualizations-for-understand.md` (pending-reference evidence)
-- `papers/notes/pending-ref-125-a-methodology-to-compare-dimensionality-reduction-algorith.md` (pending-reference evidence)
+- Charting a manifold (M. Brand, UNKNOWN, 2002)
+- UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction (Leland McInnes et al., Journal of Open Source Software, 2020)
+- High-dimensional labeled data analysis with topology representing graphs (Michaël Aupetit and Thibaud Catz, Proceedings of the IEEE, 2005)
+- Nonlinear dimensionality reduction and data visualization: a review (Hujun Yin, International Journal of Automation and Computing, 2007)
+- Evaluating multi-dimensional visualizations for understanding fuzzy clusters (Y . Zhao et al., BMC Bioinformatics, 2018)
+- A methodology to compare Dimensionality Reduction algorithms in terms of loss of quality (A. Gracia et al., Information Sciences, 2014)
 
-[^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E5).
+[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)

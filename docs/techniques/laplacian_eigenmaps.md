@@ -3,7 +3,7 @@
 ## Technique Summary
 Laplacian Eigenmaps (LE) is a manifold-learning technique that builds a neighborhood graph and computes a spectral embedding preserving local adjacency structure. It is a classic nonlinear DR approach for local geometry.
 
-In this repository, LE is treated as a general-purpose nonlinear projection method and also as an important initialization strategy context for other methods (for example UMAP comparisons).
+In practice, LE is treated as a general-purpose nonlinear projection method and also as an important initialization strategy context for other methods (for example UMAP comparisons).
 
 ## I/O Contract
 - Input: high-dimensional feature data with a neighborhood graph definition.
@@ -64,15 +64,15 @@ When used as initialization context in method comparisons, failing to control th
 Communication rule: explicitly state graph-dependence risk. If results change under small graph-parameter shifts, present that instability as residual uncertainty.
 
 ## Source Notes
-- `papers/notes/2009-comparative-review-dr-techniques.md` (CLAIM-COMP09-C2)
-- `papers/notes/2020-kobak-initialization-tsne-umap.md` (CLAIM-KOBAK20-C1, CLAIM-KOBAK20-C3)
-- `papers/notes/2011-hamann-survey-dimension-reduction.md` (CLAIM-OAS11-C3)
+- Dimensionality Reduction: A Comparative Review (Laurens van der Maaten; Eric O. Postma; Jaap van den Herik, Technical Report, 2009)
+- Initialization Is Critical for Preserving Global Data Structure in Both t-SNE and UMAP (Dmitry Kobak; George C. Linderman, Nature Biotechnology, 2020)
+- On the Exploration of Dimension Reduction Techniques for Visual Data Mining (Bernd Hamann (survey context), VLUDS 2011 (OASIcs), 2011)
 
-- `papers/notes/pending-ref-004-information-retrieval-perspective-to-nonlinear-dimensional.md` (pending-reference evidence)
-- `papers/notes/pending-ref-008-nonlinear-dimensionality-reduction-by-locally-linear-embed.md` (pending-reference evidence)
-- `papers/notes/pending-ref-022-human-cluster-evaluation-and-formal-quality-measures-a-com.md` (pending-reference evidence)
-- `papers/notes/pending-ref-043-local-procrustes-for-manifold-embedding-a-measure-of-embed.md` (pending-reference evidence)
-- `papers/notes/pending-ref-068-nonlinear-dimensionality-reduction-and-data-visualization.md` (pending-reference evidence)
-- `papers/notes/pending-ref-083-locality-preserving-projections.md` (pending-reference evidence)
-- `papers/notes/pending-ref-088-global-versus-local-methods-in-nonlinear-dimensionality-re.md` (pending-reference evidence)
-- `papers/notes/pending-ref-092-dd-hds-a-method-for-visualization-and-exploration-of-high.md` (pending-reference evidence)
+- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., UNKNOWN, 2010)
+- Nonlinear Dimensionality Reduction by Locally Linear Embedding (Sam T. Roweis and Lawrence K. Saul, Science, 2000)
+- Human cluster evaluation and formal quality measures: A comparative study (Joshua Lewis et al., UNKNOWN, 2012)
+- Local procrustes for manifold embedding: A measure of embedding quality and embedding algorithms (Y. Goldberg and Y. Ritov, Machine Learning, 2009)
+- Nonlinear dimensionality reduction and data visualization: a review (Hujun Yin, International Journal of Automation and Computing, 2007)
+- Uncorrelated Locality Preserving Projections (X. He and P. Niyogi, 2008 11th IEEE Singapore International Conference on Communication Systems, 2004)
+- Global Versus Local Methods in Nonlinear Dimensionality Reduction (Vin Silva and Joshua Tenenbaum, UNKNOWN, 2002)
+- DD-HDS: A Method for Visualization and Exploration of High-Dimensional Data (Sylvain Lespinats et al., IEEE Transactions on Neural Networks, 2007)

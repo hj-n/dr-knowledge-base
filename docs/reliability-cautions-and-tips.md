@@ -5,7 +5,7 @@ Similar claims from multiple papers are grouped into shared themes.
 
 Related:
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](./workflow/dr-analysis-workflow.md)
-- Task lock protocol: [`docs/workflow/task-confirmation-protocol.md`](./workflow/task-confirmation-protocol.md)
+- Task confirmation protocol: [`docs/workflow/task-confirmation-protocol.md`](./workflow/task-confirmation-protocol.md)
 - Preprocessing profiles: [`docs/workflow/preprocessing-profiles.md`](./workflow/preprocessing-profiles.md)
 - Deterministic selection policy: [`docs/workflow/configuration-selection-policy.md`](./workflow/configuration-selection-policy.md)
 - Task-aligned initialization rules: [`docs/workflow/task-aligned-initialization.md`](./workflow/task-aligned-initialization.md)
@@ -18,12 +18,12 @@ Related:
 Do not select methods before clarifying the primary analytical task. Local methods are often misused for global-distance or density questions, which can produce convincing but invalid interpretations.
 
 Reliability action:
-- Lock one primary task first, then map method family and metrics to that task.
+- Confirm one main task first, then map method family and reliability checks to that task.
 
 Source notes:
-- `papers/notes/2506.08725v2-stop-misusing-tsne-umap.md`
-- `papers/notes/2014-brehmer-task-sequences.md`
-- `papers/notes/2012-sedlmair-dr-in-the-wild.md`
+- Stop Misusing t-SNE and UMAP for Visual Analytics (Hyeon Jeon, 2025)
+- Visualizing Dimensionally-Reduced Data: Interviews with Analysts and a Characterization of Task Sequences (Matthew Brehmer; Michael Sedlmair; Stephen Ingram; Tamara Munzner, 2014)
+- Dimensionality Reduction in the Wild: Gaps and Guidance (Michael Sedlmair; Matthew Brehmer; Stephen Ingram; Tamara Munzner, 2012)
 
 ### 2) Hidden Task-Sequence Drift
 Even when a high-level task is stated, analysts often switch to a different subtask sequence during exploration (for example, cluster verification to class matching). If the workflow does not detect this drift, metric/technique choices become misaligned.
@@ -33,25 +33,29 @@ Reliability action:
 - Keep one main goal fixed, and track sequence transitions as optional subtask updates.
 
 Source notes:
-- `papers/notes/2014-brehmer-task-sequences.md`
-- `papers/notes/2012-sedlmair-dr-in-the-wild.md`
+- Visualizing Dimensionally-Reduced Data: Interviews with Analysts and a Characterization of Task Sequences (Matthew Brehmer; Michael Sedlmair; Stephen Ingram; Tamara Munzner, 2014)
+- Dimensionality Reduction in the Wild: Gaps and Guidance (Michael Sedlmair; Matthew Brehmer; Stephen Ingram; Tamara Munzner, 2012)
 
 ### 3) Label-Separation Assumption Violations
 Some class-aware metrics assume class labels are already well separated in the original high-dimensional space. If that assumption is weak, these metrics can become unreliable and overstate embedding quality.
 
 Affected metrics:
-- `dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`
+- Distance Consistency
+- Internal Validation Measure
+- Clustering-plus-External Validation Measure
+- Neighborhood Hit
+- Class-Aware Trustworthiness and Continuity
 
 Reliability action:
 - Explicitly check label separability before using these metrics as decision-driving evidence.
 - If separability is weak or unknown, down-weight these metrics and use additional label-agnostic measures.
 
 Source notes:
-- `papers/notes/2026-zadu-readme-warning.md`
-- `papers/notes/zadu-ref-11-jeon23tvcg-4.md`
-- `papers/notes/zadu-ref-05-computer-graphics-forum-2009-sips-selecting-good-views-of-high-e2-80-90dimension.md`
-- `papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md`
-- `papers/notes/zadu-ref-19-ref42-a-comparison-for-dimensionality-reduction-methods-of-single-cell-rna-seq-d.md`
+- ZADU README Operational Warning for Label-Separation-Sensitive Metrics (hj-n/zadu maintainers, 2026)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., 2024)
+- Selecting good views of high‐dimensional data using class consistency (Mike Sips et al., 2009)
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., 2021)
+- A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data (Ruizhi Xiang et al., 2021)
 
 ### 4) Scale-Sensitive Metric Misinterpretation
 Raw stress-like and KL-like scores can be distorted by embedding scale choices. Comparing methods without consistent scale handling can flip rankings and hide true quality differences.
@@ -61,9 +65,9 @@ Reliability action:
 - Prefer scale-aware or normalized variants when comparing multiple embeddings.
 
 Source notes:
-- `papers/notes/zadu-ref-03-2408-07724v2.md`
-- `papers/notes/zadu-ref-04-2510-08660v1.md`
-- `papers/notes/zadu-ref-12-kruskal-1964a.md`
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2025)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., 2024)
+- Multidimensional scaling by optimizing goodness of fit to a nonmetric hypothesis (PSYCHOMETRIKA--VOL. ~ et al., 1964)
 
 ### 5) Single-Metric Overconfidence
 A single metric rarely captures all reliability dimensions. Over-relying on one score can optimize one structural property while silently degrading others.
@@ -73,15 +77,15 @@ Reliability action:
 - Require consistency across the bundle before final recommendation.
 
 Source notes:
-- `papers/notes/2023-zadu-library.md`
-- `papers/notes/zadu-ref-01-1-s2-0-s0893608006000724-main.md`
-- `papers/notes/zadu-ref-06-least-square-projection-a-fast-high-precision-multidimensional-projection-techni.md`
-- `papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md`
-- `papers/notes/zadu-ref-10-download-2.md`
-- `papers/notes/zadu-ref-13-ref03-geometric-inference-for-probability-measures.md`
-- `papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md`
-- `papers/notes/zadu-ref-16-ref12-local-procrustes-for-manifold-embedding-a-measure-of-embedding-quality-and.md`
-- `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md`
+- ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
+- Local multidimensional scaling (Jarkko Venna et al., 2006)
+- Least Square Projection: A Fast High-Precision Multidimensional Projection Technique and Its Application to Document Mapping (F.V. Paulovich et al., 2008)
+- Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen et al., 2009)
+- Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps (of Self/-Organizing F eature Maps, 1992)
+- Geometric Inference for Measures based on Distance Functions (Frédéric Chazal et al., 2010)
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023)
+- Mach Learn (2009) 77: 1–25 (Yair Goldberg et al., 2009)
+- Stochastic Neighbor Embedding (Geoffrey E. Hinton et al., 2002)
 
 ### 6) Initialization Confounding in Method Comparisons
 Method-comparison claims can be invalid when initialization policies differ across algorithms. This is especially critical for t-SNE/UMAP global-structure interpretations.
@@ -92,8 +96,8 @@ Reliability action:
 - Prefer informative initialization when global structure is part of the decision.
 
 Source notes:
-- `papers/notes/2020-kobak-initialization-tsne-umap.md`
-- `papers/notes/2025-jeon-reliable-va-survey.md`
+- Initialization Is Critical for Preserving Global Data Structure in Both t-SNE and UMAP (Dmitry Kobak; George C. Linderman, 2020)
+- Unveiling High-dimensional Backstage: A Survey for Reliable Visual Analytics with Dimensionality Reduction (Hyeon Jeon; Hyunwook Lee; Yun-Hsin Kuo; Taehyun Yang; Daniel Archambault; Sungahn Ko; Takanori Fujiwara; Kwan-Liu Ma; Jinwook Seo, 2025)
 
 ### 7) Reproducibility Drift (Preprocessing/Seed/Protocol)
 Score comparisons are unreliable when preprocessing, random seeds, or evaluation settings change across runs. Apparent improvements may be protocol artifacts.
@@ -103,11 +107,11 @@ Reliability action:
 - Keep identical evaluation protocol across candidate methods.
 
 Source notes:
-- `papers/notes/zadu-ref-01-1-s2-0-s0893608006000724-main.md`
-- `papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md`
-- `papers/notes/zadu-ref-09-supervised-nonlinear-dimensionality-reduction-for-visualization-and-classificati.md`
-- `papers/notes/zadu-ref-13-ref03-geometric-inference-for-probability-measures.md`
-- `papers/notes/zadu-ref-16-ref12-local-procrustes-for-manifold-embedding-a-measure-of-embedding-quality-and.md`
+- Local multidimensional scaling (Jarkko Venna et al., 2006)
+- Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen et al., 2009)
+- Supervised Nonlinear Dimensionality Reduction for Visualization and Classification (X. Geng et al., 2005)
+- Geometric Inference for Measures based on Distance Functions (Frédéric Chazal et al., 2010)
+- Mach Learn (2009) 77: 1–25 (Yair Goldberg et al., 2009)
 
 ### 8) Hyperparameter and Optimization Pitfalls
 Method behavior can change materially with hyperparameters and optimization path. Local optima, unstable settings, and undocumented search ranges reduce trustworthiness of final recommendations.
@@ -117,16 +121,16 @@ Reliability action:
 - Treat convergence quality and stability as part of the recommendation evidence.
 
 Source notes:
-- `papers/notes/zadu-ref-11-jeon23tvcg-4.md`
-- `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md`
-- `papers/notes/zadu-ref-04-2510-08660v1.md`
-- `papers/notes/2019-spectral-overlap-quality-metrics.md`
-- `papers/notes/2024-large-scale-text-spatialization.md`
-- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md`
-- `papers/notes/pending-ref-054-a-large-scale-sensitivity-analysis-on-latent-embeddings-an.md`
-- `papers/notes/pending-ref-055-hypernp-interactive-visual-exploration-of-multidimensional.md`
-- `papers/notes/pending-ref-121-understanding-how-dimension-reduction-tools-work-an-empiri.md`
-- `papers/notes/pending-ref-130-mountaineer-topology-driven-visual-analytics-for-comparing.md`
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., 2024)
+- Stochastic Neighbor Embedding (Geoffrey E. Hinton et al., 2002)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., 2024)
+- Spectral Overlap and a Comparison of Parameter-Free, Dimensionality Reduction Quality Metrics (Jonathan Johannemann; Robert Tibshirani, 2019)
+- Large-Scale Evaluation of Topic Models and Dimensionality Reduction Methods for 2D Text Spatialization (Daniel Atzberger; Tim Cech; Matthias Trapp; Rico Richter; Willy Scheibel; Jürgen Döllner; Tobias Schreck, 2024)
+- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., 2013)
+- A Large-Scale Sensitivity Analysis on Latent Embeddings and Dimensionality Reductions for Text Spatializations (D. Atzberger et al., 2025)
+- HyperNP: Interactive Visual Exploration of Multidimensional Projection Hyperparameters (G. Appleby et al., 2022)
+- Understanding How Dimension Reduction Tools Work: An Empirical Approach to Deciphering t-SNE, UMAP, TriMap, and PaCMAP for Data Visualization (Yingfan Wang et al., 2021)
+- Mountaineer: Topology-Driven Visual Analytics for Comparing Local Explanations (Parikshit Solunke et al., 2024)
 
 ### 9) Initialization/Seed Instability Hidden by Single Runs
 Single-run screenshots can hide large initialization/seed variance in stochastic DR methods. A method may look reliable in one run while producing conflicting structure in another run under the same data and nominal settings.
@@ -137,12 +141,12 @@ Reliability action:
 - If multi-seed rankings disagree, mark recommendation confidence as reduced and keep alternatives.
 
 Source notes:
-- `papers/notes/2020-kobak-initialization-tsne-umap.md`
-- `papers/notes/pending-ref-029-stability-comparison-of-dimensionality-reduction-technique.md`
-- `papers/notes/pending-ref-054-a-large-scale-sensitivity-analysis-on-latent-embeddings-an.md`
-- `papers/notes/pending-ref-101-trimap-large-scale-dimensionality-reduction-using-triplets.md`
-- `papers/notes/pending-ref-129-ens-t-sne-embedding-neighborhoods-simultaneously-t-sne.md`
-- `papers/notes/pending-ref-142-umato-bridging-local-and-global-structures-for-reliable-vi.md`
+- Initialization Is Critical for Preserving Global Data Structure in Both t-SNE and UMAP (Dmitry Kobak; George C. Linderman, 2020)
+- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., 2013)
+- A Large-Scale Sensitivity Analysis on Latent Embeddings and Dimensionality Reductions for Text Spatializations (D. Atzberger et al., 2025)
+- TriMap: Large-scale Dimensionality Reduction Using Triplets (Ehsan Amid and Manfred K. Warmuth, 2022)
+- ENS-t-SNE: Embedding Neighborhoods Simultaneously t-SNE (Jacob Miller et al., 2024)
+- UMATO: Bridging Local and Global Structures for Reliable Visual Analytics With Dimensionality Reduction (Hyeon Jeon et al., 2025)
 
 ### 10) Runtime-Quality Tradeoff Blind Spots
 Some methods or evaluation procedures incur high runtime/complexity cost, and naive runtime assumptions can bias method choice.
@@ -152,12 +156,12 @@ Reliability action:
 - Avoid ranking methods by quality without practical runtime feasibility checks.
 
 Source notes:
-- `papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md`
-- `papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md`
-- `papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md`
-- `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md`
-- `papers/notes/zadu-ref-19-ref42-a-comparison-for-dimensionality-reduction-methods-of-single-cell-rna-seq-d.md`
-- `papers/notes/2017-random-projection-survey.md`
+- Quality assessment of dimensionality reduction: Rank-based criteria (John A. Lee et al., 2009)
+- Local Affine Multidimensional Projection (theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy et al., 2011)
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023)
+- Stochastic Neighbor Embedding (Geoffrey E. Hinton et al., 2002)
+- A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data (Ruizhi Xiang et al., 2021)
+- A Survey of Dimensionality Reduction Techniques Based on Random Projection (Haozhe Xie; Jie Li; Hanqing Xue, 2017)
 
 ## Reliability Improvement Checklist
 

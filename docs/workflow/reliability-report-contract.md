@@ -1,93 +1,54 @@
 # Reliability Report Contract
 
-Use this contract to keep DR recommendations reproducible while keeping user output simple.
+Use this contract to keep DR recommendations reproducible while keeping user output easy to read.
 
 Related:
 - Workflow: [`docs/workflow/dr-analysis-workflow.md`](./dr-analysis-workflow.md)
 - Communication policy: [`docs/workflow/communication-layer-policy.md`](./communication-layer-policy.md)
-- Validator: `scripts/validate_reliability_report.py`
 
-## Output Split (Mandatory)
-Every run has two artifacts:
-1. Internal report artifact (technical, for audit/validation)
-2. User-facing answer (plain language, concise code)
+## Two Output Layers
+Every run should produce:
+1. technical record for audit and reproducibility
+2. user-facing answer in plain language
 
-The user-facing answer must not expose internal report keys.
+User-facing answers must not expose internal field names.
 
-## Internal Report Artifact Rule
-- Must satisfy `scripts/validate_reliability_report.py`.
-- Optimizer must be `bayes_opt`.
-- Non-`bayes_opt` optimization (`grid search`, `random search`, sweep loops) is invalid.
-- Include `aligned_candidate_coverage` as `full` when best/optimal selection mode is requested.
+## User-Facing Answer Structure
+1. What you asked
+2. What we compared
+3. What we selected and why
+4. Final settings you can reuse
+5. Risk note
+6. Concise code
+7. Why this code
 
-## User-Facing Answer Rule
-Required content:
-1. `What you asked`
-2. `What we tested`
-3. `What we found`
-4. `Why this is reliable enough`
-5. `Final settings you can reuse`
-6. `Concise code`
-7. `Why this code`
-
-User wording constraints:
+## User-Layer Constraints
 - plain language for DR novices
-- no internal workflow vocabulary
-- no metric abbreviations in explanation text; use full names
+- no internal workflow labels
+- no metric ID shorthand in prose
+- no key/value mapping-table prose in user explanations
+- if references are requested, cite papers (title, authors, venue, year, URL)
+- do not cite internal files as user references
 
 ## User Code Contract
-User code must include all three:
-- selected DR library call (fit step)
-- `bayes_opt` tuning block
-- `zadu` reliability scoring block
+Code must include:
+- selected DR library fit step
+- `bayes_opt` tuning
+- `zadu` reliability scoring
 
-User code must also:
-- be minimal (target: <= 25 non-empty lines)
-- avoid internal-policy variable names/dictionaries
+Code must also:
+- stay minimal (target: <= 25 non-empty lines)
+- avoid internal-policy variable names
 - avoid internal jargon in comments
 
-## Final Settings Disclosure (Mandatory)
-Include a compact section with:
-- `method`
-- `key_hyperparameters`
-- `preprocessing_summary`
-- `initialization_summary`
-- `reproducibility_summary`
+## Final Settings Disclosure
+Always include:
+- method
+- key hyperparameters
+- preprocessing summary
+- initialization summary
+- reproducibility summary
 
-## User-Facing Example Template
-```text
-What you asked:
-- You want to compare class relationships in 2D.
-
-What we tested:
-- We compared a few DR methods with the same data preparation.
-- We checked neighborhood and distance reliability scores.
-
-What we found:
-- Method A gave the most stable class relationship pattern across repeated runs.
-
-Why this is reliable enough:
-- The result stayed consistent across repeated runs.
-- Reliability checks were better than alternatives.
-- Risk: nearby classes may still overlap in 2D.
-
-Final settings you can reuse:
-- method: <selected_method>
-- key_hyperparameters: {...}
-- preprocessing_summary: <...>
-- initialization_summary: <...>
-- reproducibility_summary: <...>
-
-Concise code:
-- selected DR method + bayes_opt + zadu
-
-Why this code:
-- Short, reproducible, and aligned with your goal.
-```
-
-## Completion Checklist
-1. Internal artifact passes validator.
-2. User answer uses plain language.
-3. User code includes DR fit + `bayes_opt` + `zadu`.
-4. User code is minimal and practical.
-5. Final settings are explicitly disclosed.
+## Internal Record Schema
+Technical field names are maintained in:
+- [`builder/evidence/internal-report-schema.md`](../../builder/evidence/internal-report-schema.md)

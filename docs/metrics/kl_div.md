@@ -79,20 +79,20 @@ Before communicating a conclusion, cross-check this metric against the selected 
 Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
 
 ## Source Notes
-The links below map this metric to claim-level evidence extracted from individual source notes. Use these links when tracing recommendations back to evidence.
+The references below list paper sources used for this metric guidance.
 
-- `papers/notes/zadu-ref-03-2408-07724v2.md` -> `CLAIM-METRIC-KL_DIV-SOURCE-03`
-- `papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md` -> `CLAIM-METRIC-KL_DIV-SOURCE-17`
-- `papers/notes/zadu-ref-11-jeon23tvcg-4.md` -> `CLAIM-METRIC-KL_DIV-SOURCE-11`
-- `papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md` -> `CLAIM-METRIC-KL_DIV-SOURCE-14`
-- `papers/notes/zadu-ref-04-2510-08660v1.md` -> `CLAIM-METRIC-KL_DIV-SOURCE-04`
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025)
+- Stochastic Neighbor Embedding (Geoffrey E. Hinton et al., Advances in Neural Information Processing Systems (NIPS 15), 2002)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoit Colange et al., Advances in Neural Information Processing Systems (NeurIPS), 2020)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
 
-- `papers/notes/pending-ref-009-uniform-manifold-approximation-with-two-phase-optimization.md` (pending-reference evidence)
-- `papers/notes/pending-ref-040-tvisne-interactive-assessment-and-interpretation-of-t-sne.md` (pending-reference evidence)
-- `papers/notes/pending-ref-041-quantitative-evaluation-of-time-dependent-multidimensional.md` (pending-reference evidence)
-- `papers/notes/pending-ref-061-visne-enables-visualization-of-high-dimensional-single-cel.md` (pending-reference evidence)
-- `papers/notes/pending-ref-073-trustworthiness-and-metrics-in-visualizing-similarity-of-g.md` (pending-reference evidence)
-- `papers/notes/pending-ref-104-implicit-multidimensional-projection-of-local-subspaces.md` (pending-reference evidence)
+- Uniform manifold approximation with two-phase optimization (H. Jeon et al., 2022 IEEE Visualization and Visual Analytics (VIS), 2022)
+- t-viSNE: Interactive Assessment and Interpretation of t-SNE Projections (Angelos Chatzimparmpas et al., IEEE Transactions on Visualization and Computer Graphics, 2020)
+- Quantitative evaluation of time-dependent multidimensional projection techniques (E. F. V ernier et al., Computer Graphics Forum, 2020)
+- viSNE enables visualization of high dimensional single-cell data and reveals phenotypic heterogeneity of leukemia (E.-A. D. Amir et al, Nature Biotechnology, 2013)
+- Trustworthiness and metrics in visualizing similarity of gene expression (S. Kaski et al., BMC Bioinformatics, 2003)
+- Implicit Multidimensional Projection of Local Subspaces (Rongzheng Bian et al., IEEE Transactions on Visualization and Computer Graphics, 2021)
 
-[^cat]: Category source note: `papers/notes/2023-zadu-library.md` (ZADU23-E5).
-[^warn-scale]: Scale-sensitivity notes: `papers/notes/zadu-ref-03-2408-07724v2.md` (CLAIM-SOURCE-03-CORE), `papers/notes/zadu-ref-04-2510-08660v1.md` (CLAIM-SOURCE-04-CORE).
+[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
+[^warn-scale]: “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025); How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
