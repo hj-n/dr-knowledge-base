@@ -35,6 +35,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `docs/paper-catalog.csv`
 - `docs/metrics/`
 - `docs/techniques/`
+- `docs/execution-library-index.md`
 - `builder/evidence/conflict-policy.md`
 - `builder/evidence/conflict-register.md`
 - `builder/evidence/relevance-policy.md`
@@ -48,6 +49,9 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `builder/evidence/paper-catalog.json`
 - `builder/evidence/internal-report-schema.md`
 - `builder/evidence/metric-id-map.md`
+- `builder/evidence/technique-execution-map.csv`
+- `builder/evidence/library-maintenance.csv`
+- `builder/evidence/maintenance-policy.md`
 - `papers/raw/`
 - `papers/notes/`
 - `templates/paper-note-template.md`
@@ -56,6 +60,8 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `scripts/update_reference_backlog.py`
 - `scripts/validate_reliability_report.py`
 - `scripts/lint_user_layer_docs.py`
+- `scripts/update_library_maintenance.py`
+- `scripts/validate_technique_execution_docs.py`
 - `.github/workflows/user-layer-policy.yml`
 
 ## Task Axis Contract
@@ -106,6 +112,10 @@ When user intent is best/optimal DR selection:
    - `docs/metrics-and-libraries.md` for summary-level changes.
    - `docs/workflow/task-aligned-initialization.md` when initialization-policy evidence is added or changed.
    - `docs/reliability-cautions-and-tips.md` for grouped cautions/tips and mitigations.
+   - if technique execution guidance changes, update:
+     - `docs/execution-library-index.md`
+     - `builder/evidence/technique-execution-map.csv`
+     - `builder/evidence/library-maintenance.csv` via `python scripts/update_library_maintenance.py`
 8. Recompute conflict status using `builder/evidence/conflict-policy.md` and update `builder/evidence/conflict-register.md`.
 9. Recompute reference frequency index with `python scripts/update_reference_coverage.py`.
 10. Recompute paper catalog with `python scripts/update_paper_catalog.py`.
@@ -268,7 +278,26 @@ Reject a note as incomplete if any condition fails:
   - `Notable Properties`
   - `Strengths`
   - `Known Tradeoffs`
+  - `Implementation Options`
+  - `Recommended Library`
+  - `Official API / GitHub / PyPI Links`
+  - `Minimal Python API Pattern`
+  - `Key Parameters for Bayesian Optimization`
+  - `Initialization in Practice`
+  - `Runtime and Memory Notes`
+  - `Common Failure Signs and Fixes`
+  - `Minimal Runnable Snippet`
   - `Source Notes`
+- Execution sections must keep method rationale and implementation references separated:
+  - rationale claims -> paper citations
+  - setup/run details -> official API, GitHub, and PyPI links
+- If new implementation repositories are discovered (for example during GitHub search):
+  - map them to an existing technique card when directly usable, or
+  - add/update the relevant technique card when the method is in-scope and paper-backed, and
+  - sync `docs/execution-library-index.md` and `builder/evidence/technique-execution-map.csv` in the same turn.
+- If the direct implementation path is weak (`risk`) or non-Python, provide an explicit fallback path.
+- When execution sections are updated, refresh maintenance snapshot with:
+  - `python scripts/update_library_maintenance.py`
 - Technique inclusion scope:
   - include only general-purpose methods that map high-dimensional input to low-dimensional projections
   - exclude meta-frameworks and orchestration methods
@@ -394,14 +423,19 @@ Before ending a doc-update turn, verify:
    - `python scripts/lint_user_layer_docs.py`
    - no internal key tokens in `docs/workflow/*`, `docs/intake-question-tree.md`, `docs/task-taxonomy.md`
    - no `papers/notes/*` path leaks in `docs/metrics/*` or `docs/techniques/*`
-17. If a recommendation report artifact is produced, verify optimizer policy:
+17. Validate technique execution cards:
+   - `python scripts/validate_technique_execution_docs.py`
+   - every technique doc must include all execution headers
+   - each minimal snippet must include `BayesianOptimization`, `ZADU`, and a DR fit step
+   - snippet should remain concise (target <= 35 non-empty lines in technique docs)
+18. If a recommendation report artifact is produced, verify optimizer policy:
    - `optimizer` must be exactly `bayes_opt`
    - no `grid search`, `random search`, or sweep wording in final recommendation text/artifacts.
-18. If a recommendation explanation artifact is produced, verify plain-language tone:
+19. If a recommendation explanation artifact is produced, verify plain-language tone:
    - no `task lock` / `lock the task` phrasing
    - no `metric bundle` / `bundle scoring` phrasing
    - no over-verbose response for simple question-like prompts
-19. If a recommendation report artifact is produced, verify user-code composition:
+20. If a recommendation report artifact is produced, verify user-code composition:
    - `user_code_snippet` includes `bayes_opt`
    - `user_code_snippet` includes `zadu`
    - `user_code_snippet` includes a DR fit step (for example `fit_transform` / `.fit(`)

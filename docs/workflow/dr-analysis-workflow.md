@@ -11,7 +11,10 @@ Use this sequence as the default execution order for reliable DR configuration.
 3. Build goal-aligned method and reliability-check candidates:
    [`docs/metrics-and-libraries.md`](../metrics-and-libraries.md),
    [`docs/metrics/README.md`](../metrics/README.md),
-   [`docs/techniques/README.md`](../techniques/README.md)
+   [`docs/techniques/README.md`](../techniques/README.md),
+   [`docs/execution-library-index.md`](../execution-library-index.md)
+   -> after one method is selected, execute from its technique page execution card
+   (for example `docs/techniques/umap.md` or `docs/techniques/pca.md`)
 4. Rank candidates with one deterministic policy:
    [`docs/workflow/configuration-selection-policy.md`](./configuration-selection-policy.md),
    [`docs/reference-coverage.md`](../reference-coverage.md)
@@ -44,6 +47,12 @@ Gate:
 - Build candidates aligned to the confirmed goal.
 - Include both method candidates and reliability-check candidates.
 - If labels are used, run a label-separation check first.
+- As soon as one candidate is chosen for implementation, move to that file in
+  `docs/techniques/` and use its execution card sections:
+  - `Implementation Options`
+  - `Recommended Library`
+  - `Official API / GitHub / PyPI Links`
+  - `Minimal Runnable Snippet`
 
 Best/optimal mode:
 - compare all aligned candidates before pruning

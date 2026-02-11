@@ -62,6 +62,79 @@ The speed-quality tradeoff is favorable only when task metrics confirm adequacy.
 
 Communication rule: present this method as a speed/reference baseline unless task metrics clearly validate its adequacy. Runtime gains do not substitute for reliability evidence.
 
+## Implementation Options
+The default execution path uses the mapped primary Python implementation for this technique. Implementation mode: `direct`. Primary status: `active`.
+
+Use the primary path when it is `active` or `watch`. If it is `risk`, execute the fallback path and keep the recommendation confidence conservative.
+
+## Recommended Library
+Recommended library: **scikit-learn random_projection**.
+
+Current maintenance snapshot: **active** (checked on 2026-02-11). This status is generated from the automated maintenance snapshot using the documented maintenance policy.
+
+## Official API / GitHub / PyPI Links
+Primary path links:
+- Official API: [https://scikit-learn.org/stable/modules/generated/sklearn.random_projection.GaussianRandomProjection.html](https://scikit-learn.org/stable/modules/generated/sklearn.random_projection.GaussianRandomProjection.html)
+- GitHub: [https://github.com/scikit-learn/scikit-learn](https://github.com/scikit-learn/scikit-learn)
+- PyPI: [https://pypi.org/project/scikit-learn/](https://pypi.org/project/scikit-learn/)
+
+Fallback path links:
+- Official API: [https://torchdr.github.io/dev/gen_modules/torchdr.IncrementalPCA.html](https://torchdr.github.io/dev/gen_modules/torchdr.IncrementalPCA.html)
+- GitHub: [https://github.com/TorchDR/TorchDR](https://github.com/TorchDR/TorchDR)
+- PyPI: [https://pypi.org/project/torchdr/](https://pypi.org/project/torchdr/)
+
+## Minimal Python API Pattern
+```python
+from sklearn.random_projection import GaussianRandomProjection
+Z = GaussianRandomProjection(n_components=2, random_state=7).fit_transform(X)
+```
+
+## Key Parameters for Bayesian Optimization
+- `n_components`: projection dimension and distortion budget.
+- `random_state`: controls projection matrix reproducibility.
+
+Search bounds used in the minimal snippet:
+- `{"n_components": (2, 50)}`
+
+## Initialization in Practice
+Initialization is not tuned directly; control reproducibility through fixed random seeds and repeated runs.
+
+## Runtime and Memory Notes
+Very fast and memory-light compared with many nonlinear methods, which makes it suitable for quick baselines.
+
+## Common Failure Signs and Fixes
+- Large variance across seeds -> report seed spread and avoid single-run decisions.
+- Distance-sensitive task underperforms -> increase projected dimension and re-evaluate.
+- Class overlap worsens sharply -> switch to task-aligned nonlinear candidates.
+
+## Minimal Runnable Snippet
+```python
+import numpy as np
+from bayes_opt import BayesianOptimization
+from zadu import ZADU
+from sklearn.random_projection import GaussianRandomProjection
+
+X = ...  # shape: (n_samples, n_features)
+
+def zadu_score(hd, ld):
+    spec = [{"id": "tnc", "params": {"k": 20}}]
+    result = ZADU(spec, hd).measure(ld)[0]
+    vals = [float(v) for v in result.values() if isinstance(v, (int, float))]
+    return float(np.mean(vals))
+
+def embed(n_components):
+    model = GaussianRandomProjection(n_components=int(round(n_components)), random_state=7)
+    return model.fit_transform(X)
+
+def objective(*args, **kwargs):
+    z = embed(*args, **kwargs)
+    return zadu_score(X, z)
+
+optimizer = BayesianOptimization(f=objective, pbounds={"n_components": (2, 50)}, random_state=7, verbose=0)
+optimizer.maximize(init_points=4, n_iter=16)
+Z_best = embed(**optimizer.max["params"])
+```
+
 ## Source Notes
 - A Survey of Dimensionality Reduction Techniques Based on Random Projection (Haozhe Xie; Jie Li; Hanqing Xue, arXiv, 2017)
 - Toward a Quantitative Survey of Dimension Reduction Techniques (Mateus Espadoto; Rafael M. Martins; Auri S. Hirata; Alexandru C. Telea, IEEE Transactions on Visualization and Computer Graphics, 2021)

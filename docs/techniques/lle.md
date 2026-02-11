@@ -83,6 +83,79 @@ In reporting, document which tradeoffs were accepted and why they were acceptabl
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
+## Implementation Options
+The default execution path uses the mapped primary Python implementation for this technique. Implementation mode: `direct`. Primary status: `active`.
+
+Use the primary path when it is `active` or `watch`. If it is `risk`, execute the fallback path and keep the recommendation confidence conservative.
+
+## Recommended Library
+Recommended library: **scikit-learn LocallyLinearEmbedding**.
+
+Current maintenance snapshot: **active** (checked on 2026-02-11). This status is generated from the automated maintenance snapshot using the documented maintenance policy.
+
+## Official API / GitHub / PyPI Links
+Primary path links:
+- Official API: [https://scikit-learn.org/stable/modules/generated/sklearn.manifold.LocallyLinearEmbedding.html](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.LocallyLinearEmbedding.html)
+- GitHub: [https://github.com/scikit-learn/scikit-learn](https://github.com/scikit-learn/scikit-learn)
+- PyPI: [https://pypi.org/project/scikit-learn/](https://pypi.org/project/scikit-learn/)
+
+Fallback path links:
+- Official API: [https://torchdr.github.io/dev/gen_modules/torchdr.UMAP.html](https://torchdr.github.io/dev/gen_modules/torchdr.UMAP.html)
+- GitHub: [https://github.com/TorchDR/TorchDR](https://github.com/TorchDR/TorchDR)
+- PyPI: [https://pypi.org/project/torchdr/](https://pypi.org/project/torchdr/)
+
+## Minimal Python API Pattern
+```python
+from sklearn.manifold import LocallyLinearEmbedding
+Z = LocallyLinearEmbedding(n_neighbors=15, n_components=2, reg=1e-3).fit_transform(X)
+```
+
+## Key Parameters for Bayesian Optimization
+- `n_neighbors`: local reconstruction neighborhood size.
+- `reg`: stabilization term for local linear solves.
+
+Search bounds used in the minimal snippet:
+- `{"n_neighbors": (5, 80), "reg": (1e-5, 1e-1)}`
+
+## Initialization in Practice
+LLE does not expose stochastic initialization; stability depends mostly on neighborhood and regularization settings.
+
+## Runtime and Memory Notes
+Runtime is moderate for medium datasets but can degrade with very large neighborhoods or sparse-conditioning issues.
+
+## Common Failure Signs and Fixes
+- Noisy neighborhoods distort local structure -> tighten neighbor range and improve preprocessing.
+- Numerical instability warnings -> increase `reg`.
+- Embedding tears in sparse regions -> compare with Isomap/UMAP candidates.
+
+## Minimal Runnable Snippet
+```python
+import numpy as np
+from bayes_opt import BayesianOptimization
+from zadu import ZADU
+from sklearn.manifold import LocallyLinearEmbedding
+
+X = ...  # shape: (n_samples, n_features)
+
+def zadu_score(hd, ld):
+    spec = [{"id": "tnc", "params": {"k": 20}}]
+    result = ZADU(spec, hd).measure(ld)[0]
+    vals = [float(v) for v in result.values() if isinstance(v, (int, float))]
+    return float(np.mean(vals))
+
+def embed(n_neighbors, reg):
+    model = LocallyLinearEmbedding(n_neighbors=int(round(n_neighbors)), n_components=2, reg=float(reg))
+    return model.fit_transform(X)
+
+def objective(*args, **kwargs):
+    z = embed(*args, **kwargs)
+    return zadu_score(X, z)
+
+optimizer = BayesianOptimization(f=objective, pbounds={"n_neighbors": (5, 80), "reg": (1e-5, 1e-1)}, random_state=7, verbose=0)
+optimizer.maximize(init_points=4, n_iter=16)
+Z_best = embed(**optimizer.max["params"])
+```
+
 ## Source Notes
 - Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen et al., Journal of the American Statistical Association, 2009)
 - Mach Learn (2009) 77: 1–25 (Yair Goldberg et al., Machine Learning, 2009)

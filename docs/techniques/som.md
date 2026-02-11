@@ -83,6 +83,86 @@ In reporting, document which tradeoffs were accepted and why they were acceptabl
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
+## Implementation Options
+The default execution path uses the mapped primary Python implementation for this technique. Implementation mode: `direct`. Primary status: `watch`.
+
+Use the primary path when it is `active` or `watch`. If it is `risk`, execute the fallback path and keep the recommendation confidence conservative.
+
+## Recommended Library
+Recommended library: **MiniSom**.
+
+Current maintenance snapshot: **watch** (checked on 2026-02-11). This status is generated from the automated maintenance snapshot using the documented maintenance policy.
+
+## Official API / GitHub / PyPI Links
+Primary path links:
+- Official API: [https://github.com/JustGlowing/minisom](https://github.com/JustGlowing/minisom)
+- GitHub: [https://github.com/JustGlowing/minisom](https://github.com/JustGlowing/minisom)
+- PyPI: [https://pypi.org/project/minisom/](https://pypi.org/project/minisom/)
+
+Fallback path links:
+- Official API: [https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)
+- GitHub: [https://github.com/scikit-learn/scikit-learn](https://github.com/scikit-learn/scikit-learn)
+- PyPI: [https://pypi.org/project/scikit-learn/](https://pypi.org/project/scikit-learn/)
+
+## Minimal Python API Pattern
+```python
+from minisom import MiniSom
+som = MiniSom(x=30, y=30, input_len=X.shape[1], sigma=1.0, learning_rate=0.5, random_seed=7)
+som.train_random(X, 2000)
+Z = np.array([som.winner(xi) for xi in X], dtype=float)
+```
+
+## Key Parameters for Bayesian Optimization
+- `sigma`: neighborhood radius in SOM training.
+- `learning_rate`: adaptation speed.
+- `train_steps`: number of random training updates.
+
+Search bounds used in the minimal snippet:
+- `{"sigma": (0.3, 3.0), "learning_rate": (0.05, 1.0), "train_steps": (500, 5000)}`
+
+## Initialization in Practice
+SOM starts from random prototype vectors. Keep random seed fixed during tuning and evaluate robustness with extra seeds.
+
+## Runtime and Memory Notes
+Training cost depends on grid size and train steps. Large grids can increase runtime without proportional analytic gains.
+
+## Common Failure Signs and Fixes
+- Projection heavily depends on one random seed -> run additional seeds and report spread.
+- Map folding in dense regions -> tune sigma and train steps together.
+- Weak class organization -> adjust grid resolution or compare with manifold methods.
+
+## Minimal Runnable Snippet
+```python
+import numpy as np
+from bayes_opt import BayesianOptimization
+from zadu import ZADU
+from minisom import MiniSom
+
+X = ...  # shape: (n_samples, n_features)
+
+def zadu_score(hd, ld):
+    spec = [{"id": "tnc", "params": {"k": 20}}]
+    result = ZADU(spec, hd).measure(ld)[0]
+    vals = [float(v) for v in result.values() if isinstance(v, (int, float))]
+    return float(np.mean(vals))
+
+def embed(sigma, learning_rate, train_steps):
+    som = MiniSom(x=30, y=30, input_len=X.shape[1], sigma=float(sigma), learning_rate=float(learning_rate), random_seed=7)
+    som.train_random(X, int(round(train_steps)))
+    z = np.array([som.winner(xi) for xi in X], dtype=float)
+    z -= z.mean(axis=0, keepdims=True)
+    z /= z.std(axis=0, keepdims=True) + 1e-9
+    return z
+
+def objective(*args, **kwargs):
+    z = embed(*args, **kwargs)
+    return zadu_score(X, z)
+
+optimizer = BayesianOptimization(f=objective, pbounds={"sigma": (0.3, 3.0), "learning_rate": (0.05, 1.0), "train_steps": (500, 5000)}, random_state=7, verbose=0)
+optimizer.maximize(init_points=4, n_iter=16)
+Z_best = embed(**optimizer.max["params"])
+```
+
 ## Source Notes
 - Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps (of Self/-Organizing F eature Maps, IEEE Transactions on Neural Networks, 1992)
 - Quality assessment of dimensionality reduction: Rank-based criteria (John A. Lee et al., Neurocomputing, 2009)

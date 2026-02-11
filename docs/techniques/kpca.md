@@ -83,6 +83,79 @@ In reporting, document which tradeoffs were accepted and why they were acceptabl
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
+## Implementation Options
+The default execution path uses the mapped primary Python implementation for this technique. Implementation mode: `direct`. Primary status: `active`.
+
+Use the primary path when it is `active` or `watch`. If it is `risk`, execute the fallback path and keep the recommendation confidence conservative.
+
+## Recommended Library
+Recommended library: **scikit-learn KernelPCA**.
+
+Current maintenance snapshot: **active** (checked on 2026-02-11). This status is generated from the automated maintenance snapshot using the documented maintenance policy.
+
+## Official API / GitHub / PyPI Links
+Primary path links:
+- Official API: [https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.KernelPCA.html](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.KernelPCA.html)
+- GitHub: [https://github.com/scikit-learn/scikit-learn](https://github.com/scikit-learn/scikit-learn)
+- PyPI: [https://pypi.org/project/scikit-learn/](https://pypi.org/project/scikit-learn/)
+
+Fallback path links:
+- Official API: [https://torchdr.github.io/dev/gen_modules/torchdr.KernelPCA.html](https://torchdr.github.io/dev/gen_modules/torchdr.KernelPCA.html)
+- GitHub: [https://github.com/TorchDR/TorchDR](https://github.com/TorchDR/TorchDR)
+- PyPI: [https://pypi.org/project/torchdr/](https://pypi.org/project/torchdr/)
+
+## Minimal Python API Pattern
+```python
+from sklearn.decomposition import KernelPCA
+Z = KernelPCA(n_components=2, kernel="rbf", gamma=0.1).fit_transform(X)
+```
+
+## Key Parameters for Bayesian Optimization
+- `gamma`: controls kernel locality for RBF kernels.
+- `n_components`: output dimension used by downstream analysis.
+
+Search bounds used in the minimal snippet:
+- `{"n_components": (2, 20), "gamma": (1e-4, 1.0)}`
+
+## Initialization in Practice
+Kernel PCA does not use stochastic initialization. Keep kernel type fixed before tuning gamma to avoid mixed objective behavior.
+
+## Runtime and Memory Notes
+Kernel matrix operations can become expensive at larger sample counts. Memory cost grows quickly with `n_samples`.
+
+## Common Failure Signs and Fixes
+- Embedding collapses into near-line shape -> widen gamma search and verify scaling.
+- Large runtime spikes -> reduce sample size for optimization phase, then re-fit on full data.
+- Highly fragmented local neighborhoods -> add local reliability checks before selection.
+
+## Minimal Runnable Snippet
+```python
+import numpy as np
+from bayes_opt import BayesianOptimization
+from zadu import ZADU
+from sklearn.decomposition import KernelPCA
+
+X = ...  # shape: (n_samples, n_features)
+
+def zadu_score(hd, ld):
+    spec = [{"id": "tnc", "params": {"k": 20}}]
+    result = ZADU(spec, hd).measure(ld)[0]
+    vals = [float(v) for v in result.values() if isinstance(v, (int, float))]
+    return float(np.mean(vals))
+
+def embed(n_components, gamma):
+    model = KernelPCA(n_components=int(round(n_components)), kernel="rbf", gamma=float(gamma))
+    return model.fit_transform(X)
+
+def objective(*args, **kwargs):
+    z = embed(*args, **kwargs)
+    return zadu_score(X, z)
+
+optimizer = BayesianOptimization(f=objective, pbounds={"n_components": (2, 20), "gamma": (1e-4, 1.0)}, random_state=7, verbose=0)
+optimizer.maximize(init_points=4, n_iter=16)
+Z_best = embed(**optimizer.max["params"])
+```
+
 ## Source Notes
 - Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen et al., Journal of the American Statistical Association, 2009)
 

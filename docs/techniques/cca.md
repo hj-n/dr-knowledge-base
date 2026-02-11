@@ -83,6 +83,83 @@ In reporting, document which tradeoffs were accepted and why they were acceptabl
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
+## Implementation Options
+The default execution path uses the mapped primary Python implementation for this technique. Implementation mode: `direct`. Primary status: `active`.
+
+Use the primary path when it is `active` or `watch`. If it is `risk`, execute the fallback path and keep the recommendation confidence conservative.
+
+## Recommended Library
+Recommended library: **scikit-learn CCA**.
+
+Current maintenance snapshot: **active** (checked on 2026-02-11). This status is generated from the automated maintenance snapshot using the documented maintenance policy.
+
+## Official API / GitHub / PyPI Links
+Primary path links:
+- Official API: [https://scikit-learn.org/stable/modules/generated/sklearn.cross_decomposition.CCA.html](https://scikit-learn.org/stable/modules/generated/sklearn.cross_decomposition.CCA.html)
+- GitHub: [https://github.com/scikit-learn/scikit-learn](https://github.com/scikit-learn/scikit-learn)
+- PyPI: [https://pypi.org/project/scikit-learn/](https://pypi.org/project/scikit-learn/)
+
+Fallback path links:
+- Official API: [https://torchdr.github.io/dev/gen_modules/torchdr.PCA.html](https://torchdr.github.io/dev/gen_modules/torchdr.PCA.html)
+- GitHub: [https://github.com/TorchDR/TorchDR](https://github.com/TorchDR/TorchDR)
+- PyPI: [https://pypi.org/project/torchdr/](https://pypi.org/project/torchdr/)
+
+## Minimal Python API Pattern
+```python
+from sklearn.cross_decomposition import CCA
+X_left, X_right = np.split(X, 2, axis=1)
+Z, _ = CCA(n_components=2).fit_transform(X_left, X_right)
+```
+
+## Key Parameters for Bayesian Optimization
+- `n_components`: number of canonical dimensions to keep.
+- `max_iter`: convergence budget for iterative solver.
+
+Search bounds used in the minimal snippet:
+- `{"n_components": (1, 10)}`
+
+## Initialization in Practice
+CCA is deterministic under fixed preprocessing and fixed view split. Keep view construction fixed before optimization.
+
+## Runtime and Memory Notes
+Runtime is moderate for dense matrices. The main risk is unstable results when view split or scaling changes.
+
+## Common Failure Signs and Fixes
+- Odd feature counts break naive view split -> define views explicitly.
+- Convergence warnings -> increase `max_iter` and standardize both views.
+- Low canonical correlation -> CCA may not be the right DR path for this task.
+
+## Minimal Runnable Snippet
+```python
+import numpy as np
+from bayes_opt import BayesianOptimization
+from zadu import ZADU
+from sklearn.cross_decomposition import CCA
+
+X = ...  # shape: (n_samples, n_features)
+X = X[:, : (X.shape[1] // 2) * 2]  # CCA needs two aligned views
+
+def zadu_score(hd, ld):
+    spec = [{"id": "tnc", "params": {"k": 20}}]
+    result = ZADU(spec, hd).measure(ld)[0]
+    vals = [float(v) for v in result.values() if isinstance(v, (int, float))]
+    return float(np.mean(vals))
+
+def embed(n_components):
+    x_left, x_right = np.split(X, 2, axis=1)
+    z, _ = CCA(n_components=int(round(n_components)), max_iter=500).fit_transform(x_left, x_right)
+    return z[:, :2]
+
+def objective(n_components):
+    z = embed(n_components)
+    x_left, _ = np.split(X, 2, axis=1)
+    return zadu_score(x_left, z)
+
+optimizer = BayesianOptimization(f=objective, pbounds={"n_components": (1, 10)}, random_state=7, verbose=0)
+optimizer.maximize(init_points=4, n_iter=16)
+Z_best = embed(**optimizer.max["params"])
+```
+
 ## Source Notes
 - Local multidimensional scaling (Jarkko Venna et al., Neural Networks, 2006)
 

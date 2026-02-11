@@ -30,6 +30,7 @@ See: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 - Communication layer policy: [`docs/workflow/communication-layer-policy.md`](./workflow/communication-layer-policy.md)
 - Report contract: [`docs/workflow/reliability-report-contract.md`](./workflow/reliability-report-contract.md)
 - Metric/technique policy: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
+- Technique execution repositories: [`docs/execution-library-index.md`](./execution-library-index.md)
 - Reliability cautions: [`docs/reliability-cautions-and-tips.md`](./reliability-cautions-and-tips.md)
 - Coverage ranking: [`docs/reference-coverage.md`](./reference-coverage.md)
 - Paper catalog guide: [`docs/paper-catalog.md`](./paper-catalog.md)
@@ -43,17 +44,19 @@ See: [`docs/task-taxonomy.md`](./task-taxonomy.md)
    [`docs/workflow/preprocessing-profiles.md`](./workflow/preprocessing-profiles.md)
 3. Select candidates:
    [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
-4. Score and decide:
+4. Execute selected technique from its execution card:
+   [`docs/techniques/README.md`](./techniques/README.md)
+5. Score and decide:
    [`docs/workflow/configuration-selection-policy.md`](./workflow/configuration-selection-policy.md)
-5. Set initialization:
+6. Set initialization:
    [`docs/workflow/task-aligned-initialization.md`](./workflow/task-aligned-initialization.md)
-6. Optimize and stress-test:
+7. Optimize and stress-test:
    [`docs/workflow/hyperparameter-optimization-protocol.md`](./workflow/hyperparameter-optimization-protocol.md)
-7. Visualize safely:
+8. Visualize safely:
    [`docs/workflow/visualization-policy.md`](./workflow/visualization-policy.md)
-8. Split explanation layers:
+9. Split explanation layers:
    [`docs/workflow/communication-layer-policy.md`](./workflow/communication-layer-policy.md)
-9. Deliver explanation contract:
+10. Deliver explanation contract:
    [`docs/workflow/reliability-report-contract.md`](./workflow/reliability-report-contract.md)
 
 ## Non-Negotiable Rules

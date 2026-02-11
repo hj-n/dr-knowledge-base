@@ -83,6 +83,79 @@ In reporting, document which tradeoffs were accepted and why they were acceptabl
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
+## Implementation Options
+The source literature for this technique is retained, but the default execution path uses a practical fallback implementation because the mapped primary path is not production-ready in Python. Primary status: `risk`. Fallback status: `active`.
+
+Use the primary path when it is `active` or `watch`. If it is `risk`, execute the fallback path and keep the recommendation confidence conservative.
+
+## Recommended Library
+Recommended library: **TorchDR SNE (practical Python fallback)**.
+
+Current maintenance snapshot: **active** (checked on 2026-02-11). This status is generated from the automated maintenance snapshot using the documented maintenance policy.
+
+## Official API / GitHub / PyPI Links
+Primary path links:
+- Official API: [https://github.com/rafaelmessias/dredviz](https://github.com/rafaelmessias/dredviz)
+- GitHub: [https://github.com/rafaelmessias/dredviz](https://github.com/rafaelmessias/dredviz)
+- PyPI: Not available
+
+Fallback path links:
+- Official API: [https://torchdr.github.io/dev/gen_modules/torchdr.SNE.html](https://torchdr.github.io/dev/gen_modules/torchdr.SNE.html)
+- GitHub: [https://github.com/TorchDR/TorchDR](https://github.com/TorchDR/TorchDR)
+- PyPI: [https://pypi.org/project/torchdr/](https://pypi.org/project/torchdr/)
+
+## Minimal Python API Pattern
+```python
+from torchdr import SNE
+Z = np.asarray(SNE(n_components=2, perplexity=30).fit_transform(X))
+```
+
+## Key Parameters for Bayesian Optimization
+- `perplexity`: neighborhood scale in probability matching.
+- `n_components`: embedding dimensionality (typically 2 for visualization).
+
+Search bounds used in the minimal snippet:
+- `{"perplexity": (5, 80)}`
+
+## Initialization in Practice
+SNE-family methods are sensitive to initialization and optimization behavior. Use repeated seeds after selecting best parameters.
+
+## Runtime and Memory Notes
+Quadratic behavior can appear on larger datasets. Use representative subsets during optimization when needed.
+
+## Common Failure Signs and Fixes
+- Optimization stalls early -> broaden learning settings or reduce sample size for search.
+- Layout heavily changes across repeats -> mark recommendation as provisional.
+- Class conclusions depend on one run -> require repeated reliability checks.
+
+## Minimal Runnable Snippet
+```python
+import numpy as np
+from bayes_opt import BayesianOptimization
+from zadu import ZADU
+from torchdr import SNE
+
+X = ...  # shape: (n_samples, n_features)
+
+def zadu_score(hd, ld):
+    spec = [{"id": "tnc", "params": {"k": 20}}]
+    result = ZADU(spec, hd).measure(ld)[0]
+    vals = [float(v) for v in result.values() if isinstance(v, (int, float))]
+    return float(np.mean(vals))
+
+def embed(perplexity):
+    model = SNE(n_components=2, perplexity=float(perplexity))
+    return np.asarray(model.fit_transform(X))
+
+def objective(*args, **kwargs):
+    z = embed(*args, **kwargs)
+    return zadu_score(X, z)
+
+optimizer = BayesianOptimization(f=objective, pbounds={"perplexity": (5, 80)}, random_state=7, verbose=0)
+optimizer.maximize(init_points=4, n_iter=16)
+Z_best = embed(**optimizer.max["params"])
+```
+
 ## Source Notes
 - Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoit Colange et al., Advances in Neural Information Processing Systems (NeurIPS), 2020)
 

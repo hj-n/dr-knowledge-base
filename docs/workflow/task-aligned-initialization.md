@@ -17,7 +17,7 @@ Related:
 ## Method Groups
 ### Group A: Stochastic methods sensitive to initialization
 Examples:
-- t-SNE, UMAP, SNE, catSNE, ClassNeRV, Classimap
+- t-SNE, UMAP, SNE, TriMap, PaCMAP, UMATO, catSNE, ClassNeRV, Classimap
 
 Default policy:
 - use informative initialization as default

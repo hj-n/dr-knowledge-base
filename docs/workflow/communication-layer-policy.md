@@ -20,6 +20,9 @@ Related:
   - cite papers (title, authors, venue, year) as the reference unit.
   - include DOI/arXiv/open-access URL when available.
   - do not cite internal knowledge files or repository paths.
+- When the user asks how to run the selected technique:
+  - provide implementation links from official API docs, GitHub, and PyPI.
+  - keep method-justification references separate and paper-based.
 
 ## User-Facing Answer: Word Choice
 Use these preferred words:
@@ -69,6 +72,13 @@ Code quality constraints:
 - If the user asks "what is the source?" or "give references", return paper citations only.
 - Do not present internal source locations as user references.
 - Internal traceability can remain in technical records, but user-facing references must be paper-level bibliographic citations.
+
+## Implementation Link Rule (User Layer)
+- If the user asks for setup or runnable code details, include:
+  - official API documentation link
+  - GitHub repository link
+  - PyPI package link (when available)
+- Do not mix these implementation links with paper references in one list.
 
 ## Enforcement
 - Use `scripts/validate_user_explanation_text.py` for user-language leakage checks.

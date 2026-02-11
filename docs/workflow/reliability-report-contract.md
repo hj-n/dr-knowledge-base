@@ -44,6 +44,8 @@ Code must also:
 ## Final Settings Disclosure
 Always include:
 - method
+- selected implementation library
+- implementation links (official API, GitHub, PyPI when available)
 - key hyperparameters
 - preprocessing summary
 - initialization summary

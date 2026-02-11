@@ -63,6 +63,79 @@ When used as initialization context in method comparisons, failing to control th
 
 Communication rule: explicitly state graph-dependence risk. If results change under small graph-parameter shifts, present that instability as residual uncertainty.
 
+## Implementation Options
+The default execution path uses the mapped primary Python implementation for this technique. Implementation mode: `direct`. Primary status: `active`.
+
+Use the primary path when it is `active` or `watch`. If it is `risk`, execute the fallback path and keep the recommendation confidence conservative.
+
+## Recommended Library
+Recommended library: **scikit-learn SpectralEmbedding**.
+
+Current maintenance snapshot: **active** (checked on 2026-02-11). This status is generated from the automated maintenance snapshot using the documented maintenance policy.
+
+## Official API / GitHub / PyPI Links
+Primary path links:
+- Official API: [https://scikit-learn.org/stable/modules/generated/sklearn.manifold.SpectralEmbedding.html](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.SpectralEmbedding.html)
+- GitHub: [https://github.com/scikit-learn/scikit-learn](https://github.com/scikit-learn/scikit-learn)
+- PyPI: [https://pypi.org/project/scikit-learn/](https://pypi.org/project/scikit-learn/)
+
+Fallback path links:
+- Official API: [https://torchdr.github.io/dev/gen_modules/torchdr.PHATE.html](https://torchdr.github.io/dev/gen_modules/torchdr.PHATE.html)
+- GitHub: [https://github.com/TorchDR/TorchDR](https://github.com/TorchDR/TorchDR)
+- PyPI: [https://pypi.org/project/torchdr/](https://pypi.org/project/torchdr/)
+
+## Minimal Python API Pattern
+```python
+from sklearn.manifold import SpectralEmbedding
+Z = SpectralEmbedding(n_components=2, n_neighbors=15, random_state=7).fit_transform(X)
+```
+
+## Key Parameters for Bayesian Optimization
+- `n_neighbors`: graph locality for Laplacian construction.
+- `n_components`: number of eigenvectors retained.
+
+Search bounds used in the minimal snippet:
+- `{"n_neighbors": (5, 80)}`
+
+## Initialization in Practice
+The method is not restart-heavy; keep graph construction choices fixed while tuning neighborhood size.
+
+## Runtime and Memory Notes
+Eigen decomposition can become expensive as graph size increases. Neighborhood graph quality strongly affects outcomes.
+
+## Common Failure Signs and Fixes
+- Disconnected affinity graph -> increase `n_neighbors`.
+- Strong sensitivity to scaling -> lock preprocessing before tuning.
+- Unstable cluster topology -> cross-check with local and global reliability metrics.
+
+## Minimal Runnable Snippet
+```python
+import numpy as np
+from bayes_opt import BayesianOptimization
+from zadu import ZADU
+from sklearn.manifold import SpectralEmbedding
+
+X = ...  # shape: (n_samples, n_features)
+
+def zadu_score(hd, ld):
+    spec = [{"id": "tnc", "params": {"k": 20}}]
+    result = ZADU(spec, hd).measure(ld)[0]
+    vals = [float(v) for v in result.values() if isinstance(v, (int, float))]
+    return float(np.mean(vals))
+
+def embed(n_neighbors):
+    model = SpectralEmbedding(n_components=2, n_neighbors=int(round(n_neighbors)), random_state=7)
+    return model.fit_transform(X)
+
+def objective(*args, **kwargs):
+    z = embed(*args, **kwargs)
+    return zadu_score(X, z)
+
+optimizer = BayesianOptimization(f=objective, pbounds={"n_neighbors": (5, 80)}, random_state=7, verbose=0)
+optimizer.maximize(init_points=4, n_iter=16)
+Z_best = embed(**optimizer.max["params"])
+```
+
 ## Source Notes
 - Dimensionality Reduction: A Comparative Review (Laurens van der Maaten; Eric O. Postma; Jaap van den Herik, Technical Report, 2009)
 - Initialization Is Critical for Preserving Global Data Structure in Both t-SNE and UMAP (Dmitry Kobak; George C. Linderman, Nature Biotechnology, 2020)
