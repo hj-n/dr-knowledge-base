@@ -205,6 +205,7 @@ Reject a note as incomplete if any condition fails:
     - `zadu` for reliability scoring
     - minimal runnable form (target: <= 25 non-empty lines)
     - no internal jargon in code/comments (`guardrail`, `metric bundle`, `task axis`, `warning gate`)
+    - no policy-bookkeeping scaffolding in user code (for example `task_lock`, `preprocessing_config`, `warning_gate_result`, or similar config-dump dictionaries)
 - Paper citations in `docs/` should map claims to published sources.
 - Internal note-path traceability stays in `builder/evidence/*` and `papers/notes/*`.
 - Detailed quote-level evidence stays in `papers/notes/*`.
@@ -229,6 +230,28 @@ Reject a note as incomplete if any condition fails:
   - adding citation links alone is not considered a valid content update
   - updating only `Practical Reliability Notes` is not considered a valid content update
   - when new evidence changes guidance, update at least one of: computation details, hyperparameter impact, task alignment rationale, or known tradeoffs
+
+## Thread-Derived Regression Guardrails
+These rules capture recurring failure modes from this project thread and are mandatory for future updates.
+
+- Recommendation claim-to-citation rule:
+  - if a technique or metric is recommended in user-facing output, include paper citations that support that specific recommendation.
+  - if support is inferred rather than explicit, label it as inferred and avoid presenting it as a hard fact.
+- User reference response rule:
+  - when user asks for references, return paper bibliography entries first (title, authors, venue, year, URL).
+  - do not answer with internal mapping prose, file paths, or repository-internal evidence links.
+- Repository mapping verification rule:
+  - before adding a GitHub repository to execution mapping, verify that the repository actually implements the claimed method by checking README/API or source entrypoints.
+  - do not map ambiguous search hits without method-level verification.
+- Boilerplate/meta-text prohibition:
+  - do not add meta explanations that are about process mistakes instead of method behavior (for example wording like "use this because extension behavior was missed earlier").
+  - metric/technique prose must describe computation, parameter effects, and practical tradeoffs of the method itself.
+- Simplicity-first user response rule:
+  - for simple user prompts, avoid dumping full internal workflow by default.
+  - provide a short direct answer first, then expand only when the question requires deeper detail.
+- Catalog scope rule:
+  - do not include non-DR or workflow-irrelevant papers in user-facing paper catalog outputs.
+  - if a paper is retained only for internal context, keep it in notes/evidence scope and do not promote it to recommendation guidance.
 
 ## Metric Sync Gate (Mandatory)
 - Every metric file must include:
