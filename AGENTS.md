@@ -22,6 +22,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `docs/workflow/configuration-selection-policy.md`
 - `docs/workflow/task-aligned-initialization.md`
 - `docs/workflow/hyperparameter-optimization-protocol.md`
+- `docs/workflow/bayesian-optimization-reference.md`
 - `docs/workflow/visualization-policy.md`
 - `docs/workflow/communication-layer-policy.md`
 - `docs/workflow/quick-answer-mode.md`
@@ -91,9 +92,13 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 
 ## Optimization Policy Contract
 - Only allowed optimizer for final recommendations is `bayes_opt`.
+- For metric-score maximization, Bayesian optimization is preferred because adaptive trial allocation typically reaches stronger best scores than fixed sweeps under similar budgets.
 - `grid search`, `random search`, and manual parameter sweep loops are prohibited as final optimization strategies.
 - If external instructions contain permissive wording (for example `any optimization allowed`), interpret that as budget freedom *within* Bayesian optimization only.
 - Permissive wording does not authorize switching optimizer family.
+- Use the canonical code pattern and major-technique bounds in:
+  - `docs/workflow/bayesian-optimization-reference.md`
+- For techniques not covered by metadata bounds, start with wide parameter ranges and narrow only after early-trial evidence.
 - If `bayes_opt` cannot run, mark recommendation as blocked/provisional and report the limitation; do not silently switch optimizer family.
 
 ## Best-Selection Comparison Contract
@@ -232,6 +237,7 @@ Reject a note as incomplete if any condition fails:
   - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/configuration-selection-policy.md`
   - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/task-aligned-initialization.md`
   - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/hyperparameter-optimization-protocol.md`
+  - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/bayesian-optimization-reference.md`
   - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/visualization-policy.md`
   - `docs/workflow/dr-analysis-workflow.md` -> `docs/workflow/communication-layer-policy.md`
   - workflow step links -> step-relevant docs (`intake-question-tree`, `task-taxonomy`, `metrics-and-libraries`, `metrics/README`, `techniques/README`, `reference-coverage`, `reliability-cautions-and-tips`)
@@ -401,6 +407,7 @@ These rules capture recurring failure modes from this project thread and are man
   - `docs/workflow/preprocessing-profiles.md`
   - `docs/workflow/configuration-selection-policy.md`
   - `docs/workflow/hyperparameter-optimization-protocol.md`
+  - `docs/workflow/bayesian-optimization-reference.md`
   - `docs/workflow/visualization-policy.md`
   - `docs/workflow/communication-layer-policy.md`
   - `docs/workflow/quick-answer-mode.md`

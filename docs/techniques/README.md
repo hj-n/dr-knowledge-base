@@ -10,6 +10,7 @@ Related:
 - Task categories and subtasks: [`docs/task-taxonomy.md`](../task-taxonomy.md)
 - Selection policy: [`docs/metrics-and-libraries.md`](../metrics-and-libraries.md)
 - Deterministic scoring policy: [`docs/workflow/configuration-selection-policy.md`](../workflow/configuration-selection-policy.md)
+- Bayesian optimization reference: [`docs/workflow/bayesian-optimization-reference.md`](../workflow/bayesian-optimization-reference.md)
 - Metric catalog: [`docs/metrics/README.md`](../metrics/README.md)
 - Frequency ranking: [`docs/reference-coverage.md`](../reference-coverage.md)
 - Grouped reliability cautions: [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)

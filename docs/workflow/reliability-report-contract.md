@@ -6,6 +6,7 @@ Related:
 - Workflow: [`docs/workflow/dr-analysis-workflow.md`](./dr-analysis-workflow.md)
 - Communication policy: [`docs/workflow/communication-layer-policy.md`](./communication-layer-policy.md)
 - Quick answer mode: [`docs/workflow/quick-answer-mode.md`](./quick-answer-mode.md)
+- Canonical Bayesian optimization code: [`docs/workflow/bayesian-optimization-reference.md`](./bayesian-optimization-reference.md)
 
 ## Two Output Layers
 Every run should produce:

@@ -21,7 +21,8 @@ Use this sequence as the default execution order for reliable DR configuration.
 5. Decide initialization strategy:
    [`docs/workflow/task-aligned-initialization.md`](./task-aligned-initialization.md)
 6. Tune with Bayesian optimization:
-   [`docs/workflow/hyperparameter-optimization-protocol.md`](./hyperparameter-optimization-protocol.md)
+   [`docs/workflow/hyperparameter-optimization-protocol.md`](./hyperparameter-optimization-protocol.md),
+   [`docs/workflow/bayesian-optimization-reference.md`](./bayesian-optimization-reference.md)
 7. Visualize and explain results:
    [`docs/workflow/visualization-policy.md`](./visualization-policy.md),
    [`docs/workflow/communication-layer-policy.md`](./communication-layer-policy.md),
@@ -82,6 +83,8 @@ Gate:
 - Use `bayes_opt` only.
 - Tune under fixed preprocessing and initialization.
 - Check stability across repeated seeds for top candidates.
+- Use the canonical code pattern and metadata-aligned range table from:
+  [`docs/workflow/bayesian-optimization-reference.md`](./bayesian-optimization-reference.md)
 
 Gate:
 - Do not replace Bayesian optimization with grid search, random search, or manual sweeps.

@@ -12,6 +12,7 @@ The goal is to help an agent confirm user intent, choose a strong configuration,
 - [`docs/workflow/configuration-selection-policy.md`](docs/workflow/configuration-selection-policy.md)
 - [`docs/workflow/task-aligned-initialization.md`](docs/workflow/task-aligned-initialization.md)
 - [`docs/workflow/hyperparameter-optimization-protocol.md`](docs/workflow/hyperparameter-optimization-protocol.md)
+- [`docs/workflow/bayesian-optimization-reference.md`](docs/workflow/bayesian-optimization-reference.md)
 - [`docs/workflow/visualization-policy.md`](docs/workflow/visualization-policy.md)
 - [`docs/workflow/communication-layer-policy.md`](docs/workflow/communication-layer-policy.md)
 - [`docs/workflow/quick-answer-mode.md`](docs/workflow/quick-answer-mode.md)
@@ -37,6 +38,17 @@ The goal is to help an agent confirm user intent, choose a strong configuration,
 ## Optimizer Interpretation Rule
 - If an external prompt says `any optimization allowed`, treat that as freedom to tune budget and bounds within Bayesian optimization.
 - Do not switch optimizer family: final tuning still must use `bayes_opt` only.
+
+## Canonical `bayes_opt` Entry Point
+Use this as the first implementation reference before writing custom tuning code:
+- [`docs/workflow/bayesian-optimization-reference.md`](docs/workflow/bayesian-optimization-reference.md)
+
+Short checklist:
+- use `BayesianOptimization(..., pbounds=..., allow_duplicate_points=True)`
+- clamp dataset-size-sensitive bounds (`n_neighbors`, `n_inliers`, `n_outliers`, `hub_num`)
+- use `zadu`-based objective scoring
+- for score-maximization tasks, prefer Bayesian optimization because adaptive trials usually find stronger best metric values than fixed sweeps at similar budgets
+- do not replace with grid/random/manual sweep
 
 ## Key Directories
 - `docs/`: user-facing operational guidance.
@@ -67,7 +79,8 @@ The goal is to help an agent confirm user intent, choose a strong configuration,
   1) `llms.txt`
   2) `docs/overview.md`
   3) `docs/workflow/dr-analysis-workflow.md`
-4) `docs/workflow/reliability-report-contract.md`
+  4) `docs/workflow/bayesian-optimization-reference.md`
+  5) `docs/workflow/reliability-report-contract.md`
 - For user-facing outputs, apply:
   - `docs/workflow/quick-answer-mode.md`
 - If references are requested, cite papers (title, authors, venue, year, URL), not internal file paths.

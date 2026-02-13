@@ -26,6 +26,7 @@ See: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 - Selection scoring policy: [`docs/workflow/configuration-selection-policy.md`](./workflow/configuration-selection-policy.md)
 - Initialization rules: [`docs/workflow/task-aligned-initialization.md`](./workflow/task-aligned-initialization.md)
 - Hyperparameter optimization protocol: [`docs/workflow/hyperparameter-optimization-protocol.md`](./workflow/hyperparameter-optimization-protocol.md)
+- Bayesian optimization execution reference: [`docs/workflow/bayesian-optimization-reference.md`](./workflow/bayesian-optimization-reference.md)
 - Visualization policy: [`docs/workflow/visualization-policy.md`](./workflow/visualization-policy.md)
 - Communication layer policy: [`docs/workflow/communication-layer-policy.md`](./workflow/communication-layer-policy.md)
 - Quick answer mode: [`docs/workflow/quick-answer-mode.md`](./workflow/quick-answer-mode.md)
@@ -53,7 +54,8 @@ See: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 6. Set initialization:
    [`docs/workflow/task-aligned-initialization.md`](./workflow/task-aligned-initialization.md)
 7. Optimize and stress-test:
-   [`docs/workflow/hyperparameter-optimization-protocol.md`](./workflow/hyperparameter-optimization-protocol.md)
+   [`docs/workflow/hyperparameter-optimization-protocol.md`](./workflow/hyperparameter-optimization-protocol.md) +
+   [`docs/workflow/bayesian-optimization-reference.md`](./workflow/bayesian-optimization-reference.md)
 8. Visualize safely:
    [`docs/workflow/visualization-policy.md`](./workflow/visualization-policy.md)
 9. Split explanation layers:
@@ -73,6 +75,7 @@ See: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 - User-facing language must be simple: assume the user is not a DR expert.
 - User-facing code must be concise: show a minimal runnable path, not orchestration internals.
 - Hyperparameter tuning policy is fixed: use Bayesian optimization (`bayes_opt`) only.
+- Start optimization code from the canonical execution reference: `bayesian-optimization-reference.md`.
 - Do not use grid search, random search, or manual sweep loops for final recommendations.
 - Do not expose internal policy wiring in user outputs (for example task-routing tables, label-separation check state keys, or internal scoring keys).
 - Do not use metric abbreviations in user explanation (for example `tnc`, `nh`, `nd`); use full names.

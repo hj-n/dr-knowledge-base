@@ -6,6 +6,7 @@ Related:
 - Communication policy: [`docs/workflow/communication-layer-policy.md`](./communication-layer-policy.md)
 - Report contract: [`docs/workflow/reliability-report-contract.md`](./reliability-report-contract.md)
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](./dr-analysis-workflow.md)
+- Canonical Bayesian optimization code: [`docs/workflow/bayesian-optimization-reference.md`](./bayesian-optimization-reference.md)
 
 ## Purpose
 When users ask practical DR questions, answer in a way that is:

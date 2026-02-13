@@ -8,6 +8,7 @@ Related:
 - Workflow: [`docs/workflow/dr-analysis-workflow.md`](./dr-analysis-workflow.md)
 - Quick answer mode: [`docs/workflow/quick-answer-mode.md`](./quick-answer-mode.md)
 - Report contract: [`docs/workflow/reliability-report-contract.md`](./reliability-report-contract.md)
+- Canonical Bayesian optimization code: [`docs/workflow/bayesian-optimization-reference.md`](./bayesian-optimization-reference.md)
 
 ## User-Facing Answer: Writing Rules
 - Use plain words and short sentences.
