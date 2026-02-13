@@ -1,7 +1,7 @@
 # DR Knowledge Base
 
 Task-first guidance for reliable dimensionality-reduction (DR) analysis.
-The goal is to help an agent confirm user intent, choose a strong configuration, and explain the final choice clearly.
+The goal is to help an agent confirm user intent, choose a strong configuration, and provide clear rationale when users ask why.
 
 ## Start Here
 - `llms.txt`
@@ -27,7 +27,7 @@ The goal is to help an agent confirm user intent, choose a strong configuration,
 4. Rank candidates with the deterministic policy.
 5. Set initialization strategy.
 6. Tune with `bayes_opt` only.
-7. Evaluate reliability with `zadu` and explain the final choice in plain language.
+7. Evaluate reliability with `zadu`; provide plain-language rationale only when the user asks why.
 8. Execute the chosen method from its technique file execution card (library links + minimal runnable snippet).
 
 ## Best/Optimal Requests

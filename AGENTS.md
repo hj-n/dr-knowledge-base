@@ -199,6 +199,9 @@ Reject a note as incomplete if any condition fails:
     - keep answer length proportional to question complexity
       - simple question -> short answer first
       - complex request -> structured detail only as needed
+    - detailed why-rationale is on-demand:
+      - do not output long rationale blocks by default
+      - provide `why` explanations only when the user asks
   - optimization wording in user layer must stay simple and policy-compliant:
     - do not propose `grid search`, `random search`, or sweep loops
     - explain tuning as `Bayesian optimization` in plain language
@@ -431,7 +434,7 @@ Before ending a doc-update turn, verify:
 9. If a recommendation explanation is produced, verify novice readability:
    - includes `user_goal_restatement`
    - includes `user_what_was_compared`
-   - includes `user_why_selected`
+   - includes `user_why_selected` only when the user asked why
    - includes `user_risk_note`
    - avoids unexplained shorthand-only phrasing
    - avoids banned internal phrases (`preprocessing freeze`, `primary metric`, `guardrail metric`, etc.)
@@ -444,7 +447,7 @@ Before ending a doc-update turn, verify:
    - user section avoids forbidden standalone jargon
 12. If a recommendation explanation artifact is produced, verify concise code deliverable:
    - includes `user_code_snippet`
-   - includes `user_code_reason`
+   - includes `user_code_reason` only when the user asked why this code
    - user code snippet does not expose internal policy keys as top-level API
 13. If a recommendation explanation artifact is produced, verify naming clarity:
    - user section does not use metric IDs/abbreviations (`tnc`, `nh`, `nd`, etc.)

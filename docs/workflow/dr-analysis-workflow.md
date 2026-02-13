@@ -92,6 +92,7 @@ Gate:
   - technical record for audit
   - plain-language explanation for end users
 - Always disclose final method and key settings.
+- Keep default user answers concise; provide detailed rationale only when the user asks why.
 - If references are requested, cite papers, not internal files.
 
 Gate:

@@ -33,6 +33,7 @@ REQUIRED_DOC_FILES = [
 REQUIRED_LLMS_PHRASES = [
     "Tune with Bayesian optimization (`bayes_opt`) only.",
     "Score reliability with `zadu`.",
+    "Share plain-language rationale only when the user asks why.",
     "Always disclose final method and key settings.",
     "Do not justify selections by popularity alone.",
 ]

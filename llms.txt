@@ -8,7 +8,7 @@ Use this guidance when helping users configure dimensionality reduction (DR) for
 3. Compare all methods and reliability checks aligned to that goal before pruning.
 4. Tune with Bayesian optimization (`bayes_opt`) only.
 5. Score reliability with `zadu`.
-6. Explain the final choice in plain language.
+6. Share plain-language rationale only when the user asks why.
 7. Always disclose final method and key settings.
 8. Do not justify selections by popularity alone.
 
@@ -56,12 +56,16 @@ If not, lower confidence and include label-agnostic checks.
 - Do not introduce methods outside the technique catalog unless the user explicitly asks for them.
 
 ## Required user-facing output
+Default:
 - What the user asked
-- What was compared
-- What was selected and why
+- What was selected
 - Final reusable settings
 - Remaining risk
 - Concise code snippet
+
+Add only when explicitly requested:
+- What was compared (for comparative or best/optimal questions)
+- Why the selection fits the goal
 - Short explanation of the code
 
 ## Source Priority for Writing Style

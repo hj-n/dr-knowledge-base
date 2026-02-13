@@ -18,23 +18,31 @@ Choose depth by user intent:
 - Simple request:
   - one short clarification question if needed,
   - one direct recommendation,
-  - one concise code snippet.
+  - one concise code snippet,
+  - no detailed rationale unless the user asks why.
 - Comparative request:
   - brief comparison of candidates,
-  - final selection with reason,
+  - final selection,
   - final settings and one concise code path.
 - Research/deep request:
-  - structured explanation with references,
+  - structured explanation,
+  - references only when asked,
   - still keep code minimal and runnable.
 
-## Required User-Facing Blocks
+## Default Required User-Facing Blocks
 Always include:
 1. What you understood
-2. What was compared
-3. What you selected and why
-4. Final settings
-5. Risk note
-6. Concise runnable code
+2. What you selected
+3. Final settings
+4. Risk note
+5. Concise runnable code
+
+## On-Request Blocks
+Add these only when explicitly requested:
+- What was compared (for comparative or best/optimal questions)
+- Why this selection fits the goal
+- Why this code is structured this way
+- Paper references
 
 ## Wording Rule
 Prefer:

@@ -11,7 +11,8 @@ Related:
 
 ## User-Facing Answer: Writing Rules
 - Use plain words and short sentences.
-- Explain: what was compared, what was selected, why it fits the goal, and what risk remains.
+- Explain default essentials first: what was selected, final settings, and remaining risk.
+- Provide detailed "why" rationale only when the user explicitly asks why.
 - Show final settings in a copyable form.
 - Do not expose internal key names or policy labels.
 - Do not justify selection with popularity-only wording (for example: "commonly used", "standard default") without task-fit and reliability evidence.
@@ -64,13 +65,17 @@ Code quality constraints:
 - if `bayes_opt` cannot run, return `BLOCKED` with the exact fix command; do not provide grid/random/manual-sweep fallback code
 
 ## Minimum User Answer Structure
+Default:
 1. `What you asked`
-2. `What we compared`
-3. `What we selected and why`
-4. `Final settings`
-5. `Risk note`
-6. `Concise code`
-7. `Why this code`
+2. `What we selected`
+3. `Final settings`
+4. `Risk note`
+5. `Concise code`
+
+On request:
+1. `What we compared` (for comparative or best/optimal questions)
+2. `Why this selection`
+3. `Why this code`
 
 ## Reference Citation Rule (User Layer)
 - If the user asks "what is the source?" or "give references", return paper citations only.

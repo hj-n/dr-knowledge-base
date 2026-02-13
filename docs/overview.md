@@ -4,7 +4,7 @@
 Enable an LLM to do three things reliably:
 1. identify and confirm the user's main DR goal from plain-language input,
 2. generate a high-quality task-aligned configuration,
-3. explain the decision with explicit evidence and residual risk.
+3. provide clear rationale and residual risk when the user asks why.
 
 ## Core Axis
 This KB uses a fixed 7-goal taxonomy:
@@ -66,9 +66,10 @@ See: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 ## Non-Negotiable Rules
 - Task-first: no recommendation before task is confirmed with high confidence.
 - Deterministic decisioning: use the scoring policy, not ad-hoc preference.
-- Evidence-first explanation: every final claim must map to source notes.
+- Evidence-first explanation: rationale claims must map to source notes when rationale is requested.
 - Dual-layer communication: keep a technical layer for implementation and a separate novice-friendly user layer.
 - Final-configuration disclosure: always show users the exact final method and key parameter settings.
+- Keep default user answers concise; expand rationale only on explicit why-questions.
 - User-facing language must be simple: assume the user is not a DR expert.
 - User-facing code must be concise: show a minimal runnable path, not orchestration internals.
 - Hyperparameter tuning policy is fixed: use Bayesian optimization (`bayes_opt`) only.

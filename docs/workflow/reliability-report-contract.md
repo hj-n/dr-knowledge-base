@@ -13,15 +13,20 @@ Every run should produce:
 2. user-facing answer in plain language
 
 User-facing answers must not expose internal field names.
+Detailed rationale can stay in the technical record and be shown in user-facing text when the user asks why.
 
 ## User-Facing Answer Structure
+Default:
 1. What you asked
-2. What we compared
-3. What we selected and why
-4. Final settings you can reuse
-5. Risk note
-6. Concise code
-7. Why this code
+2. What we selected
+3. Final settings you can reuse
+4. Risk note
+5. Concise code
+
+On request:
+1. What we compared (for comparative or best/optimal questions)
+2. Why this selection fits the goal
+3. Why this code
 
 ## User-Layer Constraints
 - plain language for DR novices
