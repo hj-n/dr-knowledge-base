@@ -127,20 +127,39 @@ def check_context7() -> list[str]:
     except Exception as exc:  # pragma: no cover
         return [f"{path}: invalid JSON: {exc}"]
 
-    for key in ["url", "public_key", "include", "exclude"]:
+    for key in ["folders", "excludeFolders", "excludeFiles"]:
         if key not in cfg:
             errors.append(f"{path}: missing key: {key}")
 
-    include = cfg.get("include", [])
-    exclude = cfg.get("exclude", [])
-    if "docs/**" not in include:
-        errors.append(f"{path}: include must contain docs/**")
-    if "papers/notes/**" not in exclude:
-        errors.append(f"{path}: exclude must contain papers/notes/**")
-    if "papers/raw/**" not in exclude:
-        errors.append(f"{path}: exclude must contain papers/raw/**")
-    if "docs/reference-coverage.md" not in exclude:
-        errors.append(f"{path}: exclude must contain docs/reference-coverage.md")
+    if "include" in cfg or "exclude" in cfg:
+        errors.append(f"{path}: legacy keys include/exclude are not allowed")
+    if "url" in cfg or "public_key" in cfg:
+        errors.append(f"{path}: legacy keys url/public_key are not allowed")
+
+    folders = cfg.get("folders", [])
+    exclude_folders = cfg.get("excludeFolders", [])
+    exclude_files = cfg.get("excludeFiles", [])
+
+    if not isinstance(folders, list):
+        errors.append(f"{path}: folders must be a list")
+    if not isinstance(exclude_folders, list):
+        errors.append(f"{path}: excludeFolders must be a list")
+    if not isinstance(exclude_files, list):
+        errors.append(f"{path}: excludeFiles must be a list")
+
+    required_exclude_folders = {"papers/raw", "papers/notes", "builder", "scripts"}
+    missing_exclude_folders = required_exclude_folders.difference(set(exclude_folders))
+    if missing_exclude_folders:
+        errors.append(
+            f"{path}: excludeFolders missing required entries: {sorted(missing_exclude_folders)}"
+        )
+
+    required_exclude_files = {"reference-coverage.md", "paper-catalog.csv"}
+    missing_exclude_files = required_exclude_files.difference(set(exclude_files))
+    if missing_exclude_files:
+        errors.append(
+            f"{path}: excludeFiles missing required entries: {sorted(missing_exclude_files)}"
+        )
     return errors
 
 

@@ -1,16 +1,21 @@
 {
-  "url": "https://context7.com/hj-n/dr-knowledge-base",
-  "public_key": "pk_lRnfPRoUGB8BFds9D65Z9",
-  "include": [
-    "llms.txt",
-    "docs/**"
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "DR Knowledge Base",
+  "description": "Task-first guidance for reliable dimensionality-reduction analysis with bayes_opt-only tuning and zadu reliability scoring.",
+  "folders": [],
+  "excludeFolders": [
+    "papers/raw",
+    "papers/notes",
+    "builder",
+    "scripts"
   ],
-  "exclude": [
-    "papers/raw/**",
-    "papers/notes/**",
-    "builder/**",
-    "scripts/**",
-    "docs/reference-coverage.md",
-    "docs/paper-catalog.csv"
+  "excludeFiles": [
+    "reference-coverage.md",
+    "paper-catalog.csv"
+  ],
+  "rules": [
+    "Always read llms.txt first before any other file.",
+    "Treat llms.txt as the primary behavior contract for coding and explanation style.",
+    "Then read docs/overview.md and carefully read the rest of the documentation in docts/ to match your need."
   ]
 }

@@ -388,16 +388,18 @@ These rules capture recurring failure modes from this project thread and are man
   - paper citations
 
 ## Context7 Maintenance
-- Keep `context7.json` indexing scope limited to:
-  - `llms.txt`
-  - `docs`
-- Exclude from indexing:
+- Use current Context7 config keys in `context7.json`:
+  - `folders`
+  - `excludeFolders`
+  - `excludeFiles`
+- Keep indexing scope limited to `llms.txt` + `docs` by excluding non-user layers:
   - `papers/raw`
   - `papers/notes`
   - `builder`
   - `scripts`
-  - `docs/reference-coverage.md`
-  - `docs/paper-catalog.csv`
+- Keep noisy user-layer files excluded by filename:
+  - `reference-coverage.md`
+  - `paper-catalog.csv`
 - Refresh Context7 after meaningful doc updates.
 
 ## Workflow-Step Sync Rule
