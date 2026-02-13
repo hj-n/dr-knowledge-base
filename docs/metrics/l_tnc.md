@@ -43,6 +43,11 @@ Another notable property is that it is class-pairwise by construction. This allo
 
 It is also strong for communicating risk: the two-score structure naturally supports explanations of what type of distortion remains and what downstream interpretation can become unreliable.
 
+## Related Metrics
+Label-Trustworthiness and Label-Continuity is closest to Class-Aware Trustworthiness/Continuity and Distance Consistency in label-aware evaluation settings. All three are used when class-structure reliability is the analysis focus.
+
+Label-T&C differs by explicitly modeling class-pair distortion through M(X), M(Z), and distortion decomposition into False Groups and Missing Groups.
+
 ## Task Alignment
 Best-aligned tasks:
 - Class separability investigation
@@ -57,7 +62,6 @@ Read `l_tnc` under a fixed preprocessing and distance policy. Changing preproces
 When this metric disagrees with label-agnostic local/global metrics, report the disagreement explicitly. Do not average away the conflict; disagreement is itself important reliability information.
 
 ## Source Notes
-- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
-- ZADU README Operational Warning for Label-Separation-Sensitive Metrics (hj-n/zadu maintainers, GitHub README, 2026)
+The references below list paper sources used for this metric guidance.
 
-[^z11]: Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon, Yun-Hsin Kuo, Michaël Aupetit, Kwan-Liu Ma, Jinwook Seo, IEEE Transactions on Visualization and Computer Graphics, 2024)

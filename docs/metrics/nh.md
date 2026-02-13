@@ -29,7 +29,7 @@ Detailed protocol rule: compute under a fixed label policy (including unknown/mi
 
 ## Hyperparameter Impact
 Neighborhood size `k` controls local class-purity sensitivity. Label quality, class imbalance, and label-separation validity strongly affect interpretation.
-The label-separation gate is mandatory before strong interpretation in labeled settings.[^warn-label]
+The label-separation gate is mandatory before strong interpretation in labeled settings.
 
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
@@ -54,9 +54,13 @@ This metric is strong for label-aware local purity checks, because it directly m
 
 It is most valuable when you need fast confirmation that local neighborhoods support class-oriented interpretations, but only after label-separation assumptions are validated.
 
+## Related Metrics
+Neighborhood Hit is closest to Class-Aware Trustworthiness and Continuity and Distance Consistency, because all three are label-aware and assess class-related reliability.
+
+Neighborhood Hit differs by being purely local same-label neighbor purity. It does not directly capture class-pair distortion between original and embedded spaces.
 
 ## Task Alignment
-This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
+This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.
 - Best-aligned tasks:
   - Neighborhood identification
   - Outlier identification
@@ -80,7 +84,4 @@ If this metric disagrees with other reliability checks, report the disagreement 
 ## Source Notes
 The references below list paper sources used for this metric guidance.
 
-- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
-
-[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
-[^warn-label]: ZADU README Operational Warning for Label-Separation-Sensitive Metrics (hj-n/zadu maintainers, GitHub README, 2026)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser, Kaviru Gunaratne, Jacob Miller, Stephen Kobourov, IEEE Transactions on Visualization and Computer Graphics, 2024)

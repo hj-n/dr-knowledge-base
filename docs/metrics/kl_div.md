@@ -29,7 +29,7 @@ Detailed protocol rule: apply consistent distance scaling and normalization poli
 
 ## Hyperparameter Impact
 Neighborhood probability construction parameters strongly affect divergence behavior. Scale handling and probability calibration policy are critical for fair comparisons.
-Scale policy must be explicit when comparing values across runs or methods.[^warn-scale]
+Scale policy must be explicit when comparing values across runs or methods.
 
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
@@ -54,9 +54,13 @@ This metric is strong for probability-structure mismatch analysis between high- 
 
 It is particularly informative when comparing neighborhood-probability-preserving techniques or when auditing optimization behavior tied to divergence objectives.
 
+## Related Metrics
+Kullback-Leibler divergence is partially aligned with local-neighborhood reliability metrics because it penalizes mismatch in neighborhood probability structure.
+
+It differs from rank- or residual-based metrics by using asymmetric probability divergence, so direction and scale handling must be interpreted carefully.
 
 ## Task Alignment
-This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
+This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.
 - Best-aligned tasks:
   - Point distance investigation
   - Class separability investigation
@@ -81,18 +85,8 @@ If this metric disagrees with other reliability checks, report the disagreement 
 ## Source Notes
 The references below list paper sources used for this metric guidance.
 
-- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025)
-- Stochastic Neighbor Embedding (Geoffrey E. Hinton et al., Advances in Neural Information Processing Systems (NIPS 15), 2002)
-- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
-- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoit Colange et al., Advances in Neural Information Processing Systems (NeurIPS), 2020)
-- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
-
-- Uniform manifold approximation with two-phase optimization (H. Jeon et al., 2022 IEEE Visualization and Visual Analytics (VIS), 2022)
-- t-viSNE: Interactive Assessment and Interpretation of t-SNE Projections (Angelos Chatzimparmpas et al., IEEE Transactions on Visualization and Computer Graphics, 2020)
-- Quantitative evaluation of time-dependent multidimensional projection techniques (E. F. V ernier et al., Computer Graphics Forum, 2020)
-- viSNE enables visualization of high dimensional single-cell data and reveals phenotypic heterogeneity of leukemia (E.-A. D. Amir et al, Nature Biotechnology, 2013)
-- Trustworthiness and metrics in visualizing similarity of gene expression (S. Kaski et al., BMC Bioinformatics, 2003)
-- Implicit Multidimensional Projection of Local Subspaces (Rongzheng Bian et al., IEEE Transactions on Visualization and Computer Graphics, 2021)
-
-[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
-[^warn-scale]: “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025); How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
+- Stochastic Neighbor Embedding (Geoffrey E. Hinton, Sam T. Roweis, Advances in Neural Information Processing Systems (NIPS 15), 2002)
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoit Colange, Jaakko Peltonen, Michael Aupetit, Denys Dutykh, Sylvain Lespinats, Advances in Neural Information Processing Systems (NeurIPS), 2020)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon, Yun-Hsin Kuo, Michaël Aupetit, Kwan-Liu Ma, Jinwook Seo, IEEE Transactions on Visualization and Computer Graphics, 2024)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser, Kaviru Gunaratne, Jacob Miller, Stephen Kobourov, IEEE Transactions on Visualization and Computer Graphics, 2024)
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser, Jacob Miller, Stephen Kobourov, 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025)

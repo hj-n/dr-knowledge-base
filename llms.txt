@@ -11,6 +11,17 @@ Use this guidance when helping users configure dimensionality reduction (DR) for
 6. Explain the final choice in plain language.
 7. Always disclose final method and key settings.
 
+## Hard Optimization Rule (Must Follow)
+- Allowed optimizer family for final tuning: `bayes_opt` only.
+- Forbidden tuning patterns in final recommendation/code:
+  - `GridSearchCV`, `ParameterGrid`, or grid-like parameter tables
+  - random search
+  - manual sweep loops (for example nested loops over parameter lists/ranges)
+- If `bayes_opt` is unavailable (import/install/runtime):
+  - return `BLOCKED: bayes_opt unavailable`
+  - provide the install/fix command (for example `pip install bayesian-optimization`)
+  - do not substitute with grid/random/manual sweep.
+
 ## Communication rules
 - Use plain language suitable for DR novices.
 - Do not expose internal policy keys, mapping tables, or JSON-like control objects.
@@ -31,6 +42,14 @@ When users ask for the best or optimal configuration:
 ## Caution for label-aware evaluation
 Before relying on class-aware checks, verify that labels are reasonably separated in the original high-dimensional space.
 If not, lower confidence and include label-agnostic checks.
+
+## SNC-specific rule
+- Steadiness and Cohesiveness is a label-agnostic inter-cluster reliability check.
+- Steadiness and Cohesiveness alone must not trigger supervised or label-dependent technique selection.
+- Use supervised or label-aware techniques only when the confirmed main goal is class-separability investigation and label quality is validated.
+
+## Method scope rule
+- Do not introduce methods outside the technique catalog unless the user explicitly asks for them.
 
 ## Required user-facing output
 - What the user asked

@@ -16,6 +16,8 @@ The goal is to help an agent confirm user intent, choose a strong configuration,
 - [`docs/workflow/communication-layer-policy.md`](docs/workflow/communication-layer-policy.md)
 - [`docs/workflow/reliability-report-contract.md`](docs/workflow/reliability-report-contract.md)
 - [`docs/metrics-and-libraries.md`](docs/metrics-and-libraries.md)
+- [`docs/techniques/README.md`](docs/techniques/README.md)
+- [`docs/execution-library-index.md`](docs/execution-library-index.md)
 
 ## Core Execution Intent
 1. Confirm one main analysis goal from user language.
@@ -25,6 +27,7 @@ The goal is to help an agent confirm user intent, choose a strong configuration,
 5. Set initialization strategy.
 6. Tune with `bayes_opt` only.
 7. Evaluate reliability with `zadu` and explain the final choice in plain language.
+8. Execute the chosen method from its technique file execution card (library links + minimal runnable snippet).
 
 ## Best/Optimal Requests
 - Compare all goal-aligned candidates before pruning.
@@ -32,6 +35,7 @@ The goal is to help an agent confirm user intent, choose a strong configuration,
 
 ## Key Directories
 - `docs/`: user-facing operational guidance.
+- `docs/techniques/`: per-technique execution cards (official API/GitHub/PyPI + minimal runnable snippets).
 - `papers/raw/`: raw PDFs.
 - notes under `papers/`: extracted evidence records.
 - `builder/evidence/`: builder-only traceability and policy artifacts.
@@ -45,6 +49,8 @@ The goal is to help an agent confirm user intent, choose a strong configuration,
 - `python scripts/validate_user_explanation_text.py <user-text-file>`
 - `python scripts/validate_reliability_report.py <report-file>`
 - `python scripts/lint_user_layer_docs.py`
+- `python scripts/update_library_maintenance.py`
+- `python scripts/validate_technique_execution_docs.py`
 
 ## Context7 Snippet (AGENTS.md / CLAUDE.md)
 ```md

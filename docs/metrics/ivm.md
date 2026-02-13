@@ -29,7 +29,7 @@ Detailed protocol rule: keep class labels and class-balance handling fixed acros
 
 ## Hyperparameter Impact
 Clustering algorithm settings and number-of-clusters policy are primary controls. Internal validation index choice changes score semantics and thresholds.
-The label-separation gate is mandatory before strong interpretation in labeled settings.[^warn-label]
+The label-separation gate is mandatory before strong interpretation in labeled settings.
 
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
@@ -54,9 +54,13 @@ This metric is strong for embedding quality assessment through internal clusteri
 
 It is useful when cluster recoverability is a primary decision criterion and clustering settings are controlled consistently.
 
+## Related Metrics
+Internal Validation Measure is close to Clustering-plus-External Validation and Distance Consistency because all are used in cluster/class quality assessment.
+
+IVM differs by relying on internal cluster-structure criteria (for example silhouette or Davies-Bouldin style behavior) rather than external label agreement objectives.
 
 ## Task Alignment
-This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
+This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.
 - Best-aligned tasks:
   - Cluster identification
   - Class separability investigation
@@ -80,10 +84,6 @@ Failure-signaling rule: when class-aware metrics improve but label-agnostic loca
 ## Source Notes
 The references below list paper sources used for this metric guidance.
 
-- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2021)
-- A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data (Ruizhi Xiang et al., Frontiers in Genetics, 2021)
-- Local Affine Multidimensional Projection (theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy et al., IEEE Transactions on Visualization and Computer Graphics, 2011)
-- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
-
-[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
-[^warn-label]: ZADU README Operational Warning for Label-Separation-Sensitive Metrics (hj-n/zadu maintainers, GitHub README, 2026)
+- Local Affine Multidimensional Projection (Paulo Joia, Fernando V. Paulovich, Danilo Coimbra, Jose Alberto Cuminato, Luis Gustavo Nonato, IEEE Transactions on Visualization and Computer Graphics, 2011)
+- A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data (Ruizhi Xiang, Wencan Wang, Lei Yang, Shiyuan Wang, Chaohan Xu, Xiaowen Chen, Frontiers in Genetics, 2021)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon, Yun-Hsin Kuo, Michaël Aupetit, Kwan-Liu Ma, Jinwook Seo, IEEE Transactions on Visualization and Computer Graphics, 2024)

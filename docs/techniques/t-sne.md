@@ -85,6 +85,80 @@ In reporting, document which tradeoffs were accepted and why they were acceptabl
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
+## Implementation Options
+The default execution path uses the mapped primary Python implementation for this technique. Implementation mode: `direct`. Primary status: `active`.
+
+Use the primary path when it is `active` or `watch`. If it is `risk`, execute the fallback path and keep the recommendation confidence conservative.
+
+## Recommended Library
+Recommended library: **openTSNE**.
+
+Current maintenance snapshot: **active** (checked on 2026-02-11). This status is generated from the automated maintenance snapshot using the documented maintenance policy.
+
+## Official API / GitHub / PyPI Links
+Primary path links:
+- Official API: [https://opentsne.readthedocs.io/en/latest/](https://opentsne.readthedocs.io/en/latest/)
+- GitHub: [https://github.com/pavlin-policar/openTSNE](https://github.com/pavlin-policar/openTSNE)
+- PyPI: [https://pypi.org/project/openTSNE/](https://pypi.org/project/openTSNE/)
+
+Fallback path links:
+- Official API: [https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html)
+- GitHub: [https://github.com/scikit-learn/scikit-learn](https://github.com/scikit-learn/scikit-learn)
+- PyPI: [https://pypi.org/project/scikit-learn/](https://pypi.org/project/scikit-learn/)
+
+## Minimal Python API Pattern
+```python
+from openTSNE import TSNE
+Z = np.asarray(TSNE(n_components=2, perplexity=30, learning_rate=200, random_state=7).fit(X))
+```
+
+## Key Parameters for Bayesian Optimization
+- `perplexity`: effective neighborhood size for probability modeling.
+- `learning_rate`: optimization step scale.
+- `early_exaggeration`: early-stage cluster separation strength.
+
+Search bounds used in the minimal snippet:
+- `{"perplexity": (5, 80), "learning_rate": (10, 1000), "early_exaggeration": (4, 24)}`
+
+## Initialization in Practice
+Initialization and seed choice can materially change global arrangement. Use fixed initialization policy and multi-seed validation.
+
+## Runtime and Memory Notes
+Runtime can be substantial for large datasets. Budget optimization iterations carefully and validate finalists with seed repeats.
+
+## Common Failure Signs and Fixes
+- Different seeds produce contradictory layouts -> lower confidence and keep alternatives.
+- Fragmented manifolds with tiny islands -> revisit perplexity range.
+- Overcrowded map -> adjust learning rate and exaggeration jointly.
+
+## Minimal Runnable Snippet
+```python
+import numpy as np
+from bayes_opt import BayesianOptimization
+from zadu import ZADU
+from openTSNE import TSNE
+
+X = ...  # shape: (n_samples, n_features)
+
+def zadu_score(hd, ld):
+    spec = [{"id": "tnc", "params": {"k": 20}}]
+    result = ZADU(spec, hd).measure(ld)[0]
+    vals = [float(v) for v in result.values() if isinstance(v, (int, float))]
+    return float(np.mean(vals))
+
+def embed(perplexity, learning_rate, early_exaggeration):
+    model = TSNE(n_components=2, perplexity=float(perplexity), learning_rate=float(learning_rate), early_exaggeration=float(early_exaggeration), random_state=7)
+    return np.asarray(model.fit(X))
+
+def objective(*args, **kwargs):
+    z = embed(*args, **kwargs)
+    return zadu_score(X, z)
+
+optimizer = BayesianOptimization(f=objective, pbounds={"perplexity": (5, 80), "learning_rate": (10, 1000), "early_exaggeration": (4, 24)}, random_state=7, verbose=0)
+optimizer.maximize(init_points=4, n_iter=16)
+Z_best = embed(**optimizer.max["params"])
+```
+
 ## Source Notes
 - Stop Misusing t-SNE and UMAP for Visual Analytics (Hyeon Jeon, arXiv, 2025)
 - How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., IEEE Transactions on Visualization and Computer Graphics, 2024)

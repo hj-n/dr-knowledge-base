@@ -83,7 +83,86 @@ In reporting, document which tradeoffs were accepted and why they were acceptabl
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
+## Implementation Options
+The source literature for this technique is retained, but the default execution path uses a practical fallback implementation because the mapped primary path is not production-ready in Python. Primary status: `risk`. Fallback status: `watch`.
+
+Use the primary path when it is `active` or `watch`. If it is `risk`, execute the fallback path and keep the recommendation confidence conservative.
+
+## Recommended Library
+Recommended library: **lsp-python (practical Python fallback)**.
+
+Current maintenance snapshot: **watch** (checked on 2026-02-11). This status is generated from the automated maintenance snapshot using the documented maintenance policy.
+
+## Official API / GitHub / PyPI Links
+Primary path links:
+- Official API: [https://github.com/gnavvy/Lamp](https://github.com/gnavvy/Lamp)
+- GitHub: [https://github.com/gnavvy/Lamp](https://github.com/gnavvy/Lamp)
+- PyPI: Not available
+
+Fallback path links:
+- Official API: [https://github.com/lvcarx/pyLSP](https://github.com/lvcarx/pyLSP)
+- GitHub: [https://github.com/lvcarx/pyLSP](https://github.com/lvcarx/pyLSP)
+- PyPI: [https://pypi.org/project/lsp-python/](https://pypi.org/project/lsp-python/)
+
+## Minimal Python API Pattern
+```python
+from lsp_python.lsp import LSP
+idx = np.random.default_rng(7).choice(len(X), size=128, replace=False)
+model = LSP()
+X_init = model.fit(X[idx])
+Z = model.transform(X_init, idx, X)
+```
+
+## Key Parameters for Bayesian Optimization
+- `control_points`: number of anchor points used to construct the projection.
+- `seed`: controls reproducible anchor sampling in Python workflows.
+
+Search bounds used in the minimal snippet:
+- `{"control_points": (16, 512)}`
+
+## Initialization in Practice
+Anchor/control-point selection acts as the main initialization lever. Keep sampling seed fixed during optimization and compare seed variants afterward.
+
+## Runtime and Memory Notes
+Control-point methods are usually faster than full pairwise solvers, but quality depends strongly on anchor representativeness.
+
+## Common Failure Signs and Fixes
+- Projection quality swings with anchor samples -> increase control points or stratify anchor selection.
+- Local neighborhoods tear around sparse regions -> validate with local reliability checks.
+- Very large datasets still slow -> optimize on subset and re-project full data.
+
+## Minimal Runnable Snippet
+```python
+import numpy as np
+from bayes_opt import BayesianOptimization
+from zadu import ZADU
+from lsp_python.lsp import LSP
+
+X = ...  # shape: (n_samples, n_features)
+
+def zadu_score(hd, ld):
+    spec = [{"id": "tnc", "params": {"k": 20}}]
+    result = ZADU(spec, hd).measure(ld)[0]
+    vals = [float(v) for v in result.values() if isinstance(v, (int, float))]
+    return float(np.mean(vals))
+
+def embed(control_points):
+    cp = int(max(16, min(len(X) - 1, round(control_points))))
+    idx = np.random.default_rng(7).choice(len(X), size=cp, replace=False)
+    model = LSP()
+    x_init = model.fit(X[idx])
+    return model.transform(x_init, idx, X)
+
+def objective(*args, **kwargs):
+    z = embed(*args, **kwargs)
+    return zadu_score(X, z)
+
+optimizer = BayesianOptimization(f=objective, pbounds={"control_points": (16, 512)}, random_state=7, verbose=0)
+optimizer.maximize(init_points=4, n_iter=16)
+Z_best = embed(**optimizer.max["params"])
+```
+
 ## Source Notes
-- Local Affine Multidimensional Projection (theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy et al., IEEE Transactions on Visualization and Computer Graphics, 2011)
+- Local Affine Multidimensional Projection (Paulo Joia, Fernando V. Paulovich, Danilo Coimbra, Jose Alberto Cuminato, Luis Gustavo Nonato, IEEE Transactions on Visualization and Computer Graphics, 2011)
 
 - Deep learning multidimensional projections (M. Espadoto et al., Information Visualization, 2020)

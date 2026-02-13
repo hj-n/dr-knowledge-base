@@ -5,6 +5,7 @@ Related:
 - Task confirmation: [`docs/workflow/task-confirmation-protocol.md`](./workflow/task-confirmation-protocol.md)
 - Selection policy: [`docs/workflow/configuration-selection-policy.md`](./workflow/configuration-selection-policy.md)
 - Metric catalog: [`docs/metrics/README.md`](./metrics/README.md)
+- Metric similarity map: [`docs/metrics/metric-relationships.md`](./metrics/metric-relationships.md)
 - Technique catalog: [`docs/techniques/README.md`](./techniques/README.md)
 - Coverage ranking: [`docs/reference-coverage.md`](./reference-coverage.md)
 
@@ -70,25 +71,28 @@ When the user asks for the best or optimal DR configuration:
 
 ## Goal-Aligned Technique Families (Plain-Language Guide)
 1. Neighborhood identification:
-- methods that preserve local neighborhoods (for example UMAP, t-SNE, LLE, Laplacian Eigenmaps)
+- methods that preserve local neighborhoods (for example UMAP, t-SNE, PaCMAP, LLE, Laplacian Eigenmaps)
 
 2. Outlier identification:
 - local-structure methods that keep neighborhood detail visible (for example UMAP, t-SNE, LLE)
 
 3. Cluster identification:
-- methods that make local grouping behavior visible (for example UMAP, t-SNE, SOM, Classimap)
+- methods that make local grouping behavior visible (for example UMAP, t-SNE, PaCMAP, SOM)
 
 4. Point-distance investigation:
-- methods that better preserve global distance relationships (for example PCA, MDS, Isomap)
+- methods that better preserve global distance relationships (for example PCA, MDS, Isomap, TriMap, UMATO)
 
 5. Class-separability investigation:
 - supervised or label-aware methods (for example ClassNeRV, Classimap, catSNE), with label-quality checks
 
 6. Cluster-distance investigation:
-- methods with stronger global spacing behavior (for example PCA, MDS, Isomap)
+- methods with stronger global spacing behavior (for example PCA, MDS, Isomap, TriMap, UMATO)
 
 7. Cluster-density investigation:
-- methods that are usually more stable for density comparison under global geometry constraints (for example PCA, MDS, Isomap)
+- methods that are usually more stable for density comparison under global geometry constraints (for example PCA, MDS, Isomap, TriMap, UMATO)
+
+Rule:
+- Do not switch to supervised or label-aware techniques unless the confirmed main goal is class-separability investigation and label quality is validated.
 
 ## Ranking Policy
 Final ranking must follow [`docs/workflow/configuration-selection-policy.md`](./workflow/configuration-selection-policy.md).

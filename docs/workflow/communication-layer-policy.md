@@ -16,10 +16,14 @@ Related:
 - Match response length to question complexity.
   - For simple questions: answer briefly first, then add only essential details.
   - For complex requests: provide structured detail, but avoid unnecessary expansion.
+- Do not introduce supervised or label-dependent methods unless the user explicitly confirmed a class-separability goal.
 - When the user asks for references/evidence:
   - cite papers (title, authors, venue, year) as the reference unit.
   - include DOI/arXiv/open-access URL when available.
   - do not cite internal knowledge files or repository paths.
+- When the user asks how to run the selected technique:
+  - provide implementation links from official API docs, GitHub, and PyPI.
+  - keep method-justification references separate and paper-based.
 
 ## User-Facing Answer: Word Choice
 Use these preferred words:
@@ -55,6 +59,7 @@ Code quality constraints:
 - minimal runnable snippet (target: <= 25 non-empty lines)
 - no internal policy objects or key-like variables
 - comments explain practical intent, not internal workflow terms
+- if `bayes_opt` cannot run, return `BLOCKED` with the exact fix command; do not provide grid/random/manual-sweep fallback code
 
 ## Minimum User Answer Structure
 1. `What you asked`
@@ -69,6 +74,13 @@ Code quality constraints:
 - If the user asks "what is the source?" or "give references", return paper citations only.
 - Do not present internal source locations as user references.
 - Internal traceability can remain in technical records, but user-facing references must be paper-level bibliographic citations.
+
+## Implementation Link Rule (User Layer)
+- If the user asks for setup or runnable code details, include:
+  - official API documentation link
+  - GitHub repository link
+  - PyPI package link (when available)
+- Do not mix these implementation links with paper references in one list.
 
 ## Enforcement
 - Use `scripts/validate_user_explanation_text.py` for user-language leakage checks.

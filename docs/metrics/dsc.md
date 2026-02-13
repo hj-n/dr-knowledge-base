@@ -29,7 +29,7 @@ Detailed protocol rule: keep class labels and class-balance handling fixed acros
 
 ## Hyperparameter Impact
 Cluster/label definition choices dominate this metric. Label-separation assumptions should be validated before treating score differences as decisive.
-The label-separation gate is mandatory before strong interpretation in labeled settings.[^warn-label]
+The label-separation gate is mandatory before strong interpretation in labeled settings.
 
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
@@ -54,9 +54,13 @@ This metric is strong for class/cluster consistency checks in labeled settings. 
 
 It is effective for screening class-separability claims, but interpretation must remain conditional on original-space label separability.
 
+## Related Metrics
+Distance Consistency is close to Internal Validation and Clustering-plus-External Validation metrics in class-separability evaluation workflows. All can score whether class-related structures look separated.
+
+Distance Consistency differs by using centroid-consistency style logic and is also used as a CVM inside Label-T&C with invariance constraints.
 
 ## Task Alignment
-This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
+This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.
 - Best-aligned tasks:
   - Cluster identification
   - Class separability investigation
@@ -80,10 +84,7 @@ Failure-signaling rule: when class-aware metrics improve but label-agnostic loca
 ## Source Notes
 The references below list paper sources used for this metric guidance.
 
-- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025)
-- Selecting good views of high‐dimensional data using class consistency (Mike Sips et al., Computer Graphics Forum, 2009)
-- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
-- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
-
-[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
-[^warn-label]: ZADU README Operational Warning for Label-Separation-Sensitive Metrics (hj-n/zadu maintainers, GitHub README, 2026)
+- Selecting good views of high-dimensional data using class consistency (Mike Sips; Boris Neubert; John P. Lewis; Pat Hanrahan, Computer Graphics Forum, 2009)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon, Yun-Hsin Kuo, Michaël Aupetit, Kwan-Liu Ma, Jinwook Seo, IEEE Transactions on Visualization and Computer Graphics, 2024)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser, Kaviru Gunaratne, Jacob Miller, Stephen Kobourov, IEEE Transactions on Visualization and Computer Graphics, 2024)
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser, Jacob Miller, Stephen Kobourov, 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025)

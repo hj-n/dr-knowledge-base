@@ -84,6 +84,79 @@ In reporting, document which tradeoffs were accepted and why they were acceptabl
 
 Communication rule: explain what local structure may be sacrificed to preserve global trends, and confirm this with local metrics before finalization.
 
+## Implementation Options
+The default execution path uses the mapped primary Python implementation for this technique. Implementation mode: `direct`. Primary status: `active`.
+
+Use the primary path when it is `active` or `watch`. If it is `risk`, execute the fallback path and keep the recommendation confidence conservative.
+
+## Recommended Library
+Recommended library: **scikit-learn PCA**.
+
+Current maintenance snapshot: **active** (checked on 2026-02-11). This status is generated from the automated maintenance snapshot using the documented maintenance policy.
+
+## Official API / GitHub / PyPI Links
+Primary path links:
+- Official API: [https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html)
+- GitHub: [https://github.com/scikit-learn/scikit-learn](https://github.com/scikit-learn/scikit-learn)
+- PyPI: [https://pypi.org/project/scikit-learn/](https://pypi.org/project/scikit-learn/)
+
+Fallback path links:
+- Official API: [https://torchdr.github.io/dev/gen_modules/torchdr.PCA.html](https://torchdr.github.io/dev/gen_modules/torchdr.PCA.html)
+- GitHub: [https://github.com/TorchDR/TorchDR](https://github.com/TorchDR/TorchDR)
+- PyPI: [https://pypi.org/project/torchdr/](https://pypi.org/project/torchdr/)
+
+## Minimal Python API Pattern
+```python
+from sklearn.decomposition import PCA
+Z = PCA(n_components=2, svd_solver="auto").fit_transform(X)
+```
+
+## Key Parameters for Bayesian Optimization
+- `n_components`: target output dimensions kept for projection.
+- `svd_solver`: deterministic vs randomized decomposition behavior.
+
+Search bounds used in the minimal snippet:
+- `{"n_components": (2, 20)}`
+
+## Initialization in Practice
+PCA is deterministic for fixed preprocessing. Initialization is usually not a decision variable, so keep seed handling in downstream checks only.
+
+## Runtime and Memory Notes
+Runtime scales with sample count and feature count. For very high-dimensional data, preprocessing and solver choice dominate total runtime.
+
+## Common Failure Signs and Fixes
+- Unstable conclusions across preprocessing variants -> keep one preprocessing path fixed during tuning.
+- Very low explained structure in 2D -> increase `n_components` in audit runs before forcing 2D reporting.
+- Outlier-dominated axes -> inspect robust scaling before optimization.
+
+## Minimal Runnable Snippet
+```python
+import numpy as np
+from bayes_opt import BayesianOptimization
+from zadu import ZADU
+from sklearn.decomposition import PCA
+
+X = ...  # shape: (n_samples, n_features)
+
+def zadu_score(hd, ld):
+    spec = [{"id": "tnc", "params": {"k": 20}}]
+    result = ZADU(spec, hd).measure(ld)[0]
+    vals = [float(v) for v in result.values() if isinstance(v, (int, float))]
+    return float(np.mean(vals))
+
+def embed(n_components):
+    model = PCA(n_components=int(round(n_components)), svd_solver="auto")
+    return model.fit_transform(X)
+
+def objective(*args, **kwargs):
+    z = embed(*args, **kwargs)
+    return zadu_score(X, z)
+
+optimizer = BayesianOptimization(f=objective, pbounds={"n_components": (2, 20)}, random_state=7, verbose=0)
+optimizer.maximize(init_points=4, n_iter=16)
+Z_best = embed(**optimizer.max["params"])
+```
+
 ## Source Notes
 - Stop Misusing t-SNE and UMAP for Visual Analytics (Hyeon Jeon, arXiv, 2025)
 - Dimensionality Reduction: A Comparative Review (Laurens van der Maaten; Eric O. Postma; Jaap van den Herik, Technical Report, 2009)

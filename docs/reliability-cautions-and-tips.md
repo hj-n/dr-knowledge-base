@@ -67,7 +67,7 @@ Reliability action:
 Source notes:
 - “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2025)
 - How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., 2024)
-- Multidimensional scaling by optimizing goodness of fit to a nonmetric hypothesis (PSYCHOMETRIKA--VOL. ~ et al., 1964)
+- Multidimensional scaling by optimizing goodness of fit to a nonmetric hypothesis (J. B. Kruskal, 1964)
 
 ### 5) Single-Metric Overconfidence
 A single metric rarely captures all reliability dimensions. Over-relying on one score can optimize one structural property while silently degrading others.
@@ -157,7 +157,7 @@ Reliability action:
 
 Source notes:
 - Quality assessment of dimensionality reduction: Rank-based criteria (John A. Lee et al., 2009)
-- Local Affine Multidimensional Projection (theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy et al., 2011)
+- Local Affine Multidimensional Projection (Paulo Joia, Fernando V. Paulovich, Danilo Coimbra, Jose Alberto Cuminato, Luis Gustavo Nonato, 2011)
 - Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023)
 - Stochastic Neighbor Embedding (Geoffrey E. Hinton et al., 2002)
 - A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data (Ruizhi Xiang et al., 2021)

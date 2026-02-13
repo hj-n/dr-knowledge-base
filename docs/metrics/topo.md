@@ -53,9 +53,13 @@ This metric is strong for topological neighborhood-preservation checks in map-li
 
 It is particularly useful when preserving adjacency organization is more important than exact metric-distance calibration.
 
+## Related Metrics
+Topographic Product is partially aligned with neighborhood-order metrics such as T&C/ND because all diagnose topology-preservation behavior.
+
+It differs by SOM-style topology interpretation and by providing directional dimensionality-mismatch signals (too-small vs too-large output dimension).
 
 ## Task Alignment
-This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
+This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.
 - Best-aligned tasks:
   - Point distance investigation
   - Class separability investigation
@@ -80,13 +84,4 @@ If this metric disagrees with other reliability checks, report the disagreement 
 ## Source Notes
 The references below list paper sources used for this metric guidance.
 
-- Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps (of Self/-Organizing F eature Maps, IEEE Transactions on Neural Networks, 1992)
-
-- Charting a manifold (M. Brand, UNKNOWN, 2002)
-- UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction (Leland McInnes et al., Journal of Open Source Software, 2020)
-- High-dimensional labeled data analysis with topology representing graphs (Michaël Aupetit and Thibaud Catz, Proceedings of the IEEE, 2005)
-- Nonlinear dimensionality reduction and data visualization: a review (Hujun Yin, International Journal of Automation and Computing, 2007)
-- Evaluating multi-dimensional visualizations for understanding fuzzy clusters (Y . Zhao et al., BMC Bioinformatics, 2018)
-- A methodology to compare Dimensionality Reduction algorithms in terms of loss of quality (A. Gracia et al., Information Sciences, 2014)
-
-[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
+- Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps (H.-U. Bauer; K. Pawelzik, IEEE Transactions on Neural Networks, 1992)

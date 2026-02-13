@@ -53,9 +53,13 @@ This metric is strong for measuring local-neighborhood overlap in an interpretab
 
 Because it is simple to interpret and easy to compare across runs, it works well as a baseline local-fidelity signal in multi-reliability check sets.
 
+## Related Metrics
+Local Continuity Meta-Criterion is closest to Trustworthiness and Continuity, MRRE, and QNX because all are derived from neighborhood co-ranking behavior. They are useful for local-preservation analysis across neighborhood scales.
+
+LCMC differs by centering on overlap with baseline correction. It is less directional than T&C and less rank-displacement-focused than MRRE.
 
 ## Task Alignment
-This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
+This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.
 - Best-aligned tasks:
   - Neighborhood identification
   - Outlier identification
@@ -79,7 +83,5 @@ If this metric disagrees with other reliability checks, report the disagreement 
 ## Source Notes
 The references below list paper sources used for this metric guidance.
 
-- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2021)
-- Quality assessment of dimensionality reduction: Rank-based criteria (John A. Lee et al., Neurocomputing, 2009)
-
-[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
+- Quality assessment of dimensionality reduction: Rank-based criteria (John A. Lee, Michel Verleysen, Neurocomputing, 2009)
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon; Hyung-Kwon Ko; Jaemin Jo; Youngtaek Kim; Jinwook Seo, IEEE Transactions on Visualization and Computer Graphics, 2021)

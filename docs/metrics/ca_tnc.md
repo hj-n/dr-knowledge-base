@@ -29,7 +29,7 @@ Detailed protocol rule: compute under a fixed label policy (including unknown/mi
 
 ## Hyperparameter Impact
 Class-aware neighborhood decomposition depends on `k` and class-partition assumptions. Class-noise and weak separation can destabilize the score meaning.
-The label-separation gate is mandatory before strong interpretation in labeled settings.[^warn-label]
+The label-separation gate is mandatory before strong interpretation in labeled settings.
 
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
@@ -54,9 +54,13 @@ This metric is strong for decomposing local distortions into class-preserving ve
 
 It is particularly useful for class-centric analyses where local errors near boundaries have higher decision impact than within-class perturbations.
 
+## Related Metrics
+Class-Aware Trustworthiness and Continuity is closest to Neighborhood Hit and Label-Trustworthiness/Continuity because all three use class labels to evaluate projection reliability.
+
+It differs from Label-T&C by staying in a neighborhood-rank decomposition framework. Label-T&C instead compares class-pair class-label matching matrices between original and embedding spaces.
 
 ## Task Alignment
-This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
+This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.
 - Best-aligned tasks:
   - Neighborhood identification
   - Outlier identification
@@ -80,7 +84,4 @@ If this metric disagrees with other reliability checks, report the disagreement 
 ## Source Notes
 The references below list paper sources used for this metric guidance.
 
-- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
-
-[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
-[^warn-label]: ZADU README Operational Warning for Label-Separation-Sensitive Metrics (hj-n/zadu maintainers, GitHub README, 2026)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon, Yun-Hsin Kuo, Michaël Aupetit, Kwan-Liu Ma, Jinwook Seo, IEEE Transactions on Visualization and Computer Graphics, 2024)

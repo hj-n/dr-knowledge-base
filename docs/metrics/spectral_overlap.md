@@ -39,6 +39,11 @@ This metric is strong for local-fidelity objective design in automated DR tuning
 
 It is useful when you need a local-structure metric that is easier to operationalize than heavily tuned evaluation objectives.
 
+## Related Metrics
+Spectral Overlap is closest to QNX in parameter-free KNN-graph preservation evaluation. Both are used as broad neighborhood-structure quality proxies across methods.
+
+It differs by spectral/graph-overlap aggregation behavior, so it should be interpreted as complementary rather than a strict replacement for co-ranking-based metrics.
+
 ## Task Alignment
 Best-aligned tasks are:
 - Neighborhood identification
@@ -57,5 +62,6 @@ When reporting results, state clearly that `spectral_overlap` supports neighborh
 If this metric disagrees with other reliability checks, report the disagreement clearly and lower confidence instead of averaging the conflict away.
 
 ## Source Notes
+The references below list paper sources used for this metric guidance.
+
 - Spectral Overlap and a Comparison of Parameter-Free, Dimensionality Reduction Quality Metrics (Jonathan Johannemann; Robert Tibshirani, arXiv, 2019)
-- Toward a Quantitative Survey of Dimension Reduction Techniques (Mateus Espadoto; Rafael M. Martins; Auri S. Hirata; Alexandru C. Telea, IEEE Transactions on Visualization and Computer Graphics, 2021)

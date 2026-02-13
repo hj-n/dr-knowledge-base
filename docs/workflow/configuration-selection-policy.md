@@ -18,6 +18,7 @@ Related:
 Reject a candidate when any of the following holds:
 - method behavior does not match the confirmed goal
 - label assumptions fail for label-aware evaluation
+- candidate is supervised/label-dependent but the confirmed goal is not class separability investigation
 - core claims lack paper-backed evidence
 - conflict status is contested and no stable fallback exists
 

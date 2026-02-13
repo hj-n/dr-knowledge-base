@@ -34,7 +34,9 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `docs/paper-catalog.md`
 - `docs/paper-catalog.csv`
 - `docs/metrics/`
+- `docs/metrics/metric-relationships.md`
 - `docs/techniques/`
+- `docs/execution-library-index.md`
 - `builder/evidence/conflict-policy.md`
 - `builder/evidence/conflict-register.md`
 - `builder/evidence/relevance-policy.md`
@@ -48,6 +50,9 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `builder/evidence/paper-catalog.json`
 - `builder/evidence/internal-report-schema.md`
 - `builder/evidence/metric-id-map.md`
+- `builder/evidence/technique-execution-map.csv`
+- `builder/evidence/library-maintenance.csv`
+- `builder/evidence/maintenance-policy.md`
 - `papers/raw/`
 - `papers/notes/`
 - `templates/paper-note-template.md`
@@ -56,6 +61,8 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `scripts/update_reference_backlog.py`
 - `scripts/validate_reliability_report.py`
 - `scripts/lint_user_layer_docs.py`
+- `scripts/update_library_maintenance.py`
+- `scripts/validate_technique_execution_docs.py`
 - `.github/workflows/user-layer-policy.yml`
 
 ## Task Axis Contract
@@ -74,6 +81,9 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - Use exact metric IDs from `docs/metrics-and-libraries.md` for ZADU metrics.
 - Non-ZADU metrics are allowed when needed, but must include explicit provenance in source notes and metric docs.
 - Apply label-separation warning gate for: `dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`.
+- `snc` (Steadiness & Cohesiveness) is label-agnostic cluster-reliability guidance; do not classify it as label-aware and do not let it trigger supervised-method recommendation by itself.
+- Metric similarity/relatedness claims must be grounded in source papers and synchronized with `docs/metrics/metric-relationships.md`.
+- If similarity is inferred from formulations (not explicitly claimed by authors), mark it as inferred and avoid hard-equivalence wording.
 - Final configuration ranking must follow `docs/workflow/configuration-selection-policy.md`; ad-hoc ranking prose is not sufficient.
 
 ## Optimization Policy Contract
@@ -106,6 +116,10 @@ When user intent is best/optimal DR selection:
    - `docs/metrics-and-libraries.md` for summary-level changes.
    - `docs/workflow/task-aligned-initialization.md` when initialization-policy evidence is added or changed.
    - `docs/reliability-cautions-and-tips.md` for grouped cautions/tips and mitigations.
+   - if technique execution guidance changes, update:
+     - `docs/execution-library-index.md`
+     - `builder/evidence/technique-execution-map.csv`
+     - `builder/evidence/library-maintenance.csv` via `python scripts/update_library_maintenance.py`
 8. Recompute conflict status using `builder/evidence/conflict-policy.md` and update `builder/evidence/conflict-register.md`.
 9. Recompute reference frequency index with `python scripts/update_reference_coverage.py`.
 10. Recompute paper catalog with `python scripts/update_paper_catalog.py`.
@@ -195,6 +209,7 @@ Reject a note as incomplete if any condition fails:
     - `zadu` for reliability scoring
     - minimal runnable form (target: <= 25 non-empty lines)
     - no internal jargon in code/comments (`guardrail`, `metric bundle`, `task axis`, `warning gate`)
+    - no policy-bookkeeping scaffolding in user code (for example `task_lock`, `preprocessing_config`, `warning_gate_result`, or similar config-dump dictionaries)
 - Paper citations in `docs/` should map claims to published sources.
 - Internal note-path traceability stays in `builder/evidence/*` and `papers/notes/*`.
 - Detailed quote-level evidence stays in `papers/notes/*`.
@@ -219,6 +234,33 @@ Reject a note as incomplete if any condition fails:
   - adding citation links alone is not considered a valid content update
   - updating only `Practical Reliability Notes` is not considered a valid content update
   - when new evidence changes guidance, update at least one of: computation details, hyperparameter impact, task alignment rationale, or known tradeoffs
+
+## Thread-Derived Regression Guardrails
+These rules capture recurring failure modes from this project thread and are mandatory for future updates.
+
+- Recommendation claim-to-citation rule:
+  - if a technique or metric is recommended in user-facing output, include paper citations that support that specific recommendation.
+  - if support is inferred rather than explicit, label it as inferred and avoid presenting it as a hard fact.
+- Non-class-goal supervision rule:
+  - for goals other than class separability investigation, do not make supervised or label-dependent methods the primary recommendation unless the user explicitly requests label-driven analysis.
+- User reference response rule:
+  - when user asks for references, return paper bibliography entries first (title, authors, venue, year, URL).
+  - do not answer with internal mapping prose, file paths, or repository-internal evidence links.
+- Repository mapping verification rule:
+  - before adding a GitHub repository to execution mapping, verify that the repository actually implements the claimed method by checking README/API or source entrypoints.
+  - do not map ambiguous search hits without method-level verification.
+- Boilerplate/meta-text prohibition:
+  - do not add meta explanations that are about process mistakes instead of method behavior (for example wording like "use this because extension behavior was missed earlier").
+  - metric/technique prose must describe computation, parameter effects, and practical tradeoffs of the method itself.
+- Metric relation quality rule:
+  - do not state that two metrics are interchangeable unless explicit evidence supports interchangeability.
+  - when metrics are only partially overlapping, explicitly describe the overlap and the key difference.
+- Simplicity-first user response rule:
+  - for simple user prompts, avoid dumping full internal workflow by default.
+  - provide a short direct answer first, then expand only when the question requires deeper detail.
+- Catalog scope rule:
+  - do not include non-DR or workflow-irrelevant papers in user-facing paper catalog outputs.
+  - if a paper is retained only for internal context, keep it in notes/evidence scope and do not promote it to recommendation guidance.
 
 ## Metric Sync Gate (Mandatory)
 - Every metric file must include:
@@ -268,7 +310,26 @@ Reject a note as incomplete if any condition fails:
   - `Notable Properties`
   - `Strengths`
   - `Known Tradeoffs`
+  - `Implementation Options`
+  - `Recommended Library`
+  - `Official API / GitHub / PyPI Links`
+  - `Minimal Python API Pattern`
+  - `Key Parameters for Bayesian Optimization`
+  - `Initialization in Practice`
+  - `Runtime and Memory Notes`
+  - `Common Failure Signs and Fixes`
+  - `Minimal Runnable Snippet`
   - `Source Notes`
+- Execution sections must keep method rationale and implementation references separated:
+  - rationale claims -> paper citations
+  - setup/run details -> official API, GitHub, and PyPI links
+- If new implementation repositories are discovered (for example during GitHub search):
+  - map them to an existing technique card when directly usable, or
+  - add/update the relevant technique card when the method is in-scope and paper-backed, and
+  - sync `docs/execution-library-index.md` and `builder/evidence/technique-execution-map.csv` in the same turn.
+- If the direct implementation path is weak (`risk`) or non-Python, provide an explicit fallback path.
+- When execution sections are updated, refresh maintenance snapshot with:
+  - `python scripts/update_library_maintenance.py`
 - Technique inclusion scope:
   - include only general-purpose methods that map high-dimensional input to low-dimensional projections
   - exclude meta-frameworks and orchestration methods
@@ -395,14 +456,19 @@ Before ending a doc-update turn, verify:
    - `python scripts/lint_user_layer_docs.py`
    - no internal key tokens in `docs/workflow/*`, `docs/intake-question-tree.md`, `docs/task-taxonomy.md`
    - no `papers/notes/*` path leaks in `docs/metrics/*` or `docs/techniques/*`
-17. If a recommendation report artifact is produced, verify optimizer policy:
+17. Validate technique execution cards:
+   - `python scripts/validate_technique_execution_docs.py`
+   - every technique doc must include all execution headers
+   - each minimal snippet must include `BayesianOptimization`, `ZADU`, and a DR fit step
+   - snippet should remain concise (target <= 35 non-empty lines in technique docs)
+18. If a recommendation report artifact is produced, verify optimizer policy:
    - `optimizer` must be exactly `bayes_opt`
    - no `grid search`, `random search`, or sweep wording in final recommendation text/artifacts.
-18. If a recommendation explanation artifact is produced, verify plain-language tone:
+19. If a recommendation explanation artifact is produced, verify plain-language tone:
    - no `task lock` / `lock the task` phrasing
    - no `metric bundle` / `bundle scoring` phrasing
    - no over-verbose response for simple question-like prompts
-19. If a recommendation report artifact is produced, verify user-code composition:
+20. If a recommendation report artifact is produced, verify user-code composition:
    - `user_code_snippet` includes `bayes_opt`
    - `user_code_snippet` includes `zadu`
    - `user_code_snippet` includes a DR fit step (for example `fit_transform` / `.fit(`)

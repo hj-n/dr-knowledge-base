@@ -82,6 +82,81 @@ In reporting, document which tradeoffs were accepted and why they were acceptabl
 
 Communication rule: document one concrete downside that remained after tuning (for example global drift, local fragmentation, or runtime burden) so end users understand residual risk.
 
+## Implementation Options
+The default execution path uses the mapped primary Python implementation for this technique. Implementation mode: `approximation`. Primary status: `active`.
+
+Use the primary path when it is `active` or `watch`. If it is `risk`, execute the fallback path and keep the recommendation confidence conservative.
+
+## Recommended Library
+Recommended library: **umap-learn (supervised)**.
+
+Current maintenance snapshot: **active** (checked on 2026-02-11). This status is generated from the automated maintenance snapshot using the documented maintenance policy.
+
+## Official API / GitHub / PyPI Links
+Primary path links:
+- Official API: [https://umap-learn.readthedocs.io/en/latest/supervised.html](https://umap-learn.readthedocs.io/en/latest/supervised.html)
+- GitHub: [https://github.com/lmcinnes/umap](https://github.com/lmcinnes/umap)
+- PyPI: [https://pypi.org/project/umap-learn/](https://pypi.org/project/umap-learn/)
+
+Fallback path links:
+- Official API: [https://torchdr.github.io/dev/gen_modules/torchdr.COSNE.html](https://torchdr.github.io/dev/gen_modules/torchdr.COSNE.html)
+- GitHub: [https://github.com/TorchDR/TorchDR](https://github.com/TorchDR/TorchDR)
+- PyPI: [https://pypi.org/project/torchdr/](https://pypi.org/project/torchdr/)
+
+## Minimal Python API Pattern
+```python
+import umap
+Z = umap.UMAP(n_neighbors=30, min_dist=0.1, spread=1.0, random_state=7).fit_transform(X, y)
+```
+
+## Key Parameters for Bayesian Optimization
+- `n_neighbors`: local neighborhood scale.
+- `min_dist`: minimum spacing in the low-dimensional layout.
+- `spread`: global expansion control paired with `min_dist`.
+
+Search bounds used in the minimal snippet:
+- `{"n_neighbors": (5, 120), "min_dist": (0.0, 0.8), "spread": (0.5, 3.0)}`
+
+## Initialization in Practice
+For class-aware approximations, use fixed labels and fixed preprocessing before tuning neighborhood controls. Re-check label quality before final reporting.
+
+## Runtime and Memory Notes
+UMAP scales well for many datasets, but tuning cost still grows with sample count and repeated seed checks.
+
+## Common Failure Signs and Fixes
+- Label noise causes unstable separation -> inspect class quality before optimization.
+- Over-tight clusters with weak global context -> raise `min_dist` and validate with distance checks.
+- Inconsistent class layout across seeds -> keep fallback candidates.
+
+## Minimal Runnable Snippet
+```python
+import numpy as np
+from bayes_opt import BayesianOptimization
+from zadu import ZADU
+import umap
+
+X = ...  # shape: (n_samples, n_features)
+y = ...  # class labels for supervised execution
+
+def zadu_score(hd, ld):
+    spec = [{"id": "tnc", "params": {"k": 20}}]
+    result = ZADU(spec, hd).measure(ld)[0]
+    vals = [float(v) for v in result.values() if isinstance(v, (int, float))]
+    return float(np.mean(vals))
+
+def embed(n_neighbors, min_dist, spread):
+    model = umap.UMAP(n_components=2, n_neighbors=int(round(n_neighbors)), min_dist=float(min_dist), spread=float(spread), random_state=7)
+    return model.fit_transform(X, y)
+
+def objective(*args, **kwargs):
+    z = embed(*args, **kwargs)
+    return zadu_score(X, z)
+
+optimizer = BayesianOptimization(f=objective, pbounds={"n_neighbors": (5, 120), "min_dist": (0.0, 0.8), "spread": (0.5, 3.0)}, random_state=7, verbose=0)
+optimizer.maximize(init_points=4, n_iter=16)
+Z_best = embed(**optimizer.max["params"])
+```
+
 ## Source Notes
 - Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoit Colange et al., Advances in Neural Information Processing Systems (NeurIPS), 2020)
 

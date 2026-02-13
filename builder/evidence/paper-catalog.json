@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-02-08",
+  "updated_at": "2026-02-13",
   "paper_count": 195,
   "seed_count": 18,
   "reference_count": 177,
@@ -142,7 +142,7 @@
       "parent_seed_note_id": "",
       "parent_seed_source_note": "papers/notes/2019-spectral-overlap-quality-metrics.md",
       "evidence_level": "high",
-      "updated_at": "2026-02-08"
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/2017-random-projection-survey.md",
@@ -230,9 +230,9 @@
     },
     {
       "source_note": "papers/notes/2011-hamann-survey-dimension-reduction.md",
-      "paper_title": "On the Exploration of Dimension Reduction Techniques for Visual Data Mining",
-      "authors": "Bernd Hamann (survey context)",
-      "venue": "VLUDS 2011 (OASIcs)",
+      "paper_title": "A Survey of Dimension Reduction Methods for High-dimensional Data Analysis and Visualization",
+      "authors": "Daniel Engel; Lars H\u00fcttenberger; Bernd Hamann",
+      "venue": "OASIcs VLUDS",
       "year": "2011",
       "source_pdf": "papers/raw/OASIcs.VLUDS.2011.135.pdf",
       "is_seed_paper": "true",
@@ -240,7 +240,7 @@
       "parent_seed_note_id": "",
       "parent_seed_source_note": "papers/notes/2011-hamann-survey-dimension-reduction.md",
       "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/2009-comparative-review-dr-techniques.md",
@@ -300,17 +300,31 @@
     },
     {
       "source_note": "papers/notes/zadu-ref-03-2408-07724v2.md",
-      "paper_title": "\u201cNormalized Stress\u201d is Not Normalized: How to Interpret Stress Correctly",
-      "authors": "Kiran Smelser, Jacob Miller, Stephen Kobourov",
-      "venue": "2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV)",
+      "paper_title": "Normalized Stress is Not Normalized: How to Interpret Stress Correctly",
+      "authors": "Kiran Smelser; Jacob Miller; Stephen Kobourov",
+      "venue": "IEEE BELIV Workshop (preprint version)",
       "year": "2025",
       "source_pdf": "papers/raw/zadu-table1-references/2408.07724v2.pdf",
       "is_seed_paper": "false",
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
+    },
+    {
+      "source_note": "papers/notes/zadu-ref-04-2510-08660v1.md",
+      "paper_title": "How Scale Breaks Normalized Stress and KL Divergence: Rethinking Quality Metrics",
+      "authors": "Kiran Smelser; Kaviru Gunaratne; Jacob Miller; Stephen Kobourov",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics (preprint)",
+      "year": "2025",
+      "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
+      "is_seed_paper": "false",
+      "reference_group": "zadu-table1-references",
+      "parent_seed_note_id": "paper-2023-zadu-library",
+      "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/pending-ref-070-interpreting-high-dimensional-projections-with-capacity.md",
@@ -383,23 +397,9 @@
       "updated_at": "2026-02-08"
     },
     {
-      "source_note": "papers/notes/zadu-ref-04-2510-08660v1.md",
-      "paper_title": "How Scale Breaks \u201cNormalized Stress\u201d and KL Divergence: Rethinking Quality Metrics",
-      "authors": "Kiran Smelser, Kaviru Gunaratne, Jacob Miller, Stephen Kobourov",
-      "venue": "IEEE Transactions on Visualization and Computer Graphics",
-      "year": "2024",
-      "source_pdf": "papers/raw/zadu-table1-references/2510.08660v1.pdf",
-      "is_seed_paper": "false",
-      "reference_group": "zadu-table1-references",
-      "parent_seed_note_id": "paper-2023-zadu-library",
-      "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
-    },
-    {
       "source_note": "papers/notes/zadu-ref-11-jeon23tvcg-4.md",
-      "paper_title": "Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction",
-      "authors": "Hyeon Jeon, Yun-Hsin Kuo, Micha\u00ebl Aupetit, Kwan-Liu Ma, Jinwook Seo",
+      "paper_title": "Classes are not Clusters: Improving Label-based Evaluation of Dimensionality Reduction",
+      "authors": "Hyeon Jeon; Yun-Hsin Kuo; Michael Aupetit; Kwan-Liu Ma; Jinwook Seo",
       "venue": "IEEE Transactions on Visualization and Computer Graphics",
       "year": "2024",
       "source_pdf": "papers/raw/zadu-table1-references/jeon23tvcg (4).pdf",
@@ -408,7 +408,7 @@
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
       "evidence_level": "high",
-      "updated_at": "2026-02-08"
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/pending-ref-015-feature-learning-for-nonlinear-dimensionality-reduction-to.md",
@@ -497,16 +497,16 @@
     {
       "source_note": "papers/notes/zadu-ref-15-ref10-feature-learning-for-nonlinear-dimensionality-reduction-toward-maximal-ext.md",
       "paper_title": "Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns",
-      "authors": "Takanori Fujiwara, Yun-Hsin Kuo, Anders Ynnerman, Kwan-Liu Ma",
-      "venue": "2023 IEEE 16th Pacific Visualization Symposium (PacificVis)",
+      "authors": "Takanori Fujiwara; Yun-Hsin Kuo; Anders Ynnerman; Kwan-Liu Ma",
+      "venue": "IEEE Pacific Visualization Symposium (PacificVis)",
       "year": "2023",
       "source_pdf": "papers/raw/zadu-table1-references/ref10_feature_learning_for_nonlinear_dimensionality_reduction_toward_maximal_extraction_of_hid.pdf",
       "is_seed_paper": "false",
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/pending-extra-s13042-021-01307-7-s13042-021-01307-7.md",
@@ -763,7 +763,7 @@
     {
       "source_note": "papers/notes/zadu-ref-18-ref18-measuring-and-explaining-the-inter-cluster-reliability-of-multidimensional.md",
       "paper_title": "Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections",
-      "authors": "Hyeon Jeon, Hyung-Kwon Ko, Jaemin Jo, Youngtaek Kim, Jinwook Seo",
+      "authors": "Hyeon Jeon; Hyung-Kwon Ko; Jaemin Jo; Youngtaek Kim; Jinwook Seo",
       "venue": "IEEE Transactions on Visualization and Computer Graphics",
       "year": "2021",
       "source_pdf": "papers/raw/zadu-table1-references/ref18_measuring_and_explaining_the_inter_cluster_reliability_of_multidimensional_projections.pdf",
@@ -771,13 +771,13 @@
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/zadu-ref-19-ref42-a-comparison-for-dimensionality-reduction-methods-of-single-cell-rna-seq-d.md",
       "paper_title": "A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data",
-      "authors": "Ruizhi Xiang, Wencan Wang, Lei Yang, Shiyuan Wang, Chaohan Xu, Xiaowen Chen",
+      "authors": "Ruizhi Xiang; Wencan Wang; Lei Yang; Shiyuan Wang; Chaohan Xu; Xiaowen Chen",
       "venue": "Frontiers in Genetics",
       "year": "2021",
       "source_pdf": "papers/raw/zadu-table1-references/ref42_a_comparison_for_dimensionality_reduction_methods_of_single_cell_rna_seq_data.pdf",
@@ -785,8 +785,8 @@
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/pending-ref-026-umap-uniform-manifold-approximation-and-projection-for-dim.md",
@@ -959,7 +959,7 @@
     {
       "source_note": "papers/notes/zadu-ref-14-ref06-steering-distortions-to-preserve-classes-and-neighbors-in-supervised-dimen.md",
       "paper_title": "Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction",
-      "authors": "Benoit Colange, Jaakko Peltonen, Michael Aupetit, Denys Dutykh, Sylvain Lespinats",
+      "authors": "Benoit Colange; Jaakko Peltonen; Michael Aupetit; Denys Dutykh; Sylvain Lespinats",
       "venue": "Advances in Neural Information Processing Systems (NeurIPS)",
       "year": "2020",
       "source_pdf": "papers/raw/zadu-table1-references/ref06_steering_distortions_to_preserve_classes_and_neighbors_in_supervised_dimensionality_reduct.pdf",
@@ -967,8 +967,8 @@
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/pending-extra-72608-72608.md",
@@ -1897,7 +1897,7 @@
     {
       "source_note": "papers/notes/zadu-ref-08-local-affine-multidimensional-projection-1.md",
       "paper_title": "Local Affine Multidimensional Projection",
-      "authors": "theory to build accurate local transformations that can be dynamically modi\ufb01ed according to user knowledge. The accuracy , \ufb02exibility",
+      "authors": "Paulo Joia; Fernando V. Paulovich; Danilo Coimbra; Jose Alberto Cuminato; Luis Gustavo Nonato",
       "venue": "IEEE Transactions on Visualization and Computer Graphics",
       "year": "2011",
       "source_pdf": "papers/raw/zadu-table1-references/Local_Affine_Multidimensional_Projection (1).pdf",
@@ -1905,8 +1905,22 @@
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
+    },
+    {
+      "source_note": "papers/notes/zadu-ref-13-ref03-geometric-inference-for-probability-measures.md",
+      "paper_title": "Geometric Inference for Measures based on Distance Functions",
+      "authors": "Frederic Chazal; David Cohen-Steiner; Quentin Merigot",
+      "venue": "Foundations of Computational Mathematics",
+      "year": "2011",
+      "source_pdf": "papers/raw/zadu-table1-references/ref03_geometric_inference_for_probability_measures.pdf",
+      "is_seed_paper": "false",
+      "reference_group": "zadu-table1-references",
+      "parent_seed_note_id": "paper-2023-zadu-library",
+      "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/pending-extra-1-s2-0-s016786551000-1-s2-0-s0167865510001364-main.md",
@@ -2035,20 +2049,6 @@
       "updated_at": "2026-02-08"
     },
     {
-      "source_note": "papers/notes/zadu-ref-13-ref03-geometric-inference-for-probability-measures.md",
-      "paper_title": "Geometric Inference for Measures based on Distance Functions",
-      "authors": "Fr\u00e9d\u00e9ric Chazal, David Cohen-Steiner, Quentin M\u00e9rigot",
-      "venue": "Foundations of Computational Mathematics",
-      "year": "2010",
-      "source_pdf": "papers/raw/zadu-table1-references/ref03_geometric_inference_for_probability_measures.pdf",
-      "is_seed_paper": "false",
-      "reference_group": "zadu-table1-references",
-      "parent_seed_note_id": "paper-2023-zadu-library",
-      "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
-    },
-    {
       "source_note": "papers/notes/pending-ref-043-local-procrustes-for-manifold-embedding-a-measure-of-embed.md",
       "paper_title": "Local procrustes for manifold embedding: A measure of embedding quality and embedding algorithms",
       "authors": "Y. Goldberg and Y. Ritov",
@@ -2107,7 +2107,7 @@
     {
       "source_note": "papers/notes/zadu-ref-02-1-s2-0-s0925231209000101-main.md",
       "paper_title": "Quality assessment of dimensionality reduction: Rank-based criteria",
-      "authors": "John A. Lee, Michel Verleysen",
+      "authors": "John A. Lee; Michel Verleysen",
       "venue": "Neurocomputing",
       "year": "2009",
       "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0925231209000101-main.pdf",
@@ -2115,13 +2115,13 @@
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/zadu-ref-05-computer-graphics-forum-2009-sips-selecting-good-views-of-high-e2-80-90dimension.md",
-      "paper_title": "Selecting good views of high\u2010dimensional data using class consistency",
-      "authors": "Mike Sips, Boris Neubert, John P. Lewis, Pat Hanrahan",
+      "paper_title": "Selecting good views of high-dimensional data using class consistency",
+      "authors": "Mike Sips; Boris Neubert; John P. Lewis; Pat Hanrahan",
       "venue": "Computer Graphics Forum",
       "year": "2009",
       "source_pdf": "papers/raw/zadu-table1-references/Computer Graphics Forum - 2009 - Sips - Selecting good views of high%E2%80%90dimensional data using class consistency.pdf",
@@ -2129,13 +2129,13 @@
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/zadu-ref-07-local-multidimensional-scaling-for-nonlinear-dimension-reduction-graph-drawing-a.md",
       "paper_title": "Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis",
-      "authors": "Lisha Chen, Andreas Buja",
+      "authors": "Lisha Chen; Andreas Buja",
       "venue": "Journal of the American Statistical Association",
       "year": "2009",
       "source_pdf": "papers/raw/zadu-table1-references/Local Multidimensional Scaling for Nonlinear Dimension Reduction  Graph Drawing  and Proximity Analysis.pdf",
@@ -2143,13 +2143,13 @@
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/zadu-ref-16-ref12-local-procrustes-for-manifold-embedding-a-measure-of-embedding-quality-and.md",
-      "paper_title": "Mach Learn (2009) 77: 1\u201325",
-      "authors": "Yair Goldberg, Ya\u2019acov Ritov",
+      "paper_title": "Local procrustes for manifold embedding: a measure of embedding quality and embedding algorithms",
+      "authors": "Yair Goldberg; Ya'acov Ritov",
       "venue": "Machine Learning",
       "year": "2009",
       "source_pdf": "papers/raw/zadu-table1-references/ref12_local_procrustes_for_manifold_embedding_a_measure_of_embedding_quality_and_embedding_algor.pdf",
@@ -2157,8 +2157,8 @@
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/pending-extra-least-square-project-least-square-projection-a-fast-high-precision-multidimensi.md",
@@ -2191,7 +2191,7 @@
     {
       "source_note": "papers/notes/zadu-ref-06-least-square-projection-a-fast-high-precision-multidimensional-projection-techni.md",
       "paper_title": "Least Square Projection: A Fast High-Precision Multidimensional Projection Technique and Its Application to Document Mapping",
-      "authors": "F.V. Paulovich, L.G. Nonato, R. Minghim, H. Levkowitz",
+      "authors": "Fernando V. Paulovich; Luis Gustavo Nonato; Rosane Minghim; Haim Levkowitz",
       "venue": "IEEE Transactions on Visualization and Computer Graphics",
       "year": "2008",
       "source_pdf": "papers/raw/zadu-table1-references/Least_Square_Projection_A_Fast_High-Precision_Multidimensional_Projection_Technique_and_Its_Application_to_Document_Mapping.pdf",
@@ -2199,8 +2199,8 @@
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/pending-extra-1-s2-0-s092523120600-1-s2-0-s0925231206004814-main.md",
@@ -2331,7 +2331,7 @@
     {
       "source_note": "papers/notes/zadu-ref-01-1-s2-0-s0893608006000724-main.md",
       "paper_title": "Local multidimensional scaling",
-      "authors": "Jarkko Venna, Samuel Kaski",
+      "authors": "Jarkko Venna; Samuel Kaski",
       "venue": "Neural Networks",
       "year": "2006",
       "source_pdf": "papers/raw/zadu-table1-references/1-s2.0-S0893608006000724-main.pdf",
@@ -2339,8 +2339,8 @@
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/pending-ref-046-neighborhood-preserving-embedding.md",
@@ -2387,16 +2387,16 @@
     {
       "source_note": "papers/notes/zadu-ref-09-supervised-nonlinear-dimensionality-reduction-for-visualization-and-classificati.md",
       "paper_title": "Supervised Nonlinear Dimensionality Reduction for Visualization and Classification",
-      "authors": "X. Geng, D.-C. Zhan, Z.-H. Zhou",
-      "venue": "IEEE Transactions on Systems, Man and Cybernetics, Part B (Cybernetics)",
+      "authors": "Xin Geng; De-Chuan Zhan; Zhi-Hua Zhou",
+      "venue": "IEEE Transactions on Systems, Man, and Cybernetics - Part B",
       "year": "2005",
       "source_pdf": "papers/raw/zadu-table1-references/Supervised_nonlinear_dimensionality_reduction_for_visualization_and_classification.pdf",
       "is_seed_paper": "false",
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/pending-ref-069-principal-manifolds-and-nonlinear-dimensionality-reduction.md",
@@ -2597,7 +2597,7 @@
     {
       "source_note": "papers/notes/zadu-ref-17-ref13-stochastic-neighbor-embedding.md",
       "paper_title": "Stochastic Neighbor Embedding",
-      "authors": "Geoffrey E. Hinton, Sam T. Roweis",
+      "authors": "Geoffrey E. Hinton; Sam T. Roweis",
       "venue": "Advances in Neural Information Processing Systems (NIPS 15)",
       "year": "2002",
       "source_pdf": "papers/raw/zadu-table1-references/ref13_stochastic_neighbor_embedding.pdf",
@@ -2605,8 +2605,8 @@
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/pending-extra-1-s2-0-s003132039900-1-s2-0-s0031320399000783-main.md",
@@ -2695,7 +2695,7 @@
     {
       "source_note": "papers/notes/zadu-ref-10-download-2.md",
       "paper_title": "Quantifying the Neighborhood Preservation of Self-Organizing Feature Maps",
-      "authors": "of Self/-Organizing F eature Maps",
+      "authors": "H.-U. Bauer; K. Pawelzik",
       "venue": "IEEE Transactions on Neural Networks",
       "year": "1992",
       "source_pdf": "papers/raw/zadu-table1-references/download (2).pdf",
@@ -2704,7 +2704,7 @@
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
       "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "updated_at": "2026-02-13"
     },
     {
       "source_note": "papers/notes/pending-extra-friedman-exploratory-friedman-exploratoryprojectionpursuit-1987.md",
@@ -2723,7 +2723,7 @@
     {
       "source_note": "papers/notes/zadu-ref-12-kruskal-1964a.md",
       "paper_title": "Multidimensional scaling by optimizing goodness of fit to a nonmetric hypothesis",
-      "authors": "PSYCHOMETRIKA--VOL. ~, NO.",
+      "authors": "J. B. Kruskal",
       "venue": "Psychometrika",
       "year": "1964",
       "source_pdf": "papers/raw/zadu-table1-references/kruskal_1964a.pdf",
@@ -2731,8 +2731,8 @@
       "reference_group": "zadu-table1-references",
       "parent_seed_note_id": "paper-2023-zadu-library",
       "parent_seed_source_note": "papers/notes/2023-zadu-library.md",
-      "evidence_level": "medium",
-      "updated_at": "2026-02-08"
+      "evidence_level": "high",
+      "updated_at": "2026-02-13"
     }
   ]
 }

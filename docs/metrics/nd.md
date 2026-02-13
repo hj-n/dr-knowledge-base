@@ -53,9 +53,13 @@ This metric is strong for detecting neighbor-composition changes that may not be
 
 It is useful as a safety check metric in local/cluster workflows where subtle neighbor swaps can alter downstream interpretation.
 
+## Related Metrics
+Neighbor Dissimilarity is partially aligned with Trustworthiness/Continuity and MRRE because it tracks neighborhood-change behavior. In workflow practice it is often used with other local metrics rather than alone.
+
+Its computation style is matrix/distribution dissimilarity based, so it should not be treated as a direct substitute for co-ranking formulas such as T&C or LCMC.
 
 ## Task Alignment
-This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
+This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.
 - Best-aligned tasks:
   - Neighborhood identification
   - Outlier identification
@@ -79,14 +83,4 @@ If this metric disagrees with other reliability checks, report the disagreement 
 ## Source Notes
 The references below list paper sources used for this metric guidance.
 
-- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023 IEEE 16th Pacific Visualization Symposium (PacificVis), 2023)
-- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2021)
-
-- High Performance Dimension Reduction and Visualization for Large High-Dimensional Data Analysis (D. Engel et al., 2010 10th IEEE/ACM International Conference on Cluster, Cloud and Grid Computing, 2012)
-- Visualizing the quality of dimensionality reduction (Bassam Mokbel et al., Neurocomputing, 2013)
-- Neighborhood preserving embedding (X. He et al., Tenth IEEE International Conference on Computer Vision (ICCV'05) Volume 1, 2005)
-- Explaining three-dimensional dimensionality reduction plots (Danilo B. Coimbra et al., Information Visualization, 2016)
-- The art of seeing the elephant in the room: 2D embeddings of single-cell data do make sense (Jan Lause et al., UNKNOWN, 2024)
-- Hierarchical stochastic neighbor embedding (N. Pezzotti et al., Journal of Proteome Research, 2016)
-
-[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara, Yun-Hsin Kuo, Anders Ynnerman, Kwan-Liu Ma, 2023 IEEE 16th Pacific Visualization Symposium (PacificVis), 2023)
