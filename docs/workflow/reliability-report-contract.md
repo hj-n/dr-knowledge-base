@@ -41,9 +41,15 @@ Code must also:
 - avoid internal-policy variable names
 - avoid internal jargon in comments
 
+If `bayes_opt` is unavailable:
+- mark output as `BLOCKED: bayes_opt unavailable`
+- include concrete fix command(s)
+- do not provide fallback recommendations using grid/random/manual sweep
+
 ## Final Settings Disclosure
 Always include:
 - method
+- optimizer (`bayes_opt`)
 - selected implementation library
 - implementation links (official API, GitHub, PyPI when available)
 - key hyperparameters

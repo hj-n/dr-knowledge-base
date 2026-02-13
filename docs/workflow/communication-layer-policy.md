@@ -58,6 +58,7 @@ Code quality constraints:
 - minimal runnable snippet (target: <= 25 non-empty lines)
 - no internal policy objects or key-like variables
 - comments explain practical intent, not internal workflow terms
+- if `bayes_opt` cannot run, return `BLOCKED` with the exact fix command; do not provide grid/random/manual-sweep fallback code
 
 ## Minimum User Answer Structure
 1. `What you asked`

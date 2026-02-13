@@ -11,6 +11,17 @@ Related:
 Use `bayes_opt` only.
 Do not replace it with grid search, random search, or manual sweep loops.
 
+Explicitly forbidden final-code patterns:
+- `GridSearchCV`
+- `ParameterGrid`
+- nested loops over parameter lists/ranges used as tuning sweeps
+- random-search style samplers
+
+If `bayes_opt` cannot run (missing package/import/runtime failure):
+- stop final recommendation and mark it as `BLOCKED`
+- report the concrete fix command (for example `pip install bayesian-optimization`)
+- do not switch optimizer family
+
 ## Preconditions
 - the main goal is confirmed with high confidence
 - preprocessing is fixed
