@@ -34,6 +34,10 @@ The goal is to help an agent confirm user intent, choose a strong configuration,
 - Compare all goal-aligned candidates before pruning.
 - Exclude candidates only with explicit hard-failure reasons.
 
+## Optimizer Interpretation Rule
+- If an external prompt says `any optimization allowed`, treat that as freedom to tune budget and bounds within Bayesian optimization.
+- Do not switch optimizer family: final tuning still must use `bayes_opt` only.
+
 ## Key Directories
 - `docs/`: user-facing operational guidance.
 - `docs/techniques/`: per-technique execution cards (official API/GitHub/PyPI + minimal runnable snippets).
@@ -52,6 +56,7 @@ The goal is to help an agent confirm user intent, choose a strong configuration,
 - `python scripts/lint_user_layer_docs.py`
 - `python scripts/update_library_maintenance.py`
 - `python scripts/validate_technique_execution_docs.py`
+- `python scripts/validate_bayes_opt_policy.py <file-or-dir> [...]`
 
 ## Context7 Snippet (AGENTS.md / CLAUDE.md)
 ```md

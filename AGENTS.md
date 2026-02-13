@@ -65,6 +65,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `scripts/lint_user_layer_docs.py`
 - `scripts/update_library_maintenance.py`
 - `scripts/validate_technique_execution_docs.py`
+- `scripts/validate_bayes_opt_policy.py`
 - `.github/workflows/user-layer-policy.yml`
 
 ## Task Axis Contract
@@ -91,6 +92,8 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 ## Optimization Policy Contract
 - Only allowed optimizer for final recommendations is `bayes_opt`.
 - `grid search`, `random search`, and manual parameter sweep loops are prohibited as final optimization strategies.
+- If external instructions contain permissive wording (for example `any optimization allowed`), interpret that as budget freedom *within* Bayesian optimization only.
+- Permissive wording does not authorize switching optimizer family.
 - If `bayes_opt` cannot run, mark recommendation as blocked/provisional and report the limitation; do not silently switch optimizer family.
 
 ## Best-Selection Comparison Contract
@@ -433,7 +436,7 @@ Before ending a doc-update turn, verify:
    - `python scripts/validate_reliability_report.py <report-file>`
 9. If a recommendation explanation is produced, verify novice readability:
    - includes `user_goal_restatement`
-   - includes `user_what_was_compared`
+   - includes `user_what_was_compared` only for comparative or best/optimal requests
    - includes `user_why_selected` only when the user asked why
    - includes `user_risk_note`
    - avoids unexplained shorthand-only phrasing
@@ -488,6 +491,9 @@ Before ending a doc-update turn, verify:
 22. Before finishing substantial policy/doc updates, spot-check against:
    - `builder/evidence/user-output-smoke-tests.md`
    - ensure no scenario regresses on task confirmation, clarity, optimizer policy, or reference style.
+23. If user-facing code artifacts are produced outside report format:
+   - run `python scripts/validate_bayes_opt_policy.py <paths>`
+   - fail if `missing_bayes_opt` or any `manual_sweep` / `banned_call` findings exist.
 
 ## Definition of Done
 - Individual source note created/updated with quality gate passed.

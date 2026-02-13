@@ -28,6 +28,16 @@ BANNED_CODE_TERMS = [
     "warning gate",
 ]
 
+BANNED_OPTIMIZER_PATTERNS = [
+    r"\bGridSearchCV\s*\(",
+    r"\bRandomizedSearchCV\s*\(",
+    r"\bParameterGrid\s*\(",
+    r"\bitertools\.product\s*\(",
+    r"\b\w+_(cfgs?|values|grid|search_space)\s*=\s*\[",
+    r"\bfor\s+[^:\n]+in\s+\w+_(cfgs?|values|grid|search_space)\b",
+    r"\bfor\s+[^:\n]+in\s+\[[^\]]+\]\s*:",
+]
+
 
 def section_block(text: str, title: str) -> str:
     idx = text.find(title)
@@ -71,6 +81,8 @@ def validate_file(path: Path) -> list[str]:
 
     if "BayesianOptimization" not in code:
         errors.append(f"{path}: minimal snippet missing BayesianOptimization")
+    if "pbounds=" not in code:
+        errors.append(f"{path}: minimal snippet missing BayesianOptimization bounds (pbounds)")
     if "ZADU" not in code:
         errors.append(f"{path}: minimal snippet missing ZADU usage")
 
@@ -91,6 +103,10 @@ def validate_file(path: Path) -> list[str]:
     for term in BANNED_CODE_TERMS:
         if term in low:
             errors.append(f"{path}: banned internal term in code snippet: '{term}'")
+
+    for pattern in BANNED_OPTIMIZER_PATTERNS:
+        if re.search(pattern, code):
+            errors.append(f"{path}: banned optimizer pattern in snippet: '{pattern}'")
 
     return errors
 

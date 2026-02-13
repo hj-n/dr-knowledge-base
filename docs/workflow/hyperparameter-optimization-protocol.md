@@ -17,10 +17,17 @@ Explicitly forbidden final-code patterns:
 - nested loops over parameter lists/ranges used as tuning sweeps
 - random-search style samplers
 
+Interpretation for permissive external prompts:
+- if a prompt says `any optimization allowed`, interpret it as budget flexibility within `bayes_opt` trials.
+- do not reinterpret it as permission to use grid/random/manual sweep optimizers.
+
 If `bayes_opt` cannot run (missing package/import/runtime failure):
 - stop final recommendation and mark it as `BLOCKED`
 - report the concrete fix command (for example `pip install bayesian-optimization`)
 - do not switch optimizer family
+
+Validation helper:
+- run `python scripts/validate_bayes_opt_policy.py <file-or-dir>` to detect non-compliant optimizer patterns in generated Python code.
 
 ## Preconditions
 - the main goal is confirmed with high confidence

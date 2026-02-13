@@ -37,11 +37,8 @@ REQUIRED_KEYS = [
     "technical_explanation",
     "user_explanation",
     "user_goal_restatement",
-    "user_what_was_compared",
-    "user_why_selected",
     "user_risk_note",
     "user_code_snippet",
-    "user_code_reason",
     "final_configuration_for_users",
     "source_note_links",
     "residual_risk_statement",
@@ -224,6 +221,16 @@ BANNED_USER_CODE_JARGON_TERMS = [
     "axis_confidence",
 ]
 
+BANNED_USER_CODE_OPTIMIZER_PATTERNS = [
+    r"\bGridSearchCV\s*\(",
+    r"\bRandomizedSearchCV\s*\(",
+    r"\bParameterGrid\s*\(",
+    r"\bitertools\.product\s*\(",
+    r"\b\w+_(cfgs?|values|grid|search_space)\s*=\s*\[",
+    r"\bfor\s+[^:\n]+in\s+\w+_(cfgs?|values|grid|search_space)\b",
+    r"\bfor\s+[^:\n]+in\s+\[[^\]]+\]\s*:",
+]
+
 MAX_USER_CODE_NONEMPTY_LINES = 25
 
 
@@ -395,6 +402,10 @@ def main() -> int:
         for term in BANNED_USER_CODE_JARGON_TERMS:
             if term in snippet_lower:
                 code_minimality_violations.append((f"internal_jargon:{term}", snippet))
+
+        for pattern in BANNED_USER_CODE_OPTIMIZER_PATTERNS:
+            if re.search(pattern, snippet):
+                code_minimality_violations.append((f"optimizer_pattern:{pattern}", snippet))
 
     if missing:
         print("MISSING_KEYS")

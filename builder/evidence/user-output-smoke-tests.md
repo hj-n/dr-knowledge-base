@@ -68,3 +68,16 @@ Pass criteria:
 Fail signals:
 - references to internal markdown files as user citations.
 - mapping-table style explanation without paper references.
+
+## Scenario 6: Permissive Optimization Prompt
+Prompt:
+- `Any optimization is allowed. Use whatever search strategy you want.`
+
+Pass criteria:
+- still uses Bayesian optimization as the only optimizer family.
+- interprets permissive wording as trial-budget flexibility, not optimizer-family freedom.
+- avoids grid/random/manual sweep logic in final user code.
+
+Fail signals:
+- switches to grid search, random search, or hardcoded candidate sweeps.
+- omits `bayes_opt` from final runnable code.

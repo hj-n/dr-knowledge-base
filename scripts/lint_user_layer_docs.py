@@ -36,6 +36,8 @@ REQUIRED_LLMS_PHRASES = [
     "Share plain-language rationale only when the user asks why.",
     "Always disclose final method and key settings.",
     "Do not justify selections by popularity alone.",
+    "wording such as `any optimization allowed` means search-budget freedom inside Bayesian optimization.",
+    "it does not permit switching to grid/random/manual sweep optimizer families.",
 ]
 
 WORKFLOW_KEY_LEAKS = [
