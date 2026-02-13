@@ -6,7 +6,7 @@ import re
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Set
 
 ROOT = Path(__file__).resolve().parents[1]
 NOTES_DIR = ROOT / "papers" / "notes"
@@ -27,6 +27,7 @@ class NoteMeta:
     year: str
     source_pdf: str
     evidence_level: str
+    tags: List[str]
 
 
 def parse_frontmatter(text: str) -> Dict[str, str]:
@@ -53,6 +54,12 @@ def load_note_meta() -> Dict[str, NoteMeta]:
     for p in sorted(NOTES_DIR.glob("*.md")):
         text = p.read_text(encoding="utf-8")
         fm = parse_frontmatter(text)
+        tags_raw = fm.get("tags", "")
+        tags: List[str] = []
+        if tags_raw.startswith("[") and tags_raw.endswith("]"):
+            tags = [t.strip().strip('"').strip("'") for t in tags_raw[1:-1].split(",") if t.strip()]
+        elif tags_raw:
+            tags = [tags_raw.strip().strip('"').strip("'")]
         rel = str(p.relative_to(ROOT))
         out[rel] = NoteMeta(
             path=rel,
@@ -60,8 +67,17 @@ def load_note_meta() -> Dict[str, NoteMeta]:
             year=str(fm.get("year", "")),
             source_pdf=fm.get("source_pdf", ""),
             evidence_level=fm.get("evidence_level", ""),
+            tags=tags,
         )
     return out
+
+
+def metric_tag_refs(note_meta: Dict[str, NoteMeta], metric_id: str) -> List[str]:
+    refs = []
+    for rel, meta in note_meta.items():
+        if metric_id in meta.tags:
+            refs.append(rel)
+    return refs
 
 
 def parse_source_notes(doc_path: Path) -> List[str]:
@@ -177,10 +193,12 @@ def build_index(
 ) -> List[Dict]:
     rows = []
     for p in sorted(folder.glob("*.md")):
-        if p.name.lower() == "readme.md":
+        if p.name.lower() in {"readme.md", "metric-relationships.md"}:
             continue
         entity_id = p.stem
         refs = parse_source_notes(p)
+        if kind == "metric" and not refs:
+            refs = metric_tag_refs(note_meta, entity_id)
         notes = []
         pdf_notes = []
         non_pdf_notes = []

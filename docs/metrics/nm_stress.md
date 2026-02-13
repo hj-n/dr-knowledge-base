@@ -29,7 +29,7 @@ Detailed protocol rule: apply consistent distance scaling and normalization poli
 
 ## Hyperparameter Impact
 Monotonic-fit procedure and smoothing choices control stability. Scale and tie-handling policies influence reproducibility and comparability.
-Scale policy must be explicit when comparing values across runs or methods.[^warn-scale]
+Scale policy must be explicit when comparing values across runs or methods.
 
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
@@ -54,9 +54,13 @@ This metric is strong when preserving distance ordering is more important than p
 
 It is useful for global-structure audits under non-linear scale transformations or ordinal-distance interpretation contexts.
 
+## Related Metrics
+Non-Metric Stress is closest to Stress in family and to Spearman correlation in order-preservation intent.
+
+It differs from metric stress by optimizing monotonic fit of distance ordering instead of strict metric-distance residuals.
 
 ## Task Alignment
-This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
+This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.
 - Best-aligned tasks:
   - Point distance investigation
   - Class separability investigation
@@ -81,7 +85,4 @@ Failure-signaling rule: if this metric disagrees with other bundle metrics, repo
 ## Source Notes
 The references below list paper sources used for this metric guidance.
 
-- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
-
-[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
-[^warn-scale]: “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025); How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser, Kaviru Gunaratne, Jacob Miller, Stephen Kobourov, IEEE Transactions on Visualization and Computer Graphics, 2024)

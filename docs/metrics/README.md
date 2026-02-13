@@ -11,6 +11,7 @@ Related:
 - Frequency ranking: [`docs/reference-coverage.md`](../reference-coverage.md)
 - Grouped reliability cautions: [`docs/reliability-cautions-and-tips.md`](../reliability-cautions-and-tips.md)
 - Technique catalog: [`docs/techniques/README.md`](../techniques/README.md)
+- Similarity map: [`docs/metrics/metric-relationships.md`](./metric-relationships.md)
 
 ## Required Sections
 - Metric Definition
@@ -20,6 +21,7 @@ Related:
 - Practical Reliability Notes
 - Notable Properties
 - Strengths
+- Related Metrics
 - Task Alignment
 - Interpretation Notes
 - Source Notes

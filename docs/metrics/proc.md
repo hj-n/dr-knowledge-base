@@ -53,9 +53,13 @@ This metric is strong for local shape-consistency analysis through Procrustes-st
 
 It is useful when local manifold shape fidelity matters for interpretation, not only neighborhood membership.
 
+## Related Metrics
+Procrustes Measure is partially aligned with both local-neighborhood and global-shape metrics because it compares corresponding local structures after optimal alignment.
+
+It differs by explicit local rigid-transform alignment before scoring residuals, which makes it useful when orientation/translation differences should not dominate quality.
 
 ## Task Alignment
-This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
+This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.
 - Best-aligned tasks:
   - Neighborhood identification
   - Outlier identification
@@ -79,15 +83,6 @@ Failure-signaling rule: if this metric disagrees with other bundle metrics, repo
 ## Source Notes
 The references below list paper sources used for this metric guidance.
 
-- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023 IEEE 16th Pacific Visualization Symposium (PacificVis), 2023)
-- Local Affine Multidimensional Projection (theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy et al., IEEE Transactions on Visualization and Computer Graphics, 2011)
-- Mach Learn (2009) 77: 1–25 (Yair Goldberg et al., Machine Learning, 2009)
-
-- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara et al., 2023 IEEE 16th Pacific Visualization Symposium (PacificVis), 2023)
-- Stability Comparison of Dimensionality Reduction Techniques Attending to Data and Parameter Variations (Francisco J. García-Fernández et al., UNKNOWN, 2013)
-- Interactive Dimensionality Reduction for Comparative Analysis (Takanori Fujiwara et al., IEEE Transactions on Visualization and Computer Graphics, 2022)
-- t-viSNE: Interactive Assessment and Interpretation of t-SNE Projections (Angelos Chatzimparmpas et al., IEEE Transactions on Visualization and Computer Graphics, 2020)
-- Local procrustes for manifold embedding: A measure of embedding quality and embedding algorithms (Y. Goldberg and Y. Ritov, Machine Learning, 2009)
-- ClassiMap: A new dimension reduction technique for exploratory data analysis of labeled data (S. Lespinats et al., International Journal of Pattern Recognition and Artificial Intelligence, 2015)
-
-[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
+- Local procrustes for manifold embedding: a measure of embedding quality and embedding algorithms (Yair Goldberg; Ya'acov Ritov, Machine Learning, 2009)
+- Local Affine Multidimensional Projection (Paulo Joia, Fernando V. Paulovich, Danilo Coimbra, Jose Alberto Cuminato, Luis Gustavo Nonato, IEEE Transactions on Visualization and Computer Graphics, 2011)
+- Feature Learning for Nonlinear Dimensionality Reduction toward Maximal Extraction of Hidden Patterns (Takanori Fujiwara, Yun-Hsin Kuo, Anders Ynnerman, Kwan-Liu Ma, 2023 IEEE 16th Pacific Visualization Symposium (PacificVis), 2023)

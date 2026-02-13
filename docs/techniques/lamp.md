@@ -163,6 +163,6 @@ Z_best = embed(**optimizer.max["params"])
 ```
 
 ## Source Notes
-- Local Affine Multidimensional Projection (theory to build accurate local transformations that can be dynamically modiﬁed according to user knowledge. The accuracy et al., IEEE Transactions on Visualization and Computer Graphics, 2011)
+- Local Affine Multidimensional Projection (Paulo Joia, Fernando V. Paulovich, Danilo Coimbra, Jose Alberto Cuminato, Luis Gustavo Nonato, IEEE Transactions on Visualization and Computer Graphics, 2011)
 
 - Deep learning multidimensional projections (M. Espadoto et al., Information Visualization, 2020)

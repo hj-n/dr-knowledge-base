@@ -5,6 +5,7 @@ Related:
 - Task confirmation: [`docs/workflow/task-confirmation-protocol.md`](./workflow/task-confirmation-protocol.md)
 - Selection policy: [`docs/workflow/configuration-selection-policy.md`](./workflow/configuration-selection-policy.md)
 - Metric catalog: [`docs/metrics/README.md`](./metrics/README.md)
+- Metric similarity map: [`docs/metrics/metric-relationships.md`](./metrics/metric-relationships.md)
 - Technique catalog: [`docs/techniques/README.md`](./techniques/README.md)
 - Coverage ranking: [`docs/reference-coverage.md`](./reference-coverage.md)
 
@@ -76,7 +77,7 @@ When the user asks for the best or optimal DR configuration:
 - local-structure methods that keep neighborhood detail visible (for example UMAP, t-SNE, LLE)
 
 3. Cluster identification:
-- methods that make local grouping behavior visible (for example UMAP, t-SNE, SOM, Classimap)
+- methods that make local grouping behavior visible (for example UMAP, t-SNE, PaCMAP, SOM)
 
 4. Point-distance investigation:
 - methods that better preserve global distance relationships (for example PCA, MDS, Isomap, TriMap, UMATO)
@@ -89,6 +90,9 @@ When the user asks for the best or optimal DR configuration:
 
 7. Cluster-density investigation:
 - methods that are usually more stable for density comparison under global geometry constraints (for example PCA, MDS, Isomap, TriMap, UMATO)
+
+Rule:
+- Do not switch to supervised or label-aware techniques unless the confirmed main goal is class-separability investigation and label quality is validated.
 
 ## Ranking Policy
 Final ranking must follow [`docs/workflow/configuration-selection-policy.md`](./workflow/configuration-selection-policy.md).

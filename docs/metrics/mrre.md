@@ -53,9 +53,13 @@ This metric is strong for quantifying rank-order errors in neighborhood structur
 
 It also helps surface instability across `k` schedules, so it is practical for tuning local-fidelity behavior and for spotting methods that look visually good but reorder neighbors heavily.
 
+## Related Metrics
+Mean Relative Rank Error is closest to Trustworthiness and Continuity and Local Continuity Meta-Criterion in the local rank-preservation family. All three rely on comparing neighborhood structure before and after projection.
+
+MRRE differs by explicitly weighting rank displacement magnitude. That makes MRRE more sensitive to how far neighbor order moved, not only whether neighbors were kept or lost.
 
 ## Task Alignment
-This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
+This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.
 - Best-aligned tasks:
   - Neighborhood identification
   - Outlier identification
@@ -79,12 +83,8 @@ Failure-signaling rule: if this metric disagrees with other bundle metrics, repo
 ## Source Notes
 The references below list paper sources used for this metric guidance.
 
-- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025)
-- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2021)
-- Quality assessment of dimensionality reduction: Rank-based criteria (John A. Lee et al., Neurocomputing, 2009)
-- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
-- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
-
-- Uniform manifold approximation with two-phase optimization (H. Jeon et al., 2022 IEEE Visualization and Visual Analytics (VIS), 2022)
-
-[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
+- Quality assessment of dimensionality reduction: Rank-based criteria (John A. Lee, Michel Verleysen, Neurocomputing, 2009)
+- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon; Hyung-Kwon Ko; Jaemin Jo; Youngtaek Kim; Jinwook Seo, IEEE Transactions on Visualization and Computer Graphics, 2021)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon, Yun-Hsin Kuo, Michaël Aupetit, Kwan-Liu Ma, Jinwook Seo, IEEE Transactions on Visualization and Computer Graphics, 2024)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser, Kaviru Gunaratne, Jacob Miller, Stephen Kobourov, IEEE Transactions on Visualization and Computer Graphics, 2024)
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser, Jacob Miller, Stephen Kobourov, 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025)

@@ -29,7 +29,7 @@ Detailed protocol rule: apply consistent distance scaling and normalization poli
 
 ## Hyperparameter Impact
 Normalization and pair weighting are dominant controls. Scale policy must be fixed, otherwise cross-run comparisons can be misleading.
-Scale policy must be explicit when comparing values across runs or methods.[^warn-scale]
+Scale policy must be explicit when comparing values across runs or methods.
 
 Hyperparameters should be tuned against the declared task, not against a single metric in isolation. Otherwise, optimization can overfit one structural aspect and silently degrade other structure that downstream users care about.
 
@@ -54,9 +54,13 @@ This metric is strong for global distance-fitting diagnostics across the full co
 
 It is useful for comparing methods on distance-faithfulness objectives, especially when evaluation scale is controlled consistently.
 
+## Related Metrics
+Stress is closest to Scale-Normalized Stress and Non-Metric Stress in the stress family, and partially aligned with Pearson/Spearman distance-correlation metrics for global structure checks.
+
+Stress differs by residual-distance fit interpretation. It is sensitive to scale policy unless a scale-invariant variant is explicitly used and controlled.
 
 ## Task Alignment
-This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
+This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.
 - Best-aligned tasks:
   - Point distance investigation
   - Class separability investigation
@@ -81,20 +85,14 @@ Failure-signaling rule: if this metric disagrees with other bundle metrics, repo
 ## Source Notes
 The references below list paper sources used for this metric guidance.
 
-- Least Square Projection: A Fast High-Precision Multidimensional Projection Technique and Its Application to Document Mapping (F.V. Paulovich et al., IEEE Transactions on Visualization and Computer Graphics, 2008)
-- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025)
-- Geometric Inference for Measures based on Distance Functions (Frédéric Chazal et al., Foundations of Computational Mathematics, 2010)
-- Stochastic Neighbor Embedding (Geoffrey E. Hinton et al., Advances in Neural Information Processing Systems (NIPS 15), 2002)
-- Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2021)
-- Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen et al., Journal of the American Statistical Association, 2009)
-- Additional supporting notes: 5 more
-
-- Information retrieval perspective to nonlinear dimensionality reduction for data visualization (J. V enna et al., UNKNOWN, 2010)
-- High Performance Dimension Reduction and Visualization for Large High-Dimensional Data Analysis (D. Engel et al., 2010 10th IEEE/ACM International Conference on Cluster, Cloud and Grid Computing, 2012)
-- Local multidimensional scaling (Jarkko Venna and Samuel Kaski, Journal of the American Statistical Association, 2006)
-- VisCoDeR: A tool for visually comparing dimensionality reduction algorithms (René Cutura et al., UNKNOWN, 2018)
-- Stress Maps: Analysing Local Phenomena in Dimensionality Reduction Based Visualisations (Christin Seifert et al., UNKNOWN, 2010)
-- Attribute-based Visual Explanation of Multidimensional Projections (Renato R. O. da Silva et al., UNKNOWN, 2015)
-
-[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
-[^warn-scale]: “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser et al., 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025); How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
+- Multidimensional scaling by optimizing goodness of fit to a nonmetric hypothesis (J. B. Kruskal, Psychometrika, 1964)
+- Stochastic Neighbor Embedding (Geoffrey E. Hinton, Sam T. Roweis, Advances in Neural Information Processing Systems (NIPS 15), 2002)
+- Least Square Projection: A Fast High-Precision Multidimensional Projection Technique and Its Application to Document Mapping (F.V. Paulovich, L.G. Nonato, R. Minghim, H. Levkowitz, IEEE Transactions on Visualization and Computer Graphics, 2008)
+- Local Multidimensional Scaling for Nonlinear Dimension Reduction, Graph Drawing, and Proximity Analysis (Lisha Chen, Andreas Buja, Journal of the American Statistical Association, 2009)
+- Quality assessment of dimensionality reduction: Rank-based criteria (John A. Lee, Michel Verleysen, Neurocomputing, 2009)
+- Geometric Inference for Measures based on Distance Functions (Frédéric Chazal, David Cohen-Steiner, Quentin Mérigot, Foundations of Computational Mathematics, 2010)
+- Local Affine Multidimensional Projection (Paulo Joia, Fernando V. Paulovich, Danilo Coimbra, Jose Alberto Cuminato, Luis Gustavo Nonato, IEEE Transactions on Visualization and Computer Graphics, 2011)
+- On the Exploration of Dimension Reduction Techniques for Visual Data Mining (Bernd Hamann (survey context), VLUDS 2011 (OASIcs), 2011)
+- Steering Distortions to Preserve Classes and Neighbors in Supervised Dimensionality Reduction (Benoit Colange, Jaakko Peltonen, Michael Aupetit, Denys Dutykh, Sylvain Lespinats, Advances in Neural Information Processing Systems (NeurIPS), 2020)
+- How Scale Breaks “Normalized Stress” and KL Divergence: Rethinking Quality Metrics (Kiran Smelser, Kaviru Gunaratne, Jacob Miller, Stephen Kobourov, IEEE Transactions on Visualization and Computer Graphics, 2024)
+- “Normalized Stress” is Not Normalized: How to Interpret Stress Correctly (Kiran Smelser, Jacob Miller, Stephen Kobourov, 2024 IEEE Evaluation and Beyond - Methodological Approaches for Visualization (BELIV), 2025)

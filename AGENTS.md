@@ -34,6 +34,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `docs/paper-catalog.md`
 - `docs/paper-catalog.csv`
 - `docs/metrics/`
+- `docs/metrics/metric-relationships.md`
 - `docs/techniques/`
 - `docs/execution-library-index.md`
 - `builder/evidence/conflict-policy.md`
@@ -80,6 +81,9 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - Use exact metric IDs from `docs/metrics-and-libraries.md` for ZADU metrics.
 - Non-ZADU metrics are allowed when needed, but must include explicit provenance in source notes and metric docs.
 - Apply label-separation warning gate for: `dsc`, `ivm`, `c_evm`, `nh`, `ca_tnc`.
+- `snc` (Steadiness & Cohesiveness) is label-agnostic cluster-reliability guidance; do not classify it as label-aware and do not let it trigger supervised-method recommendation by itself.
+- Metric similarity/relatedness claims must be grounded in source papers and synchronized with `docs/metrics/metric-relationships.md`.
+- If similarity is inferred from formulations (not explicitly claimed by authors), mark it as inferred and avoid hard-equivalence wording.
 - Final configuration ranking must follow `docs/workflow/configuration-selection-policy.md`; ad-hoc ranking prose is not sufficient.
 
 ## Optimization Policy Contract
@@ -237,6 +241,8 @@ These rules capture recurring failure modes from this project thread and are man
 - Recommendation claim-to-citation rule:
   - if a technique or metric is recommended in user-facing output, include paper citations that support that specific recommendation.
   - if support is inferred rather than explicit, label it as inferred and avoid presenting it as a hard fact.
+- Non-class-goal supervision rule:
+  - for goals other than class separability investigation, do not make supervised or label-dependent methods the primary recommendation unless the user explicitly requests label-driven analysis.
 - User reference response rule:
   - when user asks for references, return paper bibliography entries first (title, authors, venue, year, URL).
   - do not answer with internal mapping prose, file paths, or repository-internal evidence links.
@@ -246,6 +252,9 @@ These rules capture recurring failure modes from this project thread and are man
 - Boilerplate/meta-text prohibition:
   - do not add meta explanations that are about process mistakes instead of method behavior (for example wording like "use this because extension behavior was missed earlier").
   - metric/technique prose must describe computation, parameter effects, and practical tradeoffs of the method itself.
+- Metric relation quality rule:
+  - do not state that two metrics are interchangeable unless explicit evidence supports interchangeability.
+  - when metrics are only partially overlapping, explicitly describe the overlap and the key difference.
 - Simplicity-first user response rule:
   - for simple user prompts, avoid dumping full internal workflow by default.
   - provide a short direct answer first, then expand only when the question requires deeper detail.

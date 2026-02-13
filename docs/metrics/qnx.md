@@ -39,6 +39,11 @@ This metric is strong for validating neighborhood-preservation objectives and fo
 
 It is useful when you need a reliable local-structure signal early in model selection, especially before introducing more specialized or costly evaluation criteria.
 
+## Related Metrics
+QNX is closest to LCMC because both are co-ranking/neighbor-overlap based criteria aggregated over neighborhood scales.
+
+QNX differs by emphasizing parameter-free cumulative behavior over K, which changes how single-scale anomalies affect the final score.
+
 ## Task Alignment
 Best-aligned tasks are local structure tasks in the repository taxonomy:
 - Neighborhood identification
@@ -57,7 +62,6 @@ For production recommendations, combine `qnx` with at least one global metric an
 Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
 
 ## Source Notes
-- Spectral Overlap and a Comparison of Parameter-Free, Dimensionality Reduction Quality Metrics (Jonathan Johannemann; Robert Tibshirani, arXiv, 2019)
-- Toward a Quantitative Survey of Dimension Reduction Techniques (Mateus Espadoto; Rafael M. Martins; Auri S. Hirata; Alexandru C. Telea, IEEE Transactions on Visualization and Computer Graphics, 2021)
+The references below list paper sources used for this metric guidance.
 
-- Visualizing the quality of dimensionality reduction (Bassam Mokbel et al., Neurocomputing, 2013)
+- Spectral Overlap and a Comparison of Parameter-Free, Dimensionality Reduction Quality Metrics (Jonathan Johannemann; Robert Tibshirani, arXiv, 2019)

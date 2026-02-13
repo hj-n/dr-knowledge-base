@@ -53,9 +53,13 @@ This metric is strong for measure-based geometric reliability checks, especially
 
 It is useful when analysts need a geometry-aware global diagnostic that is less tied to a single embedding-scale convention.
 
+## Related Metrics
+Distance-to-Measure is partially aligned with global distortion metrics such as stress and KL-divergence in evaluation workflows.
+
+It differs by coming from geometric measure-distance theory and is typically used as a robust geometric signal rather than a direct neighbor-rank criterion.
 
 ## Task Alignment
-This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.[^cat]
+This metric is best aligned to the task set implied by its structural role. The alignment basis is structural-granularity grouping from ZADU source note.
 - Best-aligned tasks:
   - Point distance investigation
   - Class separability investigation
@@ -80,11 +84,5 @@ Failure-signaling rule: if this metric disagrees with other bundle metrics, repo
 ## Source Notes
 The references below list paper sources used for this metric guidance.
 
-- Geometric Inference for Measures based on Distance Functions (Frédéric Chazal et al., Foundations of Computational Mathematics, 2010)
-- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon et al., IEEE Transactions on Visualization and Computer Graphics, 2024)
-
-- Uniform manifold approximation with two-phase optimization (H. Jeon et al., 2022 IEEE Visualization and Visual Analytics (VIS), 2022)
-- VisCoDeR: A tool for visually comparing dimensionality reduction algorithms (René Cutura et al., UNKNOWN, 2018)
-- A Large-Scale Sensitivity Analysis on Latent Embeddings and Dimensionality Reductions for Text Spatializations (D. Atzberger et al., IEEE Transactions on Visualization and Computer Graphics, 2025)
-
-[^cat]: ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023 IEEE Visualization and Visual Analytics (VIS), 2023)
+- Geometric Inference for Measures based on Distance Functions (Frédéric Chazal, David Cohen-Steiner, Quentin Mérigot, Foundations of Computational Mathematics, 2010)
+- Classes are Not Clusters: Improving Label-Based Evaluation of Dimensionality Reduction (Hyeon Jeon, Yun-Hsin Kuo, Michaël Aupetit, Kwan-Liu Ma, Jinwook Seo, IEEE Transactions on Visualization and Computer Graphics, 2024)

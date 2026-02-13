@@ -16,6 +16,7 @@ Related:
 - Match response length to question complexity.
   - For simple questions: answer briefly first, then add only essential details.
   - For complex requests: provide structured detail, but avoid unnecessary expansion.
+- Do not introduce supervised or label-dependent methods unless the user explicitly confirmed a class-separability goal.
 - When the user asks for references/evidence:
   - cite papers (title, authors, venue, year) as the reference unit.
   - include DOI/arXiv/open-access URL when available.
