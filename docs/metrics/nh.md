@@ -47,7 +47,7 @@ It is highly interpretable in labeled settings and easy to communicate to end us
 
 A strong property of this metric is that it provides a compact diagnostic that is easy to compare across methods. The limitation is that compactness hides where errors occur, so it should be supplemented by structure-level inspection when decisions are high impact.
 
-In review workflows, this metric works best as one component in a bundle: local, global, and label-aware signals together. That bundle-based interpretation reduces the chance of selecting a method that is numerically strong but operationally misaligned.
+In practice, use this metric together with local, global, and (when valid) label-based checks. This combined reading lowers the risk of choosing a method that scores well on one view but fails the actual analysis goal.
 
 ## Strengths
 This metric is strong for label-aware local purity checks, because it directly measures how often neighbors share the same label. It is intuitive for users and easy to explain in supervised or semi-supervised settings.
@@ -75,7 +75,7 @@ Use absolute values cautiously and prioritize relative comparisons under matched
 
 Before communicating a conclusion, cross-check this metric against the selected technique behavior and user-facing goal. A reliable recommendation should explain both why the score is good and why that goodness matters for the intended analytical action.
 
-Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
+If this metric disagrees with other reliability checks, report the disagreement clearly and lower confidence instead of averaging the conflict away.
 
 ## Source Notes
 The references below list paper sources used for this metric guidance.

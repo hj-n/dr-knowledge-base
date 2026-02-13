@@ -35,19 +35,19 @@ Hyperparameters should be tuned against the declared task, not against a single 
 
 A robust workflow evaluates sensitivity with Bayesian optimization under fixed search bounds and checks rank stability across seeds or folds. Large score variance indicates that the current configuration is not yet reliable enough for high-confidence method selection.
 
-Decision-level tuning rule: tune this metric only inside a task-aligned bundle objective and report sensitivity across multiple seeds or folds. Single-run improvements should be treated as provisional until rank stability is confirmed.
+Decision-level tuning rule: optimize this metric together with other task-relevant reliability checks, and report stability across multiple seeds or folds. Treat single-run gains as tentative until rankings stay consistent.
 
 ## Practical Reliability Notes
 Distance Consistency reflects whether points remain closer to their own class prototypes than to other classes after projection. It is useful for class-separability analysis, but can become overly optimistic when classes overlap in original space or when class imbalance is severe.
 
-Before relying on DSC for recommendation decisions, run the label-separation check and verify class overlap in the original feature space. If overlap is high, down-weight DSC and prioritize mixed bundles including non-label metrics and task-specific technique constraints.
+Before relying on DSC for recommendation decisions, run the label-separation check and verify class overlap in the original feature space. If overlap is high, down-weight DSC and prioritize a mixed set of label-free metrics plus task-specific technique constraints.
 
 ## Notable Properties
 It is aligned with separability-focused tasks and cluster-structure questions. It requires strong caution when label-separation assumptions do not hold.
 
 A strong property of this metric is that it provides a compact diagnostic that is easy to compare across methods. The limitation is that compactness hides where errors occur, so it should be supplemented by structure-level inspection when decisions are high impact.
 
-In review workflows, this metric works best as one component in a bundle: local, global, and label-aware signals together. That bundle-based interpretation reduces the chance of selecting a method that is numerically strong but operationally misaligned.
+In practice, use this metric together with local, global, and (when valid) label-based checks. This combined reading lowers the risk of choosing a method that scores well on one view but fails the actual analysis goal.
 
 ## Strengths
 This metric is strong for class/cluster consistency checks in labeled settings. It provides a direct signal of whether embedding geometry supports class-oriented separation expectations.

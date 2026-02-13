@@ -6,7 +6,7 @@ Related:
 - Workflow anchor: [`docs/workflow/dr-analysis-workflow.md`](../workflow/dr-analysis-workflow.md)
 - Task-aligned initialization rules: [`docs/workflow/task-aligned-initialization.md`](../workflow/task-aligned-initialization.md)
 - Task clarification prerequisite: [`docs/intake-question-tree.md`](../intake-question-tree.md)
-- Task axis/subtask policy: [`docs/task-taxonomy.md`](../task-taxonomy.md)
+- Task categories and subtasks: [`docs/task-taxonomy.md`](../task-taxonomy.md)
 - Selection policy: [`docs/metrics-and-libraries.md`](../metrics-and-libraries.md)
 - Deterministic scoring policy: [`docs/workflow/configuration-selection-policy.md`](../workflow/configuration-selection-policy.md)
 - Metric catalog: [`docs/metrics/README.md`](../metrics/README.md)

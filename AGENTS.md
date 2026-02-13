@@ -361,6 +361,7 @@ Before ending a doc-update turn, verify:
    - `exact_other_page = 0`
    - `fuzzy_other_page = 0`
    - if page mismatch exists, repair page fields and re-run verification before completion.
+   - for newly edited evidence lines, prefer verbatim quotes that validate as `exact_ref_page`; use fuzzy-only matches only when PDF extraction artifacts make exact matching impractical.
 8. If a recommendation report artifact is produced, validate it with:
    - `python scripts/validate_reliability_report.py <report-file>`
 9. If a recommendation explanation is produced, verify novice readability:

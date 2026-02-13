@@ -39,7 +39,7 @@ See: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 1. Confirm task:
    [`docs/intake-question-tree.md`](./intake-question-tree.md) +
    [`docs/workflow/task-confirmation-protocol.md`](./workflow/task-confirmation-protocol.md)
-2. Freeze preprocessing:
+2. Keep preprocessing consistent:
    [`docs/workflow/preprocessing-profiles.md`](./workflow/preprocessing-profiles.md)
 3. Select candidates:
    [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)

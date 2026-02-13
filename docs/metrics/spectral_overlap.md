@@ -22,7 +22,7 @@ A key motivation for this metric is reduced dependence on additional metric hype
 
 Still, the surrounding evaluation pipeline matters. Changes in data scaling or neighborhood construction can change metric values and therefore selected DR parameters.
 
-Decision-level tuning rule: tune this metric only inside a task-aligned bundle objective and report sensitivity across multiple seeds or folds. Single-run improvements should be treated as provisional until rank stability is confirmed.
+Decision-level tuning rule: optimize this metric together with other task-relevant reliability checks, and report stability across multiple seeds or folds. Treat single-run gains as tentative until rankings stay consistent.
 
 ## Practical Reliability Notes
 Spectral-overlap metrics provide a structure-aware perspective that can complement rank-based local metrics, especially when manifold smoothness and neighborhood transitions matter. They are useful when simple distance errors do not explain observed visual behavior.
@@ -47,14 +47,14 @@ Best-aligned tasks are:
 
 For point/cluster distance or density-heavy tasks, pair this metric with global metrics before final decisions.
 
-Operational alignment rule: this metric is strongest for neighborhood, outlier, and cluster-local tasks. For point-distance or density-dominant tasks, keep it as safety check evidence rather than primary ranking evidence.
+Operational alignment rule: this metric is strongest for neighborhood, outlier, and cluster-local tasks. For point-distance or density-focused tasks, use it as secondary reliability evidence rather than the main ranking signal.
 
 ## Interpretation Notes
 Use this metric as one component of a multi-reliability check set, not as the sole decision criterion. Local-structure strength does not guarantee faithful global arrangement.
 
 When reporting results, state clearly that `spectral_overlap` supports neighborhood-level confidence and include complementary global evidence.
 
-Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
+If this metric disagrees with other reliability checks, report the disagreement clearly and lower confidence instead of averaging the conflict away.
 
 ## Source Notes
 - Spectral Overlap and a Comparison of Parameter-Free, Dimensionality Reduction Quality Metrics (Jonathan Johannemann; Robert Tibshirani, arXiv, 2019)

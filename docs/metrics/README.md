@@ -5,7 +5,7 @@ Each metric file explains what is computed, how it is computed, major sensitivit
 
 Related:
 - Workflow step anchor: [`docs/workflow/dr-analysis-workflow.md`](../workflow/dr-analysis-workflow.md) (Step 3)
-- Task axis/subtask policy: [`docs/task-taxonomy.md`](../task-taxonomy.md)
+- Task categories and subtasks: [`docs/task-taxonomy.md`](../task-taxonomy.md)
 - Selection policy: [`docs/metrics-and-libraries.md`](../metrics-and-libraries.md)
 - Deterministic scoring policy: [`docs/workflow/configuration-selection-policy.md`](../workflow/configuration-selection-policy.md)
 - Frequency ranking: [`docs/reference-coverage.md`](../reference-coverage.md)

@@ -74,7 +74,7 @@ A single metric rarely captures all reliability dimensions. Over-relying on one 
 
 Reliability action:
 - Use a compact reliability check set across local, cluster-level, and global perspectives.
-- Require consistency across the bundle before final recommendation.
+- Require consistency across multiple reliability checks before final recommendation.
 
 Source notes:
 - ZADU: A Python Library for Evaluating the Reliability of Dimensionality Reduction Embeddings (Hyeon Jeon et al., 2023)
@@ -170,7 +170,7 @@ Source notes:
 3. Validate label separability before using class-aware metrics.
 4. Use a multi-level reliability check set instead of a single metric.
 5. Control scale when comparing stress/KL-related scores.
-6. Freeze preprocessing, seeds, and initialization policy for fair comparison.
+6. Keep preprocessing, seeds, and initialization policy consistent for fair comparison.
 7. Log hyperparameter search space and optimization trace.
 8. Include runtime feasibility with quality evidence.
 9. Explain residual uncertainty and limits in the final recommendation.

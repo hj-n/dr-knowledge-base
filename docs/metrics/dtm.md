@@ -34,7 +34,7 @@ Hyperparameters should be tuned against the declared task, not against a single 
 
 A robust workflow evaluates sensitivity with Bayesian optimization under fixed search bounds and checks rank stability across seeds or folds. Large score variance indicates that the current configuration is not yet reliable enough for high-confidence method selection.
 
-Decision-level tuning rule: tune this metric only inside a task-aligned bundle objective and report sensitivity across multiple seeds or folds. Single-run improvements should be treated as provisional until rank stability is confirmed.
+Decision-level tuning rule: optimize this metric together with other task-relevant reliability checks, and report stability across multiple seeds or folds. Treat single-run gains as tentative until rankings stay consistent.
 
 ## Practical Reliability Notes
 DTM-style distances are sensitive to sampling density and neighborhood scale. In sparse regions, metric values can change more due to sample coverage than due to embedding quality itself, so interpretation should include data-density context.
@@ -46,7 +46,7 @@ It is robustness-oriented and useful under outlier/noise conditions. It requires
 
 A strong property of this metric is that it provides a compact diagnostic that is easy to compare across methods. The limitation is that compactness hides where errors occur, so it should be supplemented by structure-level inspection when decisions are high impact.
 
-In review workflows, this metric works best as one component in a bundle: local, global, and label-aware signals together. That bundle-based interpretation reduces the chance of selecting a method that is numerically strong but operationally misaligned.
+In practice, use this metric together with local, global, and (when valid) label-based checks. This combined reading lowers the risk of choosing a method that scores well on one view but fails the actual analysis goal.
 
 ## Strengths
 This metric is strong for measure-based geometric reliability checks, especially when robustness to noise and irregular sampling matters. It can provide a more stable global-structure signal than raw pairwise-distance-only summaries in some regimes.
@@ -75,7 +75,7 @@ Use absolute values cautiously and prioritize relative comparisons under matched
 
 Before communicating a conclusion, cross-check this metric against the selected technique behavior and user-facing goal. A reliable recommendation should explain both why the score is good and why that goodness matters for the intended analytical action.
 
-Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
+If this metric disagrees with other reliability checks, report the disagreement clearly and lower confidence instead of averaging the conflict away.
 
 ## Source Notes
 The references below list paper sources used for this metric guidance.

@@ -12,6 +12,18 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS_BANNED_PATTERNS = [
     ("internal phrase", re.compile(r"\bIn this repository\b", re.IGNORECASE)),
     ("internal phrase", re.compile(r"\bthis repo\b", re.IGNORECASE)),
+    ("internal jargon", re.compile(r"\btask\s+axis\b", re.IGNORECASE)),
+    ("internal jargon", re.compile(r"\btask\s+lock\b", re.IGNORECASE)),
+    ("internal jargon", re.compile(r"\block\s+the\s+task\b", re.IGNORECASE)),
+    ("internal jargon", re.compile(r"\bmetric\s+bundle\b", re.IGNORECASE)),
+    ("internal jargon", re.compile(r"\bbundle\s+scoring\b", re.IGNORECASE)),
+    ("internal jargon", re.compile(r"\bguardrail\s+metric\b", re.IGNORECASE)),
+    ("internal jargon", re.compile(r"\bprimary\s+metric\b", re.IGNORECASE)),
+    ("internal jargon", re.compile(r"\bpreprocessing\s+freeze\b", re.IGNORECASE)),
+    ("internal jargon", re.compile(r"\bpreprocessing\s+lock\b", re.IGNORECASE)),
+    ("internal jargon", re.compile(r"\bsafety\s+check\s+evidence\b", re.IGNORECASE)),
+    ("internal phrase", re.compile(r"\bDR\s*KB\b", re.IGNORECASE)),
+    ("internal phrase", re.compile(r"\bContext7\b", re.IGNORECASE)),
 ]
 
 WORKFLOW_KEY_LEAKS = [

@@ -22,7 +22,7 @@ Detailed protocol rule: evaluate multiple neighborhood scales (for example small
 
 Even with parameter-light behavior, protocol controls still matter: changes in normalization, distance metric, or neighborhood construction can alter scores. Keep those controls explicit in optimization logs.
 
-Decision-level tuning rule: tune this metric only inside a task-aligned bundle objective and report sensitivity across multiple seeds or folds. Single-run improvements should be treated as provisional until rank stability is confirmed.
+Decision-level tuning rule: optimize this metric together with other task-relevant reliability checks, and report stability across multiple seeds or folds. Treat single-run gains as tentative until rankings stay consistent.
 
 ## Practical Reliability Notes
 QNX is useful for quantifying neighborhood retention across rank ranges with low implementation overhead. It is practical in iterative tuning loops where fast local-quality feedback is needed.
@@ -47,14 +47,14 @@ Best-aligned tasks are local structure tasks in the repository taxonomy:
 
 For global-distance or density-dominant tasks, `qnx` should be paired with global metrics instead of used alone.
 
-Operational alignment rule: this metric is strongest for neighborhood, outlier, and cluster-local tasks. For point-distance or density-dominant tasks, keep it as safety check evidence rather than primary ranking evidence.
+Operational alignment rule: this metric is strongest for neighborhood, outlier, and cluster-local tasks. For point-distance or density-focused tasks, use it as secondary reliability evidence rather than the main ranking signal.
 
 ## Interpretation Notes
 Do not treat `qnx` as a universal quality score. It validates local neighborhood retention, not complete geometric faithfulness.
 
 For production recommendations, combine `qnx` with at least one global metric and one task-specific caveat check. This avoids overfitting to local fidelity while missing global distortions.
 
-Failure-signaling rule: if this metric disagrees with other bundle metrics, report that disagreement explicitly and mark recommendation confidence as reduced instead of averaging away the conflict.
+If this metric disagrees with other reliability checks, report the disagreement clearly and lower confidence instead of averaging the conflict away.
 
 ## Source Notes
 - Spectral Overlap and a Comparison of Parameter-Free, Dimensionality Reduction Quality Metrics (Jonathan Johannemann; Robert Tibshirani, arXiv, 2019)
