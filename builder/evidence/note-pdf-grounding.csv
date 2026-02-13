@@ -88,10 +88,16 @@ papers/notes/2022-revisiting-dr-visual-cluster-analysis.md,papers/raw/Revisiting
 papers/notes/2022-revisiting-dr-visual-cluster-analysis.md,papers/raw/Revisiting_Dimensionality_Reduction_Techniques_for_Visual_Cluster_Analysis_An_Empirical_Study.pdf,REV22-E7,2,exact_ref_page,2,exact
 papers/notes/2022-revisiting-dr-visual-cluster-analysis.md,papers/raw/Revisiting_Dimensionality_Reduction_Techniques_for_Visual_Cluster_Analysis_An_Empirical_Study.pdf,REV22-E8,3,exact_ref_page,3,exact
 papers/notes/2023-zadu-library.md,papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf,ZADU23-E1,1,exact_ref_page,1,exact
-papers/notes/2023-zadu-library.md,papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf,ZADU23-E2,2,fuzzy_ref_page,1;2;3;5,fuzzy
-papers/notes/2023-zadu-library.md,papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf,ZADU23-E3,2,fuzzy_ref_page,1;2,fuzzy
-papers/notes/2023-zadu-library.md,papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf,ZADU23-E4,2,fuzzy_ref_page,2;3;5,fuzzy
-papers/notes/2023-zadu-library.md,papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf,ZADU23-E5,2,fuzzy_ref_page,2;3,fuzzy
+papers/notes/2023-zadu-library.md,papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf,ZADU23-E2,1,exact_ref_page,1,exact
+papers/notes/2023-zadu-library.md,papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf,ZADU23-E3,1,exact_ref_page,1,exact
+papers/notes/2023-zadu-library.md,papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf,ZADU23-E4,2,fuzzy_ref_page,1;2;3;5,fuzzy
+papers/notes/2023-zadu-library.md,papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf,ZADU23-E5,2,exact_ref_page,2,exact
+papers/notes/2023-zadu-library.md,papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf,ZADU23-E6,3,fuzzy_ref_page,3,fuzzy
+papers/notes/2023-zadu-library.md,papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf,ZADU23-E7,3,fuzzy_ref_page,3,fuzzy
+papers/notes/2023-zadu-library.md,papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf,ZADU23-E8,3,exact_ref_page,3,exact
+papers/notes/2023-zadu-library.md,papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf,ZADU23-E9,3,exact_ref_page,3,exact
+papers/notes/2023-zadu-library.md,papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf,ZADU23-E10,3,exact_ref_page,3,exact
+papers/notes/2023-zadu-library.md,papers/raw/ZADU_A_Python_Library_for_Evaluating_the_Reliability_of_Dimensionality_Reduction_Embeddings.pdf,ZADU23-E11,4,exact_ref_page,4,exact
 papers/notes/2024-large-scale-text-spatialization.md,papers/raw/Large-Scale_Evaluation_of_Topic_Models_and_Dimensionality_Reduction_Methods_for_2D_Text_Spatialization.pdf,TEXT24-E1,1,fuzzy_ref_page,1;2;3;4;6;7;8;9,fuzzy
 papers/notes/2024-large-scale-text-spatialization.md,papers/raw/Large-Scale_Evaluation_of_Topic_Models_and_Dimensionality_Reduction_Methods_for_2D_Text_Spatialization.pdf,TEXT24-E2,1,exact_ref_page,1,exact
 papers/notes/2024-large-scale-text-spatialization.md,papers/raw/Large-Scale_Evaluation_of_Topic_Models_and_Dimensionality_Reduction_Methods_for_2D_Text_Spatialization.pdf,TEXT24-E3,1,exact_ref_page,1,exact
@@ -108,16 +114,23 @@ papers/notes/2025-critical-analysis-dr-four-domains.md,papers/raw/A_Critical_Ana
 papers/notes/2025-critical-analysis-dr-four-domains.md,papers/raw/A_Critical_Analysis_of_the_Usage_of_Dimensionality_Reduction_in_Four_Domains (12).pdf,CR25-E6,1,exact_ref_page,1,exact
 papers/notes/2025-jeon-reliable-va-survey.md,papers/raw/jeon25chi (4).pdf,JEON25S-E1,1,exact_ref_page,1,exact
 papers/notes/2025-jeon-reliable-va-survey.md,papers/raw/jeon25chi (4).pdf,JEON25S-E2,1,exact_ref_page,1,exact
-papers/notes/2025-jeon-reliable-va-survey.md,papers/raw/jeon25chi (4).pdf,JEON25S-E3,3,exact_ref_page,3,exact
+papers/notes/2025-jeon-reliable-va-survey.md,papers/raw/jeon25chi (4).pdf,JEON25S-E3,1,exact_ref_page,1,exact
 papers/notes/2025-jeon-reliable-va-survey.md,papers/raw/jeon25chi (4).pdf,JEON25S-E4,1,exact_ref_page,1,exact
-papers/notes/2025-jeon-reliable-va-survey.md,papers/raw/jeon25chi (4).pdf,JEON25S-E5,2,fuzzy_ref_page,2;8;13,fuzzy
-papers/notes/2025-jeon-reliable-va-survey.md,papers/raw/jeon25chi (4).pdf,JEON25S-E6,1,exact_ref_page,1,exact
-papers/notes/2506.08725v2-stop-misusing-tsne-umap.md,papers/raw/2506.08725v2.pdf,JEON25-E1,4-5,exact_ref_page,4,exact
-papers/notes/2506.08725v2-stop-misusing-tsne-umap.md,papers/raw/2506.08725v2.pdf,JEON25-E2,5,exact_ref_page,5,exact
-papers/notes/2506.08725v2-stop-misusing-tsne-umap.md,papers/raw/2506.08725v2.pdf,JEON25-E3,6,exact_ref_page,6,exact
-papers/notes/2506.08725v2-stop-misusing-tsne-umap.md,papers/raw/2506.08725v2.pdf,JEON25-E4,6,exact_ref_page,6,exact
+papers/notes/2025-jeon-reliable-va-survey.md,papers/raw/jeon25chi (4).pdf,JEON25S-E5,1,exact_ref_page,1,exact
+papers/notes/2025-jeon-reliable-va-survey.md,papers/raw/jeon25chi (4).pdf,JEON25S-E6,2,exact_ref_page,2,exact
+papers/notes/2025-jeon-reliable-va-survey.md,papers/raw/jeon25chi (4).pdf,JEON25S-E7,2,exact_ref_page,2,exact
+papers/notes/2025-jeon-reliable-va-survey.md,papers/raw/jeon25chi (4).pdf,JEON25S-E8,6,fuzzy_ref_page,1;2;3;5;6;7;8;9,fuzzy
+papers/notes/2025-jeon-reliable-va-survey.md,papers/raw/jeon25chi (4).pdf,JEON25S-E9,8,fuzzy_ref_page,2;3;8;9;14,fuzzy
+papers/notes/2025-jeon-reliable-va-survey.md,papers/raw/jeon25chi (4).pdf,JEON25S-E10,8,exact_ref_page,8,exact
+papers/notes/2506.08725v2-stop-misusing-tsne-umap.md,papers/raw/2506.08725v2.pdf,JEON25-E1,1,exact_ref_page,1,exact
+papers/notes/2506.08725v2-stop-misusing-tsne-umap.md,papers/raw/2506.08725v2.pdf,JEON25-E2,1,fuzzy_ref_page,1;2;3;4;5;6;7;8,fuzzy
+papers/notes/2506.08725v2-stop-misusing-tsne-umap.md,papers/raw/2506.08725v2.pdf,JEON25-E3,4,exact_ref_page,4,exact
+papers/notes/2506.08725v2-stop-misusing-tsne-umap.md,papers/raw/2506.08725v2.pdf,JEON25-E4,5,exact_ref_page,5,exact
 papers/notes/2506.08725v2-stop-misusing-tsne-umap.md,papers/raw/2506.08725v2.pdf,JEON25-E5,6,exact_ref_page,6,exact
 papers/notes/2506.08725v2-stop-misusing-tsne-umap.md,papers/raw/2506.08725v2.pdf,JEON25-E6,6,exact_ref_page,6,exact
+papers/notes/2506.08725v2-stop-misusing-tsne-umap.md,papers/raw/2506.08725v2.pdf,JEON25-E7,7,exact_ref_page,7,exact
+papers/notes/2506.08725v2-stop-misusing-tsne-umap.md,papers/raw/2506.08725v2.pdf,JEON25-E8,9,fuzzy_ref_page,1;2;3;4;5;7;8;9,fuzzy
+papers/notes/2506.08725v2-stop-misusing-tsne-umap.md,papers/raw/2506.08725v2.pdf,JEON25-E9,12,fuzzy_ref_page,1;2;3;4;7;8;9;10,fuzzy
 papers/notes/pending-extra-1-s2-0-s003132039900-1-s2-0-s0031320399000783-main.md,papers/raw/pending-references/1-s2.0-S0031320399000783-main.pdf,PENDING-EXTRA-E1,4,exact_ref_page,4,exact
 papers/notes/pending-extra-1-s2-0-s003132039900-1-s2-0-s0031320399000783-main.md,papers/raw/pending-references/1-s2.0-S0031320399000783-main.pdf,PENDING-EXTRA-E2,1,exact_ref_page,1,exact
 papers/notes/pending-extra-1-s2-0-s003132039900-1-s2-0-s0031320399000783-main.md,papers/raw/pending-references/1-s2.0-S0031320399000783-main.pdf,PENDING-EXTRA-E3,5,exact_ref_page,5,exact

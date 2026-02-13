@@ -26,6 +26,17 @@ DOCS_BANNED_PATTERNS = [
     ("internal phrase", re.compile(r"\bContext7\b", re.IGNORECASE)),
 ]
 
+REQUIRED_DOC_FILES = [
+    ROOT / "docs" / "workflow" / "quick-answer-mode.md",
+]
+
+REQUIRED_LLMS_PHRASES = [
+    "Tune with Bayesian optimization (`bayes_opt`) only.",
+    "Score reliability with `zadu`.",
+    "Always disclose final method and key settings.",
+    "Do not justify selections by popularity alone.",
+]
+
 WORKFLOW_KEY_LEAKS = [
     "primary_task_axis",
     "warning_gate_result",
@@ -57,6 +68,10 @@ def read_text(path: Path) -> str:
 
 def check_docs() -> list[str]:
     errors: list[str] = []
+    for req in REQUIRED_DOC_FILES:
+        if not req.exists():
+            errors.append(f"missing required doc file: {req}")
+
     for path in (ROOT / "docs").rglob("*.md"):
         text = read_text(path)
         for label, pat in DOCS_BANNED_PATTERNS:
@@ -95,6 +110,9 @@ def check_llms() -> list[str]:
     for pat in LLMS_BANNED:
         if pat.search(text):
             errors.append(f"{path}: contains banned pattern: {pat.pattern}")
+    for phrase in REQUIRED_LLMS_PHRASES:
+        if phrase not in text:
+            errors.append(f"{path}: missing required phrase: {phrase}")
     return errors
 
 

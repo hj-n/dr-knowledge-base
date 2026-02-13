@@ -25,6 +25,18 @@ Source notes:
 - Visualizing Dimensionally-Reduced Data: Interviews with Analysts and a Characterization of Task Sequences (Matthew Brehmer; Michael Sedlmair; Stephen Ingram; Tamara Munzner, 2014)
 - Dimensionality Reduction in the Wild: Gaps and Guidance (Michael Sedlmair; Matthew Brehmer; Stephen Ingram; Tamara Munzner, 2012)
 
+### 1.1) Popularity-Driven Recommendation Drift
+Methods are often recommended because they are familiar or commonly used, not because they fit the confirmed analytical goal. This can preserve misuse patterns even when better-aligned alternatives exist.
+
+Reliability action:
+- Reject popularity-only justification in final recommendations.
+- Require explicit task-fit evidence and reliability-check evidence for the selected method.
+- If rationale is weak, downgrade recommendation confidence and keep alternatives visible.
+
+Source notes:
+- Stop Misusing t-SNE and UMAP for Visual Analytics (Hyeon Jeon, 2025)
+- Unveiling High-dimensional Backstage: A Survey for Reliable Visual Analytics with Dimensionality Reduction (Hyeon Jeon et al., 2025)
+
 ### 2) Hidden Task-Sequence Drift
 Even when a high-level task is stated, analysts often switch to a different subtask sequence during exploration (for example, cluster verification to class matching). If the workflow does not detect this drift, metric/technique choices become misaligned.
 
@@ -175,3 +187,4 @@ Source notes:
 8. Include runtime feasibility with quality evidence.
 9. Explain residual uncertainty and limits in the final recommendation.
 10. Add an initialization/seed stability statement for stochastic methods.
+11. Reject popularity-only rationale and require explicit task-fit evidence.

@@ -79,6 +79,11 @@ Expectation:
 - Pair technique choice with task-aligned metrics from `docs/metrics/`.
 - When multiple techniques fit the same task, use PDF-backed support frequency from `docs/reference-coverage.md` to set recommendation priority.
 
+## User-Layer Usage Rule
+- Treat technique files as execution cards, not user-facing prose templates.
+- For user explanation wording, follow `docs/workflow/quick-answer-mode.md`.
+- In user-facing answers, summarize method choice briefly and present final settings + concise code.
+
 ## Additional Implementation Tracking
 When implementation repositories are discovered or changed, keep these in sync:
 - builder mapping: [`builder/evidence/technique-execution-map.csv`](../../builder/evidence/technique-execution-map.csv)

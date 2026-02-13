@@ -28,6 +28,7 @@ See: [`docs/task-taxonomy.md`](./task-taxonomy.md)
 - Hyperparameter optimization protocol: [`docs/workflow/hyperparameter-optimization-protocol.md`](./workflow/hyperparameter-optimization-protocol.md)
 - Visualization policy: [`docs/workflow/visualization-policy.md`](./workflow/visualization-policy.md)
 - Communication layer policy: [`docs/workflow/communication-layer-policy.md`](./workflow/communication-layer-policy.md)
+- Quick answer mode: [`docs/workflow/quick-answer-mode.md`](./workflow/quick-answer-mode.md)
 - Report contract: [`docs/workflow/reliability-report-contract.md`](./workflow/reliability-report-contract.md)
 - Metric/technique policy: [`docs/metrics-and-libraries.md`](./metrics-and-libraries.md)
 - Metric similarity map: [`docs/metrics/metric-relationships.md`](./metrics/metric-relationships.md)
@@ -57,7 +58,9 @@ See: [`docs/task-taxonomy.md`](./task-taxonomy.md)
    [`docs/workflow/visualization-policy.md`](./workflow/visualization-policy.md)
 9. Split explanation layers:
    [`docs/workflow/communication-layer-policy.md`](./workflow/communication-layer-policy.md)
-10. Deliver explanation contract:
+10. Apply concise user-answer mode:
+   [`docs/workflow/quick-answer-mode.md`](./workflow/quick-answer-mode.md)
+11. Deliver explanation contract:
    [`docs/workflow/reliability-report-contract.md`](./workflow/reliability-report-contract.md)
 
 ## Non-Negotiable Rules

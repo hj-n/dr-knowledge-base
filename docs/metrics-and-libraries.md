@@ -97,6 +97,7 @@ Rule:
 ## Ranking Policy
 Final ranking must follow [`docs/workflow/configuration-selection-policy.md`](./workflow/configuration-selection-policy.md).
 Do not use ad-hoc preference rules.
+Do not justify method choice by popularity alone.
 
 ## Paper References (User-Facing)
 - Hyeon Jeon et al. (2025). *Stop Misusing t-SNE and UMAP: Analyzing, Visualizing, and Reconciling Distortion in DR*. arXiv:2506.08725.

@@ -65,7 +65,7 @@ Keep a short reproducibility record for:
 - missing-value policy
 - scaling policy
 - duplicate policy
-- compact preprocessing signature string
+- compact preprocessing summary string
 
-Example signature:
+Example summary:
 `profile=B;transform=log1p+tfidf;distance=cosine;dedup=exact;seed=42`

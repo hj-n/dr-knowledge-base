@@ -8,52 +8,66 @@ tags: [dr, reliability, workflow, survey, visual_analytics]
 source_pdf: papers/raw/jeon25chi (4).pdf
 seed_note_id: ""
 evidence_level: high
-updated_at: 2026-02-08
+updated_at: 2026-02-13
 ---
 
 # Problem
-- DR-based visual analytics remains vulnerable to unreliable interpretations due to inevitable projection distortions and workflow failures.
-- Prior guidance often focused narrowly on technique selection while under-covering broader reliability breakdown points.
-- The paper addresses this gap through a large cross-paper reliability survey and workflow-level synthesis.
+- DR is essential in visual analytics but can generate unreliable conclusions when distortion, configuration, and interpretation risks are unmanaged.
+- Prior guidance often over-focused on selecting DR techniques, while many failures actually occur across the broader workflow (preprocessing, evaluation, visualization, and sensemaking transitions).
+- The paper targets this gap by building a workflow-wide reliability synthesis rather than a technique-only recommendation list.
 
 # Method Summary
-- It reviews 133 papers across visualization/HCI-related venues focused on DR reliability concerns.
-- It contributes a workflow model describing analyst-machine interaction over the full DR analysis lifecycle.
-- It builds a taxonomy of where and why reliability issues arise and summarizes mitigation strategies from the literature.
-- It highlights research imbalance: heavy focus on new techniques versus interpretation/evaluation support.
+- The paper conducts a systematic review of 133 papers from visualization, HCI, and ML-adjacent literature focused on DR reliability.
+- It contributes a workflow model that explicitly separates analyst-side and machine-side stages, then maps reliability issues to these stages.
+- It proposes a four-dimension taxonomy (Stage, Problem, Aim, Solution) to classify reliability interventions and failure modes.
+- It includes a meta-analysis that surfaces recurring research clusters and identifies field-wide gaps (for example, many new techniques but limited evaluation/interpretation support).
+- The result is a workflow-level reliability frame usable for policy design, checklist design, and structured recommendation reporting.
 
 # When To Use / Not Use
-- Use as a workflow-level reliability reference when building DR guidance beyond pure algorithm selection.
-- Use when designing checkpoints for distortion awareness, parameter tuning, and instability handling.
-- Avoid limiting reliability policy to one stage (for example only method choice); failures occur across stages.
-- Failure mode: assuming awareness of method purpose is sufficient despite unresolved instability/hyperparameter issues.
+- Use when building DR guidance that must remain reliable across the whole analysis lifecycle, not only at method selection time.
+- Use when designing operational checkpoints for preprocessing, method configuration, quantitative evaluation, and user explanation.
+- Use when you need a principled taxonomy to group reliability issues and map them to concrete mitigation strategies.
+- Do not assume that choosing a “good method” alone makes analysis reliable; instability, hyperparameter choices, and visualization interpretation can still break conclusions.
+- Failure mode: workflows that skip stage-by-stage validation can produce coherent narratives from projections that are still structurally unreliable.
 
 # Metrics Mentioned
-- The survey is not tied to one metric; it frames reliability as multi-stage and multi-factor.
-- It reinforces combining projection-quality checks with process controls (workflow checkpoints).
-- It explicitly notes hyperparameter and instability issues as recurrent reliability drivers.
+- The survey is metric-agnostic at the policy level: it does not prescribe one dominant metric family.
+- It positions metrics as one component inside a wider reliability system that also includes configuration policy, workflow controls, and interpretation safeguards.
+- It explicitly highlights that metric-level improvements are insufficient when instability and suboptimal hyperparameter settings are not handled.
 
 # Implementation Notes
-- Embed reliability checks at each workflow step, especially before and after method/parameter selection.
-- Keep distortions explicit in user communication; do not treat projection as direct ground truth.
-- Record parameter settings and instability observations as part of recommendation evidence.
-- Use this workflow framing to extend caution/tip documentation in the KB.
+- Operationalize reliability checks per stage rather than as a single post-hoc score:
+  - preprocessing and configuration sanity,
+  - DR execution and stability,
+  - quantitative evaluation validity,
+  - visualization/sensemaking communication.
+- Keep analyst-machine loop explicit: recommendations should document what was configured, what changed, and how those changes affect interpretation risk.
+- Treat suboptimal hyperparameter settings and method instability as first-class failure sources, not secondary caveats.
+- Use taxonomy-driven documentation to keep KB updates structured: each new paper should map to stage/problem/aim/solution relevance.
+- In user-facing output, translate this internal workflow rigor into simple explanations of what was checked, what was selected, and what uncertainty remains.
 
 # Claim Atoms (For Conflict Resolution)
-- CLAIM-JEON25-C1 | stance: support | summary: Reliability issues in DR visual analytics are workflow-wide, not method-only. | evidence_ids: JEON25S-E1, JEON25S-E2
-- CLAIM-JEON25-C2 | stance: support | summary: A workflow model and issue taxonomy improve systematic reliability handling. | evidence_ids: JEON25S-E3, JEON25S-E4
-- CLAIM-JEON25-C3 | stance: support | summary: Hyperparameter settings and method instability remain major unresolved reliability risks. | evidence_ids: JEON25S-E5
+- CLAIM-JEON25S-C1 | stance: support | summary: DR reliability failures are workflow-wide and cannot be solved by technique choice alone. | evidence_ids: JEON25S-E1, JEON25S-E2, JEON25S-E6
+- CLAIM-JEON25S-C2 | stance: support | summary: The paper contributes a workflow model and taxonomy for systematic reliability diagnosis. | evidence_ids: JEON25S-E3, JEON25S-E4, JEON25S-E5
+- CLAIM-JEON25S-C3 | stance: support | summary: Hyperparameter misconfiguration and inherent instability are explicit recurring failure mechanisms. | evidence_ids: JEON25S-E7
+- CLAIM-JEON25S-C4 | stance: support | summary: Reliability interventions must cover the full process from preprocessing to visualization and sensemaking. | evidence_ids: JEON25S-E8, JEON25S-E9, JEON25S-E10
 
 # Workflow Relevance Map
-- step: 1 | relevance: medium | note: supports clearer intent capture as reliability prerequisite.
-- step: 3 | relevance: high | note: links method selection to distortion-aware reliability reasoning.
-- step: 4 | relevance: high | note: explicitly highlights hyperparameter/instability reliability risks.
-- step: 6 | relevance: high | note: strengthens explanation of uncertainty and limitations to users.
+- step: 1 | relevance: medium | note: supports clearer analyst-intent modeling as an upstream reliability prerequisite.
+- step: 2 | relevance: high | note: emphasizes preprocessing as part of reliability control, not a neutral boilerplate stage.
+- step: 3 | relevance: high | note: links method selection to workflow-aware reliability reasoning instead of single-method preference.
+- step: 4 | relevance: high | note: strengthens deterministic acceptance/rejection logic with explicit problem taxonomy.
+- step: 6 | relevance: high | note: highlights hyperparameter and instability management as core reliability gates.
+- step: 7 | relevance: high | note: supports transparent uncertainty reporting and user communication of residual risk.
 
 # Evidence
-- JEON25S-E1 | page: 1, section: Abstract, quote: "visual analytics using DR often face unreliability"
-- JEON25S-E2 | page: 1, section: Introduction, quote: "distortions are inevitable in DR projections"
-- JEON25S-E3 | page: 3, section: Abstract, quote: "contribute ... a workflow model"
-- JEON25S-E4 | page: 1, section: Abstract, quote: "taxonomy that identifies where and why reliability issues arise"
-- JEON25S-E5 | page: 2, section: Introduction, quote: "suboptimal hyperparameter settings ... inherent instability"
-- JEON25S-E6 | page: 1, section: Survey Scope, quote: "review 133 papers"
+- JEON25S-E1 | page: 1, section: abstract, quote: "visual analytics using DR often face unreliability"
+- JEON25S-E2 | page: 1, section: introduction, quote: "distortions are inevitable in DR projections."
+- JEON25S-E3 | page: 1, section: abstract, quote: "we review 133 papers that address the unreliability of visual analytics using DR."
+- JEON25S-E4 | page: 1, section: abstract, quote: "a workflow model that describes the interaction between analysts and machines in visual analytics using DR"
+- JEON25S-E5 | page: 1, section: abstract, quote: "a taxonomy that identifies where and why reliability issues arise within the workflow"
+- JEON25S-E6 | page: 2, section: survey positioning, quote: "covering the entire analytic process—from preprocessing to visualizations and sensemaking."
+- JEON25S-E7 | page: 2, section: introduction, quote: "suboptimal hyperparameter settings [106, 217] or the inherent instability of certain DR techniques [106, 137]"
+- JEON25S-E8 | page: 6, section: workflow model figure caption, quote: "The model explains how an Analyst and a Machine interact while conducting visual analytics with DR."
+- JEON25S-E9 | page: 8, section: taxonomy, quote: "We derive four dimensions—Stages, Problems, Aims, and Solutions—"
+- JEON25S-E10 | page: 8, section: taxonomy, quote: "Our taxonomy builds upon the workflow model"

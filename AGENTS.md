@@ -24,6 +24,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `docs/workflow/hyperparameter-optimization-protocol.md`
 - `docs/workflow/visualization-policy.md`
 - `docs/workflow/communication-layer-policy.md`
+- `docs/workflow/quick-answer-mode.md`
 - `docs/workflow/reliability-report-contract.md`
 - `docs/overview.md`
 - `docs/intake-question-tree.md`
@@ -48,6 +49,7 @@ It defines how to ingest new sources, update docs, and keep quality consistent.
 - `builder/evidence/pending-reference-papers.md`
 - `builder/evidence/reference-group-map.json`
 - `builder/evidence/paper-catalog.json`
+- `builder/evidence/user-output-smoke-tests.md`
 - `builder/evidence/internal-report-schema.md`
 - `builder/evidence/metric-id-map.md`
 - `builder/evidence/technique-execution-map.csv`
@@ -395,6 +397,7 @@ These rules capture recurring failure modes from this project thread and are man
   - `docs/workflow/hyperparameter-optimization-protocol.md`
   - `docs/workflow/visualization-policy.md`
   - `docs/workflow/communication-layer-policy.md`
+  - `docs/workflow/quick-answer-mode.md`
   - `docs/workflow/reliability-report-contract.md`
   - `docs/overview.md`
   - `README.md`
@@ -468,12 +471,20 @@ Before ending a doc-update turn, verify:
    - no `task lock` / `lock the task` phrasing
    - no `metric bundle` / `bundle scoring` phrasing
    - no over-verbose response for simple question-like prompts
+   - no popularity-only rationale wording (`because popular`, `widely used so`, `standard default`)
 20. If a recommendation report artifact is produced, verify user-code composition:
    - `user_code_snippet` includes `bayes_opt`
    - `user_code_snippet` includes `zadu`
    - `user_code_snippet` includes a DR fit step (for example `fit_transform` / `.fit(`)
    - `user_code_snippet` stays minimal (<= 25 non-empty lines)
    - `user_code_snippet` avoids internal jargon (`guardrail`, `metric bundle`, `task axis`, `warning gate`)
+21. If user-facing explanation examples are updated/added in docs:
+   - wording follows `docs/workflow/quick-answer-mode.md`
+   - examples include explicit final settings
+   - examples avoid popularity-only method justification
+22. Before finishing substantial policy/doc updates, spot-check against:
+   - `builder/evidence/user-output-smoke-tests.md`
+   - ensure no scenario regresses on task confirmation, clarity, optimizer policy, or reference style.
 
 ## Definition of Done
 - Individual source note created/updated with quality gate passed.

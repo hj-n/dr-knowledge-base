@@ -25,6 +25,7 @@ Use this sequence as the default execution order for reliable DR configuration.
 7. Visualize and explain results:
    [`docs/workflow/visualization-policy.md`](./visualization-policy.md),
    [`docs/workflow/communication-layer-policy.md`](./communication-layer-policy.md),
+   [`docs/workflow/quick-answer-mode.md`](./quick-answer-mode.md),
    [`docs/workflow/reliability-report-contract.md`](./reliability-report-contract.md)
 
 ## 1) Confirm the main goal

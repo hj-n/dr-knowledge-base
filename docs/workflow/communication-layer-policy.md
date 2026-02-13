@@ -6,6 +6,7 @@ Use two outputs for each analysis run:
 
 Related:
 - Workflow: [`docs/workflow/dr-analysis-workflow.md`](./dr-analysis-workflow.md)
+- Quick answer mode: [`docs/workflow/quick-answer-mode.md`](./quick-answer-mode.md)
 - Report contract: [`docs/workflow/reliability-report-contract.md`](./reliability-report-contract.md)
 
 ## User-Facing Answer: Writing Rules
@@ -13,6 +14,7 @@ Related:
 - Explain: what was compared, what was selected, why it fits the goal, and what risk remains.
 - Show final settings in a copyable form.
 - Do not expose internal key names or policy labels.
+- Do not justify selection with popularity-only wording (for example: "commonly used", "standard default") without task-fit and reliability evidence.
 - Match response length to question complexity.
   - For simple questions: answer briefly first, then add only essential details.
   - For complex requests: provide structured detail, but avoid unnecessary expansion.

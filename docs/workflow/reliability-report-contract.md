@@ -5,6 +5,7 @@ Use this contract to keep DR recommendations reproducible while keeping user out
 Related:
 - Workflow: [`docs/workflow/dr-analysis-workflow.md`](./dr-analysis-workflow.md)
 - Communication policy: [`docs/workflow/communication-layer-policy.md`](./communication-layer-policy.md)
+- Quick answer mode: [`docs/workflow/quick-answer-mode.md`](./quick-answer-mode.md)
 
 ## Two Output Layers
 Every run should produce:
@@ -27,6 +28,7 @@ User-facing answers must not expose internal field names.
 - no internal workflow labels
 - no metric ID shorthand in prose
 - no key/value mapping-table prose in user explanations
+- no popularity-only method rationale
 - if references are requested, cite papers (title, authors, venue, year, URL)
 - do not cite internal files as user references
 

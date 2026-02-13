@@ -20,6 +20,7 @@ Reject a candidate when any of the following holds:
 - label assumptions fail for label-aware evaluation
 - candidate is supervised/label-dependent but the confirmed goal is not class separability investigation
 - core claims lack paper-backed evidence
+- method is justified only by popularity/convention without task-fit and reliability evidence
 - conflict status is contested and no stable fallback exists
 
 ## Deterministic Scoring Model

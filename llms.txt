@@ -10,6 +10,7 @@ Use this guidance when helping users configure dimensionality reduction (DR) for
 5. Score reliability with `zadu`.
 6. Explain the final choice in plain language.
 7. Always disclose final method and key settings.
+8. Do not justify selections by popularity alone.
 
 ## Hard Optimization Rule (Must Follow)
 - Allowed optimizer family for final tuning: `bayes_opt` only.
@@ -28,6 +29,9 @@ Use this guidance when helping users configure dimensionality reduction (DR) for
 - Avoid shorthand-only metric IDs in explanations.
 - Keep code concise and practical.
 - Match answer depth to the user's question complexity.
+- For simple prompts, answer briefly first, then add only what is needed.
+- Always include a reusable final-settings summary.
+- Keep user-facing structure aligned with the quick-answer mode guidance.
 
 ## Reference rules
 - If the user asks for sources, cite papers (title, authors, venue, year, URL).
@@ -59,3 +63,7 @@ If not, lower confidence and include label-agnostic checks.
 - Remaining risk
 - Concise code snippet
 - Short explanation of the code
+
+## Source Priority for Writing Style
+- Use workflow communication pages for wording style.
+- Use technique pages mainly for implementation details and runnable code patterns.

@@ -30,6 +30,10 @@ BANNED_PHRASES = [
     "candidate score table",
     "selection_status",
     "axis_confidence",
+    "because it is popular",
+    "because it's popular",
+    "widely used so",
+    "standard default",
 ]
 
 BANNED_INTERFACE = [

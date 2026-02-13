@@ -14,6 +14,7 @@ The goal is to help an agent confirm user intent, choose a strong configuration,
 - [`docs/workflow/hyperparameter-optimization-protocol.md`](docs/workflow/hyperparameter-optimization-protocol.md)
 - [`docs/workflow/visualization-policy.md`](docs/workflow/visualization-policy.md)
 - [`docs/workflow/communication-layer-policy.md`](docs/workflow/communication-layer-policy.md)
+- [`docs/workflow/quick-answer-mode.md`](docs/workflow/quick-answer-mode.md)
 - [`docs/workflow/reliability-report-contract.md`](docs/workflow/reliability-report-contract.md)
 - [`docs/metrics-and-libraries.md`](docs/metrics-and-libraries.md)
 - [`docs/techniques/README.md`](docs/techniques/README.md)
@@ -61,7 +62,9 @@ The goal is to help an agent confirm user intent, choose a strong configuration,
   1) `llms.txt`
   2) `docs/overview.md`
   3) `docs/workflow/dr-analysis-workflow.md`
-  4) `docs/workflow/reliability-report-contract.md`
+4) `docs/workflow/reliability-report-contract.md`
+- For user-facing outputs, apply:
+  - `docs/workflow/quick-answer-mode.md`
 - If references are requested, cite papers (title, authors, venue, year, URL), not internal file paths.
 - Keep user explanations plain and concise.
 - Use `bayes_opt` for tuning and `zadu` for reliability scoring.
