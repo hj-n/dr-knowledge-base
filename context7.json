@@ -1,5 +1,4 @@
 {
-  "$schema": "https://context7.com/schema/context7.json",
   "projectTitle": "DR Knowledge Base",
   "description": "Task-first guidance for reliable dimensionality-reduction analysis with bayes_opt-only tuning and zadu reliability scoring.",
   "folders": [],
@@ -7,15 +6,17 @@
     "papers/raw",
     "papers/notes",
     "builder",
-    "scripts"
+    "scripts",
+    "templates"
   ],
   "excludeFiles": [
     "reference-coverage.md",
-    "paper-catalog.csv"
+    "paper-catalog.csv",
+    "AGENTS.md"
   ],
   "rules": [
     "Always read llms.txt first before any other file.",
     "Treat llms.txt as the primary behavior contract for coding and explanation style.",
-    "Then read docs/overview.md and carefully read the rest of the documentation in docts/ to match your need."
+    "Then read docs/overview.md and carefully read the rest of the documentation in docs/ to match your need."
   ]
 }
